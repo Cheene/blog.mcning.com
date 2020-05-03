@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://cheene.github.io/author/</loc>
+    <lastmod>2020-05-03T02:07:31+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cheene.github.io/addons/</loc>
+    <lastmod>2020-05-03T02:07:31+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cheene.github.io/</loc>
+    <lastmod>2020-05-03T02:07:31+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cheene.github.io/admin/</loc>
+    <lastmod>2020-05-03T02:07:30+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cheene.github.io/posts/</loc>
+    <lastmod>2020-05-03T02:07:30+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cheene.github.io/sections/</loc>
+    <lastmod>2020-05-03T02:07:30+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cheene.github.io/posts/my-first-post/</loc>
+    <lastmod>2020-05-02T23:28:04+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cheene.github.io/posts/</loc>
+    <lastmod>2020-05-02T23:28:04+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cheene.github.io/tags/</loc>
+  </url>
+  
+</urlset>
