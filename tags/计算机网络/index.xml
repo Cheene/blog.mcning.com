@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>计算机网络 on CHENENE</title>
-    <link>https://github.com/chenene/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link>
+    <link>https://cheene.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link>
     <description>Recent content in 计算机网络 on CHENENE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ZH-CN</language>
     <lastBuildDate>Mon, 11 May 2020 20:28:04 +0800</lastBuildDate>
     
-	<atom:link href="https://github.com/chenene/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://cheene.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>HTTP消息、DNS服务与协议栈消息发送</title>
-      <link>https://github.com/chenene/posts/how-computer-network-01/</link>
+      <link>https://cheene.github.io/posts/how-computer-network-01/</link>
       <pubDate>Mon, 11 May 2020 20:28:04 +0800</pubDate>
       
-      <guid>https://github.com/chenene/posts/how-computer-network-01/</guid>
+      <guid>https://cheene.github.io/posts/how-computer-network-01/</guid>
       <description>前言 网络是怎样连接的，来自于日本的一位作者，本书主要以web交互，从客户端访问服务器以及服务器应答的过程来讲解的。接下来一段时间将以书本上涉及知识的总结以供后期自行查阅。
 网络连接的流程：
  浏览器委托数据的发送，传递消息的是搬运数字(消息对应着就是数据，数据是0和1组成的); 协议栈：给消息打包，添加地址等接着交给网卡最后通过电信号转发出去; 通过交换机到达路由器，路由器的后面就是互联网部分，接下来属于网络运营商所需要解决的; 由接入网到接入点(接入点后面是互联网的骨干部分) 到达web服务器大体需要经过  web 服务器所在的局域网 防火墙 缓存服务 WEB服务    1关于HTTP 1.1 HTTP 消息 ① 关于访问web服务器格式：用户名\密码\服务器域名\端口号\文件路径名；
