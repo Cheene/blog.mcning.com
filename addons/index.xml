@@ -2,48 +2,48 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Addons on CHENENE</title>
-    <link>https://cheene.github.io/addons/</link>
+    <link>https://github.com/chenene/addons/</link>
     <description>Recent content in Addons on CHENENE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ZH-CN</language>
     <lastBuildDate>Sun, 03 May 2020 02:07:31 +0600</lastBuildDate>
     
-	<atom:link href="https://cheene.github.io/addons/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://github.com/chenene/addons/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>About Author</title>
-      <link>https://cheene.github.io/author/</link>
+      <link>https://github.com/chenene/author/</link>
       <pubDate>Sun, 03 May 2020 02:07:31 +0600</pubDate>
       
-      <guid>https://cheene.github.io/author/</guid>
+      <guid>https://github.com/chenene/author/</guid>
       <description>I am John Doe. And I can confirm that this is the best theme ever!</description>
     </item>
     
     <item>
       <title>Admin Panel</title>
-      <link>https://cheene.github.io/admin/</link>
+      <link>https://github.com/chenene/admin/</link>
       <pubDate>Sun, 03 May 2020 02:07:30 +0600</pubDate>
       
-      <guid>https://cheene.github.io/admin/</guid>
+      <guid>https://github.com/chenene/admin/</guid>
       <description></description>
     </item>
     
     <item>
       <title>All Posts</title>
-      <link>https://cheene.github.io/posts/</link>
+      <link>https://github.com/chenene/posts/</link>
       <pubDate>Sun, 03 May 2020 02:07:30 +0600</pubDate>
       
-      <guid>https://cheene.github.io/posts/</guid>
+      <guid>https://github.com/chenene/posts/</guid>
       <description></description>
     </item>
     
     <item>
       <title>All Sections</title>
-      <link>https://cheene.github.io/sections/</link>
+      <link>https://github.com/chenene/sections/</link>
       <pubDate>Sun, 03 May 2020 02:07:30 +0600</pubDate>
       
-      <guid>https://cheene.github.io/sections/</guid>
+      <guid>https://github.com/chenene/sections/</guid>
       <description></description>
     </item>
     
