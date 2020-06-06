@@ -1,6 +1,6 @@
 ---
 title: "MySQL初始"
-date: 2020-05-11T20:28:04+08:00
+date: 2020-05-12T20:28:04+08:00
 tags : [ "MySQL", "MySQL必知必会"]
 draft: false
 ---

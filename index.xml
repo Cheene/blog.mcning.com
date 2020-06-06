@@ -6,13 +6,28 @@
     <description>Recent content on CHENENE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ZH-CN</language>
-    <lastBuildDate>Mon, 11 May 2020 20:28:04 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 12 May 2020 20:28:04 +0800</lastBuildDate>
     
 	<atom:link href="https://cheene.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>HTTP消息、DNS服务与协议栈消息发送</title>
+      <title>第二章：协议栈与网卡</title>
+      <link>https://cheene.github.io/posts/how-computer-network-02/</link>
+      <pubDate>Tue, 12 May 2020 20:28:04 +0800</pubDate>
+      
+      <guid>https://cheene.github.io/posts/how-computer-network-02/</guid>
+      <description>第二章：协议栈与网卡 2.1 创建套接字   协议栈的内部结构由上到下
+  应用程序(网络应用程序 Socket )；
+  操作系统 协议栈 TCP、UDP、IP(ICMP,ARP))驱动程序(网卡驱动程序等)；
+  硬件(网卡)
+    一般收发时间比较短的用的是UDP连接比如DNS查询，视频流；需要稳定的是TCP来传输，比如邮件服务，web访问。
+  IP 是用来控制网络包的收发状态，数据会切成一个一个的包。
+ ICMP告知传输过程中产生的错误以及控制信息 ARP 用来根据IP地址获取对应的 MAC 地址    套接字： 通信的控制信息，比如在 windows 系统的 netstat -ano</description>
+    </item>
+    
+    <item>
+      <title>第一章 HTTP消息、DNS服务与协议栈消息发送</title>
       <link>https://cheene.github.io/posts/how-computer-network-01/</link>
       <pubDate>Mon, 11 May 2020 20:28:04 +0800</pubDate>
       
