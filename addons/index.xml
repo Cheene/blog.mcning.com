@@ -6,10 +6,19 @@
     <description>Recent content in Addons on CHENENE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ZH-CN</language>
-    <lastBuildDate>Sun, 03 May 2020 02:07:31 +0600</lastBuildDate>
+    <lastBuildDate>Sat, 06 Jun 2020 02:07:30 +0600</lastBuildDate>
     
 	<atom:link href="https://cheene.github.io/addons/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Think Different</title>
+      <link>https://cheene.github.io/thinks/</link>
+      <pubDate>Sat, 06 Jun 2020 02:07:30 +0600</pubDate>
+      
+      <guid>https://cheene.github.io/thinks/</guid>
+      <description>如果我们可以再进一步 本节主要保存对自己想法的收录，自 2020年6月6日立项。</description>
+    </item>
     
     <item>
       <title>About Author</title>
@@ -17,7 +26,7 @@
       <pubDate>Sun, 03 May 2020 02:07:31 +0600</pubDate>
       
       <guid>https://cheene.github.io/author/</guid>
-      <description>I am John Doe. And I can confirm that this is the best theme ever!</description>
+      <description>I am CHENENE.</description>
     </item>
     
     <item>

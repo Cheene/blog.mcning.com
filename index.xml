@@ -6,10 +6,34 @@
     <description>Recent content on CHENENE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ZH-CN</language>
-    <lastBuildDate>Tue, 12 May 2020 20:28:04 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 06 Jun 2020 02:07:30 +0600</lastBuildDate>
     
 	<atom:link href="https://cheene.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Think Different</title>
+      <link>https://cheene.github.io/thinks/</link>
+      <pubDate>Sat, 06 Jun 2020 02:07:30 +0600</pubDate>
+      
+      <guid>https://cheene.github.io/thinks/</guid>
+      <description>如果我们可以再进一步 本节主要保存对自己想法的收录，自 2020年6月6日立项。</description>
+    </item>
+    
+    <item>
+      <title>MySQL初始</title>
+      <link>https://cheene.github.io/posts/mysqlbzbh-00/</link>
+      <pubDate>Tue, 12 May 2020 20:28:04 +0800</pubDate>
+      
+      <guid>https://cheene.github.io/posts/mysqlbzbh-00/</guid>
+      <description>第一章 初始 1 数据库是什么? 数据库是一种容器，能够进行存储信息
+那么类似于 MySQL 这样的不属于数据库，而是叫做DBMS，数据库管理软件。
+表是什么？ 某种特定类型的结构化清单
+ 他是一个清单 其次该清单是天然持有携带格式的属性 单个清单的格式是特定的  模式（schema） 表示数据库与表的布局以及特性的信息
+表中的行，列与数据类型  表中的每一行代表着一条记录 (row) 每一列代表着一个属性(column) 每一列有着具体的数据类型  表中的主键 主键是一列或一组列，其每行的记录用来作为唯一标识区别于其他的行
+三个习惯
+ 不更新主键列中的值 不重用主键列的值 不在主键列中使用可能会改变的值  </description>
+    </item>
     
     <item>
       <title>第二章：协议栈与网卡</title>
@@ -59,7 +83,7 @@
       <pubDate>Sun, 03 May 2020 02:07:31 +0600</pubDate>
       
       <guid>https://cheene.github.io/author/</guid>
-      <description>I am John Doe. And I can confirm that this is the best theme ever!</description>
+      <description>I am CHENENE.</description>
     </item>
     
     <item>
