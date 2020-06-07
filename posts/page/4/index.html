@@ -22,7 +22,7 @@
 <meta property="og:description" content="A description for the meta tag of the site" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://cheene.github.io/posts/" />
-<meta property="og:updated_time" content="2020-06-07T12:28:04+08:00" />
+<meta property="og:updated_time" content="2020-06-07T15:39:55+08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Posts"/>
@@ -129,6 +129,72 @@ if (!doNotTrack) {
 
 
 <div class="blog-brief">
+    <a href="/posts/how-computer-network-01/">
+        <h3 class="title is-4">
+            第一章 HTTP消息、DNS服务与协议栈消息发送
+        </h3>
+    </a>
+
+    <div class="level is-mobile details">
+        <div class="level-left">
+
+            
+            <div class="level-item">
+                <a href="/posts/how-computer-network-01/">
+                    <p class="subtitle info date">May 11, 2020
+                    </p>
+                </a>
+            </div>
+            
+
+
+            <div class="level-item">
+                <a href="/posts/how-computer-network-01/">
+                    <p class="subtitle info">
+                        11 mins read
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div class="level-right is-hidden-touch">
+            
+            <a class="tag is-rounded" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>
+            
+            <a class="tag is-rounded" href="/tags/%E7%BD%91%E7%BB%9C%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%E7%9A%84">网络是如何连接的</a>
+            
+        </div>
+    </div>
+
+    <div>
+        
+
+        <div>
+            <a href="/posts/how-computer-network-01/">
+                <p class="summary">
+                    前言 网络是怎样连接的，来自于日本的一位作者，本书主要以web交互，从客户端访问服务器以及服务器应答的过程来讲解的。接下来一段时间将以书本上涉及知识的总结以供后期自行查阅。
+网络连接的流程：
+ 浏览器委托数据的发送，传递消息的是搬运数字(消息对应着就是数据，数据是0和1组成的); 协议栈：给消息打包，添加地址等接着交给网卡最后通过电信号转发出去; 通过交换机到达路由器，路由器的后面就是互联网部分，接下来属于网络运营商所需要解决的; 由接入网到接入点(接入点后面是互联网的骨干部分) 到达web服务器大体需要经过  web 服务器所在的局域网 防火墙 缓存服务 WEB服务    1关于HTTP 1.1 HTTP 消息 ① 关于访问web服务器格式：用户名\密码\服务器域名\端口号\文件路径名；
+② 端口是识别服务器中要连接服务的编号,即我与那个程序进行连接；
+③ 省略默认文件很多比如 index.html 等；
+④ 因为不能产生同名的文件/目录，所以在浏览的时候如果没有扩展名默认的先按目录来处理，目录找不到就按文件来查找，文件也查找不到就返回 404；
+⑤ 基本思路
+ 客户端发送请求消息(URL 和 方法)到服务器; 服务器返回状态码到客户端  ⑥ 在消息体中，URL是域名的部分，方法是 post、get、delete、head、trace 等；
+                    
+                </p>
+            </a>
+        </div>
+    </div>
+
+    <div class="level is-mobile continue-reading">
+        <div class="level-left">
+        </div>
+        <div class="level-right">
+            <a href="/posts/how-computer-network-01/">Continue reading <i class="fa fa-angle-double-right"
+                    aria-hidden="true"></i></a>
+        </div>
+    </div>
+    <hr>
+</div><div class="blog-brief">
     <a href="/posts/git/">
         <h3 class="title is-4">
             Git基础
@@ -183,6 +249,70 @@ if (!doNotTrack) {
         </div>
         <div class="level-right">
             <a href="/posts/git/">Continue reading <i class="fa fa-angle-double-right"
+                    aria-hidden="true"></i></a>
+        </div>
+    </div>
+    <hr>
+</div><div class="blog-brief">
+    <a href="/posts/how-computer-network-03/default/">
+        <h3 class="title is-4">
+            How Computer Network 03
+        </h3>
+    </a>
+
+    <div class="level is-mobile details">
+        <div class="level-left">
+
+            
+            <div class="level-item">
+                <a href="/posts/how-computer-network-03/default/">
+                    <p class="subtitle info date">Jan 1, 0001
+                    </p>
+                </a>
+            </div>
+            
+
+
+            <div class="level-item">
+                <a href="/posts/how-computer-network-03/default/">
+                    <p class="subtitle info">
+                        1 min read
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div class="level-right is-hidden-touch">
+            
+            <a class="tag is-rounded" href="/tags/tag1">Tag1</a>
+            
+            <a class="tag is-rounded" href="/tags/tag2">Tag2</a>
+            
+        </div>
+    </div>
+
+    <div>
+        
+            <a href="/posts/how-computer-network-03/default/">
+                <img src="/image/blog-pic.jpg">
+            </a>
+        
+
+        <div>
+            <a href="/posts/how-computer-network-03/default/">
+                <p class="summary">
+                    Article goes here.
+For other options, put these in the front matter: description: &amp;ldquo;A description&amp;rdquo; other than the blog intro draft: true to not publish article yet showDate: true/false to enable/disable showing dates math: true to enable showing equations (katex) chordsheet: true to add chordsheet styelsheet
+                    
+                </p>
+            </a>
+        </div>
+    </div>
+
+    <div class="level is-mobile continue-reading">
+        <div class="level-left">
+        </div>
+        <div class="level-right">
+            <a href="/posts/how-computer-network-03/default/">Continue reading <i class="fa fa-angle-double-right"
                     aria-hidden="true"></i></a>
         </div>
     </div>

@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="ZH-CN"><title>
+    How Computer Network 03 | 
+    
+    CHENENE</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<meta name="description" 
+      content="第三章 从网线到网络设备 本章主要讲解的是电信号从 RJ-45 接口出来，到达集线器，交换机和路由器以及路由器往外转发的过程。在家庭的路由中，交换机和集线器一般集成在一起了或者直接没有集线器。
+信号从网卡出来到集线器的时候   数据包之间的传输是独立的，仅仅负责传包并不会考虑内部的数据。
+  从网卡到集线器的时候信号就会出现衰减，而且电信号频率越高，损失就越大。
+  双绞线的存在是为了抑制噪声，减少衰减。 网线的周围的电磁波碰到金属等导体会产生电流，而信号本身就是带有电压变化的电流，混在一起容易导致失真。 电磁波有两种来源
+ 一种是外部的比如电机，荧光灯，CRT显示器等(让线变成螺旋状，使自身的电磁场变成螺旋状)； 一种是内部线之间出现泄露产生电磁波，称之为串扰。  抑制内部电磁波的方式是 让每一对信号线的扭交间隔产生差异。(正负信号的产生的噪声是相反的刚好抵消)。
+  关于集线器：集线器的原理就是以太网的架构，数据传输的方式是靠着MAC地址寻找。
+ 集线器里有一个中继集成器，输入端口的信号转发给除了该端口之外的所有的端口。在这样的情况下如果所有的端口都发送信号，就会产生碰撞。 连接其他的端口叫做级联端口或者上行端口 根据相同的设备交叉连接，异种设备直连的原理，集线器里每一个端口都有一个 PHY/MAU 模块与其网卡上的模块没有什么区别，所以需要交叉连接。所谓的交叉连接就是发送方和接收方的交叉。 集线器中存在 MDI/MDI-X 切换开关。MDI 是直线连接，MDI-X是交叉连接。但现在的设备无所谓了，可以自适应。    交换机的包转发操作   交换机根据地址表进行转发 信号到达端口的时候由 PHY（MAU）来接收，然后传递给MAC模块，转换成数字信息并检验FCS确认无误后放在缓冲区中。 交换机端口本身没有MAC地址，实际过程中通过芯片同时控制多个端口 交换机电路的工作方式：
+                ">
+
+<link rel="canonical" href="https://cheene.github.io/posts/how-computer-network-03/" />
+
+<link rel="icon" type="image/png" href="https://cheene.github.io/image/favicon.ico">
+
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/bulma.min.css">
+
+<meta property="og:title" content="How Computer Network 03" />
+<meta property="og:description" content="第三章 从网线到网络设备 本章主要讲解的是电信号从 RJ-45 接口出来，到达集线器，交换机和路由器以及路由器往外转发的过程。在家庭的路由中，交换机和集线器一般集成在一起了或者直接没有集线器。
+信号从网卡出来到集线器的时候   数据包之间的传输是独立的，仅仅负责传包并不会考虑内部的数据。
+  从网卡到集线器的时候信号就会出现衰减，而且电信号频率越高，损失就越大。
+  双绞线的存在是为了抑制噪声，减少衰减。 网线的周围的电磁波碰到金属等导体会产生电流，而信号本身就是带有电压变化的电流，混在一起容易导致失真。 电磁波有两种来源
+ 一种是外部的比如电机，荧光灯，CRT显示器等(让线变成螺旋状，使自身的电磁场变成螺旋状)； 一种是内部线之间出现泄露产生电磁波，称之为串扰。  抑制内部电磁波的方式是 让每一对信号线的扭交间隔产生差异。(正负信号的产生的噪声是相反的刚好抵消)。
+  关于集线器：集线器的原理就是以太网的架构，数据传输的方式是靠着MAC地址寻找。
+ 集线器里有一个中继集成器，输入端口的信号转发给除了该端口之外的所有的端口。在这样的情况下如果所有的端口都发送信号，就会产生碰撞。 连接其他的端口叫做级联端口或者上行端口 根据相同的设备交叉连接，异种设备直连的原理，集线器里每一个端口都有一个 PHY/MAU 模块与其网卡上的模块没有什么区别，所以需要交叉连接。所谓的交叉连接就是发送方和接收方的交叉。 集线器中存在 MDI/MDI-X 切换开关。MDI 是直线连接，MDI-X是交叉连接。但现在的设备无所谓了，可以自适应。    交换机的包转发操作   交换机根据地址表进行转发 信号到达端口的时候由 PHY（MAU）来接收，然后传递给MAC模块，转换成数字信息并检验FCS确认无误后放在缓冲区中。 交换机端口本身没有MAC地址，实际过程中通过芯片同时控制多个端口 交换机电路的工作方式：" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cheene.github.io/posts/how-computer-network-03/" />
+<meta property="article:published_time" content="2020-06-07T15:39:55+08:00" />
+<meta property="article:modified_time" content="2020-06-07T15:39:55+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How Computer Network 03"/>
+<meta name="twitter:description" content="第三章 从网线到网络设备 本章主要讲解的是电信号从 RJ-45 接口出来，到达集线器，交换机和路由器以及路由器往外转发的过程。在家庭的路由中，交换机和集线器一般集成在一起了或者直接没有集线器。
+信号从网卡出来到集线器的时候   数据包之间的传输是独立的，仅仅负责传包并不会考虑内部的数据。
+  从网卡到集线器的时候信号就会出现衰减，而且电信号频率越高，损失就越大。
+  双绞线的存在是为了抑制噪声，减少衰减。 网线的周围的电磁波碰到金属等导体会产生电流，而信号本身就是带有电压变化的电流，混在一起容易导致失真。 电磁波有两种来源
+ 一种是外部的比如电机，荧光灯，CRT显示器等(让线变成螺旋状，使自身的电磁场变成螺旋状)； 一种是内部线之间出现泄露产生电磁波，称之为串扰。  抑制内部电磁波的方式是 让每一对信号线的扭交间隔产生差异。(正负信号的产生的噪声是相反的刚好抵消)。
+  关于集线器：集线器的原理就是以太网的架构，数据传输的方式是靠着MAC地址寻找。
+ 集线器里有一个中继集成器，输入端口的信号转发给除了该端口之外的所有的端口。在这样的情况下如果所有的端口都发送信号，就会产生碰撞。 连接其他的端口叫做级联端口或者上行端口 根据相同的设备交叉连接，异种设备直连的原理，集线器里每一个端口都有一个 PHY/MAU 模块与其网卡上的模块没有什么区别，所以需要交叉连接。所谓的交叉连接就是发送方和接收方的交叉。 集线器中存在 MDI/MDI-X 切换开关。MDI 是直线连接，MDI-X是交叉连接。但现在的设备无所谓了，可以自适应。    交换机的包转发操作   交换机根据地址表进行转发 信号到达端口的时候由 PHY（MAU）来接收，然后传递给MAC模块，转换成数字信息并检验FCS确认无误后放在缓冲区中。 交换机端口本身没有MAC地址，实际过程中通过芯片同时控制多个端口 交换机电路的工作方式："/>
+
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'analytics-code', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+<script src=/js/ramium.js></script>
+<link rel="stylesheet" href=/css/ramium.css>
+
+
+
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'analytics-code', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<body><nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href=/>
+      
+      <strong>CHENENE </strong>
+      
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+      data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      
+      
+      <a class="navbar-item" href="/">Home</a>
+      
+      
+      
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">This Blog</a>
+        <div class="navbar-dropdown">
+          
+          <a class="navbar-item" href="/tags/">All Tags</a>
+          
+          <a class="navbar-item" href="/sections/">All Sections</a>
+          
+          <a class="navbar-item" href="/posts/">All Posts</a>
+          
+        </div>
+      </div>
+      
+      
+      
+      <a class="navbar-item" href="/thinks/">Think Different</a>
+      
+      
+      
+      <a class="navbar-item" href="/author/">Author</a>
+      
+      
+    </div>
+
+    <div class="navbar-end">
+      
+      <a class="navbar-item navgithub" href="https://github.com//" target="_blank">
+        <i class="fa fa-github fa-2x"></i>
+      </a>
+      
+
+      
+    </div>
+  </div>
+</nav><div class="columns is-centered">
+        <div id="page-body" class="column is-7">
+
+<div class="content blog">
+    <h1 class="title">How Computer Network 03</h1>
+
+    <div id="infobar" class="level is-mobile">
+        <div class="level-left">
+            
+            <div class="level-item">
+                <p class="subtitle info date">Jun 7, 2020
+                </p>
+            </div>
+            
+
+            <div class="level-item">
+                <p class="subtitle info">
+                    23 mins read
+                </p>
+            </div>
+        </div>
+        <div class="level-right is-hidden-touch">
+            <div class="tags">
+                
+                <a class="tag is-dark is-rounded" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>
+                
+                <a class="tag is-dark is-rounded" href="/tags/%E7%BD%91%E7%BB%9C%E5%9B%9B%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%E7%9A%84">网络四如何连接的</a>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="tags is-hidden-desktop">
+        
+        <a class="tag is-dark is-rounded" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>
+        
+        <a class="tag is-dark is-rounded" href="/tags/%E7%BD%91%E7%BB%9C%E5%9B%9B%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%E7%9A%84">网络四如何连接的</a>
+        
+    </div>
+
+    <div class="blog-text">
+        
+
+        <h1 id="第三章-从网线到网络设备">第三章 从网线到网络设备</h1>
+<p>本章主要讲解的是电信号从 RJ-45 接口出来，到达集线器，交换机和路由器以及路由器往外转发的过程。在家庭的路由中，交换机和集线器一般集成在一起了或者直接没有集线器。</p>
+<h2 id="信号从网卡出来到集线器的时候">信号从网卡出来到集线器的时候</h2>
+<ol>
+<li>
+<p>数据包之间的传输是独立的，仅仅负责传包并不会考虑内部的数据。</p>
+</li>
+<li>
+<p>从网卡到集线器的时候信号就会出现衰减，而且电信号频率越高，损失就越大。</p>
+</li>
+<li>
+<p>双绞线的存在是为了抑制噪声，减少衰减。
+网线的周围的电磁波碰到金属等导体会产生电流，而信号本身就是带有电压变化的电流，混在一起容易导致失真。
+电磁波有两种来源</p>
+<ul>
+<li>一种是外部的比如电机，荧光灯，CRT显示器等(让线变成螺旋状，使自身的电磁场变成螺旋状)；</li>
+<li>一种是内部线之间出现泄露产生电磁波，称之为串扰。</li>
+</ul>
+<p>抑制内部电磁波的方式是 让每一对信号线的扭交间隔产生差异。(正负信号的产生的噪声是相反的刚好抵消)。</p>
+</li>
+<li>
+<p>关于集线器：集线器的原理就是以太网的架构，数据传输的方式是靠着MAC地址寻找。</p>
+<ul>
+<li>集线器里有一个中继集成器，输入端口的信号转发给除了该端口之外的所有的端口。在这样的情况下如果所有的端口都发送信号，就会产生碰撞。</li>
+<li>连接其他的端口叫做级联端口或者上行端口</li>
+<li>根据相同的设备交叉连接，异种设备直连的原理，集线器里每一个端口都有一个 PHY/MAU 模块与其网卡上的模块没有什么区别，所以需要交叉连接。所谓的交叉连接就是发送方和接收方的交叉。</li>
+<li>集线器中存在 <code>MDI/MDI-X</code> 切换开关。<code>MDI</code> 是直线连接，<code>MDI-X</code>是交叉连接。但现在的设备无所谓了，可以自适应。</li>
+</ul>
+</li>
+</ol>
+<h2 id="交换机的包转发操作">交换机的包转发操作</h2>
+<ol>
+<li>
+<p>交换机根据地址表进行转发
+信号到达端口的时候由 PHY（MAU）来接收，然后传递给MAC模块，转换成数字信息并检验FCS确认无误后放在缓冲区中。
+交换机端口本身没有MAC地址，实际过程中通过芯片同时控制多个端口
+交换机电路的工作方式：</p>
+<ul>
+<li>
+<p>信号线排列成网络形状；</p>
+</li>
+<li>
+<p>交叉点存在由电子控制的交换开关；</p>
+</li>
+<li>
+<p>通过开关控制信号的流向。</p>
+</li>
+</ul>
+<p>在半双工的模式下，依旧是先要检测信号有没有别的设备要发送或者接收端要接收信号，与网卡一样当信号碰撞的时候要发一个阻塞信号等待一段时间重新发送。</p>
+</li>
+<li>
+<p>MAC 地址表的维护
+MAC地址表是由 MAC地址、端口、控制信息组成
+维护有两种情况，一种是更新，一种是删除。</p>
+<ul>
+<li>更新，收到来自端口的包时，将发送端的包的MAC地址和对应的端口号更新到MAC地址表中；</li>
+<li>删除的时候，如果几分钟没有连接就会将其从mac 表中删除。</li>
+</ul>
+</li>
+<li>
+<p>特殊情况</p>
+<ul>
+<li>交换机查询地址之后发现源端口与目标端口相同，直接丢弃。</li>
+<li>地址表中找不到 MAC 地址，将所有除了源端口之外的所有端口全部发送一遍，获得响应之后将新的mac地址和端口号同时更新到 MAC 表中。</li>
+<li>广播包会发送除了该端口之外的所有的端口，(<code>255.255.255.0</code> <code>FF:FF:FF:FF:FF:FF</code>)</li>
+</ul>
+</li>
+<li>
+<p>全双工模式下收发同步进行
+在双绞线连接的情况下，发送和接收是独立的，也就是说 交换机的端口，PHY(MAU) 模块，MAC模块的收发都是相互独立的，只要不用集线器就行。</p>
+</li>
+<li>
+<p>自动协商，确定最优的传输效率
+所谓的自动协商可以做两件事情：</p>
+<ul>
+<li>全双工与半双工的自动切换；</li>
+<li>探测对方的传输速率进行切换;
+网线端口处的绿灯，是交换机给终端发送脉冲信号，确定当前的 PHY(MAU) 模块正在工作，同时信号将支持的工作模式以及传输的速率告诉对方。</li>
+</ul>
+</li>
+<li>
+<p>交换机可以同时转发多个包。</p>
+</li>
+</ol>
+<h2 id="路由的包转发操作">路由的包转发操作</h2>
+<ol>
+<li>路由是基于 IP 地址的包转发操作，基本上两个模块：
+<ul>
+<li>包转发模块 &ndash; 路由表</li>
+<li>端口模块     &ndash; ADSL、 FTTH 、无线局域网 、以太网等</li>
+</ul>
+</li>
+</ol>
+<p>大致的工作原理</p>
+<ul>
+<li>数据从端口模块进来，根据各自的通信技术将包收进来，查看IP包头并且跟路由表查询，接着转发模块将包转移到对应的端口，委托端口模块将包发送出去。</li>
+</ul>
+<p>路由器的各个端口都有自己的MAC地址和IP地址。所以路由器是以接收方或者发送方的身份转发包的。</p>
+<p>以以太网为例，如果 MAC 地址不一样的话，端口会直接丢弃包的。</p>
+<ol start="2">
+<li>
+<p>路由表</p>
+<ul>
+<li>
+<p>路由表的大体组成：目标地址、子网掩码、网关、接口、跃点数(路由表不是唯一的对应着不同的路由生产商)</p>
+</li>
+<li>
+<p>路由表中的路由地址会忽略主机号，仅匹配网络号，寻找下一个子网，网络号码是通过子网掩码计算的后路由转发到对应的端口并且转发到对应的IP地址。</p>
+</li>
+<li>
+<p>关于子网掩码： 在匹配网络包目标地址时候对比的比特数量。</p>
+<p>也就是说，将目标地址和子网掩码的二进制进行与运算得出网络的地址</p>
+</li>
+<li>
+<p>路由表还有两种特殊情况：</p>
+<ul>
+<li>路由的聚合：一种是将多个子网合成一个子网的时候，子网掩码会发生变化，目标地址也变成了聚合地址；</li>
+<li>子网划分：将一个子网进行细分并在路由表中注册多条记录。</li>
+</ul>
+</li>
+<li>
+<p>路由表的跃点数，表示离目标地址的远近。</p>
+</li>
+<li>
+<p>路由表的维护与MAC表不同：</p>
+<ul>
+<li>第一种方式是 手工维护；</li>
+</ul>
+</li>
+<li>
+<p>第二种方式是路由器之间信息交换路由器自行维护，包括RIP、OSPC、BGP 等协议。</p>
+<p>而包的转发的操作是相互独立的。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>路由器包的接收操作</p>
+<ul>
+<li>路由器接收网络包会根据端口类型不同有不同的操作
+<ul>
+<li>以以太网为例，端口是存在MAC 地址的，所以与计算机网卡过程相似。</li>
+</ul>
+</li>
+<li>大体过程：
+<ul>
+<li>到达接口</li>
+<li>经过PHY(MAU)</li>
+<li>经过 MAC模块(将电信号转成数字信号)</li>
+<li>检验 FCS(查看有没有错误)</li>
+<li>检查MAC头部的MAC地址</li>
+<li>如果是就仍在缓冲区里面，如果不是直接丢包。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>查询路由表确定输出端口</p>
+<ul>
+<li>
+<p>完成包的收操作之后，就抛弃了MAC头部，然后根据IP头部的目标IP地址在路由表中查找下一个地址。</p>
+<p>所以通过路由转发的包，接收方的MAC地址是目标路由的MAC地址，这个部分是经常更新的。</p>
+</li>
+<li>
+<p>在路由表中记录判断的时候：</p>
+<ul>
+<li>匹配到多条记录的时候，以比特数最长的记录为优先(表明子网中主机数越少)；</li>
+<li>如果网络号也是相同的时候就根据跃点数，先尝试跃点数小的地址;</li>
+<li>如果都没有找到匹配的记录，那么就直接丢包，并且通过<code> ICMP</code> 告诉发送方。</li>
+<li>因为交换机可能就几千台设备，路由器是对应着整个互联网，暴力全发的时候就会造成网络拥塞。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>那么如果找不到匹配的路由的时候怎么解决，</p>
+<ul>
+<li>设置一个默认的路由
+<ul>
+<li>子网掩码设置为 0.0.0.0</li>
+</ul>
+</li>
+<li>设置一个目标地址和端口
+<ul>
+<li>这样目标地址根本就不需要匹配。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>数据包都有有效期</p>
+<ul>
+<li>路由表在转发包的时候，会更新IP头部的TTL数值，每经过一次路由数值就会减一。</li>
+<li>当为零的时候就会被丢弃。</li>
+<li>一般 TTL 在发送方是 64 或者 128 从地球的一侧到另一侧的路由也不过是几十个路由而已。</li>
+</ul>
+</li>
+<li>
+<p>通过分片功能拆分大网络包</p>
+<ul>
+<li>
+<p>原因： 路由器端口不仅是以太网端口还有其他的类型比如 ADSL等</p>
+<p>所以添加了一些新的头部导致数据过长。</p>
+</li>
+<li>
+<p>通过IP协议定义的分片功能进行拆分。</p>
+</li>
+<li>
+<p>通过计算<code>MTU</code>(端口允许传送的最大长度 - 需要添加头部的大小) 进行计算。</p>
+<p>&lt;其中对于路由来说，TCP头部+数据 整体是数据，只会更新IP头部&gt;</p>
+</li>
+<li>
+<p>什么时候不允许分片：</p>
+<ul>
+<li>应用程序设置了不允许分片；</li>
+<li>二这个包是已经经过分片的包。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>路由器的发送操作</p>
+<ul>
+<li>
+<p>发送操作取决于端口的类型比如：以太类型或者是 ADSL 类型等。将包转换成电信号发送出去。</p>
+</li>
+<li>
+<p>这里需要更新MAC地址，MAC地址由目标IP地址决定。</p>
+<p>在目标IP中，如果路由表存在网关地址，那么MAC转发的地址就是路由表中的地址否则直接是包中的目的地址。</p>
+</li>
+<li>
+<p>根据<code>ARP</code> 和 <code>IP</code> 查找对应的 <code>MAC</code> 地址。路由器本身也会有ARP 缓存。如果缓存找不到，便会发出 ARP 请求。</p>
+<p>其中 ARP 是 发送信息将含有目标IP地址的ARP信息广播到网络上的所有的主机，并且接收返回消息。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>路由器与交换机之间的关系</p>
+<ul>
+<li>路由器与交换机之间的关系也可以说是 IP 与 以太网之间的关系。</li>
+<li>对于数据包而言，在发送的时候是将IP包装进以太网的数据部分中，委托以太网进行传递数据。IP本身并没有包传递的功能。</li>
+<li>IP的最终目的是将数据包发送到下一个路由器，所以在创建MAC表的时候是根据路由表查找的IP地址，同时根据IP地址查找的MAC地址，委托以太网传输到下一个目的路由。</li>
+<li>当然了，除了以太类型之外，还有很多的类型比如ADSL、无线局域网等。所以IP不负责进行包的传输仅仅负责数据的转发。</li>
+</ul>
+</li>
+</ol>
+<h2 id="路由器的附加功能">路由器的附加功能</h2>
+<ol>
+<li>路由器的地址转换(NAT)
+出现的原因是如果每一台设备都直接与互联网连接的时候，IP地址马上就会面临用光的现象，那么如何解决呢，比如两个公司内部网络，内部之间可以互通，但两个公司之间不需要直接互通，那就可以使用私有地址。</li>
+<li>在内网使用了私有地址，但我们仍然需要连接外网，这个怎么操作?
+<ul>
+<li>那么将公司中某个终端作为服务器配对公有地址直接与互联网相连</li>
+<li>内网配置私有地址与这个服务器相连，在向外请求数据的时候是通过路由器的地址转换实现的。</li>
+</ul>
+</li>
+<li>一般私有地址为：
+<ul>
+<li>10.0.0.0 ~ 10.255.255.255；</li>
+<li>172.16.0.0 ~ 172.31.255.255；</li>
+<li>192.168.0.0 ~ 192.168.255.255
+这些私有地址使用的时候是不需要申请的而公有地址使用的时候需要向IP管理局申请的。</li>
+</ul>
+</li>
+<li>地址转换的基本原理是 将在转发网络包的IP头部的地址和端口号进行改写。
+<ul>
+<li>发送方生成包之后到路由器上，地址转换设备将发送方的IP和端口号改成设备的IP和随机空闲的端口号</li>
+<li>同时将<code>公有地址:端口号</code> <code>私有地址:端口号</code> 写进地址和端口号对应表中；</li>
+<li>服务器返回数据包的时候到达地址转换器的时候重新将公有地址和端口号替换为原有的私有地址和端口号</li>
+<li>数据收发完毕之后断开并且删除表中的记录。</li>
+<li>两点
+<ul>
+<li>上面所说的地址转换设备是指的路由，一般有的防火墙也有地址转换的功能。</li>
+<li>路由器通过使用不同的端口号来区别子网的不同的设备。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>改写端口号的原因
+<ul>
+<li>因为如果仅仅是改写IP地址，那么私有IP地址和公有IP地址就得需要一一对应，如果1000个人的公司100多个人同时上网的话，就得需要100个公有地址。</li>
+<li>如果使用端口号，端口号是<code>16bit</code>的，可以有 <code>655535</code> 个端口，除去保留的端口之外还有上万个端口对子网来说也绰绰有余了。</li>
+</ul>
+</li>
+<li>从互联网访问内网。 内网设备没有在互联网上访问，那么互联网就不能直接访问这个内网的设备，即便是在通讯也仅能是在通讯的端口中发数据包。简称除非主动允许，否则无法从互联网向公司内网发送网络包的。
+<ul>
+<li>有两种方式：
+<ul>
+<li>第一种是放在路由的外面，直接配置一个公有地址；</li>
+<li>第二种是放在私有地址里面并且把服务器的私有地址手动添加到地址转换设备中。(同时需要把公有地址添加到DNS服务器中)</li>
+<li>也可以先通过私网向互联网访问，建立连接之后，一直维持连接，再由互联网向局域网发送信息。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>路由器包的过滤功能 就是在包转发的时候，根据MAC头部，IP头部和TCP头部的内容，按照事先的规则决定是转发这个包还是丢弃这个包。</li>
+</ol>
+
+    </div>
+</div><div id="social-media-share" class="has-text-centered">
+	<p><i>Sharing is caring!</i></p>
+	<br>
+	
+	<div class="share-buttons">
+	    <a  href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcheene.github.io%2fposts%2fhow-computer-network-03%2f"
+	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
+	        title="Share on Facebook. Opens in a new window.">
+	        <img src=/img/icons/45px/facebook.png>
+	    </a>
+
+	    <a  href="https://twitter.com/intent/tweet?text=How%20Computer%20Network%2003&url=https%3a%2f%2fcheene.github.io%2fposts%2fhow-computer-network-03%2f"
+	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
+	        title="Share on Twitter. Opens in a new window." >
+	        <img src=/img/icons/45px/twitter.png>
+	    </a>
+
+		<a  href="http://www.reddit.com/submit?url=https%3a%2f%2fcheene.github.io%2fposts%2fhow-computer-network-03%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Reddit. Opens in a new window." >
+	        <img src=/img/icons/45px/reddit.png>
+	    </a>
+
+	    <a  href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fcheene.github.io%2fposts%2fhow-computer-network-03%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Pinterest. Opens in a new window." >
+	        <img src=/img/icons/45px/pinterest.png>
+	    </a>
+
+	    <a  href="http://www.tumblr.com/share/link?url=https%3a%2f%2fcheene.github.io%2fposts%2fhow-computer-network-03%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Tumblr. Opens in a new window." >
+	        <img src=/img/icons/45px/tumblr.png>
+	    </a>
+
+		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fcheene.github.io%2fposts%2fhow-computer-network-03%2f
+			&title=How%20Computer%20Network%2003&summary=%e7%ac%ac%e4%b8%89%e7%ab%a0%20%e4%bb%8e%e7%bd%91%e7%ba%bf%e5%88%b0%e7%bd%91%e7%bb%9c%e8%ae%be%e5%a4%87%20%e6%9c%ac%e7%ab%a0%e4%b8%bb%e8%a6%81%e8%ae%b2%e8%a7%a3%e7%9a%84%e6%98%af%e7%94%b5%e4%bf%a1%e5%8f%b7%e4%bb%8e%20RJ-45%20%e6%8e%a5%e5%8f%a3%e5%87%ba%e6%9d%a5%ef%bc%8c%e5%88%b0%e8%be%be%e9%9b%86%e7%ba%bf%e5%99%a8%ef%bc%8c%e4%ba%a4%e6%8d%a2%e6%9c%ba%e5%92%8c%e8%b7%af%e7%94%b1%e5%99%a8%e4%bb%a5%e5%8f%8a%e8%b7%af%e7%94%b1%e5%99%a8%e5%be%80%e5%a4%96%e8%bd%ac%e5%8f%91%e7%9a%84%e8%bf%87%e7%a8%8b%e3%80%82%e5%9c%a8%e5%ae%b6%e5%ba%ad%e7%9a%84%e8%b7%af%e7%94%b1%e4%b8%ad%ef%bc%8c%e4%ba%a4%e6%8d%a2%e6%9c%ba%e5%92%8c%e9%9b%86%e7%ba%bf%e5%99%a8%e4%b8%80%e8%88%ac%e9%9b%86%e6%88%90%e5%9c%a8%e4%b8%80%e8%b5%b7%e4%ba%86%e6%88%96%e8%80%85%e7%9b%b4%e6%8e%a5%e6%b2%a1%e6%9c%89%e9%9b%86%e7%ba%bf%e5%99%a8%e3%80%82%0a%e4%bf%a1%e5%8f%b7%e4%bb%8e%e7%bd%91%e5%8d%a1%e5%87%ba%e6%9d%a5%e5%88%b0%e9%9b%86%e7%ba%bf%e5%99%a8%e7%9a%84%e6%97%b6%e5%80%99%20%20%20%e6%95%b0%e6%8d%ae%e5%8c%85%e4%b9%8b%e9%97%b4%e7%9a%84%e4%bc%a0%e8%be%93%e6%98%af%e7%8b%ac%e7%ab%8b%e7%9a%84%ef%bc%8c%e4%bb%85%e4%bb%85%e8%b4%9f%e8%b4%a3%e4%bc%a0%e5%8c%85%e5%b9%b6%e4%b8%8d%e4%bc%9a%e8%80%83%e8%99%91%e5%86%85%e9%83%a8%e7%9a%84%e6%95%b0%e6%8d%ae%e3%80%82%0a%20%20%e4%bb%8e%e7%bd%91%e5%8d%a1%e5%88%b0%e9%9b%86%e7%ba%bf%e5%99%a8%e7%9a%84%e6%97%b6%e5%80%99%e4%bf%a1%e5%8f%b7%e5%b0%b1%e4%bc%9a%e5%87%ba%e7%8e%b0%e8%a1%b0%e5%87%8f%ef%bc%8c%e8%80%8c%e4%b8%94%e7%94%b5%e4%bf%a1%e5%8f%b7%e9%a2%91%e7%8e%87%e8%b6%8a%e9%ab%98%ef%bc%8c%e6%8d%9f%e5%a4%b1%e5%b0%b1%e8%b6%8a%e5%a4%a7%e3%80%82%0a%20%20%e5%8f%8c%e7%bb%9e%e7%ba%bf%e7%9a%84%e5%ad%98%e5%9c%a8%e6%98%af%e4%b8%ba%e4%ba%86%e6%8a%91%e5%88%b6%e5%99%aa%e5%a3%b0%ef%bc%8c%e5%87%8f%e5%b0%91%e8%a1%b0%e5%87%8f%e3%80%82%20%e7%bd%91%e7%ba%bf%e7%9a%84%e5%91%a8%e5%9b%b4%e7%9a%84%e7%94%b5%e7%a3%81%e6%b3%a2%e7%a2%b0%e5%88%b0%e9%87%91%e5%b1%9e%e7%ad%89%e5%af%bc%e4%bd%93%e4%bc%9a%e4%ba%a7%e7%94%9f%e7%94%b5%e6%b5%81%ef%bc%8c%e8%80%8c%e4%bf%a1%e5%8f%b7%e6%9c%ac%e8%ba%ab%e5%b0%b1%e6%98%af%e5%b8%a6%e6%9c%89%e7%94%b5%e5%8e%8b%e5%8f%98%e5%8c%96%e7%9a%84%e7%94%b5%e6%b5%81%ef%bc%8c%e6%b7%b7%e5%9c%a8%e4%b8%80%e8%b5%b7%e5%ae%b9%e6%98%93%e5%af%bc%e8%87%b4%e5%a4%b1%e7%9c%9f%e3%80%82%20%e7%94%b5%e7%a3%81%e6%b3%a2%e6%9c%89%e4%b8%a4%e7%a7%8d%e6%9d%a5%e6%ba%90%0a%20%e4%b8%80%e7%a7%8d%e6%98%af%e5%a4%96%e9%83%a8%e7%9a%84%e6%af%94%e5%a6%82%e7%94%b5%e6%9c%ba%ef%bc%8c%e8%8d%a7%e5%85%89%e7%81%af%ef%bc%8cCRT%e6%98%be%e7%a4%ba%e5%99%a8%e7%ad%89%28%e8%ae%a9%e7%ba%bf%e5%8f%98%e6%88%90%e8%9e%ba%e6%97%8b%e7%8a%b6%ef%bc%8c%e4%bd%bf%e8%87%aa%e8%ba%ab%e7%9a%84%e7%94%b5%e7%a3%81%e5%9c%ba%e5%8f%98%e6%88%90%e8%9e%ba%e6%97%8b%e7%8a%b6%29%ef%bc%9b%20%e4%b8%80%e7%a7%8d%e6%98%af%e5%86%85%e9%83%a8%e7%ba%bf%e4%b9%8b%e9%97%b4%e5%87%ba%e7%8e%b0%e6%b3%84%e9%9c%b2%e4%ba%a7%e7%94%9f%e7%94%b5%e7%a3%81%e6%b3%a2%ef%bc%8c%e7%a7%b0%e4%b9%8b%e4%b8%ba%e4%b8%b2%e6%89%b0%e3%80%82%20%20%e6%8a%91%e5%88%b6%e5%86%85%e9%83%a8%e7%94%b5%e7%a3%81%e6%b3%a2%e7%9a%84%e6%96%b9%e5%bc%8f%e6%98%af%20%e8%ae%a9%e6%af%8f%e4%b8%80%e5%af%b9%e4%bf%a1%e5%8f%b7%e7%ba%bf%e7%9a%84%e6%89%ad%e4%ba%a4%e9%97%b4%e9%9a%94%e4%ba%a7%e7%94%9f%e5%b7%ae%e5%bc%82%e3%80%82%28%e6%ad%a3%e8%b4%9f%e4%bf%a1%e5%8f%b7%e7%9a%84%e4%ba%a7%e7%94%9f%e7%9a%84%e5%99%aa%e5%a3%b0%e6%98%af%e7%9b%b8%e5%8f%8d%e7%9a%84%e5%88%9a%e5%a5%bd%e6%8a%b5%e6%b6%88%29%e3%80%82%0a%20%20%e5%85%b3%e4%ba%8e%e9%9b%86%e7%ba%bf%e5%99%a8%ef%bc%9a%e9%9b%86%e7%ba%bf%e5%99%a8%e7%9a%84%e5%8e%9f%e7%90%86%e5%b0%b1%e6%98%af%e4%bb%a5%e5%a4%aa%e7%bd%91%e7%9a%84%e6%9e%b6%e6%9e%84%ef%bc%8c%e6%95%b0%e6%8d%ae%e4%bc%a0%e8%be%93%e7%9a%84%e6%96%b9%e5%bc%8f%e6%98%af%e9%9d%a0%e7%9d%80MAC%e5%9c%b0%e5%9d%80%e5%af%bb%e6%89%be%e3%80%82%0a%20%e9%9b%86%e7%ba%bf%e5%99%a8%e9%87%8c%e6%9c%89%e4%b8%80%e4%b8%aa%e4%b8%ad%e7%bb%a7%e9%9b%86%e6%88%90%e5%99%a8%ef%bc%8c%e8%be%93%e5%85%a5%e7%ab%af%e5%8f%a3%e7%9a%84%e4%bf%a1%e5%8f%b7%e8%bd%ac%e5%8f%91%e7%bb%99%e9%99%a4%e4%ba%86%e8%af%a5%e7%ab%af%e5%8f%a3%e4%b9%8b%e5%a4%96%e7%9a%84%e6%89%80%e6%9c%89%e7%9a%84%e7%ab%af%e5%8f%a3%e3%80%82%e5%9c%a8%e8%bf%99%e6%a0%b7%e7%9a%84%e6%83%85%e5%86%b5%e4%b8%8b%e5%a6%82%e6%9e%9c%e6%89%80%e6%9c%89%e7%9a%84%e7%ab%af%e5%8f%a3%e9%83%bd%e5%8f%91%e9%80%81%e4%bf%a1%e5%8f%b7%ef%bc%8c%e5%b0%b1%e4%bc%9a%e4%ba%a7%e7%94%9f%e7%a2%b0%e6%92%9e%e3%80%82%20%e8%bf%9e%e6%8e%a5%e5%85%b6%e4%bb%96%e7%9a%84%e7%ab%af%e5%8f%a3%e5%8f%ab%e5%81%9a%e7%ba%a7%e8%81%94%e7%ab%af%e5%8f%a3%e6%88%96%e8%80%85%e4%b8%8a%e8%a1%8c%e7%ab%af%e5%8f%a3%20%e6%a0%b9%e6%8d%ae%e7%9b%b8%e5%90%8c%e7%9a%84%e8%ae%be%e5%a4%87%e4%ba%a4%e5%8f%89%e8%bf%9e%e6%8e%a5%ef%bc%8c%e5%bc%82%e7%a7%8d%e8%ae%be%e5%a4%87%e7%9b%b4%e8%bf%9e%e7%9a%84%e5%8e%9f%e7%90%86%ef%bc%8c%e9%9b%86%e7%ba%bf%e5%99%a8%e9%87%8c%e6%af%8f%e4%b8%80%e4%b8%aa%e7%ab%af%e5%8f%a3%e9%83%bd%e6%9c%89%e4%b8%80%e4%b8%aa%20PHY%2fMAU%20%e6%a8%a1%e5%9d%97%e4%b8%8e%e5%85%b6%e7%bd%91%e5%8d%a1%e4%b8%8a%e7%9a%84%e6%a8%a1%e5%9d%97%e6%b2%a1%e6%9c%89%e4%bb%80%e4%b9%88%e5%8c%ba%e5%88%ab%ef%bc%8c%e6%89%80%e4%bb%a5%e9%9c%80%e8%a6%81%e4%ba%a4%e5%8f%89%e8%bf%9e%e6%8e%a5%e3%80%82%e6%89%80%e8%b0%93%e7%9a%84%e4%ba%a4%e5%8f%89%e8%bf%9e%e6%8e%a5%e5%b0%b1%e6%98%af%e5%8f%91%e9%80%81%e6%96%b9%e5%92%8c%e6%8e%a5%e6%94%b6%e6%96%b9%e7%9a%84%e4%ba%a4%e5%8f%89%e3%80%82%20%e9%9b%86%e7%ba%bf%e5%99%a8%e4%b8%ad%e5%ad%98%e5%9c%a8%20MDI%2fMDI-X%20%e5%88%87%e6%8d%a2%e5%bc%80%e5%85%b3%e3%80%82MDI%20%e6%98%af%e7%9b%b4%e7%ba%bf%e8%bf%9e%e6%8e%a5%ef%bc%8cMDI-X%e6%98%af%e4%ba%a4%e5%8f%89%e8%bf%9e%e6%8e%a5%e3%80%82%e4%bd%86%e7%8e%b0%e5%9c%a8%e7%9a%84%e8%ae%be%e5%a4%87%e6%97%a0%e6%89%80%e8%b0%93%e4%ba%86%ef%bc%8c%e5%8f%af%e4%bb%a5%e8%87%aa%e9%80%82%e5%ba%94%e3%80%82%20%20%20%20%e4%ba%a4%e6%8d%a2%e6%9c%ba%e7%9a%84%e5%8c%85%e8%bd%ac%e5%8f%91%e6%93%8d%e4%bd%9c%20%20%20%e4%ba%a4%e6%8d%a2%e6%9c%ba%e6%a0%b9%e6%8d%ae%e5%9c%b0%e5%9d%80%e8%a1%a8%e8%bf%9b%e8%a1%8c%e8%bd%ac%e5%8f%91%20%e4%bf%a1%e5%8f%b7%e5%88%b0%e8%be%be%e7%ab%af%e5%8f%a3%e7%9a%84%e6%97%b6%e5%80%99%e7%94%b1%20PHY%ef%bc%88MAU%ef%bc%89%e6%9d%a5%e6%8e%a5%e6%94%b6%ef%bc%8c%e7%84%b6%e5%90%8e%e4%bc%a0%e9%80%92%e7%bb%99MAC%e6%a8%a1%e5%9d%97%ef%bc%8c%e8%bd%ac%e6%8d%a2%e6%88%90%e6%95%b0%e5%ad%97%e4%bf%a1%e6%81%af%e5%b9%b6%e6%a3%80%e9%aa%8cFCS%e7%a1%ae%e8%ae%a4%e6%97%a0%e8%af%af%e5%90%8e%e6%94%be%e5%9c%a8%e7%bc%93%e5%86%b2%e5%8c%ba%e4%b8%ad%e3%80%82%20%e4%ba%a4%e6%8d%a2%e6%9c%ba%e7%ab%af%e5%8f%a3%e6%9c%ac%e8%ba%ab%e6%b2%a1%e6%9c%89MAC%e5%9c%b0%e5%9d%80%ef%bc%8c%e5%ae%9e%e9%99%85%e8%bf%87%e7%a8%8b%e4%b8%ad%e9%80%9a%e8%bf%87%e8%8a%af%e7%89%87%e5%90%8c%e6%97%b6%e6%8e%a7%e5%88%b6%e5%a4%9a%e4%b8%aa%e7%ab%af%e5%8f%a3%20%e4%ba%a4%e6%8d%a2%e6%9c%ba%e7%94%b5%e8%b7%af%e7%9a%84%e5%b7%a5%e4%bd%9c%e6%96%b9%e5%bc%8f%ef%bc%9a&source=rafed123.github.io"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on LinkedIn. Opens in a new window." >
+	        <img src=/img/icons/45px/linkedin.png>
+	    </a>
+
+	    <a  href="mailto:?subject=How%20Computer%20Network%2003&amp;body=Check out this site https%3a%2f%2fcheene.github.io%2fposts%2fhow-computer-network-03%2f"
+	        title="Share via Email. Opens in a new window." >
+	        <img src=/img/icons/45px/mail.png>
+	    </a>
+	</div>
+</div>
+
+
+<br>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    (function () {
+        
+        
+        if (window.location.hostname == "localhost")
+            return;
+
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'disqus-code';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+        </div>
+    </div>
+
+<footer class="footer has-background-dark">
+    <div class="content has-text-centered has-text-white">
+        <p>
+            © 2020 Ramium. Powered by
+            <a class="has-text-light" href="https://github.com/gohugoio/hugo" target="_blank">
+            Hugo</a>. Theme
+            <a class="has-text-light" href="https://github.com/rafed123/ramium/" target="_blank">
+                Ramium.
+            </a>
+        </p>
+    </div>
+</footer>
+</body>
+
+</html>

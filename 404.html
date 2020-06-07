@@ -180,6 +180,12 @@ if (!doNotTrack) {
                 
                 
                 
+                
+                
+                
+                
+                
+                
 
                 
                 <a href="/tags/git">
@@ -206,6 +212,18 @@ if (!doNotTrack) {
                     </span>
                 </a>
                 
+                <a href="/tags/tag1">
+                    <span class="tag is-dark is-large is-rounded">
+                        Tag1
+                    </span>
+                </a>
+                
+                <a href="/tags/tag2">
+                    <span class="tag is-dark is-large is-rounded">
+                        Tag2
+                    </span>
+                </a>
+                
                 <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91">
                     <span class="tag is-dark is-large is-rounded">
                         二叉树
@@ -227,6 +245,12 @@ if (!doNotTrack) {
                 <a href="/tags/%E7%AE%97%E6%B3%95">
                     <span class="tag is-dark is-large is-rounded">
                         算法
+                    </span>
+                </a>
+                
+                <a href="/tags/%E7%BD%91%E7%BB%9C%E5%9B%9B%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%E7%9A%84">
+                    <span class="tag is-dark is-large is-rounded">
+                        网络四如何连接的
                     </span>
                 </a>
                 
@@ -277,6 +301,71 @@ if (!doNotTrack) {
             </a>
         </div>
         <div class="blog-brief">
+    <a href="/posts/how-computer-network-03/">
+        <h3 class="title is-4">
+            How Computer Network 03
+        </h3>
+    </a>
+
+    <div class="level is-mobile details">
+        <div class="level-left">
+
+            
+            <div class="level-item">
+                <a href="/posts/how-computer-network-03/">
+                    <p class="subtitle info date">Jun 7, 2020
+                    </p>
+                </a>
+            </div>
+            
+
+
+            <div class="level-item">
+                <a href="/posts/how-computer-network-03/">
+                    <p class="subtitle info">
+                        23 mins read
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div class="level-right is-hidden-touch">
+            
+            <a class="tag is-rounded" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>
+            
+            <a class="tag is-rounded" href="/tags/%E7%BD%91%E7%BB%9C%E5%9B%9B%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%E7%9A%84">网络四如何连接的</a>
+            
+        </div>
+    </div>
+
+    <div>
+        
+
+        <div>
+            <a href="/posts/how-computer-network-03/">
+                <p class="summary">
+                    第三章 从网线到网络设备 本章主要讲解的是电信号从 RJ-45 接口出来，到达集线器，交换机和路由器以及路由器往外转发的过程。在家庭的路由中，交换机和集线器一般集成在一起了或者直接没有集线器。
+信号从网卡出来到集线器的时候   数据包之间的传输是独立的，仅仅负责传包并不会考虑内部的数据。
+  从网卡到集线器的时候信号就会出现衰减，而且电信号频率越高，损失就越大。
+  双绞线的存在是为了抑制噪声，减少衰减。 网线的周围的电磁波碰到金属等导体会产生电流，而信号本身就是带有电压变化的电流，混在一起容易导致失真。 电磁波有两种来源
+ 一种是外部的比如电机，荧光灯，CRT显示器等(让线变成螺旋状，使自身的电磁场变成螺旋状)； 一种是内部线之间出现泄露产生电磁波，称之为串扰。  抑制内部电磁波的方式是 让每一对信号线的扭交间隔产生差异。(正负信号的产生的噪声是相反的刚好抵消)。
+  关于集线器：集线器的原理就是以太网的架构，数据传输的方式是靠着MAC地址寻找。
+ 集线器里有一个中继集成器，输入端口的信号转发给除了该端口之外的所有的端口。在这样的情况下如果所有的端口都发送信号，就会产生碰撞。 连接其他的端口叫做级联端口或者上行端口 根据相同的设备交叉连接，异种设备直连的原理，集线器里每一个端口都有一个 PHY/MAU 模块与其网卡上的模块没有什么区别，所以需要交叉连接。所谓的交叉连接就是发送方和接收方的交叉。 集线器中存在 MDI/MDI-X 切换开关。MDI 是直线连接，MDI-X是交叉连接。但现在的设备无所谓了，可以自适应。    交换机的包转发操作   交换机根据地址表进行转发 信号到达端口的时候由 PHY（MAU）来接收，然后传递给MAC模块，转换成数字信息并检验FCS确认无误后放在缓冲区中。 交换机端口本身没有MAC地址，实际过程中通过芯片同时控制多个端口 交换机电路的工作方式：
+                    
+                </p>
+            </a>
+        </div>
+    </div>
+
+    <div class="level is-mobile continue-reading">
+        <div class="level-left">
+        </div>
+        <div class="level-right">
+            <a href="/posts/how-computer-network-03/">Continue reading <i class="fa fa-angle-double-right"
+                    aria-hidden="true"></i></a>
+        </div>
+    </div>
+    <hr>
+</div><div class="blog-brief">
     <a href="/posts/leet-code-1620/">
         <h3 class="title is-4">
             #1620 [最小的k个数]
@@ -516,67 +605,6 @@ if (!doNotTrack) {
         </div>
         <div class="level-right">
             <a href="/posts/leet-code-1615/">Continue reading <i class="fa fa-angle-double-right"
-                    aria-hidden="true"></i></a>
-        </div>
-    </div>
-    <hr>
-</div><div class="blog-brief">
-    <a href="/posts/leet-code-1614/">
-        <h3 class="title is-4">
-            #1614[调整数组顺序使奇数位于偶数前面]
-        </h3>
-    </a>
-
-    <div class="level is-mobile details">
-        <div class="level-left">
-
-            
-            <div class="level-item">
-                <a href="/posts/leet-code-1614/">
-                    <p class="subtitle info date">Jun 7, 2020
-                    </p>
-                </a>
-            </div>
-            
-
-
-            <div class="level-item">
-                <a href="/posts/leet-code-1614/">
-                    <p class="subtitle info">
-                        1 min read
-                    </p>
-                </a>
-            </div>
-        </div>
-        <div class="level-right is-hidden-touch">
-            
-            <a class="tag is-rounded" href="/tags/leet-code">Leet code</a>
-            
-            <a class="tag is-rounded" href="/tags/%E7%AE%97%E6%B3%95">算法</a>
-            
-            <a class="tag is-rounded" href="/tags/%E6%95%B0%E7%BB%84">数组</a>
-            
-        </div>
-    </div>
-
-    <div>
-        
-
-        <div>
-            <a href="/posts/leet-code-1614/">
-                <p class="summary">
-                    题目 输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有奇数位于数组的前半部分，所有偶数位于数组的后半部分。示例 输入：nums = [1,2,3,4]输出：[1,3,2,4] 注：[3,1,2,4] 也是正确的答案之一。限制 1 &amp;lt;= nums.length &amp;lt;= 500001 &amp;lt;= nums[i] &amp;lt;= 10000思路 双指针 P.Q保证P之前没有存在偶数即保存当前数组中第一个偶数的位置Q 向后遍历，碰到奇数的时候，查看前面是否有有偶数实现 func exchange(nums []int) []int { p := -1 for q := 0; q &amp;lt; len(nums); q&#43;&#43; { // 偶数，交换  if p == -1 &amp;amp;&amp;amp; nums[q] % 2 == 0 { // 第一次发现  p = q } else { // 奇数，交换  if p !
-                    
-                </p>
-            </a>
-        </div>
-    </div>
-
-    <div class="level is-mobile continue-reading">
-        <div class="level-left">
-        </div>
-        <div class="level-right">
-            <a href="/posts/leet-code-1614/">Continue reading <i class="fa fa-angle-double-right"
                     aria-hidden="true"></i></a>
         </div>
     </div>

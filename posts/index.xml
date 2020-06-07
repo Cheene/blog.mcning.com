@@ -6,10 +6,25 @@
     <description>Recent content in Posts on CHENENE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ZH-CN</language>
-    <lastBuildDate>Sun, 07 Jun 2020 12:28:04 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 07 Jun 2020 15:39:55 +0800</lastBuildDate>
     
 	<atom:link href="https://cheene.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How Computer Network 03</title>
+      <link>https://cheene.github.io/posts/how-computer-network-03/</link>
+      <pubDate>Sun, 07 Jun 2020 15:39:55 +0800</pubDate>
+      
+      <guid>https://cheene.github.io/posts/how-computer-network-03/</guid>
+      <description>第三章 从网线到网络设备 本章主要讲解的是电信号从 RJ-45 接口出来，到达集线器，交换机和路由器以及路由器往外转发的过程。在家庭的路由中，交换机和集线器一般集成在一起了或者直接没有集线器。
+信号从网卡出来到集线器的时候   数据包之间的传输是独立的，仅仅负责传包并不会考虑内部的数据。
+  从网卡到集线器的时候信号就会出现衰减，而且电信号频率越高，损失就越大。
+  双绞线的存在是为了抑制噪声，减少衰减。 网线的周围的电磁波碰到金属等导体会产生电流，而信号本身就是带有电压变化的电流，混在一起容易导致失真。 电磁波有两种来源
+ 一种是外部的比如电机，荧光灯，CRT显示器等(让线变成螺旋状，使自身的电磁场变成螺旋状)； 一种是内部线之间出现泄露产生电磁波，称之为串扰。  抑制内部电磁波的方式是 让每一对信号线的扭交间隔产生差异。(正负信号的产生的噪声是相反的刚好抵消)。
+  关于集线器：集线器的原理就是以太网的架构，数据传输的方式是靠着MAC地址寻找。
+ 集线器里有一个中继集成器，输入端口的信号转发给除了该端口之外的所有的端口。在这样的情况下如果所有的端口都发送信号，就会产生碰撞。 连接其他的端口叫做级联端口或者上行端口 根据相同的设备交叉连接，异种设备直连的原理，集线器里每一个端口都有一个 PHY/MAU 模块与其网卡上的模块没有什么区别，所以需要交叉连接。所谓的交叉连接就是发送方和接收方的交叉。 集线器中存在 MDI/MDI-X 切换开关。MDI 是直线连接，MDI-X是交叉连接。但现在的设备无所谓了，可以自适应。    交换机的包转发操作   交换机根据地址表进行转发 信号到达端口的时候由 PHY（MAU）来接收，然后传递给MAC模块，转换成数字信息并检验FCS确认无误后放在缓冲区中。 交换机端口本身没有MAC地址，实际过程中通过芯片同时控制多个端口 交换机电路的工作方式：</description>
+    </item>
     
     <item>
       <title># 1616 [反转链表]</title>
@@ -176,6 +191,16 @@
       <description>Git 一 开始了解 Git 服务器并不是为了存储数据使用，而是为了方便大家来交换修改而设定。
 1 Git 如何保证完整性？ 通过计算校验和利用 SHA-1
 2 Git 三种状态  staged 已暂存：已修改文件的当前版本做了标记，使之包含在下次提交的快照中。 modified 已修改：修改了文件，但还没有保存在数据库中。 committed 已提交： 数据已安全的保存在数据库里面。  3 Git 三个工作区  Git 仓库 工作目录 暂存区域  4 Git 工作三步曲  在工作目录里面修改文件 暂存文件，将文件的快照放入暂存区域 提交更新，从暂存区域存储到Git仓库目录  二 基础 1 初始化一个空白仓库 git init	// 新建仓库 git add file.</description>
+    </item>
+    
+    <item>
+      <title>How Computer Network 03</title>
+      <link>https://cheene.github.io/posts/how-computer-network-03/default/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cheene.github.io/posts/how-computer-network-03/default/</guid>
+      <description>Article goes here.
+For other options, put these in the front matter: description: &amp;ldquo;A description&amp;rdquo; other than the blog intro draft: true to not publish article yet showDate: true/false to enable/disable showing dates math: true to enable showing equations (katex) chordsheet: true to add chordsheet styelsheet</description>
     </item>
     
   </channel>
