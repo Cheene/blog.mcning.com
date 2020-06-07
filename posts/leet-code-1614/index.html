@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ZH-CN"><title>
+    #1614[调整数组顺序使奇数位于偶数前面] | 
+    
+    CHENENE</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<meta name="description" 
+      content="题目 输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有奇数位于数组的前半部分，所有偶数位于数组的后半部分。示例 输入：nums = [1,2,3,4]输出：[1,3,2,4] 注：[3,1,2,4] 也是正确的答案之一。限制 1 &lt;= nums.length &lt;= 500001 &lt;= nums[i] &lt;= 10000思路 双指针 P.Q保证P之前没有存在偶数即保存当前数组中第一个偶数的位置Q 向后遍历，碰到奇数的时候，查看前面是否有有偶数实现 func exchange(nums []int) []int { p := -1 for q := 0; q &lt; len(nums); q&#43;&#43; { // 偶数，交换  if p == -1 &amp;&amp; nums[q] % 2 == 0 { // 第一次发现  p = q } else { // 奇数，交换  if p !
+                ">
+
+<link rel="canonical" href="https://cheene.github.io/posts/leet-code-1614/" />
+
+<link rel="icon" type="image/png" href="https://cheene.github.io/image/favicon.ico">
+
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/bulma.min.css">
+
+<meta property="og:title" content="#1614[调整数组顺序使奇数位于偶数前面]" />
+<meta property="og:description" content="题目 输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有奇数位于数组的前半部分，所有偶数位于数组的后半部分。示例 输入：nums = [1,2,3,4]输出：[1,3,2,4] 注：[3,1,2,4] 也是正确的答案之一。限制 1 &lt;= nums.length &lt;= 500001 &lt;= nums[i] &lt;= 10000思路 双指针 P.Q保证P之前没有存在偶数即保存当前数组中第一个偶数的位置Q 向后遍历，碰到奇数的时候，查看前面是否有有偶数实现 func exchange(nums []int) []int { p := -1 for q := 0; q &lt; len(nums); q&#43;&#43; { // 偶数，交换  if p == -1 &amp;&amp; nums[q] % 2 == 0 { // 第一次发现  p = q } else { // 奇数，交换  if p !" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cheene.github.io/posts/leet-code-1614/" />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="#1614[调整数组顺序使奇数位于偶数前面]"/>
+<meta name="twitter:description" content="题目 输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有奇数位于数组的前半部分，所有偶数位于数组的后半部分。示例 输入：nums = [1,2,3,4]输出：[1,3,2,4] 注：[3,1,2,4] 也是正确的答案之一。限制 1 &lt;= nums.length &lt;= 500001 &lt;= nums[i] &lt;= 10000思路 双指针 P.Q保证P之前没有存在偶数即保存当前数组中第一个偶数的位置Q 向后遍历，碰到奇数的时候，查看前面是否有有偶数实现 func exchange(nums []int) []int { p := -1 for q := 0; q &lt; len(nums); q&#43;&#43; { // 偶数，交换  if p == -1 &amp;&amp; nums[q] % 2 == 0 { // 第一次发现  p = q } else { // 奇数，交换  if p !"/>
+
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'analytics-code', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+<script src=/js/ramium.js></script>
+<link rel="stylesheet" href=/css/ramium.css>
+
+
+
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'analytics-code', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<body><nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href=/>
+      
+      <strong>CHENENE </strong>
+      
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+      data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      
+      
+      <a class="navbar-item" href="/">Home</a>
+      
+      
+      
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">This Blog</a>
+        <div class="navbar-dropdown">
+          
+          <a class="navbar-item" href="/tags/">All Tags</a>
+          
+          <a class="navbar-item" href="/sections/">All Sections</a>
+          
+          <a class="navbar-item" href="/posts/">All Posts</a>
+          
+        </div>
+      </div>
+      
+      
+      
+      <a class="navbar-item" href="/thinks/">Think Different</a>
+      
+      
+      
+      <a class="navbar-item" href="/author/">Author</a>
+      
+      
+    </div>
+
+    <div class="navbar-end">
+      
+      <a class="navbar-item navgithub" href="https://github.com//" target="_blank">
+        <i class="fa fa-github fa-2x"></i>
+      </a>
+      
+
+      
+    </div>
+  </div>
+</nav><div class="columns is-centered">
+        <div id="page-body" class="column is-7">
+
+<div class="content blog">
+    <h1 class="title">#1614[调整数组顺序使奇数位于偶数前面]</h1>
+
+    <div id="infobar" class="level is-mobile">
+        <div class="level-left">
+            
+            <div class="level-item">
+                <p class="subtitle info date">Jan 1, 0001
+                </p>
+            </div>
+            
+
+            <div class="level-item">
+                <p class="subtitle info">
+                    1 min read
+                </p>
+            </div>
+        </div>
+        <div class="level-right is-hidden-touch">
+            <div class="tags">
+                
+                <a class="tag is-dark is-rounded" href="/tags/leet-code">Leet code</a>
+                
+                <a class="tag is-dark is-rounded" href="/tags/%E7%AE%97%E6%B3%95">算法</a>
+                
+                <a class="tag is-dark is-rounded" href="/tags/%E6%95%B0%E7%BB%84">数组</a>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="tags is-hidden-desktop">
+        
+        <a class="tag is-dark is-rounded" href="/tags/leet-code">Leet code</a>
+        
+        <a class="tag is-dark is-rounded" href="/tags/%E7%AE%97%E6%B3%95">算法</a>
+        
+        <a class="tag is-dark is-rounded" href="/tags/%E6%95%B0%E7%BB%84">数组</a>
+        
+    </div>
+
+    <div class="blog-text">
+        
+
+        <h2 id="题目">题目</h2>
+<pre><code>输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有奇数位于数组的前半部分，所有偶数位于数组的后半部分。
+</code></pre><h2 id="示例"><strong>示例</strong></h2>
+<pre><code>输入：nums = [1,2,3,4]
+输出：[1,3,2,4] 
+注：[3,1,2,4] 也是正确的答案之一。
+</code></pre><h2 id="限制"><strong>限制</strong></h2>
+<pre><code>1 &lt;= nums.length &lt;= 50000
+1 &lt;= nums[i] &lt;= 10000
+</code></pre><h2 id="思路">思路</h2>
+<pre><code>双指针 P.Q
+保证P之前没有存在偶数
+    即保存当前数组中第一个偶数的位置
+Q 向后遍历，碰到奇数的时候，查看前面是否有有偶数
+</code></pre><h2 id="实现">实现</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">exchange</span>(<span style="color:#a6e22e">nums</span> []<span style="color:#66d9ef">int</span>) []<span style="color:#66d9ef">int</span> {
+    <span style="color:#a6e22e">p</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">q</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">q</span> &lt; len(<span style="color:#a6e22e">nums</span>); <span style="color:#a6e22e">q</span><span style="color:#f92672">++</span> {
+        <span style="color:#75715e">// 偶数，交换
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">p</span> <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">q</span>] <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> { <span style="color:#75715e">// 第一次发现
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">p</span> = <span style="color:#a6e22e">q</span>
+        } <span style="color:#66d9ef">else</span> {
+            <span style="color:#75715e">// 奇数，交换
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">p</span> <span style="color:#f92672">!=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">q</span>] <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span> {
+                <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">p</span>],<span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">q</span>] = <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">q</span>],<span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">p</span>]
+                <span style="color:#66d9ef">for</span> ;<span style="color:#a6e22e">p</span> <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">q</span>;<span style="color:#a6e22e">p</span><span style="color:#f92672">++</span>{
+                    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">p</span>] <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> {
+                        <span style="color:#66d9ef">break</span>;
+                    }
+                }
+            }
+        }
+
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">nums</span>
+}
+</code></pre></div>
+    </div>
+</div><div id="social-media-share" class="has-text-centered">
+	<p><i>Sharing is caring!</i></p>
+	<br>
+	
+	<div class="share-buttons">
+	    <a  href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcheene.github.io%2fposts%2fleet-code-1614%2f"
+	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
+	        title="Share on Facebook. Opens in a new window.">
+	        <img src=/img/icons/45px/facebook.png>
+	    </a>
+
+	    <a  href="https://twitter.com/intent/tweet?text=%231614%5b%e8%b0%83%e6%95%b4%e6%95%b0%e7%bb%84%e9%a1%ba%e5%ba%8f%e4%bd%bf%e5%a5%87%e6%95%b0%e4%bd%8d%e4%ba%8e%e5%81%b6%e6%95%b0%e5%89%8d%e9%9d%a2%5d&url=https%3a%2f%2fcheene.github.io%2fposts%2fleet-code-1614%2f"
+	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
+	        title="Share on Twitter. Opens in a new window." >
+	        <img src=/img/icons/45px/twitter.png>
+	    </a>
+
+		<a  href="http://www.reddit.com/submit?url=https%3a%2f%2fcheene.github.io%2fposts%2fleet-code-1614%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Reddit. Opens in a new window." >
+	        <img src=/img/icons/45px/reddit.png>
+	    </a>
+
+	    <a  href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fcheene.github.io%2fposts%2fleet-code-1614%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Pinterest. Opens in a new window." >
+	        <img src=/img/icons/45px/pinterest.png>
+	    </a>
+
+	    <a  href="http://www.tumblr.com/share/link?url=https%3a%2f%2fcheene.github.io%2fposts%2fleet-code-1614%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Tumblr. Opens in a new window." >
+	        <img src=/img/icons/45px/tumblr.png>
+	    </a>
+
+		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fcheene.github.io%2fposts%2fleet-code-1614%2f
+			&title=%231614%5b%e8%b0%83%e6%95%b4%e6%95%b0%e7%bb%84%e9%a1%ba%e5%ba%8f%e4%bd%bf%e5%a5%87%e6%95%b0%e4%bd%8d%e4%ba%8e%e5%81%b6%e6%95%b0%e5%89%8d%e9%9d%a2%5d&summary=%e9%a2%98%e7%9b%ae%20%e8%be%93%e5%85%a5%e4%b8%80%e4%b8%aa%e6%95%b4%e6%95%b0%e6%95%b0%e7%bb%84%ef%bc%8c%e5%ae%9e%e7%8e%b0%e4%b8%80%e4%b8%aa%e5%87%bd%e6%95%b0%e6%9d%a5%e8%b0%83%e6%95%b4%e8%af%a5%e6%95%b0%e7%bb%84%e4%b8%ad%e6%95%b0%e5%ad%97%e7%9a%84%e9%a1%ba%e5%ba%8f%ef%bc%8c%e4%bd%bf%e5%be%97%e6%89%80%e6%9c%89%e5%a5%87%e6%95%b0%e4%bd%8d%e4%ba%8e%e6%95%b0%e7%bb%84%e7%9a%84%e5%89%8d%e5%8d%8a%e9%83%a8%e5%88%86%ef%bc%8c%e6%89%80%e6%9c%89%e5%81%b6%e6%95%b0%e4%bd%8d%e4%ba%8e%e6%95%b0%e7%bb%84%e7%9a%84%e5%90%8e%e5%8d%8a%e9%83%a8%e5%88%86%e3%80%82%0d%e7%a4%ba%e4%be%8b%20%e8%be%93%e5%85%a5%ef%bc%9anums%20%3d%20%5b1%2c2%2c3%2c4%5d%0d%e8%be%93%e5%87%ba%ef%bc%9a%5b1%2c3%2c2%2c4%5d%20%e6%b3%a8%ef%bc%9a%5b3%2c1%2c2%2c4%5d%20%e4%b9%9f%e6%98%af%e6%ad%a3%e7%a1%ae%e7%9a%84%e7%ad%94%e6%a1%88%e4%b9%8b%e4%b8%80%e3%80%82%0d%e9%99%90%e5%88%b6%201%20%26lt%3b%3d%20nums.length%20%26lt%3b%3d%2050000%0d1%20%26lt%3b%3d%20nums%5bi%5d%20%26lt%3b%3d%2010000%0d%e6%80%9d%e8%b7%af%20%e5%8f%8c%e6%8c%87%e9%92%88%20P.Q%0d%e4%bf%9d%e8%af%81P%e4%b9%8b%e5%89%8d%e6%b2%a1%e6%9c%89%e5%ad%98%e5%9c%a8%e5%81%b6%e6%95%b0%0d%e5%8d%b3%e4%bf%9d%e5%ad%98%e5%bd%93%e5%89%8d%e6%95%b0%e7%bb%84%e4%b8%ad%e7%ac%ac%e4%b8%80%e4%b8%aa%e5%81%b6%e6%95%b0%e7%9a%84%e4%bd%8d%e7%bd%ae%0dQ%20%e5%90%91%e5%90%8e%e9%81%8d%e5%8e%86%ef%bc%8c%e7%a2%b0%e5%88%b0%e5%a5%87%e6%95%b0%e7%9a%84%e6%97%b6%e5%80%99%ef%bc%8c%e6%9f%a5%e7%9c%8b%e5%89%8d%e9%9d%a2%e6%98%af%e5%90%a6%e6%9c%89%e6%9c%89%e5%81%b6%e6%95%b0%0d%e5%ae%9e%e7%8e%b0%20func%20exchange%28nums%20%5b%5dint%29%20%5b%5dint%20%7b%20p%20%3a%3d%20-1%20for%20q%20%3a%3d%200%3b%20q%20%26lt%3b%20len%28nums%29%3b%20q%2b%2b%20%7b%20%2f%2f%20%e5%81%b6%e6%95%b0%ef%bc%8c%e4%ba%a4%e6%8d%a2%20%20if%20p%20%3d%3d%20-1%20%26amp%3b%26amp%3b%20nums%5bq%5d%20%25%202%20%3d%3d%200%20%7b%20%2f%2f%20%e7%ac%ac%e4%b8%80%e6%ac%a1%e5%8f%91%e7%8e%b0%20%20p%20%3d%20q%20%7d%20else%20%7b%20%2f%2f%20%e5%a5%87%e6%95%b0%ef%bc%8c%e4%ba%a4%e6%8d%a2%20%20if%20p%20%21&source=rafed123.github.io"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on LinkedIn. Opens in a new window." >
+	        <img src=/img/icons/45px/linkedin.png>
+	    </a>
+
+	    <a  href="mailto:?subject=%231614%5b%e8%b0%83%e6%95%b4%e6%95%b0%e7%bb%84%e9%a1%ba%e5%ba%8f%e4%bd%bf%e5%a5%87%e6%95%b0%e4%bd%8d%e4%ba%8e%e5%81%b6%e6%95%b0%e5%89%8d%e9%9d%a2%5d&amp;body=Check out this site https%3a%2f%2fcheene.github.io%2fposts%2fleet-code-1614%2f"
+	        title="Share via Email. Opens in a new window." >
+	        <img src=/img/icons/45px/mail.png>
+	    </a>
+	</div>
+</div>
+
+
+<br>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    (function () {
+        
+        
+        if (window.location.hostname == "localhost")
+            return;
+
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'disqus-code';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+        </div>
+    </div>
+
+<footer class="footer has-background-dark">
+    <div class="content has-text-centered has-text-white">
+        <p>
+            © 2020 Ramium. Powered by
+            <a class="has-text-light" href="https://github.com/gohugoio/hugo" target="_blank">
+            Hugo</a>. Theme
+            <a class="has-text-light" href="https://github.com/rafed123/ramium/" target="_blank">
+                Ramium.
+            </a>
+        </p>
+    </div>
+</footer>
+</body>
+
+</html>

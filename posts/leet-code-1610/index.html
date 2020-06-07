@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ZH-CN"><title>
+    #1610 [打印从1到最大的n位数] | 
+    
+    CHENENE</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<meta name="description" 
+      content="题目 输入数字 n，按顺序打印出从 1 到最大的 n 位十进制数。比如输入 3，则打印出 1、2、3 一直到最大的 3 位数 999。示例 输入: n = 1输出: [1,2,3,4,5,6,7,8,9]限制 思路 1 根据 n 得到最大值2 新建数组并初始化3 返回数组实现 func printNumbers(n int) []int { if n == 0 { return []int{} } max := 0 for i := 0; i &lt; n; i&#43;&#43; { max *= 10 max &#43;= 9 } nums := make([]int,max) for i := 0; i &lt; len(nums); i&#43;&#43; { nums[i] = i&#43;1 } return nums } 
+                ">
+
+<link rel="canonical" href="https://cheene.github.io/posts/leet-code-1610/" />
+
+<link rel="icon" type="image/png" href="https://cheene.github.io/image/favicon.ico">
+
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/bulma.min.css">
+
+<meta property="og:title" content="#1610 [打印从1到最大的n位数]" />
+<meta property="og:description" content="题目 输入数字 n，按顺序打印出从 1 到最大的 n 位十进制数。比如输入 3，则打印出 1、2、3 一直到最大的 3 位数 999。示例 输入: n = 1输出: [1,2,3,4,5,6,7,8,9]限制 思路 1 根据 n 得到最大值2 新建数组并初始化3 返回数组实现 func printNumbers(n int) []int { if n == 0 { return []int{} } max := 0 for i := 0; i &lt; n; i&#43;&#43; { max *= 10 max &#43;= 9 } nums := make([]int,max) for i := 0; i &lt; len(nums); i&#43;&#43; { nums[i] = i&#43;1 } return nums } " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cheene.github.io/posts/leet-code-1610/" />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="#1610 [打印从1到最大的n位数]"/>
+<meta name="twitter:description" content="题目 输入数字 n，按顺序打印出从 1 到最大的 n 位十进制数。比如输入 3，则打印出 1、2、3 一直到最大的 3 位数 999。示例 输入: n = 1输出: [1,2,3,4,5,6,7,8,9]限制 思路 1 根据 n 得到最大值2 新建数组并初始化3 返回数组实现 func printNumbers(n int) []int { if n == 0 { return []int{} } max := 0 for i := 0; i &lt; n; i&#43;&#43; { max *= 10 max &#43;= 9 } nums := make([]int,max) for i := 0; i &lt; len(nums); i&#43;&#43; { nums[i] = i&#43;1 } return nums } "/>
+
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'analytics-code', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+<script src=/js/ramium.js></script>
+<link rel="stylesheet" href=/css/ramium.css>
+
+
+
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'analytics-code', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<body><nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href=/>
+      
+      <strong>CHENENE </strong>
+      
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+      data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      
+      
+      <a class="navbar-item" href="/">Home</a>
+      
+      
+      
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">This Blog</a>
+        <div class="navbar-dropdown">
+          
+          <a class="navbar-item" href="/tags/">All Tags</a>
+          
+          <a class="navbar-item" href="/sections/">All Sections</a>
+          
+          <a class="navbar-item" href="/posts/">All Posts</a>
+          
+        </div>
+      </div>
+      
+      
+      
+      <a class="navbar-item" href="/thinks/">Think Different</a>
+      
+      
+      
+      <a class="navbar-item" href="/author/">Author</a>
+      
+      
+    </div>
+
+    <div class="navbar-end">
+      
+      <a class="navbar-item navgithub" href="https://github.com//" target="_blank">
+        <i class="fa fa-github fa-2x"></i>
+      </a>
+      
+
+      
+    </div>
+  </div>
+</nav><div class="columns is-centered">
+        <div id="page-body" class="column is-7">
+
+<div class="content blog">
+    <h1 class="title">#1610 [打印从1到最大的n位数]</h1>
+
+    <div id="infobar" class="level is-mobile">
+        <div class="level-left">
+            
+            <div class="level-item">
+                <p class="subtitle info date">Jan 1, 0001
+                </p>
+            </div>
+            
+
+            <div class="level-item">
+                <p class="subtitle info">
+                    1 min read
+                </p>
+            </div>
+        </div>
+        <div class="level-right is-hidden-touch">
+            <div class="tags">
+                
+                <a class="tag is-dark is-rounded" href="/tags/leet-code">Leet code</a>
+                
+                <a class="tag is-dark is-rounded" href="/tags/%E7%AE%97%E6%B3%95">算法</a>
+                
+                <a class="tag is-dark is-rounded" href="/tags/%E6%95%B0%E7%BB%84">数组</a>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="tags is-hidden-desktop">
+        
+        <a class="tag is-dark is-rounded" href="/tags/leet-code">Leet code</a>
+        
+        <a class="tag is-dark is-rounded" href="/tags/%E7%AE%97%E6%B3%95">算法</a>
+        
+        <a class="tag is-dark is-rounded" href="/tags/%E6%95%B0%E7%BB%84">数组</a>
+        
+    </div>
+
+    <div class="blog-text">
+        
+
+        <h2 id="题目">题目</h2>
+<pre><code>输入数字 n，按顺序打印出从 1 到最大的 n 位十进制数。比如输入 3，则打印出 1、2、3 一直到最大的 3 位数 999。
+</code></pre><h2 id="示例"><strong>示例</strong></h2>
+<pre><code>输入: n = 1
+输出: [1,2,3,4,5,6,7,8,9]
+</code></pre><h2 id="限制"><strong>限制</strong></h2>
+<pre><code>
+</code></pre><h2 id="思路">思路</h2>
+<pre><code>1 根据 n 得到最大值
+2 新建数组并初始化
+3 返回数组
+</code></pre><h2 id="实现">实现</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">printNumbers</span>(<span style="color:#a6e22e">n</span> <span style="color:#66d9ef">int</span>) []<span style="color:#66d9ef">int</span> {
+    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> {
+        <span style="color:#66d9ef">return</span> []<span style="color:#66d9ef">int</span>{}
+    }
+
+    <span style="color:#a6e22e">max</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>
+    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">n</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+        <span style="color:#a6e22e">max</span> <span style="color:#f92672">*=</span> <span style="color:#ae81ff">10</span>
+        <span style="color:#a6e22e">max</span> <span style="color:#f92672">+=</span> <span style="color:#ae81ff">9</span>
+    }
+
+    <span style="color:#a6e22e">nums</span> <span style="color:#f92672">:=</span> make([]<span style="color:#66d9ef">int</span>,<span style="color:#a6e22e">max</span>)
+    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; len(<span style="color:#a6e22e">nums</span>); <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+        <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">i</span>] = <span style="color:#a6e22e">i</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">nums</span>
+}
+</code></pre></div>
+    </div>
+</div><div id="social-media-share" class="has-text-centered">
+	<p><i>Sharing is caring!</i></p>
+	<br>
+	
+	<div class="share-buttons">
+	    <a  href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcheene.github.io%2fposts%2fleet-code-1610%2f"
+	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
+	        title="Share on Facebook. Opens in a new window.">
+	        <img src=/img/icons/45px/facebook.png>
+	    </a>
+
+	    <a  href="https://twitter.com/intent/tweet?text=%231610%20%5b%e6%89%93%e5%8d%b0%e4%bb%8e1%e5%88%b0%e6%9c%80%e5%a4%a7%e7%9a%84n%e4%bd%8d%e6%95%b0%5d&url=https%3a%2f%2fcheene.github.io%2fposts%2fleet-code-1610%2f"
+	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
+	        title="Share on Twitter. Opens in a new window." >
+	        <img src=/img/icons/45px/twitter.png>
+	    </a>
+
+		<a  href="http://www.reddit.com/submit?url=https%3a%2f%2fcheene.github.io%2fposts%2fleet-code-1610%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Reddit. Opens in a new window." >
+	        <img src=/img/icons/45px/reddit.png>
+	    </a>
+
+	    <a  href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fcheene.github.io%2fposts%2fleet-code-1610%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Pinterest. Opens in a new window." >
+	        <img src=/img/icons/45px/pinterest.png>
+	    </a>
+
+	    <a  href="http://www.tumblr.com/share/link?url=https%3a%2f%2fcheene.github.io%2fposts%2fleet-code-1610%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Tumblr. Opens in a new window." >
+	        <img src=/img/icons/45px/tumblr.png>
+	    </a>
+
+		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fcheene.github.io%2fposts%2fleet-code-1610%2f
+			&title=%231610%20%5b%e6%89%93%e5%8d%b0%e4%bb%8e1%e5%88%b0%e6%9c%80%e5%a4%a7%e7%9a%84n%e4%bd%8d%e6%95%b0%5d&summary=%e9%a2%98%e7%9b%ae%20%e8%be%93%e5%85%a5%e6%95%b0%e5%ad%97%20n%ef%bc%8c%e6%8c%89%e9%a1%ba%e5%ba%8f%e6%89%93%e5%8d%b0%e5%87%ba%e4%bb%8e%201%20%e5%88%b0%e6%9c%80%e5%a4%a7%e7%9a%84%20n%20%e4%bd%8d%e5%8d%81%e8%bf%9b%e5%88%b6%e6%95%b0%e3%80%82%e6%af%94%e5%a6%82%e8%be%93%e5%85%a5%203%ef%bc%8c%e5%88%99%e6%89%93%e5%8d%b0%e5%87%ba%201%e3%80%812%e3%80%813%20%e4%b8%80%e7%9b%b4%e5%88%b0%e6%9c%80%e5%a4%a7%e7%9a%84%203%20%e4%bd%8d%e6%95%b0%20999%e3%80%82%0d%e7%a4%ba%e4%be%8b%20%e8%be%93%e5%85%a5%3a%20n%20%3d%201%0d%e8%be%93%e5%87%ba%3a%20%5b1%2c2%2c3%2c4%2c5%2c6%2c7%2c8%2c9%5d%0d%e9%99%90%e5%88%b6%20%0d%e6%80%9d%e8%b7%af%201%20%e6%a0%b9%e6%8d%ae%20n%20%e5%be%97%e5%88%b0%e6%9c%80%e5%a4%a7%e5%80%bc%0d2%20%e6%96%b0%e5%bb%ba%e6%95%b0%e7%bb%84%e5%b9%b6%e5%88%9d%e5%a7%8b%e5%8c%96%0d3%20%e8%bf%94%e5%9b%9e%e6%95%b0%e7%bb%84%0d%e5%ae%9e%e7%8e%b0%20func%20printNumbers%28n%20int%29%20%5b%5dint%20%7b%20if%20n%20%3d%3d%200%20%7b%20return%20%5b%5dint%7b%7d%20%7d%20max%20%3a%3d%200%20for%20i%20%3a%3d%200%3b%20i%20%26lt%3b%20n%3b%20i%2b%2b%20%7b%20max%20%2a%3d%2010%20max%20%2b%3d%209%20%7d%20nums%20%3a%3d%20make%28%5b%5dint%2cmax%29%20for%20i%20%3a%3d%200%3b%20i%20%26lt%3b%20len%28nums%29%3b%20i%2b%2b%20%7b%20nums%5bi%5d%20%3d%20i%2b1%20%7d%20return%20nums%20%7d%20&source=rafed123.github.io"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on LinkedIn. Opens in a new window." >
+	        <img src=/img/icons/45px/linkedin.png>
+	    </a>
+
+	    <a  href="mailto:?subject=%231610%20%5b%e6%89%93%e5%8d%b0%e4%bb%8e1%e5%88%b0%e6%9c%80%e5%a4%a7%e7%9a%84n%e4%bd%8d%e6%95%b0%5d&amp;body=Check out this site https%3a%2f%2fcheene.github.io%2fposts%2fleet-code-1610%2f"
+	        title="Share via Email. Opens in a new window." >
+	        <img src=/img/icons/45px/mail.png>
+	    </a>
+	</div>
+</div>
+
+
+<br>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    (function () {
+        
+        
+        if (window.location.hostname == "localhost")
+            return;
+
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'disqus-code';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+        </div>
+    </div>
+
+<footer class="footer has-background-dark">
+    <div class="content has-text-centered has-text-white">
+        <p>
+            © 2020 Ramium. Powered by
+            <a class="has-text-light" href="https://github.com/gohugoio/hugo" target="_blank">
+            Hugo</a>. Theme
+            <a class="has-text-light" href="https://github.com/rafed123/ramium/" target="_blank">
+                Ramium.
+            </a>
+        </p>
+    </div>
+</footer>
+</body>
+
+</html>

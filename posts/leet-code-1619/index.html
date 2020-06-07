@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ZH-CN"><title>
+    
+    
+    CHENENE</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<meta name="description" 
+      content="#1619 二叉树的镜像 题目 请完成一个函数，输入一个二叉树，该函数输出它的镜像。示例 例如输入：4/ \2 7/ \ / \1 3 6 9镜像输出：4/ \7 2/ \ / \9 6 3 1输入：root = [4,2,7,1,3,6,9]输出：[4,7,2,9,6,3,1]限制 0 &lt;= 节点个数 &lt;= 1000思路 需要交换左右子树的位置而不仅仅是元素判断当前节点的子树行为如果只有左子树右子树设置为左子树，左子树为空递归修改右子树如果只有右子树左子树设置为右子树，右子树为空递归修改左子树否则左右子树调换左右子树递归实现 func mirrorTree(root *TreeNode) *TreeNode { if root == nil { return root } /** 如果是空子树要注意 */ if root.
+                ">
+
+<link rel="canonical" href="https://cheene.github.io/posts/leet-code-1619/" />
+
+<link rel="icon" type="image/png" href="https://cheene.github.io/image/favicon.ico">
+
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/bulma.min.css">
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="#1619 二叉树的镜像 题目 请完成一个函数，输入一个二叉树，该函数输出它的镜像。示例 例如输入：4/ \2 7/ \ / \1 3 6 9镜像输出：4/ \7 2/ \ / \9 6 3 1输入：root = [4,2,7,1,3,6,9]输出：[4,7,2,9,6,3,1]限制 0 &lt;= 节点个数 &lt;= 1000思路 需要交换左右子树的位置而不仅仅是元素判断当前节点的子树行为如果只有左子树右子树设置为左子树，左子树为空递归修改右子树如果只有右子树左子树设置为右子树，右子树为空递归修改左子树否则左右子树调换左右子树递归实现 func mirrorTree(root *TreeNode) *TreeNode { if root == nil { return root } /** 如果是空子树要注意 */ if root." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cheene.github.io/posts/leet-code-1619/" />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="#1619 二叉树的镜像 题目 请完成一个函数，输入一个二叉树，该函数输出它的镜像。示例 例如输入：4/ \2 7/ \ / \1 3 6 9镜像输出：4/ \7 2/ \ / \9 6 3 1输入：root = [4,2,7,1,3,6,9]输出：[4,7,2,9,6,3,1]限制 0 &lt;= 节点个数 &lt;= 1000思路 需要交换左右子树的位置而不仅仅是元素判断当前节点的子树行为如果只有左子树右子树设置为左子树，左子树为空递归修改右子树如果只有右子树左子树设置为右子树，右子树为空递归修改左子树否则左右子树调换左右子树递归实现 func mirrorTree(root *TreeNode) *TreeNode { if root == nil { return root } /** 如果是空子树要注意 */ if root."/>
+
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'analytics-code', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+<script src=/js/ramium.js></script>
+<link rel="stylesheet" href=/css/ramium.css>
+
+
+
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'analytics-code', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<body><nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href=/>
+      
+      <strong>CHENENE </strong>
+      
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+      data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      
+      
+      <a class="navbar-item" href="/">Home</a>
+      
+      
+      
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">This Blog</a>
+        <div class="navbar-dropdown">
+          
+          <a class="navbar-item" href="/tags/">All Tags</a>
+          
+          <a class="navbar-item" href="/sections/">All Sections</a>
+          
+          <a class="navbar-item" href="/posts/">All Posts</a>
+          
+        </div>
+      </div>
+      
+      
+      
+      <a class="navbar-item" href="/thinks/">Think Different</a>
+      
+      
+      
+      <a class="navbar-item" href="/author/">Author</a>
+      
+      
+    </div>
+
+    <div class="navbar-end">
+      
+      <a class="navbar-item navgithub" href="https://github.com//" target="_blank">
+        <i class="fa fa-github fa-2x"></i>
+      </a>
+      
+
+      
+    </div>
+  </div>
+</nav><div class="columns is-centered">
+        <div id="page-body" class="column is-7">
+
+<div class="content blog">
+    <h1 class="title"></h1>
+
+    <div id="infobar" class="level is-mobile">
+        <div class="level-left">
+            
+            <div class="level-item">
+                <p class="subtitle info date">Jan 1, 0001
+                </p>
+            </div>
+            
+
+            <div class="level-item">
+                <p class="subtitle info">
+                    2 mins read
+                </p>
+            </div>
+        </div>
+        <div class="level-right is-hidden-touch">
+            <div class="tags">
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="tags is-hidden-desktop">
+        
+    </div>
+
+    <div class="blog-text">
+        
+
+        <h1 id="1619-二叉树的镜像httpsleetcode-cncomproblemser-cha-shu-de-jing-xiang-lcof">#1619 <a href="https://leetcode-cn.com/problems/er-cha-shu-de-jing-xiang-lcof/">二叉树的镜像</a></h1>
+<h2 id="题目">题目</h2>
+<pre><code>请完成一个函数，输入一个二叉树，该函数输出它的镜像。
+</code></pre><h2 id="示例"><strong>示例</strong></h2>
+<pre><code>例如输入：
+
+     4
+   /   \
+  2     7
+ / \   / \
+1   3 6   9
+镜像输出：
+
+     4
+   /   \
+  7     2
+ / \   / \
+9   6 3   1
+
+输入：root = [4,2,7,1,3,6,9]
+输出：[4,7,2,9,6,3,1]
+</code></pre><h2 id="限制"><strong>限制</strong></h2>
+<pre><code>0 &lt;= 节点个数 &lt;= 1000
+</code></pre><h2 id="思路">思路</h2>
+<pre><code>需要交换左右子树的位置而不仅仅是元素
+判断当前节点的子树行为
+	如果只有左子树
+		右子树设置为左子树，左子树为空
+		递归修改右子树
+	如果只有右子树
+		左子树设置为右子树，右子树为空
+		递归修改左子树
+	否则
+		左右子树调换
+		左右子树递归
+</code></pre><h2 id="实现">实现</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">mirrorTree</span>(<span style="color:#a6e22e">root</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">TreeNode</span>) <span style="color:#f92672">*</span><span style="color:#a6e22e">TreeNode</span> {
+    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">root</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">root</span>
+    }
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">    如果是空子树要注意
+</span><span style="color:#75715e">    */</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">root</span>.<span style="color:#a6e22e">Left</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">root</span>.<span style="color:#a6e22e">Right</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">root</span>
+    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">root</span>.<span style="color:#a6e22e">Left</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+        <span style="color:#a6e22e">root</span>.<span style="color:#a6e22e">Left</span>, <span style="color:#a6e22e">root</span>.<span style="color:#a6e22e">Right</span> = <span style="color:#a6e22e">root</span>.<span style="color:#a6e22e">Right</span>,<span style="color:#66d9ef">nil</span>
+        <span style="color:#a6e22e">mirrorTree</span>(<span style="color:#a6e22e">root</span>.<span style="color:#a6e22e">Left</span>)
+    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">root</span>.<span style="color:#a6e22e">Right</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+        <span style="color:#a6e22e">root</span>.<span style="color:#a6e22e">Left</span>, <span style="color:#a6e22e">root</span>.<span style="color:#a6e22e">Right</span> = <span style="color:#66d9ef">nil</span>, <span style="color:#a6e22e">root</span>.<span style="color:#a6e22e">Left</span>
+        <span style="color:#a6e22e">mirrorTree</span>(<span style="color:#a6e22e">root</span>.<span style="color:#a6e22e">Right</span>)
+    } <span style="color:#66d9ef">else</span> {
+        <span style="color:#a6e22e">root</span>.<span style="color:#a6e22e">Left</span>, <span style="color:#a6e22e">root</span>.<span style="color:#a6e22e">Right</span> = <span style="color:#a6e22e">root</span>.<span style="color:#a6e22e">Right</span>, <span style="color:#a6e22e">root</span>.<span style="color:#a6e22e">Left</span>
+        <span style="color:#a6e22e">mirrorTree</span>(<span style="color:#a6e22e">root</span>.<span style="color:#a6e22e">Left</span>)
+        <span style="color:#a6e22e">mirrorTree</span>(<span style="color:#a6e22e">root</span>.<span style="color:#a6e22e">Right</span>)
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">root</span>
+}
+</code></pre></div>
+    </div>
+</div><div id="social-media-share" class="has-text-centered">
+	<p><i>Sharing is caring!</i></p>
+	<br>
+	
+	<div class="share-buttons">
+	    <a  href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcheene.github.io%2fposts%2fleet-code-1619%2f"
+	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
+	        title="Share on Facebook. Opens in a new window.">
+	        <img src=/img/icons/45px/facebook.png>
+	    </a>
+
+	    <a  href="https://twitter.com/intent/tweet?text=&url=https%3a%2f%2fcheene.github.io%2fposts%2fleet-code-1619%2f"
+	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
+	        title="Share on Twitter. Opens in a new window." >
+	        <img src=/img/icons/45px/twitter.png>
+	    </a>
+
+		<a  href="http://www.reddit.com/submit?url=https%3a%2f%2fcheene.github.io%2fposts%2fleet-code-1619%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Reddit. Opens in a new window." >
+	        <img src=/img/icons/45px/reddit.png>
+	    </a>
+
+	    <a  href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fcheene.github.io%2fposts%2fleet-code-1619%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Pinterest. Opens in a new window." >
+	        <img src=/img/icons/45px/pinterest.png>
+	    </a>
+
+	    <a  href="http://www.tumblr.com/share/link?url=https%3a%2f%2fcheene.github.io%2fposts%2fleet-code-1619%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Tumblr. Opens in a new window." >
+	        <img src=/img/icons/45px/tumblr.png>
+	    </a>
+
+		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fcheene.github.io%2fposts%2fleet-code-1619%2f
+			&title=&summary=%231619%20%e4%ba%8c%e5%8f%89%e6%a0%91%e7%9a%84%e9%95%9c%e5%83%8f%20%e9%a2%98%e7%9b%ae%20%e8%af%b7%e5%ae%8c%e6%88%90%e4%b8%80%e4%b8%aa%e5%87%bd%e6%95%b0%ef%bc%8c%e8%be%93%e5%85%a5%e4%b8%80%e4%b8%aa%e4%ba%8c%e5%8f%89%e6%a0%91%ef%bc%8c%e8%af%a5%e5%87%bd%e6%95%b0%e8%be%93%e5%87%ba%e5%ae%83%e7%9a%84%e9%95%9c%e5%83%8f%e3%80%82%0d%e7%a4%ba%e4%be%8b%20%e4%be%8b%e5%a6%82%e8%be%93%e5%85%a5%ef%bc%9a%0d4%0d%2f%20%5c%0d2%207%0d%2f%20%5c%20%2f%20%5c%0d1%203%206%209%0d%e9%95%9c%e5%83%8f%e8%be%93%e5%87%ba%ef%bc%9a%0d4%0d%2f%20%5c%0d7%202%0d%2f%20%5c%20%2f%20%5c%0d9%206%203%c2%a01%0d%e8%be%93%e5%85%a5%ef%bc%9aroot%20%3d%20%5b4%2c2%2c7%2c1%2c3%2c6%2c9%5d%0d%e8%be%93%e5%87%ba%ef%bc%9a%5b4%2c7%2c2%2c9%2c6%2c3%2c1%5d%0d%e9%99%90%e5%88%b6%200%20%26lt%3b%3d%20%e8%8a%82%e7%82%b9%e4%b8%aa%e6%95%b0%20%26lt%3b%3d%201000%0d%e6%80%9d%e8%b7%af%20%e9%9c%80%e8%a6%81%e4%ba%a4%e6%8d%a2%e5%b7%a6%e5%8f%b3%e5%ad%90%e6%a0%91%e7%9a%84%e4%bd%8d%e7%bd%ae%e8%80%8c%e4%b8%8d%e4%bb%85%e4%bb%85%e6%98%af%e5%85%83%e7%b4%a0%0d%e5%88%a4%e6%96%ad%e5%bd%93%e5%89%8d%e8%8a%82%e7%82%b9%e7%9a%84%e5%ad%90%e6%a0%91%e8%a1%8c%e4%b8%ba%0d%e5%a6%82%e6%9e%9c%e5%8f%aa%e6%9c%89%e5%b7%a6%e5%ad%90%e6%a0%91%0d%e5%8f%b3%e5%ad%90%e6%a0%91%e8%ae%be%e7%bd%ae%e4%b8%ba%e5%b7%a6%e5%ad%90%e6%a0%91%ef%bc%8c%e5%b7%a6%e5%ad%90%e6%a0%91%e4%b8%ba%e7%a9%ba%0d%e9%80%92%e5%bd%92%e4%bf%ae%e6%94%b9%e5%8f%b3%e5%ad%90%e6%a0%91%0d%e5%a6%82%e6%9e%9c%e5%8f%aa%e6%9c%89%e5%8f%b3%e5%ad%90%e6%a0%91%0d%e5%b7%a6%e5%ad%90%e6%a0%91%e8%ae%be%e7%bd%ae%e4%b8%ba%e5%8f%b3%e5%ad%90%e6%a0%91%ef%bc%8c%e5%8f%b3%e5%ad%90%e6%a0%91%e4%b8%ba%e7%a9%ba%0d%e9%80%92%e5%bd%92%e4%bf%ae%e6%94%b9%e5%b7%a6%e5%ad%90%e6%a0%91%0d%e5%90%a6%e5%88%99%0d%e5%b7%a6%e5%8f%b3%e5%ad%90%e6%a0%91%e8%b0%83%e6%8d%a2%0d%e5%b7%a6%e5%8f%b3%e5%ad%90%e6%a0%91%e9%80%92%e5%bd%92%0d%e5%ae%9e%e7%8e%b0%20func%20mirrorTree%28root%20%2aTreeNode%29%20%2aTreeNode%20%7b%20if%20root%20%3d%3d%20nil%20%7b%20return%20root%20%7d%20%2f%2a%2a%20%e5%a6%82%e6%9e%9c%e6%98%af%e7%a9%ba%e5%ad%90%e6%a0%91%e8%a6%81%e6%b3%a8%e6%84%8f%20%2a%2f%20if%20root.&source=rafed123.github.io"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on LinkedIn. Opens in a new window." >
+	        <img src=/img/icons/45px/linkedin.png>
+	    </a>
+
+	    <a  href="mailto:?subject=&amp;body=Check out this site https%3a%2f%2fcheene.github.io%2fposts%2fleet-code-1619%2f"
+	        title="Share via Email. Opens in a new window." >
+	        <img src=/img/icons/45px/mail.png>
+	    </a>
+	</div>
+</div>
+
+
+<br>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    (function () {
+        
+        
+        if (window.location.hostname == "localhost")
+            return;
+
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'disqus-code';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+        </div>
+    </div>
+
+<footer class="footer has-background-dark">
+    <div class="content has-text-centered has-text-white">
+        <p>
+            © 2020 Ramium. Powered by
+            <a class="has-text-light" href="https://github.com/gohugoio/hugo" target="_blank">
+            Hugo</a>. Theme
+            <a class="has-text-light" href="https://github.com/rafed123/ramium/" target="_blank">
+                Ramium.
+            </a>
+        </p>
+    </div>
+</footer>
+</body>
+
+</html>
