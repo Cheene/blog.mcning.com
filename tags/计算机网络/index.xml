@@ -12,12 +12,12 @@
     
     
     <item>
-      <title>How Computer Network 03</title>
+      <title>第三章 从网线到网络设备</title>
       <link>https://cheene.github.io/posts/how-computer-network-03/</link>
       <pubDate>Sun, 07 Jun 2020 15:39:55 +0800</pubDate>
       
       <guid>https://cheene.github.io/posts/how-computer-network-03/</guid>
-      <description>第三章 从网线到网络设备 本章主要讲解的是电信号从 RJ-45 接口出来，到达集线器，交换机和路由器以及路由器往外转发的过程。在家庭的路由中，交换机和集线器一般集成在一起了或者直接没有集线器。
+      <description>本章主要讲解的是电信号从 RJ-45 接口出来，到达集线器，交换机和路由器以及路由器往外转发的过程。在家庭的路由中，交换机和集线器一般集成在一起了或者直接没有集线器。
 信号从网卡出来到集线器的时候   数据包之间的传输是独立的，仅仅负责传包并不会考虑内部的数据。
   从网卡到集线器的时候信号就会出现衰减，而且电信号频率越高，损失就越大。
   双绞线的存在是为了抑制噪声，减少衰减。 网线的周围的电磁波碰到金属等导体会产生电流，而信号本身就是带有电压变化的电流，混在一起容易导致失真。 电磁波有两种来源
