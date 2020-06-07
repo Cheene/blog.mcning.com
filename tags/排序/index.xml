@@ -6,6 +6,7 @@
     <description>Recent content in 排序 on CHENENE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ZH-CN</language>
+    <lastBuildDate>Sun, 07 Jun 2020 12:28:04 +0800</lastBuildDate>
     
 	<atom:link href="https://cheene.github.io/tags/%E6%8E%92%E5%BA%8F/index.xml" rel="self" type="application/rss+xml" />
     
@@ -13,7 +14,7 @@
     <item>
       <title>#1620 [最小的k个数]</title>
       <link>https://cheene.github.io/posts/leet-code-1620/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 07 Jun 2020 12:28:04 +0800</pubDate>
       
       <guid>https://cheene.github.io/posts/leet-code-1620/</guid>
       <description>题目 输入整数数组 arr ，找出其中最小的 k 个数。例如，输入4、5、1、6、2、7、3、8这8个数字，则最小的4个数字是1、2、3、4。示例 输入：arr = [3,2,1], k = 2输出：[1,2] 或者 [2,1]限制 0 &amp;lt;= k &amp;lt;= arr.length &amp;lt;= 100000 &amp;lt;= arr[i] &amp;lt;= 10000思路 冒泡排序 或 选择排序 或 其他排序方式 k轮实现 func getLeastNumbers(arr []int, k int) []int { if arr == nil || len(arr) == 1{ return arr } for i := 0; i &amp;lt; k; i++ { min := i for j := i+1; j &amp;lt; len(arr); j++ { if arr[min] &amp;gt; arr[j] { min = j } } if min !</description>

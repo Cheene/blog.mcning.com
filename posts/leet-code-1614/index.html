@@ -22,7 +22,8 @@
 <meta property="og:description" content="题目 输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有奇数位于数组的前半部分，所有偶数位于数组的后半部分。示例 输入：nums = [1,2,3,4]输出：[1,3,2,4] 注：[3,1,2,4] 也是正确的答案之一。限制 1 &lt;= nums.length &lt;= 500001 &lt;= nums[i] &lt;= 10000思路 双指针 P.Q保证P之前没有存在偶数即保存当前数组中第一个偶数的位置Q 向后遍历，碰到奇数的时候，查看前面是否有有偶数实现 func exchange(nums []int) []int { p := -1 for q := 0; q &lt; len(nums); q&#43;&#43; { // 偶数，交换  if p == -1 &amp;&amp; nums[q] % 2 == 0 { // 第一次发现  p = q } else { // 奇数，交换  if p !" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://cheene.github.io/posts/leet-code-1614/" />
-
+<meta property="article:published_time" content="2020-06-07T12:28:04+08:00" />
+<meta property="article:modified_time" content="2020-06-07T12:28:04+08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="#1614[调整数组顺序使奇数位于偶数前面]"/>
@@ -130,7 +131,7 @@ if (!doNotTrack) {
         <div class="level-left">
             
             <div class="level-item">
-                <p class="subtitle info date">Jan 1, 0001
+                <p class="subtitle info date">Jun 7, 2020
                 </p>
             </div>
             

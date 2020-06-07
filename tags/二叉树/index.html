@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ZH-CN"><title>
-    Posts | 
+    二叉树 | 
     
     CHENENE</title>
 
@@ -11,21 +11,21 @@
       content="A description for the meta tag of the site
                 ">
 
-<link rel="canonical" href="https://cheene.github.io/posts/" />
+<link rel="canonical" href="https://cheene.github.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" />
 
 <link rel="icon" type="image/png" href="https://cheene.github.io/image/favicon.ico">
 
 <link rel="stylesheet" href="/css/font-awesome.min.css">
 <link rel="stylesheet" href="/css/bulma.min.css">
 
-<meta property="og:title" content="Posts" />
+<meta property="og:title" content="二叉树" />
 <meta property="og:description" content="A description for the meta tag of the site" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://cheene.github.io/posts/" />
+<meta property="og:url" content="https://cheene.github.io/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" />
 <meta property="og:updated_time" content="2020-06-07T12:28:04+08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Posts"/>
+<meta name="twitter:title" content="二叉树"/>
 <meta name="twitter:description" content="A description for the meta tag of the site"/>
 
 
@@ -124,14 +124,13 @@ if (!doNotTrack) {
         <div id="page-body" class="column is-7">
 
 <div class="content">
-    <h1 class="title is-3">Posts</h1>
+    <h1>二叉树</h1>
 </div>
 
-
 <div class="blog-brief">
-    <a href="/posts/git/">
+    <a href="/posts/leet-code-1619/">
         <h3 class="title is-4">
-            Git基础
+            #1619[二叉树的镜像]
         </h3>
     </a>
 
@@ -140,8 +139,8 @@ if (!doNotTrack) {
 
             
             <div class="level-item">
-                <a href="/posts/git/">
-                    <p class="subtitle info date">May 10, 2020
+                <a href="/posts/leet-code-1619/">
+                    <p class="subtitle info date">Jun 7, 2020
                     </p>
                 </a>
             </div>
@@ -149,16 +148,20 @@ if (!doNotTrack) {
 
 
             <div class="level-item">
-                <a href="/posts/git/">
+                <a href="/posts/leet-code-1619/">
                     <p class="subtitle info">
-                        10 mins read
+                        2 mins read
                     </p>
                 </a>
             </div>
         </div>
         <div class="level-right is-hidden-touch">
             
-            <a class="tag is-rounded" href="/tags/git">Git</a>
+            <a class="tag is-rounded" href="/tags/leet-code">Leet code</a>
+            
+            <a class="tag is-rounded" href="/tags/%E7%AE%97%E6%B3%95">算法</a>
+            
+            <a class="tag is-rounded" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91">二叉树</a>
             
         </div>
     </div>
@@ -167,11 +170,9 @@ if (!doNotTrack) {
         
 
         <div>
-            <a href="/posts/git/">
+            <a href="/posts/leet-code-1619/">
                 <p class="summary">
-                    Git 一 开始了解 Git 服务器并不是为了存储数据使用，而是为了方便大家来交换修改而设定。
-1 Git 如何保证完整性？ 通过计算校验和利用 SHA-1
-2 Git 三种状态  staged 已暂存：已修改文件的当前版本做了标记，使之包含在下次提交的快照中。 modified 已修改：修改了文件，但还没有保存在数据库中。 committed 已提交： 数据已安全的保存在数据库里面。  3 Git 三个工作区  Git 仓库 工作目录 暂存区域  4 Git 工作三步曲  在工作目录里面修改文件 暂存文件，将文件的快照放入暂存区域 提交更新，从暂存区域存储到Git仓库目录  二 基础 1 初始化一个空白仓库 git init	// 新建仓库 git add file.
+                    题目 请完成一个函数，输入一个二叉树，该函数输出它的镜像。示例 例如输入：4/ \2 7/ \ / \1 3 6 9镜像输出：4/ \7 2/ \ / \9 6 3 1输入：root = [4,2,7,1,3,6,9]输出：[4,7,2,9,6,3,1]限制 0 &amp;lt;= 节点个数 &amp;lt;= 1000思路 需要交换左右子树的位置而不仅仅是元素判断当前节点的子树行为如果只有左子树右子树设置为左子树，左子树为空递归修改右子树如果只有右子树左子树设置为右子树，右子树为空递归修改左子树否则左右子树调换左右子树递归实现 func mirrorTree(root *TreeNode) *TreeNode { if root == nil { return root } /** 如果是空子树要注意 */ if root.
                     
                 </p>
             </a>
@@ -182,7 +183,7 @@ if (!doNotTrack) {
         <div class="level-left">
         </div>
         <div class="level-right">
-            <a href="/posts/git/">Continue reading <i class="fa fa-angle-double-right"
+            <a href="/posts/leet-code-1619/">Continue reading <i class="fa fa-angle-double-right"
                     aria-hidden="true"></i></a>
         </div>
     </div>
@@ -205,73 +206,9 @@ if (!doNotTrack) {
 
 
 
-<section class="section">
-    <nav class="pagination is-centered">
-
-        
-            <a class="pagination-previous is-dark" href="/posts/page/3/">Previous</a>
-        
-
-        
-            <a class="pagination-next" disabled>Next page</a>
-        
 
 
-        <ul class="pagination-list">
 
-        
-
-            
-            
-
-                <li><a href="/posts/" class="pagination-link">1</a></li>
-
-                
-                
-
-            
-
-        
-
-            
-            
-
-                <li><a href="/posts/page/2/" class="pagination-link">2</a></li>
-
-                
-                
-
-            
-
-        
-
-            
-            
-
-                <li><a href="/posts/page/3/" class="pagination-link">3</a></li>
-
-                
-                
-
-            
-
-        
-
-            
-            
-
-                <li><a href="/posts/page/4/" class="pagination-link is-current">4</a></li>
-
-                
-                
-
-            
-
-        
-
-        </ul>
-    </nav>
-</section>
 
         </div>
     </div>

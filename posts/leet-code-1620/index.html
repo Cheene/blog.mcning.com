@@ -22,7 +22,8 @@
 <meta property="og:description" content="题目 输入整数数组 arr ，找出其中最小的 k 个数。例如，输入4、5、1、6、2、7、3、8这8个数字，则最小的4个数字是1、2、3、4。示例 输入：arr = [3,2,1], k = 2输出：[1,2] 或者 [2,1]限制 0 &lt;= k &lt;= arr.length &lt;= 100000 &lt;= arr[i] &lt;= 10000思路 冒泡排序 或 选择排序 或 其他排序方式 k轮实现 func getLeastNumbers(arr []int, k int) []int { if arr == nil || len(arr) == 1{ return arr } for i := 0; i &lt; k; i&#43;&#43; { min := i for j := i&#43;1; j &lt; len(arr); j&#43;&#43; { if arr[min] &gt; arr[j] { min = j } } if min !" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://cheene.github.io/posts/leet-code-1620/" />
-
+<meta property="article:published_time" content="2020-06-07T12:28:04+08:00" />
+<meta property="article:modified_time" content="2020-06-07T12:28:04+08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="#1620 [最小的k个数]"/>
@@ -130,7 +131,7 @@ if (!doNotTrack) {
         <div class="level-left">
             
             <div class="level-item">
-                <p class="subtitle info date">Jan 1, 0001
+                <p class="subtitle info date">Jun 7, 2020
                 </p>
             </div>
             
