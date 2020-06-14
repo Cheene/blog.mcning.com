@@ -193,15 +193,5 @@
 2 Git 三种状态  staged 已暂存：已修改文件的当前版本做了标记，使之包含在下次提交的快照中。 modified 已修改：修改了文件，但还没有保存在数据库中。 committed 已提交： 数据已安全的保存在数据库里面。  3 Git 三个工作区  Git 仓库 工作目录 暂存区域  4 Git 工作三步曲  在工作目录里面修改文件 暂存文件，将文件的快照放入暂存区域 提交更新，从暂存区域存储到Git仓库目录  二 基础 1 初始化一个空白仓库 git init	// 新建仓库 git add file.</description>
     </item>
     
-    <item>
-      <title>How Computer Network 03</title>
-      <link>https://cheene.github.io/posts/how-computer-network-03/default/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://cheene.github.io/posts/how-computer-network-03/default/</guid>
-      <description>Article goes here.
-For other options, put these in the front matter: description: &amp;ldquo;A description&amp;rdquo; other than the blog intro draft: true to not publish article yet showDate: true/false to enable/disable showing dates math: true to enable showing equations (katex) chordsheet: true to add chordsheet styelsheet</description>
-    </item>
-    
   </channel>
 </rss>

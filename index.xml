@@ -144,7 +144,7 @@
       <guid>https://cheene.github.io/thinks/</guid>
       <description>如果我们可以再进一步 本节主要保存对自己想法的收录，自 2020年6月6日立项。
 ToDoList Doing Archived
- ToDoList  2020年6月6日 博客添加目录导航功能 本页面的修改 Go JSON 处理 图解HTTP   Doing Archived  </description>
+ ToDoList  2020年6月6日 博客添加目录导航功能 本页面的修改 Go JSON 处理 图解HTTP 所见即所得   Doing Archived  </description>
     </item>
     
     <item>
@@ -238,16 +238,6 @@ ToDoList Doing Archived
       
       <guid>https://cheene.github.io/sections/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>How Computer Network 03</title>
-      <link>https://cheene.github.io/posts/how-computer-network-03/default/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://cheene.github.io/posts/how-computer-network-03/default/</guid>
-      <description>Article goes here.
-For other options, put these in the front matter: description: &amp;ldquo;A description&amp;rdquo; other than the blog intro draft: true to not publish article yet showDate: true/false to enable/disable showing dates math: true to enable showing equations (katex) chordsheet: true to add chordsheet styelsheet</description>
     </item>
     
   </channel>
