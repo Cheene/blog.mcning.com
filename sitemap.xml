@@ -4,17 +4,42 @@
   
   <url>
     <loc>https://cheene.github.io/</loc>
-    <lastmod>2020-06-07T15:39:55+08:00</lastmod>
+    <lastmod>2020-06-14T22:39:31+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cheene.github.io/tags/http/</loc>
+    <lastmod>2020-06-14T22:39:31+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://cheene.github.io/posts/</loc>
-    <lastmod>2020-06-07T15:39:55+08:00</lastmod>
+    <lastmod>2020-06-14T22:39:31+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://cheene.github.io/tags/</loc>
-    <lastmod>2020-06-07T15:39:55+08:00</lastmod>
+    <lastmod>2020-06-14T22:39:31+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cheene.github.io/posts/http-image-01/</loc>
+    <lastmod>2020-06-14T22:39:31+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cheene.github.io/tags/mysql/</loc>
+    <lastmod>2020-06-14T16:57:52+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cheene.github.io/tags/mysql%E5%AE%9E%E6%88%98/</loc>
+    <lastmod>2020-06-14T16:57:52+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cheene.github.io/posts/mysqlsz-00/</loc>
+    <lastmod>2020-06-14T16:57:52+08:00</lastmod>
   </url>
   
   <url>
@@ -133,11 +158,6 @@
   </url>
   
   <url>
-    <loc>https://cheene.github.io/tags/mysql/</loc>
-    <lastmod>2020-05-12T20:28:04+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://cheene.github.io/posts/mysqlbzbh-00/</loc>
     <lastmod>2020-05-12T20:28:04+08:00</lastmod>
   </url>
@@ -163,7 +183,7 @@
   </url>
   
   <url>
-    <loc>https://cheene.github.io/posts/git/</loc>
+    <loc>https://cheene.github.io/posts/study-git/</loc>
     <lastmod>2020-05-10T20:28:04+08:00</lastmod>
   </url>
   

@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="ZH-CN"><title>
+    Git基础 | 
+    
+    CHENENE</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<meta name="description" 
+      content="Git 一 开始了解 Git 服务器并不是为了存储数据使用，而是为了方便大家来交换修改而设定。
+1 Git 如何保证完整性？ 通过计算校验和利用 SHA-1
+2 Git 三种状态  staged 已暂存：已修改文件的当前版本做了标记，使之包含在下次提交的快照中。 modified 已修改：修改了文件，但还没有保存在数据库中。 committed 已提交： 数据已安全的保存在数据库里面。  3 Git 三个工作区  Git 仓库 工作目录 暂存区域  4 Git 工作三步曲  在工作目录里面修改文件 暂存文件，将文件的快照放入暂存区域 提交更新，从暂存区域存储到Git仓库目录  二 基础 1 初始化一个空白仓库 git init	// 新建仓库 git add file.
+                ">
+
+<link rel="canonical" href="https://cheene.github.io/posts/study-git/" />
+
+<link rel="icon" type="image/png" href="https://cheene.github.io/image/favicon.ico">
+
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/bulma.min.css">
+
+<meta property="og:title" content="Git基础" />
+<meta property="og:description" content="Git 一 开始了解 Git 服务器并不是为了存储数据使用，而是为了方便大家来交换修改而设定。
+1 Git 如何保证完整性？ 通过计算校验和利用 SHA-1
+2 Git 三种状态  staged 已暂存：已修改文件的当前版本做了标记，使之包含在下次提交的快照中。 modified 已修改：修改了文件，但还没有保存在数据库中。 committed 已提交： 数据已安全的保存在数据库里面。  3 Git 三个工作区  Git 仓库 工作目录 暂存区域  4 Git 工作三步曲  在工作目录里面修改文件 暂存文件，将文件的快照放入暂存区域 提交更新，从暂存区域存储到Git仓库目录  二 基础 1 初始化一个空白仓库 git init	// 新建仓库 git add file." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cheene.github.io/posts/study-git/" />
+<meta property="article:published_time" content="2020-05-10T20:28:04+08:00" />
+<meta property="article:modified_time" content="2020-05-10T20:28:04+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Git基础"/>
+<meta name="twitter:description" content="Git 一 开始了解 Git 服务器并不是为了存储数据使用，而是为了方便大家来交换修改而设定。
+1 Git 如何保证完整性？ 通过计算校验和利用 SHA-1
+2 Git 三种状态  staged 已暂存：已修改文件的当前版本做了标记，使之包含在下次提交的快照中。 modified 已修改：修改了文件，但还没有保存在数据库中。 committed 已提交： 数据已安全的保存在数据库里面。  3 Git 三个工作区  Git 仓库 工作目录 暂存区域  4 Git 工作三步曲  在工作目录里面修改文件 暂存文件，将文件的快照放入暂存区域 提交更新，从暂存区域存储到Git仓库目录  二 基础 1 初始化一个空白仓库 git init	// 新建仓库 git add file."/>
+
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'analytics-code', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+<script src=/js/ramium.js></script>
+<link rel="stylesheet" href=/css/ramium.css>
+
+
+
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'analytics-code', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<body><nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href=/>
+      
+      <strong>CHENENE </strong>
+      
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+      data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      
+      
+      <a class="navbar-item" href="/">Home</a>
+      
+      
+      
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">This Blog</a>
+        <div class="navbar-dropdown">
+          
+          <a class="navbar-item" href="/tags/">All Tags</a>
+          
+          <a class="navbar-item" href="/sections/">All Sections</a>
+          
+          <a class="navbar-item" href="/posts/">All Posts</a>
+          
+        </div>
+      </div>
+      
+      
+      
+      <a class="navbar-item" href="/thinks/">Think Different</a>
+      
+      
+      
+      <a class="navbar-item" href="/author/">Author</a>
+      
+      
+    </div>
+
+    <div class="navbar-end">
+      
+      <a class="navbar-item navgithub" href="https://github.com//" target="_blank">
+        <i class="fa fa-github fa-2x"></i>
+      </a>
+      
+
+      
+    </div>
+  </div>
+</nav><div class="columns is-centered">
+        <div id="page-body" class="column is-7">
+
+<div class="content blog">
+    <h1 class="title">Git基础</h1>
+
+    <div id="infobar" class="level is-mobile">
+        <div class="level-left">
+            
+            <div class="level-item">
+                <p class="subtitle info date">May 10, 2020
+                </p>
+            </div>
+            
+
+            <div class="level-item">
+                <p class="subtitle info">
+                    10 mins read
+                </p>
+            </div>
+        </div>
+        <div class="level-right is-hidden-touch">
+            <div class="tags">
+                
+                <a class="tag is-dark is-rounded" href="/tags/git">Git</a>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="tags is-hidden-desktop">
+        
+        <a class="tag is-dark is-rounded" href="/tags/git">Git</a>
+        
+    </div>
+
+    <div class="blog-text">
+        
+
+        <h1 id="git">Git</h1>
+<h2 id="一-开始了解">一 开始了解</h2>
+<p>Git 服务器并不是为了存储数据使用，而是为了方便大家来交换修改而设定。</p>
+<h3 id="1-git-如何保证完整性">1 Git 如何保证完整性？</h3>
+<p>通过计算校验和利用 <code>SHA-1</code></p>
+<h3 id="2-git-三种状态">2 Git 三种状态</h3>
+<ul>
+<li><code>staged</code> 已暂存：已修改文件的当前版本做了标记，使之包含在下次提交的快照中。</li>
+<li><code>modified</code> 已修改：修改了文件，但还没有保存在数据库中。</li>
+<li><code>committed</code> 已提交： 数据已安全的保存在数据库里面。</li>
+</ul>
+<h3 id="3-git-三个工作区">3 Git 三个工作区</h3>
+<ul>
+<li>Git 仓库</li>
+<li>工作目录</li>
+<li>暂存区域</li>
+</ul>
+<h3 id="4-git-工作三步曲">4 Git 工作三步曲</h3>
+<ul>
+<li>在工作目录里面修改文件</li>
+<li>暂存文件，将文件的快照放入暂存区域</li>
+<li>提交更新，从暂存区域存储到Git仓库目录</li>
+</ul>
+<h2 id="二-基础">二 基础</h2>
+<h3 id="1-初始化一个空白仓库">1 初始化一个空白仓库</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">git init	<span style="color:#75715e">// 新建仓库
+</span><span style="color:#75715e"></span>git add file.name <span style="color:#75715e">// 添加文件，只能添加一次
+</span><span style="color:#75715e"></span>git commit <span style="color:#f92672">-</span>m <span style="color:#e6db74">&#34;xxxxx&#34;</span>c <span style="color:#75715e">//文件提交给仓库，可以进行多次提交
+</span></code></pre></div><h3 id="2-git-status-查看状态">2 git status 查看状态</h3>
+<h3 id="3-工作目录状态">3 工作目录状态</h3>
+<ul>
+<li>未跟踪</li>
+<li>已跟踪
+<ul>
+<li>未修改</li>
+<li>已修改</li>
+<li>已放入暂存区</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-工作区和暂存区">4 工作区和暂存区？</h3>
+<ul>
+<li>工作区就是我们所看到的目录</li>
+<li>版本库 <code>.git</code> 为隐藏目录
+<ul>
+<li><code>stage</code> 暂存区</li>
+<li><code>master</code> 第一个分支</li>
+<li>指向 <code>master</code> 的指针</li>
+</ul>
+</li>
+<li>通过 <code>git add</code> 将文件添加到 暂存区；再通过<code>git commit</code> 将往分支上提交
+<ul>
+<li><code>git add</code> 可以多次添加文件</li>
+<li><code>git commit</code> 最后一次统一提交</li>
+</ul>
+</li>
+</ul>
+<h2 id="三-提交与回退">三 提交与回退</h2>
+<h3 id="1-git-diff--查看文件不同之处">1 <code>git diff</code>  查看文件不同之处</h3>
+<p>查看不同的地方只能是在提交之前查看</p>
+<h3 id="2-git-log-查看提交的历史">2 git log 查看提交的历史</h3>
+<p><code>--pretty=oneline</code> 简化输出</p>
+<h3 id="3-reset-回退到某个历史版本">3 reset 回退到某个历史版本</h3>
+<ul>
+<li>历史版本怎么看<code> git log</code></li>
+<li>怎么确定是哪一个历史版本
+<ul>
+<li>看 commit 的内容</li>
+<li>借助 <code>HEAD</code>
+<ul>
+<li><code>HEAD^</code>  代表上一个版本</li>
+<li><code>HEAD^^</code> 代表上上一个版本</li>
+<li><code>HEAD~100</code> 代表着前100个版本</li>
+</ul>
+</li>
+<li><code>git reset --hard HEAD^</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="4-回退了后怎么再回来呢">4 回退了后怎么再回来呢？</h3>
+<p>借助 commit ID</p>
+<p>速度非常之快，主要是因为指向当前版本的<code>HEAD</code> 指针非常之快</p>
+<h3 id="5-打算恢复但是-id找不到">5 打算恢复，但是 ID找不到？</h3>
+<p><code>git reflog</code> 查看历史的 ID</p>
+<h2 id="四-管理与修改">四 管理与修改</h2>
+<h3 id="1-管理修改">1 管理修改</h3>
+<p>Git 跟踪并管理的是修改而非文件</p>
+<p>每一次的修改，优先通过 <code>git add</code> 添加到暂存区</p>
+<h3 id="2-丢弃工作区域的修改">2 丢弃工作区域的修改</h3>
+<p><code>git checkout -- file</code></p>
+<ul>
+<li>add 之后怎么修改？</li>
+</ul>
+<ol>
+<li>git reset HEAD <file>` 直接从暂存区里面删除</li>
+<li>丢弃工作区里的修改  <code>git checkout -- file</code></li>
+</ol>
+<h3 id="3-文件的删除">3 文件的删除</h3>
+<ul>
+<li>文件在库里的时候
+<ol>
+<li>删除 <code>git rm &lt;filename&gt;</code></li>
+<li>提交 <code>git commit -m</code></li>
+</ol>
+</li>
+<li>如果误删，便会通过 <code>git checkout -- &lt;filename&gt;</code> 进行恢复
+<ul>
+<li>此时的恢复是把版本库的版本替换到工作区的版本</li>
+</ul>
+</li>
+</ul>
+<h2 id="五-远程">五 远程</h2>
+<h3 id="1-git-clone-克隆">1 git clone 克隆</h3>
+<p>克隆是对已存在的Git 仓库的拷贝</p>
+<p>克隆包括每个文件的每个版本都要对其克隆</p>
+<h3 id="2-关联远程仓库">2 关联远程仓库</h3>
+<pre><code>git remote add origin
+</code></pre><h3 id="3-远程仓库新建后第一次push">3 远程仓库新建后第一次push</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">git push <span style="color:#f92672">-</span>u origin master
+</code></pre></div><p>为何使用 <code>-u</code> :将本地的 <code>master</code> 分支推送到远程的 <code>master</code>分支，同时把本地的<code>master</code> 和远程的 <code>master</code> 分支合并在一起</p>
+<h2 id="六-分支管理">六 分支管理</h2>
+<p>分支，就是可以自己先做自己的工作，直接提交到自己的分支里，防止数据丢失</p>
+<p>自己工作完成之后，再进行合并到主分支</p>
+<h3 id="1-分支的创建与合并">1 分支的创建与合并</h3>
+<p>每一次的提交会被Git串成时间线，每个时间线就是一个分支。</p>
+<p><code>HEAD</code>  指向的是 分支,而分支指向的是提交；<code>HEAD</code> 指向的是当前的分支。</p>
+<p><strong>创建</strong></p>
+<p>每当我们创建一个新的分支的时候，Git便会创建一个新的指针。</p>
+<ul>
+<li>·该指针会指向新的提交</li>
+<li><code>HEAD</code> 又开始指向这个指针</li>
+</ul>
+<p><strong>合并</strong></p>
+<p>在分支完成的时候</p>
+<ul>
+<li>将<code>master</code> 指向当前的指针所指向的提交</li>
+<li>合并完成分支后，删除 新的指针，就剩下一个分支了</li>
+</ul>
+<p><strong>最重要的是什么？</strong></p>
+<p>在这个过程里，没有任何的文件产生变化，修改的也仅仅是指针！！！</p>
+<p><strong>基本命令</strong></p>
+<ul>
+<li>创建并切换 <code>git switch -c name</code></li>
+<li>显示所有分支 <code>git branch</code></li>
+<li>合并
+<ul>
+<li>切换到主分支 <code>git switch master</code></li>
+<li>合并  <code>git merge name</code></li>
+</ul>
+</li>
+<li>删除 <code>git branch -d dev</code></li>
+</ul>
+<h3 id="2-冲突的解决">2 冲突的解决</h3>
+<ul>
+<li>场景：不同的分支下，对同一个文件进行编辑产生冲突</li>
+<li>在合并时，冲突的解决方式是什么？
+<ul>
+<li>修改冲突的文件</li>
+<li>再次提交并合并</li>
+<li>通过 <code>git long --graph</code> 可以进行查看分支合并图</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-新的合并策略">3 新的合并策略</h3>
+<p>在禁用 <code>Fast forward</code> 模式下的变化</p>
+<p>在合并分支的时候,通过添加参数 <code>--no-ff</code></p>
+<p>在此时需要创建新的 <code>commit</code> , 所以需要 <code>-m</code> 参数</p>
+<pre><code>git merge --no-ff -m &quot;merge with no-ff&quot; dev
+</code></pre><p>通过日志查看历史分支</p>
+<pre><code>git log --graph --pretty=oneline --abbrev-commit
+</code></pre><h3 id="4-bug-场景的修改">4 BUG 场景的修改</h3>
+<p><strong>特点是什么？</strong></p>
+<ul>
+<li>
+<p>当前有工作需要做</p>
+</li>
+<li>
+<p>但BUG也需要紧急修复</p>
+</li>
+</ul>
+<p><strong>如何实现？</strong></p>
+<ul>
+<li>在开发分支上，保存现场 <code>git stash</code></li>
+<li>切换主分支，新建分支 BUG</li>
+<li>在分支上修改后，回到主分支</li>
+<li>主分支上进行合并并删除 BUG 分支</li>
+<li>再切换到开发分支，并恢复现场
+<ul>
+<li><code>git stash llist</code></li>
+</ul>
+</li>
+<li>分支也同时需要修改呢？
+<ul>
+<li>将之前提交的 BUG修改的 <code>commit</code> “复制”到 dev 分支上</li>
+<li>借助 <code>cherry-pick</code> 命令</li>
+</ul>
+</li>
+<li><strong>注：当使用<code>git checkout</code> 切换分支时会提示<code>you need to resolve your current index first</code></strong>
+<ul>
+<li><strong>解决方法：<code>git reset --merge</code></strong></li>
+</ul>
+</li>
+</ul>
+<p><strong>如何强制删除分支?</strong></p>
+<p>在还没有合并之前，可以直接对其删除</p>
+<p><code>git branch -D branch-name</code></p>
+<h3 id="5-多人协作如何完成">5 多人协作如何完成</h3>
+<ul>
+<li>准备条件： 创建远程 <code>origin</code> 的 <code>dev</code> 开发
+<ul>
+<li>推： <code>git push orgin dev</code></li>
+<li>拉：<code>git pull</code></li>
+</ul>
+</li>
+<li>整体
+<ol>
+<li>先尝试推送</li>
+<li>失败的时候，拉取远程分支，更到本地，通过 <code>git pull</code></li>
+<li>合并的过程中，有冲突就解决；无冲突就不解决</li>
+<li>再次推送 <code>git push origin breanch-name</code></li>
+</ol>
+</li>
+</ul>
+<h2 id="七-标签">七 标签</h2>
+<p>标签是什么？在版本库发布新版本的时候，在版本库里打一个标签。后期查找方便</p>
+<p>标签是不能移动的</p>
+<p><code>Tag</code> 的作用在于能够让我们找到绑定的 <code>commit</code></p>
+<h3 id="1-创建标签">1 创建标签</h3>
+<ul>
+<li><code>git tag v1.0</code> 将标签打在最近一次的上面</li>
+<li><code>git tag version.name commit.ID</code>  将标签打在某一次 commit 提交上</li>
+<li>查看标签： <code>git show </code></li>
+<li>创建带有说明的标签
+<ul>
+<li><code>git tag -a v0.1 -m &quot;message&quot; commit.ID</code>
+<ul>
+<li><code>-a</code> 指定标签名</li>
+<li><code>-m</code> 指定说明文字</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-删除标签">2 删除标签</h3>
+<ul>
+<li><code>git tag -d tagname</code></li>
+<li>推送到远程 <code>git push origin &lt;tagName&gt;</code></li>
+<li>一次推送全部的标签 <code>git push origin --tags</code></li>
+<li>如果要删除远程的标签
+<ol>
+<li>先删除本地的标签 <code> git tag -d v0.9</code></li>
+<li>再删除远程的标签<code>git push origin :refs/tags/v0.9</code></li>
+</ol>
+</li>
+</ul>
+<h2 id="八-其他">八 其他</h2>
+<h4 id="1忽略文件">1忽略文件</h4>
+<p><code>.gitgnore</code></p>
+<pre><code class="language-visual" data-lang="visual"># Windows:
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Python:
+*.py[cod]
+*.so
+*.egg
+*.egg-info
+dist
+build
+
+# My configurations:
+db.ini
+deploy_key_rsa
+</code></pre><h4 id="2-配置别名">2 配置别名</h4>
+<p><code>git config --global alias.st status</code></p>
+<p><code>git config --global alias.unstage 'reset HEAD'</code></p>
+<h4 id="3-gui-sourcetree">3 GUI <code>SourceTree</code></h4>
+
+    </div>
+</div><div id="social-media-share" class="has-text-centered">
+	<p><i>Sharing is caring!</i></p>
+	<br>
+	
+	<div class="share-buttons">
+	    <a  href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcheene.github.io%2fposts%2fstudy-git%2f"
+	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
+	        title="Share on Facebook. Opens in a new window.">
+	        <img src=/img/icons/45px/facebook.png>
+	    </a>
+
+	    <a  href="https://twitter.com/intent/tweet?text=Git%e5%9f%ba%e7%a1%80&url=https%3a%2f%2fcheene.github.io%2fposts%2fstudy-git%2f"
+	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
+	        title="Share on Twitter. Opens in a new window." >
+	        <img src=/img/icons/45px/twitter.png>
+	    </a>
+
+		<a  href="http://www.reddit.com/submit?url=https%3a%2f%2fcheene.github.io%2fposts%2fstudy-git%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Reddit. Opens in a new window." >
+	        <img src=/img/icons/45px/reddit.png>
+	    </a>
+
+	    <a  href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fcheene.github.io%2fposts%2fstudy-git%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Pinterest. Opens in a new window." >
+	        <img src=/img/icons/45px/pinterest.png>
+	    </a>
+
+	    <a  href="http://www.tumblr.com/share/link?url=https%3a%2f%2fcheene.github.io%2fposts%2fstudy-git%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Tumblr. Opens in a new window." >
+	        <img src=/img/icons/45px/tumblr.png>
+	    </a>
+
+		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fcheene.github.io%2fposts%2fstudy-git%2f
+			&title=Git%e5%9f%ba%e7%a1%80&summary=Git%20%e4%b8%80%20%e5%bc%80%e5%a7%8b%e4%ba%86%e8%a7%a3%20Git%20%e6%9c%8d%e5%8a%a1%e5%99%a8%e5%b9%b6%e4%b8%8d%e6%98%af%e4%b8%ba%e4%ba%86%e5%ad%98%e5%82%a8%e6%95%b0%e6%8d%ae%e4%bd%bf%e7%94%a8%ef%bc%8c%e8%80%8c%e6%98%af%e4%b8%ba%e4%ba%86%e6%96%b9%e4%be%bf%e5%a4%a7%e5%ae%b6%e6%9d%a5%e4%ba%a4%e6%8d%a2%e4%bf%ae%e6%94%b9%e8%80%8c%e8%ae%be%e5%ae%9a%e3%80%82%0a1%20Git%20%e5%a6%82%e4%bd%95%e4%bf%9d%e8%af%81%e5%ae%8c%e6%95%b4%e6%80%a7%ef%bc%9f%20%e9%80%9a%e8%bf%87%e8%ae%a1%e7%ae%97%e6%a0%a1%e9%aa%8c%e5%92%8c%e5%88%a9%e7%94%a8%20SHA-1%0a2%20Git%20%e4%b8%89%e7%a7%8d%e7%8a%b6%e6%80%81%20%20staged%20%e5%b7%b2%e6%9a%82%e5%ad%98%ef%bc%9a%e5%b7%b2%e4%bf%ae%e6%94%b9%e6%96%87%e4%bb%b6%e7%9a%84%e5%bd%93%e5%89%8d%e7%89%88%e6%9c%ac%e5%81%9a%e4%ba%86%e6%a0%87%e8%ae%b0%ef%bc%8c%e4%bd%bf%e4%b9%8b%e5%8c%85%e5%90%ab%e5%9c%a8%e4%b8%8b%e6%ac%a1%e6%8f%90%e4%ba%a4%e7%9a%84%e5%bf%ab%e7%85%a7%e4%b8%ad%e3%80%82%20modified%20%e5%b7%b2%e4%bf%ae%e6%94%b9%ef%bc%9a%e4%bf%ae%e6%94%b9%e4%ba%86%e6%96%87%e4%bb%b6%ef%bc%8c%e4%bd%86%e8%bf%98%e6%b2%a1%e6%9c%89%e4%bf%9d%e5%ad%98%e5%9c%a8%e6%95%b0%e6%8d%ae%e5%ba%93%e4%b8%ad%e3%80%82%20committed%20%e5%b7%b2%e6%8f%90%e4%ba%a4%ef%bc%9a%20%e6%95%b0%e6%8d%ae%e5%b7%b2%e5%ae%89%e5%85%a8%e7%9a%84%e4%bf%9d%e5%ad%98%e5%9c%a8%e6%95%b0%e6%8d%ae%e5%ba%93%e9%87%8c%e9%9d%a2%e3%80%82%20%203%20Git%20%e4%b8%89%e4%b8%aa%e5%b7%a5%e4%bd%9c%e5%8c%ba%20%20Git%20%e4%bb%93%e5%ba%93%20%e5%b7%a5%e4%bd%9c%e7%9b%ae%e5%bd%95%20%e6%9a%82%e5%ad%98%e5%8c%ba%e5%9f%9f%20%204%20Git%20%e5%b7%a5%e4%bd%9c%e4%b8%89%e6%ad%a5%e6%9b%b2%20%20%e5%9c%a8%e5%b7%a5%e4%bd%9c%e7%9b%ae%e5%bd%95%e9%87%8c%e9%9d%a2%e4%bf%ae%e6%94%b9%e6%96%87%e4%bb%b6%20%e6%9a%82%e5%ad%98%e6%96%87%e4%bb%b6%ef%bc%8c%e5%b0%86%e6%96%87%e4%bb%b6%e7%9a%84%e5%bf%ab%e7%85%a7%e6%94%be%e5%85%a5%e6%9a%82%e5%ad%98%e5%8c%ba%e5%9f%9f%20%e6%8f%90%e4%ba%a4%e6%9b%b4%e6%96%b0%ef%bc%8c%e4%bb%8e%e6%9a%82%e5%ad%98%e5%8c%ba%e5%9f%9f%e5%ad%98%e5%82%a8%e5%88%b0Git%e4%bb%93%e5%ba%93%e7%9b%ae%e5%bd%95%20%20%e4%ba%8c%20%e5%9f%ba%e7%a1%80%201%20%e5%88%9d%e5%a7%8b%e5%8c%96%e4%b8%80%e4%b8%aa%e7%a9%ba%e7%99%bd%e4%bb%93%e5%ba%93%20git%20init%09%2f%2f%20%e6%96%b0%e5%bb%ba%e4%bb%93%e5%ba%93%20git%20add%20file.&source=rafed123.github.io"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on LinkedIn. Opens in a new window." >
+	        <img src=/img/icons/45px/linkedin.png>
+	    </a>
+
+	    <a  href="mailto:?subject=Git%e5%9f%ba%e7%a1%80&amp;body=Check out this site https%3a%2f%2fcheene.github.io%2fposts%2fstudy-git%2f"
+	        title="Share via Email. Opens in a new window." >
+	        <img src=/img/icons/45px/mail.png>
+	    </a>
+	</div>
+</div>
+
+
+<br>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    (function () {
+        
+        
+        if (window.location.hostname == "localhost")
+            return;
+
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'disqus-code';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+        </div>
+    </div>
+
+<footer class="footer has-background-dark">
+    <div class="content has-text-centered has-text-white">
+        <p>
+            © 2020 Ramium. Powered by
+            <a class="has-text-light" href="https://github.com/gohugoio/hugo" target="_blank">
+            Hugo</a>. Theme
+            <a class="has-text-light" href="https://github.com/rafed123/ramium/" target="_blank">
+                Ramium.
+            </a>
+        </p>
+    </div>
+</footer>
+</body>
+
+</html>

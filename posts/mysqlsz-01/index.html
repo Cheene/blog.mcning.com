@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ZH-CN"><title>
+    极客邦-MySQL实战-01 | 
+    
+    CHENENE</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<meta name="description" 
+      content="01 一条MySQL语句是如何执行的？ 首先要看到整个MySQL系统划分为哪一些部分？
+  客户端
+ 各种发送请求    服务端
+  Server层
+ 连接器 分析器 优化器 执行器    查询缓存(可能会逐步替代)
+    引擎层
+ 各种存储引擎    执行的逻辑是什么？
+ 客户端向数据库发送请求 数据库收到请求后找到连接器，进行初步权限认证 分析器先进行词法和语法分析  词法分析，识别输入的是什么。比如表名？列名？关键字？ 语法分析，判断SQL语句是否符合语法   再执行优化器，优化主要在两个方面来体现  多个索引的时候，如何选择合适的索引 一个语句多表关联时如何处理   到达执行器，会进一步对语句做权限认证，同时根据存储引擎的定义来调用存储引擎的接口  查询缓存在哪里使用
+                ">
+
+<link rel="canonical" href="https://cheene.github.io/posts/mysqlsz-01/" />
+
+<link rel="icon" type="image/png" href="https://cheene.github.io/image/favicon.ico">
+
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/bulma.min.css">
+
+<meta property="og:title" content="极客邦-MySQL实战-01" />
+<meta property="og:description" content="01 一条MySQL语句是如何执行的？ 首先要看到整个MySQL系统划分为哪一些部分？
+  客户端
+ 各种发送请求    服务端
+  Server层
+ 连接器 分析器 优化器 执行器    查询缓存(可能会逐步替代)
+    引擎层
+ 各种存储引擎    执行的逻辑是什么？
+ 客户端向数据库发送请求 数据库收到请求后找到连接器，进行初步权限认证 分析器先进行词法和语法分析  词法分析，识别输入的是什么。比如表名？列名？关键字？ 语法分析，判断SQL语句是否符合语法   再执行优化器，优化主要在两个方面来体现  多个索引的时候，如何选择合适的索引 一个语句多表关联时如何处理   到达执行器，会进一步对语句做权限认证，同时根据存储引擎的定义来调用存储引擎的接口  查询缓存在哪里使用" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cheene.github.io/posts/mysqlsz-01/" />
+<meta property="article:published_time" content="2020-05-12T20:28:04+08:00" />
+<meta property="article:modified_time" content="2020-05-12T20:28:04+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="极客邦-MySQL实战-01"/>
+<meta name="twitter:description" content="01 一条MySQL语句是如何执行的？ 首先要看到整个MySQL系统划分为哪一些部分？
+  客户端
+ 各种发送请求    服务端
+  Server层
+ 连接器 分析器 优化器 执行器    查询缓存(可能会逐步替代)
+    引擎层
+ 各种存储引擎    执行的逻辑是什么？
+ 客户端向数据库发送请求 数据库收到请求后找到连接器，进行初步权限认证 分析器先进行词法和语法分析  词法分析，识别输入的是什么。比如表名？列名？关键字？ 语法分析，判断SQL语句是否符合语法   再执行优化器，优化主要在两个方面来体现  多个索引的时候，如何选择合适的索引 一个语句多表关联时如何处理   到达执行器，会进一步对语句做权限认证，同时根据存储引擎的定义来调用存储引擎的接口  查询缓存在哪里使用"/>
+
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'analytics-code', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+<script src=/js/ramium.js></script>
+<link rel="stylesheet" href=/css/ramium.css>
+
+
+
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'analytics-code', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<body><nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href=/>
+      
+      <strong>CHENENE </strong>
+      
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+      data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      
+      
+      <a class="navbar-item" href="/">Home</a>
+      
+      
+      
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">This Blog</a>
+        <div class="navbar-dropdown">
+          
+          <a class="navbar-item" href="/tags/">All Tags</a>
+          
+          <a class="navbar-item" href="/sections/">All Sections</a>
+          
+          <a class="navbar-item" href="/posts/">All Posts</a>
+          
+        </div>
+      </div>
+      
+      
+      
+      <a class="navbar-item" href="/thinks/">Think Different</a>
+      
+      
+      
+      <a class="navbar-item" href="/author/">Author</a>
+      
+      
+    </div>
+
+    <div class="navbar-end">
+      
+      <a class="navbar-item navgithub" href="https://github.com//" target="_blank">
+        <i class="fa fa-github fa-2x"></i>
+      </a>
+      
+
+      
+    </div>
+  </div>
+</nav><div class="columns is-centered">
+        <div id="page-body" class="column is-7">
+
+<div class="content blog">
+    <h1 class="title">极客邦-MySQL实战-01</h1>
+
+    <div id="infobar" class="level is-mobile">
+        <div class="level-left">
+            
+            <div class="level-item">
+                <p class="subtitle info date">May 12, 2020
+                </p>
+            </div>
+            
+
+            <div class="level-item">
+                <p class="subtitle info">
+                    2 mins read
+                </p>
+            </div>
+        </div>
+        <div class="level-right is-hidden-touch">
+            <div class="tags">
+                
+                <a class="tag is-dark is-rounded" href="/tags/mysql">My s q l</a>
+                
+                <a class="tag is-dark is-rounded" href="/tags/mysql%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A">My s q l必知必会</a>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="tags is-hidden-desktop">
+        
+        <a class="tag is-dark is-rounded" href="/tags/mysql">My s q l</a>
+        
+        <a class="tag is-dark is-rounded" href="/tags/mysql%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A">My s q l必知必会</a>
+        
+    </div>
+
+    <div class="blog-text">
+        
+
+        <h1 id="01-一条mysql语句是如何执行的">01 一条MySQL语句是如何执行的？</h1>
+<p><strong>首先要看到整个MySQL系统划分为哪一些部分？</strong></p>
+<ul>
+<li>
+<p>客户端</p>
+<ul>
+<li>各种发送请求</li>
+</ul>
+</li>
+<li>
+<p>服务端</p>
+<ul>
+<li>
+<p>Server层</p>
+<ul>
+<li>连接器</li>
+<li>分析器</li>
+<li>优化器</li>
+<li>执行器</li>
+</ul>
+</li>
+<li>
+<p>查询缓存(可能会逐步替代)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>引擎层</p>
+<ul>
+<li>各种存储引擎</li>
+</ul>
+</li>
+</ul>
+<p><strong>执行的逻辑是什么？</strong></p>
+<ol>
+<li>客户端向数据库发送请求</li>
+<li>数据库收到请求后找到连接器，进行初步权限认证</li>
+<li>分析器先进行词法和语法分析
+<ul>
+<li>词法分析，识别输入的是什么。比如表名？列名？关键字？</li>
+<li>语法分析，判断SQL语句是否符合语法</li>
+</ul>
+</li>
+<li>再执行优化器，优化主要在两个方面来体现
+<ul>
+<li>多个索引的时候，如何选择合适的索引</li>
+<li>一个语句多表关联时如何处理</li>
+</ul>
+</li>
+<li>到达执行器，会进一步对语句做权限认证，同时根据存储引擎的定义来调用存储引擎的接口</li>
+</ol>
+<p><strong>查询缓存在哪里使用</strong></p>
+<ol>
+<li>经常更新的表绝对不要用</li>
+<li>类似于系统配置这样的表可以用</li>
+<li>通过 <code>SQL_CACHE</code> 来从缓存查询</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SELECT</span> SQL_CACHE <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> T <span style="color:#66d9ef">WHERE</span> ID<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span> 
+</code></pre></div>
+    </div>
+</div><div id="social-media-share" class="has-text-centered">
+	<p><i>Sharing is caring!</i></p>
+	<br>
+	
+	<div class="share-buttons">
+	    <a  href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcheene.github.io%2fposts%2fmysqlsz-01%2f"
+	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
+	        title="Share on Facebook. Opens in a new window.">
+	        <img src=/img/icons/45px/facebook.png>
+	    </a>
+
+	    <a  href="https://twitter.com/intent/tweet?text=%e6%9e%81%e5%ae%a2%e9%82%a6-MySQL%e5%ae%9e%e6%88%98-01&url=https%3a%2f%2fcheene.github.io%2fposts%2fmysqlsz-01%2f"
+	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
+	        title="Share on Twitter. Opens in a new window." >
+	        <img src=/img/icons/45px/twitter.png>
+	    </a>
+
+		<a  href="http://www.reddit.com/submit?url=https%3a%2f%2fcheene.github.io%2fposts%2fmysqlsz-01%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Reddit. Opens in a new window." >
+	        <img src=/img/icons/45px/reddit.png>
+	    </a>
+
+	    <a  href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fcheene.github.io%2fposts%2fmysqlsz-01%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Pinterest. Opens in a new window." >
+	        <img src=/img/icons/45px/pinterest.png>
+	    </a>
+
+	    <a  href="http://www.tumblr.com/share/link?url=https%3a%2f%2fcheene.github.io%2fposts%2fmysqlsz-01%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Tumblr. Opens in a new window." >
+	        <img src=/img/icons/45px/tumblr.png>
+	    </a>
+
+		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fcheene.github.io%2fposts%2fmysqlsz-01%2f
+			&title=%e6%9e%81%e5%ae%a2%e9%82%a6-MySQL%e5%ae%9e%e6%88%98-01&summary=01%20%e4%b8%80%e6%9d%a1MySQL%e8%af%ad%e5%8f%a5%e6%98%af%e5%a6%82%e4%bd%95%e6%89%a7%e8%a1%8c%e7%9a%84%ef%bc%9f%20%e9%a6%96%e5%85%88%e8%a6%81%e7%9c%8b%e5%88%b0%e6%95%b4%e4%b8%aaMySQL%e7%b3%bb%e7%bb%9f%e5%88%92%e5%88%86%e4%b8%ba%e5%93%aa%e4%b8%80%e4%ba%9b%e9%83%a8%e5%88%86%ef%bc%9f%0a%20%20%e5%ae%a2%e6%88%b7%e7%ab%af%0a%20%e5%90%84%e7%a7%8d%e5%8f%91%e9%80%81%e8%af%b7%e6%b1%82%20%20%20%20%e6%9c%8d%e5%8a%a1%e7%ab%af%0a%20%20Server%e5%b1%82%0a%20%e8%bf%9e%e6%8e%a5%e5%99%a8%20%e5%88%86%e6%9e%90%e5%99%a8%20%e4%bc%98%e5%8c%96%e5%99%a8%20%e6%89%a7%e8%a1%8c%e5%99%a8%20%20%20%20%e6%9f%a5%e8%af%a2%e7%bc%93%e5%ad%98%28%e5%8f%af%e8%83%bd%e4%bc%9a%e9%80%90%e6%ad%a5%e6%9b%bf%e4%bb%a3%29%0a%20%20%20%20%e5%bc%95%e6%93%8e%e5%b1%82%0a%20%e5%90%84%e7%a7%8d%e5%ad%98%e5%82%a8%e5%bc%95%e6%93%8e%20%20%20%20%e6%89%a7%e8%a1%8c%e7%9a%84%e9%80%bb%e8%be%91%e6%98%af%e4%bb%80%e4%b9%88%ef%bc%9f%0a%20%e5%ae%a2%e6%88%b7%e7%ab%af%e5%90%91%e6%95%b0%e6%8d%ae%e5%ba%93%e5%8f%91%e9%80%81%e8%af%b7%e6%b1%82%20%e6%95%b0%e6%8d%ae%e5%ba%93%e6%94%b6%e5%88%b0%e8%af%b7%e6%b1%82%e5%90%8e%e6%89%be%e5%88%b0%e8%bf%9e%e6%8e%a5%e5%99%a8%ef%bc%8c%e8%bf%9b%e8%a1%8c%e5%88%9d%e6%ad%a5%e6%9d%83%e9%99%90%e8%ae%a4%e8%af%81%20%e5%88%86%e6%9e%90%e5%99%a8%e5%85%88%e8%bf%9b%e8%a1%8c%e8%af%8d%e6%b3%95%e5%92%8c%e8%af%ad%e6%b3%95%e5%88%86%e6%9e%90%20%20%e8%af%8d%e6%b3%95%e5%88%86%e6%9e%90%ef%bc%8c%e8%af%86%e5%88%ab%e8%be%93%e5%85%a5%e7%9a%84%e6%98%af%e4%bb%80%e4%b9%88%e3%80%82%e6%af%94%e5%a6%82%e8%a1%a8%e5%90%8d%ef%bc%9f%e5%88%97%e5%90%8d%ef%bc%9f%e5%85%b3%e9%94%ae%e5%ad%97%ef%bc%9f%20%e8%af%ad%e6%b3%95%e5%88%86%e6%9e%90%ef%bc%8c%e5%88%a4%e6%96%adSQL%e8%af%ad%e5%8f%a5%e6%98%af%e5%90%a6%e7%ac%a6%e5%90%88%e8%af%ad%e6%b3%95%20%20%20%e5%86%8d%e6%89%a7%e8%a1%8c%e4%bc%98%e5%8c%96%e5%99%a8%ef%bc%8c%e4%bc%98%e5%8c%96%e4%b8%bb%e8%a6%81%e5%9c%a8%e4%b8%a4%e4%b8%aa%e6%96%b9%e9%9d%a2%e6%9d%a5%e4%bd%93%e7%8e%b0%20%20%e5%a4%9a%e4%b8%aa%e7%b4%a2%e5%bc%95%e7%9a%84%e6%97%b6%e5%80%99%ef%bc%8c%e5%a6%82%e4%bd%95%e9%80%89%e6%8b%a9%e5%90%88%e9%80%82%e7%9a%84%e7%b4%a2%e5%bc%95%20%e4%b8%80%e4%b8%aa%e8%af%ad%e5%8f%a5%e5%a4%9a%e8%a1%a8%e5%85%b3%e8%81%94%e6%97%b6%e5%a6%82%e4%bd%95%e5%a4%84%e7%90%86%20%20%20%e5%88%b0%e8%be%be%e6%89%a7%e8%a1%8c%e5%99%a8%ef%bc%8c%e4%bc%9a%e8%bf%9b%e4%b8%80%e6%ad%a5%e5%af%b9%e8%af%ad%e5%8f%a5%e5%81%9a%e6%9d%83%e9%99%90%e8%ae%a4%e8%af%81%ef%bc%8c%e5%90%8c%e6%97%b6%e6%a0%b9%e6%8d%ae%e5%ad%98%e5%82%a8%e5%bc%95%e6%93%8e%e7%9a%84%e5%ae%9a%e4%b9%89%e6%9d%a5%e8%b0%83%e7%94%a8%e5%ad%98%e5%82%a8%e5%bc%95%e6%93%8e%e7%9a%84%e6%8e%a5%e5%8f%a3%20%20%e6%9f%a5%e8%af%a2%e7%bc%93%e5%ad%98%e5%9c%a8%e5%93%aa%e9%87%8c%e4%bd%bf%e7%94%a8&source=rafed123.github.io"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on LinkedIn. Opens in a new window." >
+	        <img src=/img/icons/45px/linkedin.png>
+	    </a>
+
+	    <a  href="mailto:?subject=%e6%9e%81%e5%ae%a2%e9%82%a6-MySQL%e5%ae%9e%e6%88%98-01&amp;body=Check out this site https%3a%2f%2fcheene.github.io%2fposts%2fmysqlsz-01%2f"
+	        title="Share via Email. Opens in a new window." >
+	        <img src=/img/icons/45px/mail.png>
+	    </a>
+	</div>
+</div>
+
+
+<br>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    (function () {
+        
+        
+        if (window.location.hostname == "localhost")
+            return;
+
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'disqus-code';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+        </div>
+    </div>
+
+<footer class="footer has-background-dark">
+    <div class="content has-text-centered has-text-white">
+        <p>
+            © 2020 Ramium. Powered by
+            <a class="has-text-light" href="https://github.com/gohugoio/hugo" target="_blank">
+            Hugo</a>. Theme
+            <a class="has-text-light" href="https://github.com/rafed123/ramium/" target="_blank">
+                Ramium.
+            </a>
+        </p>
+    </div>
+</footer>
+</body>
+
+</html>

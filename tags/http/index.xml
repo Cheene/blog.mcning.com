@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HTTP on CHENENE</title>
+    <link>https://cheene.github.io/tags/http/</link>
+    <description>Recent content in HTTP on CHENENE</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ZH-CN</language>
+    <lastBuildDate>Sun, 14 Jun 2020 22:39:31 +0800</lastBuildDate>
+    
+	<atom:link href="https://cheene.github.io/tags/http/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>图解HTTP</title>
+      <link>https://cheene.github.io/posts/http-image-01/</link>
+      <pubDate>Sun, 14 Jun 2020 22:39:31 +0800</pubDate>
+      
+      <guid>https://cheene.github.io/posts/http-image-01/</guid>
+      <description>零 状态码    状态码 标识 解释     200 OK    204 No Content 无返回数据，即不包含实体部分   206 part content 部分内容更新   304 Not Modified    301 Moved Permanently 永久重定向，资源已重新分配URI；会重新请求   302 Found 临时重定向，临时分配新的URI；会重新请求   303 See Other 需要重新请求，并且使用GET   304 Not Modified 允许访问资源，但给的附件条件不满足资源   307 Temporary Redirect 临时重定向，不会二次请求，与302相比   400 Bad Request 服务器没有看懂请求什么意思   401 Unauthorized 认证失败，再来一次吧 {www-Authenricate}   403 Forbidden 资源禁止访问   404 Not Found 资源找不到   501 Internal Server Error 内部出了故障   503 Service Unavailable 资源处理的队列排满了或在停机维护Retry Afteer    Gateway Timeout     一 前言 1 网络分层机制 网络的分层，能够对各个部分进行封装。在进行修改时候，不需要全部替换而仅是需要替换部分。</description>
+    </item>
+    
+  </channel>
+</rss>
