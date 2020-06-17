@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>WEB服务 on CHENENE</title>
+    <link>https://cheene.github.io/tags/web%E6%9C%8D%E5%8A%A1/</link>
+    <description>Recent content in WEB服务 on CHENENE</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ZH-CN</language>
+    <lastBuildDate>Wed, 17 Jun 2020 19:58:06 +0800</lastBuildDate>
+    
+	<atom:link href="https://cheene.github.io/tags/web%E6%9C%8D%E5%8A%A1/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>服务端局域网有什么玄机</title>
+      <link>https://cheene.github.io/posts/how-computer-network-05/</link>
+      <pubDate>Wed, 17 Jun 2020 19:58:06 +0800</pubDate>
+      
+      <guid>https://cheene.github.io/posts/how-computer-network-05/</guid>
+      <description>本章主要是与部署网站比较接近的地方，我也是第一次接触到防火墙，缓存服务器和负载均衡器的实现原理，在之前只是听说有这个名词。
+5.1 WEB服务的部署地点 常见的WEB部署的方式有三种：
+ 和路由器直接的方式，此时服务器在互联网上是处于“裸露”的状态而且IP地址也不足； 通过防火墙的连接，防火墙会先对包进行检查，只转发允许的包； 部署在接入网的数据中心，因为比较接近POP或者IX 所以速度高，安全并且维护成本也低。  5.2 防火墙结构和原理   基本思路 : 只允许发往特定服务器上特定程序的包，其余都屏蔽。
+  常见实现方式：
+ 包过滤 应用网关 电路层网关    对于包过滤是通过检测报的头部信息来实现的，字段包括：
+ MAC头部的发送方MAC地址； IP头部的发送/接收IP，协议号； TCP/UDP头部 : 发送方/接收方的端口号； TCP 控制位(ACK,SYN，PSH，RST。FIN等)    端口限定应用程序。比如说在服务端仅仅是 80 或者8080 端口的可以进入，其余的都必须屏蔽；</description>
+    </item>
+    
+  </channel>
+</rss>

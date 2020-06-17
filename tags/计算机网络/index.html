@@ -22,7 +22,7 @@
 <meta property="og:description" content="A description for the meta tag of the site" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://cheene.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" />
-<meta property="og:updated_time" content="2020-06-17T08:19:18+08:00" />
+<meta property="og:updated_time" content="2020-06-17T19:58:06+08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="计算机网络"/>
@@ -128,6 +128,70 @@ if (!doNotTrack) {
 </div>
 
 <div class="blog-brief">
+    <a href="/posts/how-computer-network-05/">
+        <h3 class="title is-4">
+            服务端局域网有什么玄机
+        </h3>
+    </a>
+
+    <div class="level is-mobile details">
+        <div class="level-left">
+
+            
+            <div class="level-item">
+                <a href="/posts/how-computer-network-05/">
+                    <p class="subtitle info date">Jun 17, 2020
+                    </p>
+                </a>
+            </div>
+            
+
+
+            <div class="level-item">
+                <a href="/posts/how-computer-network-05/">
+                    <p class="subtitle info">
+                        17 mins read
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div class="level-right is-hidden-touch">
+            
+            <a class="tag is-rounded" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>
+            
+            <a class="tag is-rounded" href="/tags/web%E6%9C%8D%E5%8A%A1">W e b服务</a>
+            
+        </div>
+    </div>
+
+    <div>
+        
+
+        <div>
+            <a href="/posts/how-computer-network-05/">
+                <p class="summary">
+                    本章主要是与部署网站比较接近的地方，我也是第一次接触到防火墙，缓存服务器和负载均衡器的实现原理，在之前只是听说有这个名词。
+5.1 WEB服务的部署地点 常见的WEB部署的方式有三种：
+ 和路由器直接的方式，此时服务器在互联网上是处于“裸露”的状态而且IP地址也不足； 通过防火墙的连接，防火墙会先对包进行检查，只转发允许的包； 部署在接入网的数据中心，因为比较接近POP或者IX 所以速度高，安全并且维护成本也低。  5.2 防火墙结构和原理   基本思路 : 只允许发往特定服务器上特定程序的包，其余都屏蔽。
+  常见实现方式：
+ 包过滤 应用网关 电路层网关    对于包过滤是通过检测报的头部信息来实现的，字段包括：
+ MAC头部的发送方MAC地址； IP头部的发送/接收IP，协议号； TCP/UDP头部 : 发送方/接收方的端口号； TCP 控制位(ACK,SYN，PSH，RST。FIN等)    端口限定应用程序。比如说在服务端仅仅是 80 或者8080 端口的可以进入，其余的都必须屏蔽；
+                    
+                </p>
+            </a>
+        </div>
+    </div>
+
+    <div class="level is-mobile continue-reading">
+        <div class="level-left">
+        </div>
+        <div class="level-right">
+            <a href="/posts/how-computer-network-05/">Continue reading <i class="fa fa-angle-double-right"
+                    aria-hidden="true"></i></a>
+        </div>
+    </div>
+    <hr>
+</div><div class="blog-brief">
     <a href="/posts/how-computer-network-04/">
         <h3 class="title is-4">
             接入网与运营商
