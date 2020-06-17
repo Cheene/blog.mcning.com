@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>第三章 从网线到网络设备</title>
+      <title>从网线到网络设备是如何工作的</title>
       <link>https://cheene.github.io/posts/how-computer-network-03/</link>
       <pubDate>Sun, 07 Jun 2020 15:39:55 +0800</pubDate>
       
@@ -27,7 +27,7 @@
     </item>
     
     <item>
-      <title>第二章：协议栈与网卡</title>
+      <title>协议栈与网卡</title>
       <link>https://cheene.github.io/posts/how-computer-network-02/</link>
       <pubDate>Tue, 12 May 2020 20:28:04 +0800</pubDate>
       
@@ -42,7 +42,7 @@
     </item>
     
     <item>
-      <title>第一章 HTTP消息、DNS服务与协议栈消息发送</title>
+      <title>HTTP消息、DNS服务与协议栈消息发送</title>
       <link>https://cheene.github.io/posts/how-computer-network-01/</link>
       <pubDate>Mon, 11 May 2020 20:28:04 +0800</pubDate>
       

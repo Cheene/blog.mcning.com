@@ -6,10 +6,28 @@
     <description>Recent content on CHENENE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ZH-CN</language>
-    <lastBuildDate>Sun, 14 Jun 2020 22:39:31 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jun 2020 08:19:18 +0800</lastBuildDate>
     
 	<atom:link href="https://cheene.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>接入网与运营商</title>
+      <link>https://cheene.github.io/posts/how-computer-network-04/</link>
+      <pubDate>Wed, 17 Jun 2020 08:19:18 +0800</pubDate>
+      
+      <guid>https://cheene.github.io/posts/how-computer-network-04/</guid>
+      <description>接入网与运营商 4.1 ADSL 接入网的结构和工作方式   互联网也是通过路由器进行转发包的，不同的地方在于转发的距离以及如何控制转发目标，因为路由表记录的维护方式不同。
+  互联网发包的规则与接入网有关，接入网就是公司家庭等连接互联网的通信线路包括 ADSL、FTFH、CATV、电话线、ISDN等。
+  ADSL Modem 需要将数据拆成信号单元
+  最终的目的是转换成电信号发送给分离器；
+  整体过程：客户端路由通过 Modem 和电话线发送网络包到ADSL的网络运营商；
+  从客户端到互联网网络包的变化：
+  客户端生成的网络包到接入网路由器包中有IP头部、MAC头部；
+  路由器接收包去除IP包并添加PPP、PPPOE、MAC包;
+  到达ADSL Modem接收包并且拆分成 ATM信号，将其转换成电信号发送出去；
+  此时到网络运营商的DSLAM接收电信号并且还原成ATM信元；</description>
+    </item>
     
     <item>
       <title>图解HTTP</title>
@@ -37,7 +55,7 @@
     </item>
     
     <item>
-      <title>第三章 从网线到网络设备</title>
+      <title>从网线到网络设备是如何工作的</title>
       <link>https://cheene.github.io/posts/how-computer-network-03/</link>
       <pubDate>Sun, 07 Jun 2020 15:39:55 +0800</pubDate>
       
@@ -188,7 +206,7 @@ ToDoList Doing Archived
     </item>
     
     <item>
-      <title>第二章：协议栈与网卡</title>
+      <title>协议栈与网卡</title>
       <link>https://cheene.github.io/posts/how-computer-network-02/</link>
       <pubDate>Tue, 12 May 2020 20:28:04 +0800</pubDate>
       
@@ -203,7 +221,7 @@ ToDoList Doing Archived
     </item>
     
     <item>
-      <title>第一章 HTTP消息、DNS服务与协议栈消息发送</title>
+      <title>HTTP消息、DNS服务与协议栈消息发送</title>
       <link>https://cheene.github.io/posts/how-computer-network-01/</link>
       <pubDate>Mon, 11 May 2020 20:28:04 +0800</pubDate>
       

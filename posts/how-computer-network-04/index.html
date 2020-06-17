@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ZH-CN"><title>
+    接入网与运营商 | 
+    
+    CHENENE</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<meta name="description" 
+      content="接入网与运营商 4.1 ADSL 接入网的结构和工作方式   互联网也是通过路由器进行转发包的，不同的地方在于转发的距离以及如何控制转发目标，因为路由表记录的维护方式不同。
+  互联网发包的规则与接入网有关，接入网就是公司家庭等连接互联网的通信线路包括 ADSL、FTFH、CATV、电话线、ISDN等。
+  ADSL Modem 需要将数据拆成信号单元
+  最终的目的是转换成电信号发送给分离器；
+  整体过程：客户端路由通过 Modem 和电话线发送网络包到ADSL的网络运营商；
+  从客户端到互联网网络包的变化：
+  客户端生成的网络包到接入网路由器包中有IP头部、MAC头部；
+  路由器接收包去除IP包并添加PPP、PPPOE、MAC包;
+  到达ADSL Modem接收包并且拆分成 ATM信号，将其转换成电信号发送出去；
+  此时到网络运营商的DSLAM接收电信号并且还原成ATM信元；
+                ">
+
+<link rel="canonical" href="https://cheene.github.io/posts/how-computer-network-04/" />
+
+<link rel="icon" type="image/png" href="https://cheene.github.io/image/favicon.ico">
+
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/bulma.min.css">
+
+<meta property="og:title" content="接入网与运营商" />
+<meta property="og:description" content="接入网与运营商 4.1 ADSL 接入网的结构和工作方式   互联网也是通过路由器进行转发包的，不同的地方在于转发的距离以及如何控制转发目标，因为路由表记录的维护方式不同。
+  互联网发包的规则与接入网有关，接入网就是公司家庭等连接互联网的通信线路包括 ADSL、FTFH、CATV、电话线、ISDN等。
+  ADSL Modem 需要将数据拆成信号单元
+  最终的目的是转换成电信号发送给分离器；
+  整体过程：客户端路由通过 Modem 和电话线发送网络包到ADSL的网络运营商；
+  从客户端到互联网网络包的变化：
+  客户端生成的网络包到接入网路由器包中有IP头部、MAC头部；
+  路由器接收包去除IP包并添加PPP、PPPOE、MAC包;
+  到达ADSL Modem接收包并且拆分成 ATM信号，将其转换成电信号发送出去；
+  此时到网络运营商的DSLAM接收电信号并且还原成ATM信元；" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cheene.github.io/posts/how-computer-network-04/" />
+<meta property="article:published_time" content="2020-06-17T08:19:18+08:00" />
+<meta property="article:modified_time" content="2020-06-17T08:19:18+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="接入网与运营商"/>
+<meta name="twitter:description" content="接入网与运营商 4.1 ADSL 接入网的结构和工作方式   互联网也是通过路由器进行转发包的，不同的地方在于转发的距离以及如何控制转发目标，因为路由表记录的维护方式不同。
+  互联网发包的规则与接入网有关，接入网就是公司家庭等连接互联网的通信线路包括 ADSL、FTFH、CATV、电话线、ISDN等。
+  ADSL Modem 需要将数据拆成信号单元
+  最终的目的是转换成电信号发送给分离器；
+  整体过程：客户端路由通过 Modem 和电话线发送网络包到ADSL的网络运营商；
+  从客户端到互联网网络包的变化：
+  客户端生成的网络包到接入网路由器包中有IP头部、MAC头部；
+  路由器接收包去除IP包并添加PPP、PPPOE、MAC包;
+  到达ADSL Modem接收包并且拆分成 ATM信号，将其转换成电信号发送出去；
+  此时到网络运营商的DSLAM接收电信号并且还原成ATM信元；"/>
+
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'analytics-code', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+<script src=/js/ramium.js></script>
+<link rel="stylesheet" href=/css/ramium.css>
+
+
+
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'analytics-code', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<body><nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href=/>
+      
+      <strong>CHENENE </strong>
+      
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+      data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      
+      
+      <a class="navbar-item" href="/">Home</a>
+      
+      
+      
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">This Blog</a>
+        <div class="navbar-dropdown">
+          
+          <a class="navbar-item" href="/tags/">All Tags</a>
+          
+          <a class="navbar-item" href="/sections/">All Sections</a>
+          
+          <a class="navbar-item" href="/posts/">All Posts</a>
+          
+        </div>
+      </div>
+      
+      
+      
+      <a class="navbar-item" href="/thinks/">Think Different</a>
+      
+      
+      
+      <a class="navbar-item" href="/author/">Author</a>
+      
+      
+    </div>
+
+    <div class="navbar-end">
+      
+      <a class="navbar-item navgithub" href="https://github.com//" target="_blank">
+        <i class="fa fa-github fa-2x"></i>
+      </a>
+      
+
+      
+    </div>
+  </div>
+</nav><div class="columns is-centered">
+        <div id="page-body" class="column is-7">
+
+<div class="content blog">
+    <h1 class="title">接入网与运营商</h1>
+
+    <div id="infobar" class="level is-mobile">
+        <div class="level-left">
+            
+            <div class="level-item">
+                <p class="subtitle info date">Jun 17, 2020
+                </p>
+            </div>
+            
+
+            <div class="level-item">
+                <p class="subtitle info">
+                    21 mins read
+                </p>
+            </div>
+        </div>
+        <div class="level-right is-hidden-touch">
+            <div class="tags">
+                
+                <a class="tag is-dark is-rounded" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="tags is-hidden-desktop">
+        
+        <a class="tag is-dark is-rounded" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>
+        
+    </div>
+
+    <div class="blog-text">
+        
+
+        <h1 id="接入网与运营商">接入网与运营商</h1>
+<h2 id="41-adsl-接入网的结构和工作方式">4.1 ADSL 接入网的结构和工作方式</h2>
+<ol>
+<li>
+<p>互联网也是通过路由器进行转发包的，不同的地方在于<strong>转发的距离</strong>以及<strong>如何控制转发目标</strong>，因为路由表记录的维护方式不同。</p>
+</li>
+<li>
+<p>互联网发包的规则与接入网有关，接入网就是公司家庭等连接互联网的通信线路包括 ADSL、FTFH、CATV、电话线、ISDN等。</p>
+</li>
+<li>
+<p>ADSL Modem 需要将数据拆成信号单元</p>
+<ul>
+<li>
+<p>最终的目的是转换成电信号发送给分离器；</p>
+</li>
+<li>
+<p>整体过程：客户端路由通过 Modem 和电话线发送网络包到ADSL的网络运营商；</p>
+</li>
+<li>
+<p>从客户端到互联网网络包的变化：</p>
+<ul>
+<li>
+<p>客户端生成的网络包到接入网路由器包中有IP头部、MAC头部；</p>
+</li>
+<li>
+<p>路由器接收包去除IP包并添加<code>PPP</code>、<code>PPPOE</code>、<code>MAC</code>包;</p>
+</li>
+<li>
+<p>到达ADSL Modem接收包并且拆分成 ATM信号，将其转换成电信号发送出去；</p>
+</li>
+<li>
+<p>此时到网络运营商的<code>DSLAM</code>接收电信号并且还原成ATM信元；</p>
+</li>
+<li>
+<p>将ATM信元拨送给BAS，BAS还原网络包去除<code>PPP</code>包并添加<code>L2TP </code>头部；</p>
+</li>
+<li>
+<p>通过隧道连上互联网。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>网络包最开始根据<code> PPPOE</code> 的规定用以太网标准进行转成电信号发送给路由器。</p>
+</li>
+<li>
+<p><code>DSLAM</code> 是局端多路Modem，<code>BAS</code>是宽带接入服务器，也是一种路由器。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>ADSL将信元调制到信号</p>
+<ul>
+<li>
+<p>ADSL调制信号,是因为方波信号容易失真，覆盖了从低频到高频的宽广频段，频率越高，电磁的噪声越大。</p>
+</li>
+<li>
+<p>调制的方式：</p>
+<ul>
+<li>振幅调制(ACK)</li>
+<li>相位调制(PSK)</li>
+<li>正交振幅(QAM)[两者相结合的]</li>
+</ul>
+</li>
+<li>
+<p>振幅调制： 利用信号的强弱，振幅小，信号为0；振幅大。信号为1.</p>
+</li>
+<li>
+<p>相位调制：Modem产生的信号是一定周期的波，相位按每个周期从0 到 360 来表示，以 0 开始的是 0.以 180 开始的是 1</p>
+</li>
+<li>
+<p>正交振幅是将以上两者结合起来的。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>ASDSL通过多个波来提高传输速率</p>
+<ul>
+<li>不同频率的波可以合成，也可以使用滤波器从合成的波中分离出来；</li>
+<li>以 ADSL 为例，间隔为 <code>4.3125KHZ</code> 的上百种不同频率的波以正交振幅的形式合成的；</li>
+<li>噪声小的分配多个比特，噪声大分配少的比特。ADSL 传输速率不相同的原因在于上行与下行使用频段的数量不同。</li>
+<li>Modem 通信时，会经过握手(训练),检查线路质量，动态判断使用的频段数量和每一个频段分配的比特数。</li>
+</ul>
+</li>
+<li>
+<p>分离器的作用：</p>
+<ul>
+<li>主要是将电话的信号和 ADSL的信号分离，电话的信号是低频率，ADSL的频率是高频率，屏蔽 ADSL的高频信号，仅保留电话的低频信号；</li>
+<li>还有一种快速握手的技术 G.992.2 对ADSL是没有影响但是对电话仍有影响。</li>
+</ul>
+</li>
+<li>
+<p>从用户到电话局：</p>
+<ul>
+<li>分离器出来之后到电话线的接口；</li>
+<li>走室内电话线到大楼的IDF和MDF中;</li>
+<li>通过配线盘到达保安器，最后通过电缆与电话局相连;</li>
+</ul>
+</li>
+<li>
+<p>噪声的干扰也同样来源于两个地方，</p>
+<ul>
+<li>一个是外部电磁的影响；</li>
+<li>一个是内部漏电的串扰;</li>
+<li>所谓的干扰是信号和噪声的频率相同，可用信号的减少使速率下降。</li>
+</ul>
+</li>
+<li>
+<p>通过 DSLAM 到达 BAS</p>
+<ul>
+<li>信号经过电话线到达电话局，电话局离通过配线盘、分离器到达DSLAM；</li>
+<li>在 DSLAM 中将信号还原成信元；</li>
+<li>DSLAM 相当于多个ADSL Modem 的功能集中在一个设备里；</li>
+<li>DSLAM 是具有 ATM 的接口，没有以太网的接口，传递 ATM 信元；</li>
+<li>从 DSLAM 就到达 BAS,BAS 先接收信元然后还原成包，去掉MAC、PPPOE 添加隧道专用头部发送过去；</li>
+<li>最后隧道头部去掉，IP包取出并转发到互联网的内部。</li>
+</ul>
+</li>
+</ol>
+<h2 id="42-光纤接入网ftth">4.2 光纤接入网(FTTH)</h2>
+<ol>
+<li>
+<p>光纤的原理：光纤是由双层结构的纤维状透明材质构成的，亮代表着 1，暗 代表着 0；
+大体过程：先将数字信号转成电信号，然后将电信号通过LED、激光、极管等发出光，接收设备根据光敏元件产生不同的电压，转换成电信号；电信号最终转成数字信号。</p>
+</li>
+<li>
+<p>光纤的单模与多模：</p>
+<ul>
+<li>透光率、折射率和纤芯直径会影响传导；</li>
+<li>一般在光源处，入射的角度过大，光线会在纤芯的包层和边界处折射出去；</li>
+<li>入射角度小了可以进入，在里面传导过程中会发生反射，如果反射之后相位不一致也会相互抵消。(与水波相似，相位相同增强，相位相反就减弱。)；</li>
+<li>两种直径：单模直径在 8 ~ 10 um 之间，多模的直径 50 um 或者 62.5 um。</li>
+<li>单模中相一致时，只有入射角度最小的才可以被折射出去，所以对光敏原件要求较高，且不易失真。在多模中，入射角度稍大一些也会被折射进去，所以对光源和敏感元件的要求相对低一些。</li>
+</ul>
+</li>
+<li>
+<p>光纤分路能够降低成本</p>
+<ul>
+<li>光纤连接有两种方式，
+<ul>
+<li>直接相连(FTTH 光纤入户)，</li>
+<li>安装分光器，用户端不用光纤接收器而是 ONU(光网络单元) 设备。</li>
+</ul>
+</li>
+<li>从用户端到运营大体的过程：
+<ul>
+<li>用户使用 ONU 发送到 BAS 前面的 OLT(光线路终端)设备；</li>
+<li>OLT 和 ONU 联合避免信号的碰撞，OLT会给 ONU 下达指令，发送数据，反过来到达的数据会发送给所有的ONU终端，ONU再通过信息进行判断。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="43-接入网中的ppp和隧道">4.3 接入网中的PPP和隧道</h2>
+<ol>
+<li>
+<p>用户的认证和配置下发</p>
+<p>主要做两件事情：</p>
+<ul>
+<li>
+<p>用户身份的认证</p>
+</li>
+<li>
+<p>将带有公网IP等的配置信息发送给用户</p>
+<p>用户身份认证：使用进化型路由器 BAS，作为认证窗口，通过 PPPOE 来实现这个功能。</p>
+</li>
+<li>
+<p>PPPOE的工作：</p>
+<ul>
+<li>向接入点拨号(发送请求认证报文)；</li>
+<li>接通后输入用户名和密码；</li>
+<li>密码通过RADIUS 协议从RAS发送到认证服务器；</li>
+<li>确认无误之后返回配置信息；</li>
+<li>用户根据返回的配置信息配置IP地址等</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>PPP 消息</p>
+<ul>
+<li>传输PPP消息，由于PPP协议没有规定固定的格式，所以在拨号的时候使用了HDLC作为容器；</li>
+<li>但在 ADSL 和 FTTH 中不能将 HDLC 作为容器而是使用以太网包，同时对这个包做了部分修整就是 PPPOE。</li>
+</ul>
+</li>
+<li>
+<p>通过隧道发送信息(两个路由之间)</p>
+<ul>
+<li>何为隧道：用户与运营商之间通过TCP连接将数据原封不动地从一端发送到另一端。</li>
+<li>就像一种管道，仅仅负责数据的传输，不负责辨别。</li>
+<li>两种方式：一种是直接对原数据不做任何更改直接传递；第二种是进行数据的封装。</li>
+</ul>
+</li>
+<li>
+<p>接入网的大体过程</p>
+<ul>
+<li>接入网的路由器配置用户名和密码，然后寻找BAS的MAC地址(用PPPOE的发现机制)。</li>
+<li>在用户认证阶段，一种是CHAP加密传输；一种是PAP方式不加密传输。</li>
+<li>下发的信息包括公网IP地址,DNS服务器地址和默认网关的IP地址。</li>
+<li>接入路由器向BAS发送数据所需要添加的头部信息包括：MAC、PPPOE、PPP 三个部分;</li>
+<li>此时一个完整的包是： MAC、PPPOE、PPP、IP、TCP、数据。</li>
+<li>BAS将PPP头部以及后面的部分发送出去，通过隧道到达网络运营商的路由器。</li>
+</ul>
+</li>
+<li>
+<p>不分配IP地址的无编号端口</p>
+<ul>
+<li>如果两个端口是一对一直接连接的无需要判断跳转可以不用分配IP地址</li>
+</ul>
+</li>
+<li>
+<p>接入路由器将公有地址转换成私有地址</p>
+<ul>
+<li>这里可以对比咱们日常家庭中的两种上网的方式：
+<ul>
+<li>一种是连接路由器，从路由器出来连接电脑；</li>
+<li>第二种是直接与电脑相连。</li>
+</ul>
+</li>
+<li>在第一种的情况下，路由器的地址是这个公网的地址，电脑的地址是路由器的子网的地址。
+<ul>
+<li>当发送数据的时候需要将子网的IP转成公网的IP发送出去</li>
+<li>返回的是公网的IP到达路由之后，转给子网。</li>
+</ul>
+</li>
+<li>第二种情况下，电脑的网卡IP地址直接是公网的IP地址。</li>
+</ul>
+</li>
+<li>
+<p>还有其他的上网方式比如： PPPOA、DHCP等</p>
+</li>
+</ol>
+<h2 id="44-网络运营商的内部">4.4 网络运营商的内部</h2>
+<ol>
+<li>POP 和 NOC
+<ul>
+<li>POP 是 Point Of Presense 接入点；</li>
+<li>网络包通过接入网到达POP路由器。</li>
+<li>POP根据不同的业务有不同类型的路由器：
+<ul>
+<li>专线： 不需要用户认证和配置下发；</li>
+<li>电话、ISDN 使用 RAS 路由进行身份验证；</li>
+<li>PPPOE 接入网服务提供商需要BAS身份验证，运营商的路由器与服务商的BAS路由相连，仅仅负责包的转发；</li>
+<li>PPPOA ：DSLAM 通过ATM交换机与ADSL运营商的BAS相连，然后再连接到运营商的服务器</li>
+</ul>
+</li>
+<li>NOC 运营商的核心设备从 POP的包传递进来，转发给其他的运营商或者更接近目的地址的POP，NOC 可以说是规模扩大的POP</li>
+</ul>
+</li>
+<li>室外通信线路因为超过了双绞线能容纳的极限，所以一般使用光纤连接。对于自身有光纤的可以直接将NOC与 POP相连。对于自身没有的可以通过租借光纤线路来使用。</li>
+</ol>
+<h2 id="45-跨越运营商的网络包">4.5 跨越运营商的网络包</h2>
+<ol>
+<li>
+<p>运营商之间的连接
+在互联网内部，数据从运营商的POP设备出来之后，如果web服务来源于同一个运营商，直接根据路由表来判断转发给对应的 NOC 或者 相邻的POP。如果不是同一个运营商，则也是根据路由表中的信息转发给服务器所对应服务商的NOC。</p>
+</li>
+<li>
+<p>运营商之间如何连接</p>
+<p>连接的方法是<strong>相连的路由器互相告知路由信息</strong>并且写入到路由表中，这个过程是路由自动完成的称之为<strong>边界网关</strong>协议。</p>
+<p>连接的方式一共有三种：</p>
+<ul>
+<li>转接
+<ul>
+<li>转接是 将整个运营商的全部路由信息告诉对方；</li>
+</ul>
+</li>
+<li>对等(XI)
+<ul>
+<li>对等（IX），进行物理连接，通过相互告知路由信息之后才能交换网络包；</li>
+</ul>
+</li>
+<li>对等（直接连接）
+<ul>
+<li>只将与自己直接连接的网络的路由信息告诉对方，然后对方只向与自己直接连接的那些网络发送包(可以理解为：仅仅是两个运营商之间可以连接)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>与公司中自动更新路由表和机制的区别</p>
+<ul>
+<li>在互联网内部运营商之间路由交换是在特定的路由器上一对一进行的</li>
+<li>其次再判断最短路由以及当多条路由时候设置路由的优先级等</li>
+</ul>
+</li>
+<li>
+<p>对等网络通过 <code>IX</code> 连接的重要性</p>
+<ul>
+<li><code>IX</code> 是指的 互联网交换中心Internet Exchange，如果没有的话，每个运营商之间都要一对一连接才能交换所有的信息但全世界有上万个网络运营商，所以是不可能的。当有 IX 的时候，所有的运营商都与 IX 相连，就可以进行与所有连接IX 的运营商进行交换信息了。</li>
+</ul>
+</li>
+<li>
+<p>运营商如何与 IX 相连</p>
+<ul>
+<li>IX 一般是大量以太网端口的高速二层交换机。在一座大楼的某个角落里</li>
+<li>一般有四种方式：
+<ul>
+<li>运营商与 IX 在同一个大楼里，直接用光纤将路由器连接到交换机上；</li>
+<li>不在一个大楼里：将运营商的路由器搬到安装XI的机房里连接，路由器通过通信线路或者直驳光纤等方式与运营商的NOC相连；</li>
+<li>运营商的路由器通过通信线路或者直驳光纤与IX 的交换机相连；</li>
+<li>IX出来一个二层交换机连接到核心的交换机，运营商的路由器连接到这个交换机上，间接与核心交换机相连。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
+    </div>
+</div><div id="social-media-share" class="has-text-centered">
+	<p><i>Sharing is caring!</i></p>
+	<br>
+	
+	<div class="share-buttons">
+	    <a  href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcheene.github.io%2fposts%2fhow-computer-network-04%2f"
+	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
+	        title="Share on Facebook. Opens in a new window.">
+	        <img src=/img/icons/45px/facebook.png>
+	    </a>
+
+	    <a  href="https://twitter.com/intent/tweet?text=%e6%8e%a5%e5%85%a5%e7%bd%91%e4%b8%8e%e8%bf%90%e8%90%a5%e5%95%86&url=https%3a%2f%2fcheene.github.io%2fposts%2fhow-computer-network-04%2f"
+	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
+	        title="Share on Twitter. Opens in a new window." >
+	        <img src=/img/icons/45px/twitter.png>
+	    </a>
+
+		<a  href="http://www.reddit.com/submit?url=https%3a%2f%2fcheene.github.io%2fposts%2fhow-computer-network-04%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Reddit. Opens in a new window." >
+	        <img src=/img/icons/45px/reddit.png>
+	    </a>
+
+	    <a  href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fcheene.github.io%2fposts%2fhow-computer-network-04%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Pinterest. Opens in a new window." >
+	        <img src=/img/icons/45px/pinterest.png>
+	    </a>
+
+	    <a  href="http://www.tumblr.com/share/link?url=https%3a%2f%2fcheene.github.io%2fposts%2fhow-computer-network-04%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Tumblr. Opens in a new window." >
+	        <img src=/img/icons/45px/tumblr.png>
+	    </a>
+
+		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fcheene.github.io%2fposts%2fhow-computer-network-04%2f
+			&title=%e6%8e%a5%e5%85%a5%e7%bd%91%e4%b8%8e%e8%bf%90%e8%90%a5%e5%95%86&summary=%e6%8e%a5%e5%85%a5%e7%bd%91%e4%b8%8e%e8%bf%90%e8%90%a5%e5%95%86%204.1%20ADSL%20%e6%8e%a5%e5%85%a5%e7%bd%91%e7%9a%84%e7%bb%93%e6%9e%84%e5%92%8c%e5%b7%a5%e4%bd%9c%e6%96%b9%e5%bc%8f%20%20%20%e4%ba%92%e8%81%94%e7%bd%91%e4%b9%9f%e6%98%af%e9%80%9a%e8%bf%87%e8%b7%af%e7%94%b1%e5%99%a8%e8%bf%9b%e8%a1%8c%e8%bd%ac%e5%8f%91%e5%8c%85%e7%9a%84%ef%bc%8c%e4%b8%8d%e5%90%8c%e7%9a%84%e5%9c%b0%e6%96%b9%e5%9c%a8%e4%ba%8e%e8%bd%ac%e5%8f%91%e7%9a%84%e8%b7%9d%e7%a6%bb%e4%bb%a5%e5%8f%8a%e5%a6%82%e4%bd%95%e6%8e%a7%e5%88%b6%e8%bd%ac%e5%8f%91%e7%9b%ae%e6%a0%87%ef%bc%8c%e5%9b%a0%e4%b8%ba%e8%b7%af%e7%94%b1%e8%a1%a8%e8%ae%b0%e5%bd%95%e7%9a%84%e7%bb%b4%e6%8a%a4%e6%96%b9%e5%bc%8f%e4%b8%8d%e5%90%8c%e3%80%82%0a%20%20%e4%ba%92%e8%81%94%e7%bd%91%e5%8f%91%e5%8c%85%e7%9a%84%e8%a7%84%e5%88%99%e4%b8%8e%e6%8e%a5%e5%85%a5%e7%bd%91%e6%9c%89%e5%85%b3%ef%bc%8c%e6%8e%a5%e5%85%a5%e7%bd%91%e5%b0%b1%e6%98%af%e5%85%ac%e5%8f%b8%e5%ae%b6%e5%ba%ad%e7%ad%89%e8%bf%9e%e6%8e%a5%e4%ba%92%e8%81%94%e7%bd%91%e7%9a%84%e9%80%9a%e4%bf%a1%e7%ba%bf%e8%b7%af%e5%8c%85%e6%8b%ac%20ADSL%e3%80%81FTFH%e3%80%81CATV%e3%80%81%e7%94%b5%e8%af%9d%e7%ba%bf%e3%80%81ISDN%e7%ad%89%e3%80%82%0a%20%20ADSL%20Modem%20%e9%9c%80%e8%a6%81%e5%b0%86%e6%95%b0%e6%8d%ae%e6%8b%86%e6%88%90%e4%bf%a1%e5%8f%b7%e5%8d%95%e5%85%83%0a%20%20%e6%9c%80%e7%bb%88%e7%9a%84%e7%9b%ae%e7%9a%84%e6%98%af%e8%bd%ac%e6%8d%a2%e6%88%90%e7%94%b5%e4%bf%a1%e5%8f%b7%e5%8f%91%e9%80%81%e7%bb%99%e5%88%86%e7%a6%bb%e5%99%a8%ef%bc%9b%0a%20%20%e6%95%b4%e4%bd%93%e8%bf%87%e7%a8%8b%ef%bc%9a%e5%ae%a2%e6%88%b7%e7%ab%af%e8%b7%af%e7%94%b1%e9%80%9a%e8%bf%87%20Modem%20%e5%92%8c%e7%94%b5%e8%af%9d%e7%ba%bf%e5%8f%91%e9%80%81%e7%bd%91%e7%bb%9c%e5%8c%85%e5%88%b0ADSL%e7%9a%84%e7%bd%91%e7%bb%9c%e8%bf%90%e8%90%a5%e5%95%86%ef%bc%9b%0a%20%20%e4%bb%8e%e5%ae%a2%e6%88%b7%e7%ab%af%e5%88%b0%e4%ba%92%e8%81%94%e7%bd%91%e7%bd%91%e7%bb%9c%e5%8c%85%e7%9a%84%e5%8f%98%e5%8c%96%ef%bc%9a%0a%20%20%e5%ae%a2%e6%88%b7%e7%ab%af%e7%94%9f%e6%88%90%e7%9a%84%e7%bd%91%e7%bb%9c%e5%8c%85%e5%88%b0%e6%8e%a5%e5%85%a5%e7%bd%91%e8%b7%af%e7%94%b1%e5%99%a8%e5%8c%85%e4%b8%ad%e6%9c%89IP%e5%a4%b4%e9%83%a8%e3%80%81MAC%e5%a4%b4%e9%83%a8%ef%bc%9b%0a%20%20%e8%b7%af%e7%94%b1%e5%99%a8%e6%8e%a5%e6%94%b6%e5%8c%85%e5%8e%bb%e9%99%a4IP%e5%8c%85%e5%b9%b6%e6%b7%bb%e5%8a%a0PPP%e3%80%81PPPOE%e3%80%81MAC%e5%8c%85%3b%0a%20%20%e5%88%b0%e8%be%beADSL%20Modem%e6%8e%a5%e6%94%b6%e5%8c%85%e5%b9%b6%e4%b8%94%e6%8b%86%e5%88%86%e6%88%90%20ATM%e4%bf%a1%e5%8f%b7%ef%bc%8c%e5%b0%86%e5%85%b6%e8%bd%ac%e6%8d%a2%e6%88%90%e7%94%b5%e4%bf%a1%e5%8f%b7%e5%8f%91%e9%80%81%e5%87%ba%e5%8e%bb%ef%bc%9b%0a%20%20%e6%ad%a4%e6%97%b6%e5%88%b0%e7%bd%91%e7%bb%9c%e8%bf%90%e8%90%a5%e5%95%86%e7%9a%84DSLAM%e6%8e%a5%e6%94%b6%e7%94%b5%e4%bf%a1%e5%8f%b7%e5%b9%b6%e4%b8%94%e8%bf%98%e5%8e%9f%e6%88%90ATM%e4%bf%a1%e5%85%83%ef%bc%9b&source=rafed123.github.io"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on LinkedIn. Opens in a new window." >
+	        <img src=/img/icons/45px/linkedin.png>
+	    </a>
+
+	    <a  href="mailto:?subject=%e6%8e%a5%e5%85%a5%e7%bd%91%e4%b8%8e%e8%bf%90%e8%90%a5%e5%95%86&amp;body=Check out this site https%3a%2f%2fcheene.github.io%2fposts%2fhow-computer-network-04%2f"
+	        title="Share via Email. Opens in a new window." >
+	        <img src=/img/icons/45px/mail.png>
+	    </a>
+	</div>
+</div>
+
+
+<br>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    (function () {
+        
+        
+        if (window.location.hostname == "localhost")
+            return;
+
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'disqus-code';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+        </div>
+    </div>
+
+<footer class="footer has-background-dark">
+    <div class="content has-text-centered has-text-white">
+        <p>
+            © 2020 Ramium. Powered by
+            <a class="has-text-light" href="https://github.com/gohugoio/hugo" target="_blank">
+            Hugo</a>. Theme
+            <a class="has-text-light" href="https://github.com/rafed123/ramium/" target="_blank">
+                Ramium.
+            </a>
+        </p>
+    </div>
+</footer>
+</body>
+
+</html>

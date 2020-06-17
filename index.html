@@ -20,7 +20,7 @@
 <meta property="og:description" content="A description for the meta tag of the site" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://cheene.github.io/" />
-<meta property="og:updated_time" content="2020-06-14T22:39:31+08:00" />
+<meta property="og:updated_time" content="2020-06-17T08:19:18+08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CHENENE"/>
@@ -283,6 +283,72 @@ if (!doNotTrack) {
             </a>
         </div>
         <div class="blog-brief">
+    <a href="/posts/how-computer-network-04/">
+        <h3 class="title is-4">
+            接入网与运营商
+        </h3>
+    </a>
+
+    <div class="level is-mobile details">
+        <div class="level-left">
+
+            
+            <div class="level-item">
+                <a href="/posts/how-computer-network-04/">
+                    <p class="subtitle info date">Jun 17, 2020
+                    </p>
+                </a>
+            </div>
+            
+
+
+            <div class="level-item">
+                <a href="/posts/how-computer-network-04/">
+                    <p class="subtitle info">
+                        21 mins read
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div class="level-right is-hidden-touch">
+            
+            <a class="tag is-rounded" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>
+            
+        </div>
+    </div>
+
+    <div>
+        
+
+        <div>
+            <a href="/posts/how-computer-network-04/">
+                <p class="summary">
+                    接入网与运营商 4.1 ADSL 接入网的结构和工作方式   互联网也是通过路由器进行转发包的，不同的地方在于转发的距离以及如何控制转发目标，因为路由表记录的维护方式不同。
+  互联网发包的规则与接入网有关，接入网就是公司家庭等连接互联网的通信线路包括 ADSL、FTFH、CATV、电话线、ISDN等。
+  ADSL Modem 需要将数据拆成信号单元
+  最终的目的是转换成电信号发送给分离器；
+  整体过程：客户端路由通过 Modem 和电话线发送网络包到ADSL的网络运营商；
+  从客户端到互联网网络包的变化：
+  客户端生成的网络包到接入网路由器包中有IP头部、MAC头部；
+  路由器接收包去除IP包并添加PPP、PPPOE、MAC包;
+  到达ADSL Modem接收包并且拆分成 ATM信号，将其转换成电信号发送出去；
+  此时到网络运营商的DSLAM接收电信号并且还原成ATM信元；
+                    
+                </p>
+            </a>
+        </div>
+    </div>
+
+    <div class="level is-mobile continue-reading">
+        <div class="level-left">
+        </div>
+        <div class="level-right">
+            <a href="/posts/how-computer-network-04/">Continue reading <i class="fa fa-angle-double-right"
+                    aria-hidden="true"></i></a>
+        </div>
+    </div>
+    <hr>
+</div><div class="blog-brief">
     <a href="/posts/http-image-01/">
         <h3 class="title is-4">
             图解HTTP
@@ -408,7 +474,7 @@ if (!doNotTrack) {
 </div><div class="blog-brief">
     <a href="/posts/how-computer-network-03/">
         <h3 class="title is-4">
-            第三章 从网线到网络设备
+            从网线到网络设备是如何工作的
         </h3>
     </a>
 
@@ -527,67 +593,6 @@ if (!doNotTrack) {
         </div>
         <div class="level-right">
             <a href="/posts/leet-code-1620/">Continue reading <i class="fa fa-angle-double-right"
-                    aria-hidden="true"></i></a>
-        </div>
-    </div>
-    <hr>
-</div><div class="blog-brief">
-    <a href="/posts/leet-code-1619/">
-        <h3 class="title is-4">
-            #1619[二叉树的镜像]
-        </h3>
-    </a>
-
-    <div class="level is-mobile details">
-        <div class="level-left">
-
-            
-            <div class="level-item">
-                <a href="/posts/leet-code-1619/">
-                    <p class="subtitle info date">Jun 7, 2020
-                    </p>
-                </a>
-            </div>
-            
-
-
-            <div class="level-item">
-                <a href="/posts/leet-code-1619/">
-                    <p class="subtitle info">
-                        2 mins read
-                    </p>
-                </a>
-            </div>
-        </div>
-        <div class="level-right is-hidden-touch">
-            
-            <a class="tag is-rounded" href="/tags/leet-code">Leet code</a>
-            
-            <a class="tag is-rounded" href="/tags/%E7%AE%97%E6%B3%95">算法</a>
-            
-            <a class="tag is-rounded" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91">二叉树</a>
-            
-        </div>
-    </div>
-
-    <div>
-        
-
-        <div>
-            <a href="/posts/leet-code-1619/">
-                <p class="summary">
-                    题目 请完成一个函数，输入一个二叉树，该函数输出它的镜像。示例 例如输入：4/ \2 7/ \ / \1 3 6 9镜像输出：4/ \7 2/ \ / \9 6 3 1输入：root = [4,2,7,1,3,6,9]输出：[4,7,2,9,6,3,1]限制 0 &amp;lt;= 节点个数 &amp;lt;= 1000思路 需要交换左右子树的位置而不仅仅是元素判断当前节点的子树行为如果只有左子树右子树设置为左子树，左子树为空递归修改右子树如果只有右子树左子树设置为右子树，右子树为空递归修改左子树否则左右子树调换左右子树递归实现 func mirrorTree(root *TreeNode) *TreeNode { if root == nil { return root } /** 如果是空子树要注意 */ if root.
-                    
-                </p>
-            </a>
-        </div>
-    </div>
-
-    <div class="level is-mobile continue-reading">
-        <div class="level-left">
-        </div>
-        <div class="level-right">
-            <a href="/posts/leet-code-1619/">Continue reading <i class="fa fa-angle-double-right"
                     aria-hidden="true"></i></a>
         </div>
     </div>

@@ -22,7 +22,7 @@
 <meta property="og:description" content="A description for the meta tag of the site" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://cheene.github.io/posts/" />
-<meta property="og:updated_time" content="2020-06-14T22:39:31+08:00" />
+<meta property="og:updated_time" content="2020-06-17T08:19:18+08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Posts"/>
@@ -129,6 +129,67 @@ if (!doNotTrack) {
 
 
 <div class="blog-brief">
+    <a href="/posts/leet-code-1619/">
+        <h3 class="title is-4">
+            #1619[二叉树的镜像]
+        </h3>
+    </a>
+
+    <div class="level is-mobile details">
+        <div class="level-left">
+
+            
+            <div class="level-item">
+                <a href="/posts/leet-code-1619/">
+                    <p class="subtitle info date">Jun 7, 2020
+                    </p>
+                </a>
+            </div>
+            
+
+
+            <div class="level-item">
+                <a href="/posts/leet-code-1619/">
+                    <p class="subtitle info">
+                        2 mins read
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div class="level-right is-hidden-touch">
+            
+            <a class="tag is-rounded" href="/tags/leet-code">Leet code</a>
+            
+            <a class="tag is-rounded" href="/tags/%E7%AE%97%E6%B3%95">算法</a>
+            
+            <a class="tag is-rounded" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91">二叉树</a>
+            
+        </div>
+    </div>
+
+    <div>
+        
+
+        <div>
+            <a href="/posts/leet-code-1619/">
+                <p class="summary">
+                    题目 请完成一个函数，输入一个二叉树，该函数输出它的镜像。示例 例如输入：4/ \2 7/ \ / \1 3 6 9镜像输出：4/ \7 2/ \ / \9 6 3 1输入：root = [4,2,7,1,3,6,9]输出：[4,7,2,9,6,3,1]限制 0 &amp;lt;= 节点个数 &amp;lt;= 1000思路 需要交换左右子树的位置而不仅仅是元素判断当前节点的子树行为如果只有左子树右子树设置为左子树，左子树为空递归修改右子树如果只有右子树左子树设置为右子树，右子树为空递归修改左子树否则左右子树调换左右子树递归实现 func mirrorTree(root *TreeNode) *TreeNode { if root == nil { return root } /** 如果是空子树要注意 */ if root.
+                    
+                </p>
+            </a>
+        </div>
+    </div>
+
+    <div class="level is-mobile continue-reading">
+        <div class="level-left">
+        </div>
+        <div class="level-right">
+            <a href="/posts/leet-code-1619/">Continue reading <i class="fa fa-angle-double-right"
+                    aria-hidden="true"></i></a>
+        </div>
+    </div>
+    <hr>
+</div><div class="blog-brief">
     <a href="/posts/leet-code-1617/">
         <h3 class="title is-4">
             #1617 [合并两个排序的链表]
@@ -368,67 +429,6 @@ if (!doNotTrack) {
         </div>
         <div class="level-right">
             <a href="/posts/leet-code-1611/">Continue reading <i class="fa fa-angle-double-right"
-                    aria-hidden="true"></i></a>
-        </div>
-    </div>
-    <hr>
-</div><div class="blog-brief">
-    <a href="/posts/leet-code-1610/">
-        <h3 class="title is-4">
-            #1610 [打印从1到最大的n位数]
-        </h3>
-    </a>
-
-    <div class="level is-mobile details">
-        <div class="level-left">
-
-            
-            <div class="level-item">
-                <a href="/posts/leet-code-1610/">
-                    <p class="subtitle info date">Jun 7, 2020
-                    </p>
-                </a>
-            </div>
-            
-
-
-            <div class="level-item">
-                <a href="/posts/leet-code-1610/">
-                    <p class="subtitle info">
-                        1 min read
-                    </p>
-                </a>
-            </div>
-        </div>
-        <div class="level-right is-hidden-touch">
-            
-            <a class="tag is-rounded" href="/tags/leet-code">Leet code</a>
-            
-            <a class="tag is-rounded" href="/tags/%E7%AE%97%E6%B3%95">算法</a>
-            
-            <a class="tag is-rounded" href="/tags/%E6%95%B0%E7%BB%84">数组</a>
-            
-        </div>
-    </div>
-
-    <div>
-        
-
-        <div>
-            <a href="/posts/leet-code-1610/">
-                <p class="summary">
-                    题目 输入数字 n，按顺序打印出从 1 到最大的 n 位十进制数。比如输入 3，则打印出 1、2、3 一直到最大的 3 位数 999。示例 输入: n = 1输出: [1,2,3,4,5,6,7,8,9]限制 思路 1 根据 n 得到最大值2 新建数组并初始化3 返回数组实现 func printNumbers(n int) []int { if n == 0 { return []int{} } max := 0 for i := 0; i &amp;lt; n; i&#43;&#43; { max *= 10 max &#43;= 9 } nums := make([]int,max) for i := 0; i &amp;lt; len(nums); i&#43;&#43; { nums[i] = i&#43;1 } return nums } 
-                    
-                </p>
-            </a>
-        </div>
-    </div>
-
-    <div class="level is-mobile continue-reading">
-        <div class="level-left">
-        </div>
-        <div class="level-right">
-            <a href="/posts/leet-code-1610/">Continue reading <i class="fa fa-angle-double-right"
                     aria-hidden="true"></i></a>
         </div>
     </div>
