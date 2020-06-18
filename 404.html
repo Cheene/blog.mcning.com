@@ -186,6 +186,8 @@ if (!doNotTrack) {
                 
                 
                 
+                
+                
 
                 
                 <a href="/tags/git">
@@ -221,6 +223,12 @@ if (!doNotTrack) {
                 <a href="/tags/mysql%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A">
                     <span class="tag is-dark is-large is-rounded">
                         Mysql必知必会
+                    </span>
+                </a>
+                
+                <a href="/tags/web">
+                    <span class="tag is-dark is-large is-rounded">
+                        Web
                     </span>
                 </a>
                 
@@ -301,6 +309,133 @@ if (!doNotTrack) {
             </a>
         </div>
         <div class="blog-brief">
+    <a href="/posts/mysql-recover-byfrm/">
+        <h3 class="title is-4">
+            Mysql本地数据恢复--在没有密码的情况下
+        </h3>
+    </a>
+
+    <div class="level is-mobile details">
+        <div class="level-left">
+
+            
+            <div class="level-item">
+                <a href="/posts/mysql-recover-byfrm/">
+                    <p class="subtitle info date">Jun 18, 2020
+                    </p>
+                </a>
+            </div>
+            
+
+
+            <div class="level-item">
+                <a href="/posts/mysql-recover-byfrm/">
+                    <p class="subtitle info">
+                        1 min read
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div class="level-right is-hidden-touch">
+            
+            <a class="tag is-rounded" href="/tags/mysql">My s q l</a>
+            
+        </div>
+    </div>
+
+    <div>
+        
+
+        <div>
+            <a href="/posts/mysql-recover-byfrm/">
+                <p class="summary">
+                      删除源表
+  借助MySQL Utilities查询表的结构并创建表
+mysqlfrm --diagnostic ./文件目录/t1.frm   表空间卸载卸载
+alter table t1 discard tablespace;   重新拷贝原 idb
+  对表进行空间装载
+   alter table t1 import tablespace; 
+                    
+                </p>
+            </a>
+        </div>
+    </div>
+
+    <div class="level is-mobile continue-reading">
+        <div class="level-left">
+        </div>
+        <div class="level-right">
+            <a href="/posts/mysql-recover-byfrm/">Continue reading <i class="fa fa-angle-double-right"
+                    aria-hidden="true"></i></a>
+        </div>
+    </div>
+    <hr>
+</div><div class="blog-brief">
+    <a href="/posts/how-computer-network-06/">
+        <h3 class="title is-4">
+            从浏览器请求到WEB服务器响应返回浏览器
+        </h3>
+    </a>
+
+    <div class="level is-mobile details">
+        <div class="level-left">
+
+            
+            <div class="level-item">
+                <a href="/posts/how-computer-network-06/">
+                    <p class="subtitle info date">Jun 18, 2020
+                    </p>
+                </a>
+            </div>
+            
+
+
+            <div class="level-item">
+                <a href="/posts/how-computer-network-06/">
+                    <p class="subtitle info">
+                        13 mins read
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div class="level-right is-hidden-touch">
+            
+            <a class="tag is-rounded" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>
+            
+            <a class="tag is-rounded" href="/tags/web">W e b</a>
+            
+        </div>
+    </div>
+
+    <div>
+        
+
+        <div>
+            <a href="/posts/how-computer-network-06/">
+                <p class="summary">
+                    当我们在浏览器输入网址，按下回车后，会打开新的网页，而这一过程发生了什么？
+WEB服务器接收数据和返回响应的内容主要是四个方面：
+ 服务器是什么？ 服务器如何进行接收操作？ 服务器里的解释程序是如何运行的？ 返回到客户端是如何显示在浏览器里的？  服务器的概览   客户端与服务器的区别
+ 操作系统和硬件与客户端不相同 网络相关的部分比如网卡，协议栈，Socket库是相同的； 在连接的时候，客户端是请求连接，服务器是等待连接。    服务器程序的结构
+ 正常情况下，服务端由两个模块组成  等待连接的模块 与客户端通讯的模块   运行过程：  服务端系统在初始化后执行等待模块程序并且进入等待状态 当有客户端连接的时候，由等待状态变为运行状态并且生成一个新的客户端通信模块 让新连接的客户端能够一对一连接到服务端的套接字上      客户端与服务端的区分
+因为从数据的收发操作是无法区分是服务端还是客户端的
+所以是通过连接时候等待连接与请求连接来区分的。
+                    
+                </p>
+            </a>
+        </div>
+    </div>
+
+    <div class="level is-mobile continue-reading">
+        <div class="level-left">
+        </div>
+        <div class="level-right">
+            <a href="/posts/how-computer-network-06/">Continue reading <i class="fa fa-angle-double-right"
+                    aria-hidden="true"></i></a>
+        </div>
+    </div>
+    <hr>
+</div><div class="blog-brief">
     <a href="/posts/how-computer-network-05/">
         <h3 class="title is-4">
             服务端局域网有什么玄机
@@ -483,137 +618,6 @@ if (!doNotTrack) {
         </div>
         <div class="level-right">
             <a href="/posts/http-image-01/">Continue reading <i class="fa fa-angle-double-right"
-                    aria-hidden="true"></i></a>
-        </div>
-    </div>
-    <hr>
-</div><div class="blog-brief">
-    <a href="/posts/mysqlsz-00/">
-        <h3 class="title is-4">
-            极客邦-MySQL实战-01
-        </h3>
-    </a>
-
-    <div class="level is-mobile details">
-        <div class="level-left">
-
-            
-            <div class="level-item">
-                <a href="/posts/mysqlsz-00/">
-                    <p class="subtitle info date">Jun 14, 2020
-                    </p>
-                </a>
-            </div>
-            
-
-
-            <div class="level-item">
-                <a href="/posts/mysqlsz-00/">
-                    <p class="subtitle info">
-                        2 mins read
-                    </p>
-                </a>
-            </div>
-        </div>
-        <div class="level-right is-hidden-touch">
-            
-            <a class="tag is-rounded" href="/tags/mysql">My s q l</a>
-            
-            <a class="tag is-rounded" href="/tags/mysql%E5%AE%9E%E6%88%98">My s q l实战</a>
-            
-        </div>
-    </div>
-
-    <div>
-        
-
-        <div>
-            <a href="/posts/mysqlsz-00/">
-                <p class="summary">
-                    01 一条MySQL语句是如何执行的？ 首先要看到整个MySQL系统划分为哪一些部分？
-  客户端
- 各种发送请求    服务端
-  Server层
- 连接器 分析器 优化器 执行器    查询缓存(可能会逐步替代)
-    引擎层
- 各种存储引擎    执行的逻辑是什么？
- 客户端向数据库发送请求 数据库收到请求后找到连接器，进行初步权限认证 分析器先进行词法和语法分析  词法分析，识别输入的是什么。比如表名？列名？关键字？ 语法分析，判断SQL语句是否符合语法   再执行优化器，优化主要在两个方面来体现  多个索引的时候，如何选择合适的索引 一个语句多表关联时如何处理   到达执行器，会进一步对语句做权限认证，同时根据存储引擎的定义来调用存储引擎的接口  查询缓存在哪里使用
-                    
-                </p>
-            </a>
-        </div>
-    </div>
-
-    <div class="level is-mobile continue-reading">
-        <div class="level-left">
-        </div>
-        <div class="level-right">
-            <a href="/posts/mysqlsz-00/">Continue reading <i class="fa fa-angle-double-right"
-                    aria-hidden="true"></i></a>
-        </div>
-    </div>
-    <hr>
-</div><div class="blog-brief">
-    <a href="/posts/how-computer-network-03/">
-        <h3 class="title is-4">
-            从网线到网络设备是如何工作的
-        </h3>
-    </a>
-
-    <div class="level is-mobile details">
-        <div class="level-left">
-
-            
-            <div class="level-item">
-                <a href="/posts/how-computer-network-03/">
-                    <p class="subtitle info date">Jun 7, 2020
-                    </p>
-                </a>
-            </div>
-            
-
-
-            <div class="level-item">
-                <a href="/posts/how-computer-network-03/">
-                    <p class="subtitle info">
-                        22 mins read
-                    </p>
-                </a>
-            </div>
-        </div>
-        <div class="level-right is-hidden-touch">
-            
-            <a class="tag is-rounded" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>
-            
-            <a class="tag is-rounded" href="/tags/%E7%BD%91%E7%BB%9C%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%E7%9A%84">网络是如何连接的</a>
-            
-        </div>
-    </div>
-
-    <div>
-        
-
-        <div>
-            <a href="/posts/how-computer-network-03/">
-                <p class="summary">
-                    本章主要讲解的是电信号从 RJ-45 接口出来，到达集线器，交换机和路由器以及路由器往外转发的过程。在家庭的路由中，交换机和集线器一般集成在一起了或者直接没有集线器。
-信号从网卡出来到集线器的时候   数据包之间的传输是独立的，仅仅负责传包并不会考虑内部的数据。
-  从网卡到集线器的时候信号就会出现衰减，而且电信号频率越高，损失就越大。
-  双绞线的存在是为了抑制噪声，减少衰减。 网线的周围的电磁波碰到金属等导体会产生电流，而信号本身就是带有电压变化的电流，混在一起容易导致失真。 电磁波有两种来源
- 一种是外部的比如电机，荧光灯，CRT显示器等(让线变成螺旋状，使自身的电磁场变成螺旋状)； 一种是内部线之间出现泄露产生电磁波，称之为串扰。  抑制内部电磁波的方式是 让每一对信号线的扭交间隔产生差异。(正负信号的产生的噪声是相反的刚好抵消)。
-  关于集线器：集线器的原理就是以太网的架构，数据传输的方式是靠着MAC地址寻找。
- 集线器里有一个中继集成器，输入端口的信号转发给除了该端口之外的所有的端口。在这样的情况下如果所有的端口都发送信号，就会产生碰撞。 连接其他的端口叫做级联端口或者上行端口 根据相同的设备交叉连接，异种设备直连的原理，集线器里每一个端口都有一个 PHY/MAU 模块与其网卡上的模块没有什么区别，所以需要交叉连接。所谓的交叉连接就是发送方和接收方的交叉。 集线器中存在 MDI/MDI-X 切换开关。MDI 是直线连接，MDI-X是交叉连接。但现在的设备无所谓了，可以自适应。    交换机的包转发操作   交换机根据地址表进行转发 信号到达端口的时候由 PHY（MAU）来接收，然后传递给MAC模块，转换成数字信息并检验FCS确认无误后放在缓冲区中。 交换机端口本身没有MAC地址，实际过程中通过芯片同时控制多个端口 交换机电路的工作方式：
-                    
-                </p>
-            </a>
-        </div>
-    </div>
-
-    <div class="level is-mobile continue-reading">
-        <div class="level-left">
-        </div>
-        <div class="level-right">
-            <a href="/posts/how-computer-network-03/">Continue reading <i class="fa fa-angle-double-right"
                     aria-hidden="true"></i></a>
         </div>
     </div>

@@ -22,7 +22,7 @@
 <meta property="og:description" content="A description for the meta tag of the site" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://cheene.github.io/posts/" />
-<meta property="og:updated_time" content="2020-06-17T19:58:06+08:00" />
+<meta property="og:updated_time" content="2020-06-18T22:31:51+08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Posts"/>
@@ -129,6 +129,128 @@ if (!doNotTrack) {
 
 
 <div class="blog-brief">
+    <a href="/posts/leet-code-1615/">
+        <h3 class="title is-4">
+            #1615 [链表中倒数第k个节点]
+        </h3>
+    </a>
+
+    <div class="level is-mobile details">
+        <div class="level-left">
+
+            
+            <div class="level-item">
+                <a href="/posts/leet-code-1615/">
+                    <p class="subtitle info date">Jun 7, 2020
+                    </p>
+                </a>
+            </div>
+            
+
+
+            <div class="level-item">
+                <a href="/posts/leet-code-1615/">
+                    <p class="subtitle info">
+                        1 min read
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div class="level-right is-hidden-touch">
+            
+            <a class="tag is-rounded" href="/tags/leet-code">Leet code</a>
+            
+            <a class="tag is-rounded" href="/tags/%E7%AE%97%E6%B3%95">算法</a>
+            
+            <a class="tag is-rounded" href="/tags/%E9%93%BE%E8%A1%A8">链表</a>
+            
+        </div>
+    </div>
+
+    <div>
+        
+
+        <div>
+            <a href="/posts/leet-code-1615/">
+                <p class="summary">
+                    题目 输入一个链表，输出该链表中倒数第k个节点。为了符合大多数人的习惯，本题从1开始计数，即链表的尾节点是倒数第1个节点。例如，一个链表有6个节点，从头节点开始，它们的值依次是1、2、3、4、5、6。这个链表的倒数第3个节点是值为4的节点示例 给定一个链表: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5, 和 k = 2.返回链表 4-&amp;gt;5.限制 思路 设置一个队列每次更新队列的值实现 /** * Definition for singly-linked list. * type ListNode struct { * Val int * Next *ListNode * } */ func getKthFromEnd(head *ListNode, k int) *ListNode { if head == nil { return nil } queue := make([]*ListNode,k) for i := 0; i &amp;lt; k; i&#43;&#43; { queue[i] = head head = head.
+                    
+                </p>
+            </a>
+        </div>
+    </div>
+
+    <div class="level is-mobile continue-reading">
+        <div class="level-left">
+        </div>
+        <div class="level-right">
+            <a href="/posts/leet-code-1615/">Continue reading <i class="fa fa-angle-double-right"
+                    aria-hidden="true"></i></a>
+        </div>
+    </div>
+    <hr>
+</div><div class="blog-brief">
+    <a href="/posts/leet-code-1614/">
+        <h3 class="title is-4">
+            #1614[调整数组顺序使奇数位于偶数前面]
+        </h3>
+    </a>
+
+    <div class="level is-mobile details">
+        <div class="level-left">
+
+            
+            <div class="level-item">
+                <a href="/posts/leet-code-1614/">
+                    <p class="subtitle info date">Jun 7, 2020
+                    </p>
+                </a>
+            </div>
+            
+
+
+            <div class="level-item">
+                <a href="/posts/leet-code-1614/">
+                    <p class="subtitle info">
+                        1 min read
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div class="level-right is-hidden-touch">
+            
+            <a class="tag is-rounded" href="/tags/leet-code">Leet code</a>
+            
+            <a class="tag is-rounded" href="/tags/%E7%AE%97%E6%B3%95">算法</a>
+            
+            <a class="tag is-rounded" href="/tags/%E6%95%B0%E7%BB%84">数组</a>
+            
+        </div>
+    </div>
+
+    <div>
+        
+
+        <div>
+            <a href="/posts/leet-code-1614/">
+                <p class="summary">
+                    题目 输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有奇数位于数组的前半部分，所有偶数位于数组的后半部分。示例 输入：nums = [1,2,3,4]输出：[1,3,2,4] 注：[3,1,2,4] 也是正确的答案之一。限制 1 &amp;lt;= nums.length &amp;lt;= 500001 &amp;lt;= nums[i] &amp;lt;= 10000思路 双指针 P.Q保证P之前没有存在偶数即保存当前数组中第一个偶数的位置Q 向后遍历，碰到奇数的时候，查看前面是否有有偶数实现 func exchange(nums []int) []int { p := -1 for q := 0; q &amp;lt; len(nums); q&#43;&#43; { // 偶数，交换  if p == -1 &amp;amp;&amp;amp; nums[q] % 2 == 0 { // 第一次发现  p = q } else { // 奇数，交换  if p !
+                    
+                </p>
+            </a>
+        </div>
+    </div>
+
+    <div class="level is-mobile continue-reading">
+        <div class="level-left">
+        </div>
+        <div class="level-right">
+            <a href="/posts/leet-code-1614/">Continue reading <i class="fa fa-angle-double-right"
+                    aria-hidden="true"></i></a>
+        </div>
+    </div>
+    <hr>
+</div><div class="blog-brief">
     <a href="/posts/leet-code-1611/">
         <h3 class="title is-4">
             #1611[删除链表的节点]
@@ -307,130 +429,6 @@ if (!doNotTrack) {
         </div>
         <div class="level-right">
             <a href="/posts/leet-code-1603/">Continue reading <i class="fa fa-angle-double-right"
-                    aria-hidden="true"></i></a>
-        </div>
-    </div>
-    <hr>
-</div><div class="blog-brief">
-    <a href="/posts/leet-code-1598/">
-        <h3 class="title is-4">
-            #1598 [从尾到头打印链表]
-        </h3>
-    </a>
-
-    <div class="level is-mobile details">
-        <div class="level-left">
-
-            
-            <div class="level-item">
-                <a href="/posts/leet-code-1598/">
-                    <p class="subtitle info date">Jun 7, 2020
-                    </p>
-                </a>
-            </div>
-            
-
-
-            <div class="level-item">
-                <a href="/posts/leet-code-1598/">
-                    <p class="subtitle info">
-                        1 min read
-                    </p>
-                </a>
-            </div>
-        </div>
-        <div class="level-right is-hidden-touch">
-            
-            <a class="tag is-rounded" href="/tags/leet-code">Leet code</a>
-            
-            <a class="tag is-rounded" href="/tags/%E7%AE%97%E6%B3%95">算法</a>
-            
-            <a class="tag is-rounded" href="/tags/%E9%93%BE%E8%A1%A8">链表</a>
-            
-        </div>
-    </div>
-
-    <div>
-        
-
-        <div>
-            <a href="/posts/leet-code-1598/">
-                <p class="summary">
-                    题目 输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。示例 输入：head = [1,3,2]输出：[2,3,1]限制 0 &amp;lt;= 链表长度 &amp;lt;= 10000思路 核心在于不知道链表的元素的长度
-如果使用栈的话，可以直接仅遍历一次，直接返回。
-1 遍历链表到向量中再将向量的元素进行交换实现 func reversePrint(head *ListNode) []int { if head == nil { return []int{} } res := make([]int,0) for head != nil { res = append(res,head.
-                    
-                </p>
-            </a>
-        </div>
-    </div>
-
-    <div class="level is-mobile continue-reading">
-        <div class="level-left">
-        </div>
-        <div class="level-right">
-            <a href="/posts/leet-code-1598/">Continue reading <i class="fa fa-angle-double-right"
-                    aria-hidden="true"></i></a>
-        </div>
-    </div>
-    <hr>
-</div><div class="blog-brief">
-    <a href="/posts/leet-code-1596/">
-        <h3 class="title is-4">
-            #1596 [二维数组中的查找]
-        </h3>
-    </a>
-
-    <div class="level is-mobile details">
-        <div class="level-left">
-
-            
-            <div class="level-item">
-                <a href="/posts/leet-code-1596/">
-                    <p class="subtitle info date">Jun 7, 2020
-                    </p>
-                </a>
-            </div>
-            
-
-
-            <div class="level-item">
-                <a href="/posts/leet-code-1596/">
-                    <p class="subtitle info">
-                        1 min read
-                    </p>
-                </a>
-            </div>
-        </div>
-        <div class="level-right is-hidden-touch">
-            
-            <a class="tag is-rounded" href="/tags/leet-code">Leet code</a>
-            
-            <a class="tag is-rounded" href="/tags/%E7%AE%97%E6%B3%95">算法</a>
-            
-            <a class="tag is-rounded" href="/tags/%E6%95%B0%E7%BB%84">数组</a>
-            
-        </div>
-    </div>
-
-    <div>
-        
-
-        <div>
-            <a href="/posts/leet-code-1596/">
-                <p class="summary">
-                    题目 在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。示例 现有矩阵 matrix 如下：[[1, 4, 7, 11, 15],[2, 5, 8, 12, 19],[3, 6, 9, 16, 22],[10, 13, 14, 17, 24],[18, 21, 23, 26, 30]]给定 target = 5，返回 true。给定 target = 20，返回 false。限制 0 &amp;lt;= n &amp;lt;= 10000 &amp;lt;= m &amp;lt;= 1000思路 暴力破解实现 func findNumberIn2DArray(matrix [][]int, target int) bool { //边界条件  n := len(matrix) if n == 0 { return false } m := len(matrix[0]) if m == 0 { return false } //暴力破解  for i := 0; i &amp;lt; n; i&#43;&#43; { for j := 0; j &amp;lt; m; j&#43;&#43; { if matrix[i][j] == target { return true } } } return false } 
-                    
-                </p>
-            </a>
-        </div>
-    </div>
-
-    <div class="level is-mobile continue-reading">
-        <div class="level-left">
-        </div>
-        <div class="level-right">
-            <a href="/posts/leet-code-1596/">Continue reading <i class="fa fa-angle-double-right"
                     aria-hidden="true"></i></a>
         </div>
     </div>

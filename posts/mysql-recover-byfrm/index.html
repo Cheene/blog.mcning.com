@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ZH-CN"><title>
+    Mysql本地数据恢复--在没有密码的情况下 | 
+    
+    CHENENE</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<meta name="description" 
+      content="  删除源表
+  借助MySQL Utilities查询表的结构并创建表
+mysqlfrm --diagnostic ./文件目录/t1.frm   表空间卸载卸载
+alter table t1 discard tablespace;   重新拷贝原 idb
+  对表进行空间装载
+   alter table t1 import tablespace; 
+                ">
+
+<link rel="canonical" href="https://cheene.github.io/posts/mysql-recover-byfrm/" />
+
+<link rel="icon" type="image/png" href="https://cheene.github.io/image/favicon.ico">
+
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/bulma.min.css">
+
+<meta property="og:title" content="Mysql本地数据恢复--在没有密码的情况下" />
+<meta property="og:description" content="  删除源表
+  借助MySQL Utilities查询表的结构并创建表
+mysqlfrm --diagnostic ./文件目录/t1.frm   表空间卸载卸载
+alter table t1 discard tablespace;   重新拷贝原 idb
+  对表进行空间装载
+   alter table t1 import tablespace; " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cheene.github.io/posts/mysql-recover-byfrm/" />
+<meta property="article:published_time" content="2020-06-18T22:31:51+08:00" />
+<meta property="article:modified_time" content="2020-06-18T22:31:51+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Mysql本地数据恢复--在没有密码的情况下"/>
+<meta name="twitter:description" content="  删除源表
+  借助MySQL Utilities查询表的结构并创建表
+mysqlfrm --diagnostic ./文件目录/t1.frm   表空间卸载卸载
+alter table t1 discard tablespace;   重新拷贝原 idb
+  对表进行空间装载
+   alter table t1 import tablespace; "/>
+
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'analytics-code', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+<script src=/js/ramium.js></script>
+<link rel="stylesheet" href=/css/ramium.css>
+
+
+
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'analytics-code', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<body><nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href=/>
+      
+      <strong>CHENENE </strong>
+      
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+      data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      
+      
+      <a class="navbar-item" href="/">Home</a>
+      
+      
+      
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">This Blog</a>
+        <div class="navbar-dropdown">
+          
+          <a class="navbar-item" href="/tags/">All Tags</a>
+          
+          <a class="navbar-item" href="/sections/">All Sections</a>
+          
+          <a class="navbar-item" href="/posts/">All Posts</a>
+          
+        </div>
+      </div>
+      
+      
+      
+      <a class="navbar-item" href="/thinks/">Think Different</a>
+      
+      
+      
+      <a class="navbar-item" href="/author/">Author</a>
+      
+      
+    </div>
+
+    <div class="navbar-end">
+      
+      <a class="navbar-item navgithub" href="https://github.com/cheene" target="_blank">
+        <i class="fa fa-github fa-2x"></i>
+      </a>
+      
+
+      
+    </div>
+  </div>
+</nav><div class="columns is-centered">
+        <div id="page-body" class="column is-7">
+
+<div class="content blog">
+    <h1 class="title">Mysql本地数据恢复--在没有密码的情况下</h1>
+
+    <div id="infobar" class="level is-mobile">
+        <div class="level-left">
+            
+            <div class="level-item">
+                <p class="subtitle info date">Jun 18, 2020
+                </p>
+            </div>
+            
+
+            <div class="level-item">
+                <p class="subtitle info">
+                    1 min read
+                </p>
+            </div>
+        </div>
+        <div class="level-right is-hidden-touch">
+            <div class="tags">
+                
+                <a class="tag is-dark is-rounded" href="/tags/mysql">My s q l</a>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="tags is-hidden-desktop">
+        
+        <a class="tag is-dark is-rounded" href="/tags/mysql">My s q l</a>
+        
+    </div>
+
+    <div class="blog-text">
+        
+
+        <ol>
+<li>
+<p>删除源表</p>
+</li>
+<li>
+<p>借助MySQL Utilities查询表的结构并创建表</p>
+<pre><code>mysqlfrm --diagnostic ./文件目录/t1.frm
+</code></pre></li>
+<li>
+<p>表空间卸载卸载</p>
+<pre><code>alter table t1 discard tablespace;
+</code></pre></li>
+<li>
+<p>重新拷贝原 idb</p>
+</li>
+<li>
+<p>对表进行空间装载</p>
+</li>
+</ol>
+<pre><code> alter table t1 import tablespace;
+</code></pre>
+    </div>
+</div><div id="social-media-share" class="has-text-centered">
+	<p><i>Sharing is caring!</i></p>
+	<br>
+	
+	<div class="share-buttons">
+	    <a  href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcheene.github.io%2fposts%2fmysql-recover-byfrm%2f"
+	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
+	        title="Share on Facebook. Opens in a new window.">
+	        <img src=/img/icons/45px/facebook.png>
+	    </a>
+
+	    <a  href="https://twitter.com/intent/tweet?text=Mysql%e6%9c%ac%e5%9c%b0%e6%95%b0%e6%8d%ae%e6%81%a2%e5%a4%8d--%e5%9c%a8%e6%b2%a1%e6%9c%89%e5%af%86%e7%a0%81%e7%9a%84%e6%83%85%e5%86%b5%e4%b8%8b&url=https%3a%2f%2fcheene.github.io%2fposts%2fmysql-recover-byfrm%2f"
+	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
+	        title="Share on Twitter. Opens in a new window." >
+	        <img src=/img/icons/45px/twitter.png>
+	    </a>
+
+		<a  href="http://www.reddit.com/submit?url=https%3a%2f%2fcheene.github.io%2fposts%2fmysql-recover-byfrm%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Reddit. Opens in a new window." >
+	        <img src=/img/icons/45px/reddit.png>
+	    </a>
+
+	    <a  href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fcheene.github.io%2fposts%2fmysql-recover-byfrm%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Pinterest. Opens in a new window." >
+	        <img src=/img/icons/45px/pinterest.png>
+	    </a>
+
+	    <a  href="http://www.tumblr.com/share/link?url=https%3a%2f%2fcheene.github.io%2fposts%2fmysql-recover-byfrm%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Tumblr. Opens in a new window." >
+	        <img src=/img/icons/45px/tumblr.png>
+	    </a>
+
+		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fcheene.github.io%2fposts%2fmysql-recover-byfrm%2f
+			&title=Mysql%e6%9c%ac%e5%9c%b0%e6%95%b0%e6%8d%ae%e6%81%a2%e5%a4%8d--%e5%9c%a8%e6%b2%a1%e6%9c%89%e5%af%86%e7%a0%81%e7%9a%84%e6%83%85%e5%86%b5%e4%b8%8b&summary=%20%20%e5%88%a0%e9%99%a4%e6%ba%90%e8%a1%a8%0a%20%20%e5%80%9f%e5%8a%a9MySQL%20Utilities%e6%9f%a5%e8%af%a2%e8%a1%a8%e7%9a%84%e7%bb%93%e6%9e%84%e5%b9%b6%e5%88%9b%e5%bb%ba%e8%a1%a8%0amysqlfrm%20--diagnostic%20.%2f%e6%96%87%e4%bb%b6%e7%9b%ae%e5%bd%95%2ft1.frm%20%20%20%e8%a1%a8%e7%a9%ba%e9%97%b4%e5%8d%b8%e8%bd%bd%e5%8d%b8%e8%bd%bd%0aalter%20table%20t1%20discard%20tablespace%3b%20%20%20%e9%87%8d%e6%96%b0%e6%8b%b7%e8%b4%9d%e5%8e%9f%20idb%0a%20%20%e5%af%b9%e8%a1%a8%e8%bf%9b%e8%a1%8c%e7%a9%ba%e9%97%b4%e8%a3%85%e8%bd%bd%0a%20%20%20alter%20table%20t1%20import%20tablespace%3b%20&source=rafed123.github.io"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on LinkedIn. Opens in a new window." >
+	        <img src=/img/icons/45px/linkedin.png>
+	    </a>
+
+	    <a  href="mailto:?subject=Mysql%e6%9c%ac%e5%9c%b0%e6%95%b0%e6%8d%ae%e6%81%a2%e5%a4%8d--%e5%9c%a8%e6%b2%a1%e6%9c%89%e5%af%86%e7%a0%81%e7%9a%84%e6%83%85%e5%86%b5%e4%b8%8b&amp;body=Check out this site https%3a%2f%2fcheene.github.io%2fposts%2fmysql-recover-byfrm%2f"
+	        title="Share via Email. Opens in a new window." >
+	        <img src=/img/icons/45px/mail.png>
+	    </a>
+	</div>
+</div>
+
+
+<br>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    (function () {
+        
+        
+        if (window.location.hostname == "localhost")
+            return;
+
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'disqus-code';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+        </div>
+    </div>
+
+<footer class="footer has-background-dark">
+    <div class="content has-text-centered has-text-white">
+        <p>
+            © 2020 Ramium. Powered by
+            <a class="has-text-light" href="https://github.com/gohugoio/hugo" target="_blank">
+            Hugo</a>. Theme
+            <a class="has-text-light" href="https://github.com/rafed123/ramium/" target="_blank">
+                Ramium.
+            </a>
+        </p>
+    </div>
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>WEB on CHENENE</title>
+    <link>https://cheene.github.io/tags/web/</link>
+    <description>Recent content in WEB on CHENENE</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ZH-CN</language>
+    <lastBuildDate>Thu, 18 Jun 2020 22:29:24 +0800</lastBuildDate>
+    
+	<atom:link href="https://cheene.github.io/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>从浏览器请求到WEB服务器响应返回浏览器</title>
+      <link>https://cheene.github.io/posts/how-computer-network-06/</link>
+      <pubDate>Thu, 18 Jun 2020 22:29:24 +0800</pubDate>
+      
+      <guid>https://cheene.github.io/posts/how-computer-network-06/</guid>
+      <description>当我们在浏览器输入网址，按下回车后，会打开新的网页，而这一过程发生了什么？
+WEB服务器接收数据和返回响应的内容主要是四个方面：
+ 服务器是什么？ 服务器如何进行接收操作？ 服务器里的解释程序是如何运行的？ 返回到客户端是如何显示在浏览器里的？  服务器的概览   客户端与服务器的区别
+ 操作系统和硬件与客户端不相同 网络相关的部分比如网卡，协议栈，Socket库是相同的； 在连接的时候，客户端是请求连接，服务器是等待连接。    服务器程序的结构
+ 正常情况下，服务端由两个模块组成  等待连接的模块 与客户端通讯的模块   运行过程：  服务端系统在初始化后执行等待模块程序并且进入等待状态 当有客户端连接的时候，由等待状态变为运行状态并且生成一个新的客户端通信模块 让新连接的客户端能够一对一连接到服务端的套接字上      客户端与服务端的区分
+因为从数据的收发操作是无法区分是服务端还是客户端的
+所以是通过连接时候等待连接与请求连接来区分的。</description>
+    </item>
+    
+  </channel>
+</rss>

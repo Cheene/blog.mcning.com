@@ -22,7 +22,7 @@
 <meta property="og:description" content="A description for the meta tag of the site" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://cheene.github.io/posts/" />
-<meta property="og:updated_time" content="2020-06-17T19:58:06+08:00" />
+<meta property="og:updated_time" content="2020-06-18T22:31:51+08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Posts"/>
@@ -129,6 +129,137 @@ if (!doNotTrack) {
 
 
 <div class="blog-brief">
+    <a href="/posts/mysqlbzbh-00/">
+        <h3 class="title is-4">
+            MySQL初始
+        </h3>
+    </a>
+
+    <div class="level is-mobile details">
+        <div class="level-left">
+
+            
+            <div class="level-item">
+                <a href="/posts/mysqlbzbh-00/">
+                    <p class="subtitle info date">May 12, 2020
+                    </p>
+                </a>
+            </div>
+            
+
+
+            <div class="level-item">
+                <a href="/posts/mysqlbzbh-00/">
+                    <p class="subtitle info">
+                        1 min read
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div class="level-right is-hidden-touch">
+            
+            <a class="tag is-rounded" href="/tags/mysql">My s q l</a>
+            
+            <a class="tag is-rounded" href="/tags/mysql%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A">My s q l必知必会</a>
+            
+        </div>
+    </div>
+
+    <div>
+        
+
+        <div>
+            <a href="/posts/mysqlbzbh-00/">
+                <p class="summary">
+                    第一章 初始 1 数据库是什么? 数据库是一种容器，能够进行存储信息
+那么类似于 MySQL 这样的不属于数据库，而是叫做DBMS，数据库管理软件。
+表是什么？ 某种特定类型的结构化清单
+ 他是一个清单 其次该清单是天然持有携带格式的属性 单个清单的格式是特定的  模式（schema） 表示数据库与表的布局以及特性的信息
+表中的行，列与数据类型  表中的每一行代表着一条记录 (row) 每一列代表着一个属性(column) 每一列有着具体的数据类型  表中的主键 主键是一列或一组列，其每行的记录用来作为唯一标识区别于其他的行
+三个习惯
+ 不更新主键列中的值 不重用主键列的值 不在主键列中使用可能会改变的值  
+                    
+                </p>
+            </a>
+        </div>
+    </div>
+
+    <div class="level is-mobile continue-reading">
+        <div class="level-left">
+        </div>
+        <div class="level-right">
+            <a href="/posts/mysqlbzbh-00/">Continue reading <i class="fa fa-angle-double-right"
+                    aria-hidden="true"></i></a>
+        </div>
+    </div>
+    <hr>
+</div><div class="blog-brief">
+    <a href="/posts/how-computer-network-01/">
+        <h3 class="title is-4">
+            HTTP消息、DNS服务与协议栈消息发送
+        </h3>
+    </a>
+
+    <div class="level is-mobile details">
+        <div class="level-left">
+
+            
+            <div class="level-item">
+                <a href="/posts/how-computer-network-01/">
+                    <p class="subtitle info date">May 11, 2020
+                    </p>
+                </a>
+            </div>
+            
+
+
+            <div class="level-item">
+                <a href="/posts/how-computer-network-01/">
+                    <p class="subtitle info">
+                        11 mins read
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div class="level-right is-hidden-touch">
+            
+            <a class="tag is-rounded" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>
+            
+            <a class="tag is-rounded" href="/tags/%E7%BD%91%E7%BB%9C%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%E7%9A%84">网络是如何连接的</a>
+            
+        </div>
+    </div>
+
+    <div>
+        
+
+        <div>
+            <a href="/posts/how-computer-network-01/">
+                <p class="summary">
+                    前言 网络是怎样连接的，来自于日本的一位作者，本书主要以web交互，从客户端访问服务器以及服务器应答的过程来讲解的。接下来一段时间将以书本上涉及知识的总结以供后期自行查阅。
+网络连接的流程：
+ 浏览器委托数据的发送，传递消息的是搬运数字(消息对应着就是数据，数据是0和1组成的); 协议栈：给消息打包，添加地址等接着交给网卡最后通过电信号转发出去; 通过交换机到达路由器，路由器的后面就是互联网部分，接下来属于网络运营商所需要解决的; 由接入网到接入点(接入点后面是互联网的骨干部分) 到达web服务器大体需要经过  web 服务器所在的局域网 防火墙 缓存服务 WEB服务    1关于HTTP 1.1 HTTP 消息 ① 关于访问web服务器格式：用户名\密码\服务器域名\端口号\文件路径名；
+② 端口是识别服务器中要连接服务的编号,即我与那个程序进行连接；
+③ 省略默认文件很多比如 index.html 等；
+④ 因为不能产生同名的文件/目录，所以在浏览的时候如果没有扩展名默认的先按目录来处理，目录找不到就按文件来查找，文件也查找不到就返回 404；
+⑤ 基本思路
+ 客户端发送请求消息(URL 和 方法)到服务器; 服务器返回状态码到客户端  ⑥ 在消息体中，URL是域名的部分，方法是 post、get、delete、head、trace 等；
+                    
+                </p>
+            </a>
+        </div>
+    </div>
+
+    <div class="level is-mobile continue-reading">
+        <div class="level-left">
+        </div>
+        <div class="level-right">
+            <a href="/posts/how-computer-network-01/">Continue reading <i class="fa fa-angle-double-right"
+                    aria-hidden="true"></i></a>
+        </div>
+    </div>
+    <hr>
+</div><div class="blog-brief">
     <a href="/posts/study-git/">
         <h3 class="title is-4">
             Git基础

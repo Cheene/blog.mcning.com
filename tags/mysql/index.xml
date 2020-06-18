@@ -6,10 +6,24 @@
     <description>Recent content in MySQL on CHENENE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ZH-CN</language>
-    <lastBuildDate>Sun, 14 Jun 2020 16:57:52 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 18 Jun 2020 22:31:51 +0800</lastBuildDate>
     
 	<atom:link href="https://cheene.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Mysql本地数据恢复--在没有密码的情况下</title>
+      <link>https://cheene.github.io/posts/mysql-recover-byfrm/</link>
+      <pubDate>Thu, 18 Jun 2020 22:31:51 +0800</pubDate>
+      
+      <guid>https://cheene.github.io/posts/mysql-recover-byfrm/</guid>
+      <description>  删除源表
+  借助MySQL Utilities查询表的结构并创建表
+mysqlfrm --diagnostic ./文件目录/t1.frm   表空间卸载卸载
+alter table t1 discard tablespace;   重新拷贝原 idb
+  对表进行空间装载
+   alter table t1 import tablespace; </description>
+    </item>
     
     <item>
       <title>极客邦-MySQL实战-01</title>
