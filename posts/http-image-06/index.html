@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="ZH-CN"><title>
+    HTTP首部有哪些？ | 
+    
+    CHENENE</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<meta name="description" 
+      content="1 HTTP首部有哪些分类呢？  通用首部字段 General Header Fields 请求首部字段 Request Headers Fields 响应首部字段 Response Header Fields 实体首部字段 Entity Header Fields Cookie 相关字段  2 两大报文首部有哪些  请求报文  报文首部  请求行 请求首部字段 通用首部字段 实体首部字段 其他   空行 CR&#43;LF 报文主体   响应报文  报文首部  状态行 响应首部字段 通用首部字段 实体首部字段   空行 CR&#43;LF 报文主体    3 各个字段的详情 通用首部字段    首部字段名 说明     Cache-Control 控制缓存的行为   Connection 逐跳首部、连接的管理   Date 创建报文的日期时间   Pragma 报文指令   Trailer 报文末端的首部一览   Transfer-Encoding 指定报文主体的传输编码方式   Upgrade 升级为其他协议   Via 代理服务器的相关信息   Warning 错误通知    请求首部字段    首部字段名 说明     Accept 代理可处理的媒体类型   Accept-Charset 优先的字符集   Accept-Encoding 优先的内容编码   Accept-Language 优先的自然语言   Authorization Web认证信息   Expert 期待服务器特定的行为   From 电子邮箱地址   Host 请求的资源服务器   If-Match 比较实体标记   If-Modified-Since 比较资源更新时间   If-None-Match 比较实体标记   if-Range 资源未更新时发送实体Byte的范围请求   If-Unmodified-Since 比较资源的更新时间   Max-Forwards 最大传输逐跳数   Proxy-Authorization 代理服务器要求客户端的认证信息   Range 实体的字节范围请求   Referer 对请求中URI的原始获取方   TE 传输编码的优先级   User-Agent HTTP客户端程序的信息    响应首部字段    首部字段名 说明     Accept-Range 是否接收字节范围请求   Age 推算资源创建经过时间   ETag 资源的匹配的信息   Location 令客户端重定向到指定URI   Proxy-Authenticate 代理服务器对客户端的认证信息   Retry-After 对再次发起的请求的时机要求   Server HTTP服务器的安装信息   Vary 代理服务器缓存的管理信息   WWW-Authenticate 服务器对客户端的认证信息    实体首部字段    首部字段名 说明     Allow 资源可支持的HTTP办法   Content-Encoding 实体主体的可接收编码方法   Content-Language 自然语言   C-Length 大小（字节）   C-Location 代替对应资源的URI   C-MD5 报文摘要   C-Range 位置范围   Type 媒体类型   Expires 过期的日期时间   Last-Modified 最后修改日期    4 缓存代理的分类  端到端首部 End-to-end Header  会转发到最终目标 必须保存在由缓存生成的响应中 必须被转发   逐跳首部 Hop-by-hop Header  首部单词转发有效 可以通过代理而不再转发 需要提供 Connection 首部字段  Connection Keep-Alive Proxy-Authenticate Proxy-Authorization Trailer TE Transfer-Encoding Upgrade      5 缓存相关 请求
+                ">
+
+<link rel="canonical" href="https://cheene.github.io/posts/http-image-06/" />
+
+<link rel="icon" type="image/png" href="https://cheene.github.io/image/favicon.ico">
+
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/bulma.min.css">
+
+<meta property="og:title" content="HTTP首部有哪些？" />
+<meta property="og:description" content="1 HTTP首部有哪些分类呢？  通用首部字段 General Header Fields 请求首部字段 Request Headers Fields 响应首部字段 Response Header Fields 实体首部字段 Entity Header Fields Cookie 相关字段  2 两大报文首部有哪些  请求报文  报文首部  请求行 请求首部字段 通用首部字段 实体首部字段 其他   空行 CR&#43;LF 报文主体   响应报文  报文首部  状态行 响应首部字段 通用首部字段 实体首部字段   空行 CR&#43;LF 报文主体    3 各个字段的详情 通用首部字段    首部字段名 说明     Cache-Control 控制缓存的行为   Connection 逐跳首部、连接的管理   Date 创建报文的日期时间   Pragma 报文指令   Trailer 报文末端的首部一览   Transfer-Encoding 指定报文主体的传输编码方式   Upgrade 升级为其他协议   Via 代理服务器的相关信息   Warning 错误通知    请求首部字段    首部字段名 说明     Accept 代理可处理的媒体类型   Accept-Charset 优先的字符集   Accept-Encoding 优先的内容编码   Accept-Language 优先的自然语言   Authorization Web认证信息   Expert 期待服务器特定的行为   From 电子邮箱地址   Host 请求的资源服务器   If-Match 比较实体标记   If-Modified-Since 比较资源更新时间   If-None-Match 比较实体标记   if-Range 资源未更新时发送实体Byte的范围请求   If-Unmodified-Since 比较资源的更新时间   Max-Forwards 最大传输逐跳数   Proxy-Authorization 代理服务器要求客户端的认证信息   Range 实体的字节范围请求   Referer 对请求中URI的原始获取方   TE 传输编码的优先级   User-Agent HTTP客户端程序的信息    响应首部字段    首部字段名 说明     Accept-Range 是否接收字节范围请求   Age 推算资源创建经过时间   ETag 资源的匹配的信息   Location 令客户端重定向到指定URI   Proxy-Authenticate 代理服务器对客户端的认证信息   Retry-After 对再次发起的请求的时机要求   Server HTTP服务器的安装信息   Vary 代理服务器缓存的管理信息   WWW-Authenticate 服务器对客户端的认证信息    实体首部字段    首部字段名 说明     Allow 资源可支持的HTTP办法   Content-Encoding 实体主体的可接收编码方法   Content-Language 自然语言   C-Length 大小（字节）   C-Location 代替对应资源的URI   C-MD5 报文摘要   C-Range 位置范围   Type 媒体类型   Expires 过期的日期时间   Last-Modified 最后修改日期    4 缓存代理的分类  端到端首部 End-to-end Header  会转发到最终目标 必须保存在由缓存生成的响应中 必须被转发   逐跳首部 Hop-by-hop Header  首部单词转发有效 可以通过代理而不再转发 需要提供 Connection 首部字段  Connection Keep-Alive Proxy-Authenticate Proxy-Authorization Trailer TE Transfer-Encoding Upgrade      5 缓存相关 请求" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cheene.github.io/posts/http-image-06/" />
+<meta property="article:published_time" content="2020-06-22T19:44:50+08:00" />
+<meta property="article:modified_time" content="2020-06-22T19:44:50+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="HTTP首部有哪些？"/>
+<meta name="twitter:description" content="1 HTTP首部有哪些分类呢？  通用首部字段 General Header Fields 请求首部字段 Request Headers Fields 响应首部字段 Response Header Fields 实体首部字段 Entity Header Fields Cookie 相关字段  2 两大报文首部有哪些  请求报文  报文首部  请求行 请求首部字段 通用首部字段 实体首部字段 其他   空行 CR&#43;LF 报文主体   响应报文  报文首部  状态行 响应首部字段 通用首部字段 实体首部字段   空行 CR&#43;LF 报文主体    3 各个字段的详情 通用首部字段    首部字段名 说明     Cache-Control 控制缓存的行为   Connection 逐跳首部、连接的管理   Date 创建报文的日期时间   Pragma 报文指令   Trailer 报文末端的首部一览   Transfer-Encoding 指定报文主体的传输编码方式   Upgrade 升级为其他协议   Via 代理服务器的相关信息   Warning 错误通知    请求首部字段    首部字段名 说明     Accept 代理可处理的媒体类型   Accept-Charset 优先的字符集   Accept-Encoding 优先的内容编码   Accept-Language 优先的自然语言   Authorization Web认证信息   Expert 期待服务器特定的行为   From 电子邮箱地址   Host 请求的资源服务器   If-Match 比较实体标记   If-Modified-Since 比较资源更新时间   If-None-Match 比较实体标记   if-Range 资源未更新时发送实体Byte的范围请求   If-Unmodified-Since 比较资源的更新时间   Max-Forwards 最大传输逐跳数   Proxy-Authorization 代理服务器要求客户端的认证信息   Range 实体的字节范围请求   Referer 对请求中URI的原始获取方   TE 传输编码的优先级   User-Agent HTTP客户端程序的信息    响应首部字段    首部字段名 说明     Accept-Range 是否接收字节范围请求   Age 推算资源创建经过时间   ETag 资源的匹配的信息   Location 令客户端重定向到指定URI   Proxy-Authenticate 代理服务器对客户端的认证信息   Retry-After 对再次发起的请求的时机要求   Server HTTP服务器的安装信息   Vary 代理服务器缓存的管理信息   WWW-Authenticate 服务器对客户端的认证信息    实体首部字段    首部字段名 说明     Allow 资源可支持的HTTP办法   Content-Encoding 实体主体的可接收编码方法   Content-Language 自然语言   C-Length 大小（字节）   C-Location 代替对应资源的URI   C-MD5 报文摘要   C-Range 位置范围   Type 媒体类型   Expires 过期的日期时间   Last-Modified 最后修改日期    4 缓存代理的分类  端到端首部 End-to-end Header  会转发到最终目标 必须保存在由缓存生成的响应中 必须被转发   逐跳首部 Hop-by-hop Header  首部单词转发有效 可以通过代理而不再转发 需要提供 Connection 首部字段  Connection Keep-Alive Proxy-Authenticate Proxy-Authorization Trailer TE Transfer-Encoding Upgrade      5 缓存相关 请求"/>
+
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'analytics-code', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+<script src=/js/ramium.js></script>
+<link rel="stylesheet" href=/css/ramium.css>
+
+
+
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'analytics-code', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<body><nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href=/>
+      
+      <strong>CHENENE </strong>
+      
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+      data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      
+      
+      <a class="navbar-item" href="/">Home</a>
+      
+      
+      
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">This Blog</a>
+        <div class="navbar-dropdown">
+          
+          <a class="navbar-item" href="/tags/">All Tags</a>
+          
+          <a class="navbar-item" href="/sections/">All Sections</a>
+          
+          <a class="navbar-item" href="/posts/">All Posts</a>
+          
+        </div>
+      </div>
+      
+      
+      
+      <a class="navbar-item" href="/thinks/">Think Different</a>
+      
+      
+      
+      <a class="navbar-item" href="/author/">Author</a>
+      
+      
+    </div>
+
+    <div class="navbar-end">
+      
+      <a class="navbar-item navgithub" href="https://github.com/cheene" target="_blank">
+        <i class="fa fa-github fa-2x"></i>
+      </a>
+      
+
+      
+    </div>
+  </div>
+</nav><div class="columns is-centered">
+        <div id="page-body" class="column is-7">
+
+<div class="content blog">
+    <h1 class="title">HTTP首部有哪些？</h1>
+
+    <div id="infobar" class="level is-mobile">
+        <div class="level-left">
+            
+            <div class="level-item">
+                <p class="subtitle info date">Jun 22, 2020
+                </p>
+            </div>
+            
+
+            <div class="level-item">
+                <p class="subtitle info">
+                    14 mins read
+                </p>
+            </div>
+        </div>
+        <div class="level-right is-hidden-touch">
+            <div class="tags">
+                
+                <a class="tag is-dark is-rounded" href="/tags/http">H t t p</a>
+                
+                <a class="tag is-dark is-rounded" href="/tags/%E5%9B%BE%E8%A7%A3http">图解 h t t p</a>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="tags is-hidden-desktop">
+        
+        <a class="tag is-dark is-rounded" href="/tags/http">H t t p</a>
+        
+        <a class="tag is-dark is-rounded" href="/tags/%E5%9B%BE%E8%A7%A3http">图解 h t t p</a>
+        
+    </div>
+
+    <div class="blog-text">
+        
+
+        <h2 id="1-http首部有哪些分类呢">1 HTTP首部有哪些分类呢？</h2>
+<ul>
+<li>通用首部字段 <code>General Header Fields</code></li>
+<li>请求首部字段 <code>Request Headers Fields</code></li>
+<li>响应首部字段 <code>Response Header Fields</code></li>
+<li>实体首部字段 <code>Entity Header Fields</code></li>
+<li>Cookie 相关字段</li>
+</ul>
+<h2 id="2-两大报文首部有哪些">2 两大报文首部有哪些</h2>
+<ul>
+<li>请求报文
+<ul>
+<li>报文首部
+<ul>
+<li>请求行</li>
+<li>请求首部字段</li>
+<li>通用首部字段</li>
+<li>实体首部字段</li>
+<li>其他</li>
+</ul>
+</li>
+<li>空行 <code>CR+LF</code></li>
+<li>报文主体</li>
+</ul>
+</li>
+<li>响应报文
+<ul>
+<li>报文首部
+<ul>
+<li>状态行</li>
+<li>响应首部字段</li>
+<li>通用首部字段</li>
+<li>实体首部字段</li>
+</ul>
+</li>
+<li>空行 <code>CR+LF</code></li>
+<li>报文主体</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-各个字段的详情">3 各个字段的详情</h2>
+<h4 id="通用首部字段">通用首部字段</h4>
+<table>
+<thead>
+<tr>
+<th>首部字段名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cache-Control</td>
+<td>控制缓存的行为</td>
+</tr>
+<tr>
+<td>Connection</td>
+<td>逐跳首部、连接的管理</td>
+</tr>
+<tr>
+<td>Date</td>
+<td>创建报文的日期时间</td>
+</tr>
+<tr>
+<td>Pragma</td>
+<td>报文指令</td>
+</tr>
+<tr>
+<td>Trailer</td>
+<td>报文末端的首部一览</td>
+</tr>
+<tr>
+<td>Transfer-Encoding</td>
+<td>指定报文主体的传输编码方式</td>
+</tr>
+<tr>
+<td>Upgrade</td>
+<td>升级为其他协议</td>
+</tr>
+<tr>
+<td>Via</td>
+<td>代理服务器的相关信息</td>
+</tr>
+<tr>
+<td>Warning</td>
+<td>错误通知</td>
+</tr>
+</tbody>
+</table>
+<h4 id="请求首部字段">请求首部字段</h4>
+<table>
+<thead>
+<tr>
+<th>首部字段名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accept</td>
+<td>代理可处理的媒体类型</td>
+</tr>
+<tr>
+<td>Accept-Charset</td>
+<td>优先的字符集</td>
+</tr>
+<tr>
+<td>Accept-Encoding</td>
+<td>优先的内容编码</td>
+</tr>
+<tr>
+<td>Accept-Language</td>
+<td>优先的自然语言</td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td>Web认证信息</td>
+</tr>
+<tr>
+<td>Expert</td>
+<td>期待服务器特定的行为</td>
+</tr>
+<tr>
+<td>From</td>
+<td>电子邮箱地址</td>
+</tr>
+<tr>
+<td>Host</td>
+<td>请求的资源服务器</td>
+</tr>
+<tr>
+<td>If-Match</td>
+<td>比较实体标记</td>
+</tr>
+<tr>
+<td>If-Modified-Since</td>
+<td>比较资源更新时间</td>
+</tr>
+<tr>
+<td>If-None-Match</td>
+<td>比较实体标记</td>
+</tr>
+<tr>
+<td>if-Range</td>
+<td>资源未更新时发送实体Byte的范围请求</td>
+</tr>
+<tr>
+<td>If-Unmodified-Since</td>
+<td>比较资源的更新时间</td>
+</tr>
+<tr>
+<td>Max-Forwards</td>
+<td>最大传输逐跳数</td>
+</tr>
+<tr>
+<td>Proxy-Authorization</td>
+<td>代理服务器要求客户端的认证信息</td>
+</tr>
+<tr>
+<td>Range</td>
+<td>实体的字节范围请求</td>
+</tr>
+<tr>
+<td>Referer</td>
+<td>对请求中URI的原始获取方</td>
+</tr>
+<tr>
+<td>TE</td>
+<td>传输编码的优先级</td>
+</tr>
+<tr>
+<td>User-Agent</td>
+<td>HTTP客户端程序的信息</td>
+</tr>
+</tbody>
+</table>
+<h4 id="响应首部字段">响应首部字段</h4>
+<table>
+<thead>
+<tr>
+<th>首部字段名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accept-Range</td>
+<td>是否接收字节范围请求</td>
+</tr>
+<tr>
+<td>Age</td>
+<td>推算资源创建经过时间</td>
+</tr>
+<tr>
+<td>ETag</td>
+<td>资源的匹配的信息</td>
+</tr>
+<tr>
+<td>Location</td>
+<td>令客户端重定向到指定URI</td>
+</tr>
+<tr>
+<td>Proxy-Authenticate</td>
+<td>代理服务器对客户端的认证信息</td>
+</tr>
+<tr>
+<td>Retry-After</td>
+<td>对再次发起的请求的时机要求</td>
+</tr>
+<tr>
+<td>Server</td>
+<td>HTTP服务器的安装信息</td>
+</tr>
+<tr>
+<td>Vary</td>
+<td>代理服务器缓存的管理信息</td>
+</tr>
+<tr>
+<td>WWW-Authenticate</td>
+<td>服务器对客户端的认证信息</td>
+</tr>
+</tbody>
+</table>
+<h4 id="实体首部字段">实体首部字段</h4>
+<table>
+<thead>
+<tr>
+<th>首部字段名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Allow</td>
+<td>资源可支持的HTTP办法</td>
+</tr>
+<tr>
+<td>Content-Encoding</td>
+<td>实体主体的可接收编码方法</td>
+</tr>
+<tr>
+<td>Content-Language</td>
+<td>自然语言</td>
+</tr>
+<tr>
+<td>C-Length</td>
+<td>大小（字节）</td>
+</tr>
+<tr>
+<td>C-Location</td>
+<td>代替对应资源的URI</td>
+</tr>
+<tr>
+<td>C-MD5</td>
+<td>报文摘要</td>
+</tr>
+<tr>
+<td>C-Range</td>
+<td>位置范围</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>媒体类型</td>
+</tr>
+<tr>
+<td>Expires</td>
+<td>过期的日期时间</td>
+</tr>
+<tr>
+<td>Last-Modified</td>
+<td>最后修改日期</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-缓存代理的分类">4 缓存代理的分类</h2>
+<ul>
+<li>端到端首部 <code>End-to-end Header</code>
+<ul>
+<li>会转发到最终目标</li>
+<li>必须保存在由缓存生成的响应中</li>
+<li>必须被转发</li>
+</ul>
+</li>
+<li>逐跳首部 <code>Hop-by-hop Header</code>
+<ul>
+<li>首部单词转发有效</li>
+<li>可以通过代理而不再转发</li>
+<li>需要提供 Connection 首部字段
+<ul>
+<li>Connection</li>
+<li>Keep-Alive</li>
+<li>Proxy-Authenticate</li>
+<li>Proxy-Authorization</li>
+<li>Trailer</li>
+<li>TE</li>
+<li>Transfer-Encoding</li>
+<li>Upgrade</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-缓存相关">5 缓存相关</h2>
+<p><strong>请求</strong></p>
+<table>
+<thead>
+<tr>
+<th>首部字段名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>no-cache</td>
+<td>向资源服务器再次验证</td>
+</tr>
+<tr>
+<td>no-store</td>
+<td>不缓存</td>
+</tr>
+<tr>
+<td>max-age=[秒]</td>
+<td>响应最大Age</td>
+</tr>
+<tr>
+<td>max-stale=[秒]</td>
+<td>接收已过期的响应</td>
+</tr>
+<tr>
+<td>min-fresh=[秒]</td>
+<td>期望时间范围内响应仍有效</td>
+</tr>
+<tr>
+<td>no-transform</td>
+<td>代理不可更改媒体类型</td>
+</tr>
+<tr>
+<td>only-if-cached</td>
+<td>从缓存获取资源；无缓存503</td>
+</tr>
+<tr>
+<td>cache-extension</td>
+<td>新指令标记 Token</td>
+</tr>
+</tbody>
+</table>
+<p><strong>响应</strong></p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>public</td>
+<td>任意方都可以提供缓存</td>
+</tr>
+<tr>
+<td>private</td>
+<td>特定用户返回响应</td>
+</tr>
+<tr>
+<td>no-cache</td>
+<td>不缓存过期的资源</td>
+</tr>
+<tr>
+<td>no-store</td>
+<td>不缓存请求或响应任何内容</td>
+</tr>
+<tr>
+<td>no-transform</td>
+<td>代理不可更待媒体类型</td>
+</tr>
+<tr>
+<td>must-revalidate</td>
+<td>可缓存但必须再向资源服务器进行确认；无法验证 504</td>
+</tr>
+<tr>
+<td>proxy-revalidate</td>
+<td>中间缓存服务器对缓存的响应有效性再进行确认</td>
+</tr>
+<tr>
+<td>max-age=[秒]</td>
+<td>响应的最大的Age值</td>
+</tr>
+<tr>
+<td>s-maxage=[秒]</td>
+<td><strong>公共缓存服务器</strong>响应的最大Age值</td>
+</tr>
+<tr>
+<td>cache-extension</td>
+<td>新指令标记(token)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Connection</strong></p>
+<ul>
+<li>控制不再转发给代理的首部字段</li>
+<li>管理持久连接
+<ul>
+<li><code>Connection: Close</code> 关闭</li>
+<li><code>Connection: Keep-Alive</code> 保持连接</li>
+</ul>
+</li>
+</ul>
+<p><strong>Date</strong>   创建HTTP报文的日期和时间</p>
+<p><strong>Pragma</strong>  一般用于告诉中间件不需要缓存  <code>Pragma:no-cache </code></p>
+<p><strong>Trailer</strong>  此时在报文主体的后面仍然会有首部字段，Trailer 中表示还有哪一些字段在后面</p>
+<p><strong>Transfer-Encoding</strong> 规定传输报文的编码方式</p>
+<p><strong>Upgrade</strong> 检测是否可以使用更高的版本进行通信。参数可以指定不同的通信协议</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.1</span> <span style="color:#ae81ff">101</span> <span style="color:#a6e22e">Switching</span> <span style="color:#a6e22e">Protocols</span>
+<span style="color:#a6e22e">Upgrade</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">TLS</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.0</span>, <span style="color:#a6e22e">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.1</span>
+<span style="color:#a6e22e">Connection</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Upgrade</span>
+</code></pre></div><p><strong>Via</strong></p>
+<p>常应用于客户端和服务器之间的请求和响应报文的路径</p>
+<p>每经过一个代理会添加该代理的标志</p>
+<p>Via 经常和 TRACE 方法一起使用。</p>
+<p><strong>Warning</strong></p>
+<pre><code>Warning:[警告码][警告的主机:端口号][警告的内容](日期时间)
+</code></pre><table>
+<thead>
+<tr>
+<th>警告码</th>
+<th>内容</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>110</td>
+<td>Response is stale</td>
+<td>代理返回过期资源</td>
+</tr>
+<tr>
+<td>111</td>
+<td>Revalidation failed</td>
+<td>代理再验证失败</td>
+</tr>
+<tr>
+<td>112</td>
+<td>Disconnection operation</td>
+<td>代理与互联网连接故意切断</td>
+</tr>
+<tr>
+<td>113</td>
+<td>Heuristic expiration</td>
+<td>响应的使用期超过24小时</td>
+</tr>
+<tr>
+<td>199</td>
+<td>Miscellaneous warning</td>
+<td>任意的警告内容</td>
+</tr>
+<tr>
+<td>214</td>
+<td>Transformation applied</td>
+<td>代理处理过编码或媒体类型</td>
+</tr>
+<tr>
+<td>299</td>
+<td>Miscellaneous persistent warning</td>
+<td>任意的警告内容</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-请求首部字段">6 请求首部字段</h2>
+<ul>
+<li>
+<p>Accept 确定媒体接收的范围</p>
+</li>
+<li>
+<pre><code>Accept:text/html,application/xhtml+html
+</code></pre><ul>
+<li>媒体类型</li>
+<li>文本文件</li>
+<li>图片文件</li>
+<li>视频文件</li>
+<li>应用程序使用的二进制文件</li>
+</ul>
+</li>
+<li>
+<p>Accept-Charset 字符集</p>
+</li>
+<li>
+<p>Accept-Encoding 编码格式</p>
+<ul>
+<li>gzip</li>
+<li>compress</li>
+<li>deflate</li>
+<li>identity</li>
+</ul>
+</li>
+<li>
+<p>Accept-Language 可接受的自然语音</p>
+<pre><code>Accept-Language: zh-cn,zh;q=0.7,en-us,en;q=0.3
+</code></pre></li>
+<li>
+<p>Authorization 认证信息</p>
+</li>
+<li>
+<p>Expect 客户端告知服务端希望发生什么样的结果</p>
+<ul>
+<li>417 Expectation Failed</li>
+</ul>
+</li>
+<li>
+<p>From 告诉服务器，用户代理的钉子邮箱地址</p>
+</li>
+<li>
+<p>Host</p>
+<ul>
+<li>告知服务端的主机名和端口号</li>
+<li>必须在请求的首部字段包含</li>
+<li>主要是因为，单台WEB服务器运行多台主机时需要</li>
+</ul>
+</li>
+<li>
+<p>If-match 携带条件的请求</p>
+</li>
+<li>
+<p>IF-Modified-Since</p>
+<pre><code>If-Modified-Since: Thu, 13 Apr 2020 00:00:00 GMT
+</code></pre><p>在 <code>Thu, 13 Apr 2020 00:00:00 </code> 以后秒如果资源有更新便返回</p>
+</li>
+<li>
+<p>If-Range</p>
+<ul>
+<li>
+<p>条件符合时，返回部分信息</p>
+<pre><code>206 partial Content
+content-Range: bytes 20001-10000/10000
+content-Length: 5000
+</code></pre></li>
+<li>
+<p>条件不符合时，返回全部信息</p>
+<pre><code>200 OK
+ETag: &quot;56790&quot;
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p>Max-Forwards</p>
+<ul>
+<li>每转发一次减一</li>
+<li>数值为0的时候返回</li>
+</ul>
+</li>
+<li>
+<p>proxy-Authorization 客户端与代理之间的认证方式</p>
+</li>
+<li>
+<p>Referer  服务器查看当前请求的URI是从哪个WEB页面发去的</p>
+</li>
+<li>
+<p>TE 客户端告知服务器能够处理的传输编码的方式</p>
+</li>
+<li>
+<p>User-Agent 客户端的浏览器类型</p>
+</li>
+</ul>
+<h2 id="7-响应首部字段">7 响应首部字段</h2>
+<ul>
+<li>
+<p><code>Accept-Ranges : bytes</code> 告知客户端能否处理范围请求</p>
+<ul>
+<li>bytes 可以</li>
+<li>none 不可以</li>
+</ul>
+</li>
+<li>
+<p><code>Age</code> 客户端的这次请求再多久之前请求过，单位以秒计算</p>
+</li>
+<li>
+<p><code>ETag</code> 告知客户端实体标识</p>
+<ul>
+<li>
+<p>强 ETag	微小的改变也会改变其值</p>
+<pre><code>ETag: &quot;usagi-1234&quot;
+</code></pre></li>
+<li>
+<p>弱 ETag    只是用来提示资源是否相同，除非存在根本性的变化，</p>
+<pre><code>ETag:W/&quot;usagi-1234&quot;
+</code></pre></li>
+</ul>
+</li>
+<li>
+<p><code>Location</code> 通知客户端选择新的地址访问URI</p>
+</li>
+<li>
+<p><code>Proxy-Authenticate</code> 把代理服务器所要求的认证信息发送给客户端</p>
+</li>
+<li>
+<p><code>Retry-After</code> 多久之后再来访问</p>
+<p>一般配合两个来使用</p>
+<ul>
+<li>503 Service Unavailable</li>
+<li>3xx Redirect</li>
+</ul>
+</li>
+<li>
+<p>Server 告知客户端服务器的名称</p>
+</li>
+<li>
+<p>Vary 代理服务器检查可接收的自然语言</p>
+<ul>
+<li>代理服务器仅向源服务器请求Vary字段里的自然语言</li>
+</ul>
+</li>
+<li>
+<p><code>WWW-Authenticate</code> 是对 HTTP的访问认证</p>
+</li>
+</ul>
+<h2 id="8-实体首部字段">8 实体首部字段</h2>
+<ul>
+<li>
+<p><code>Allow</code> 服务端告诉客户端自己支持的方法有哪一些</p>
+</li>
+<li>
+<p><code>Content-Encoding</code> 服务端告知客户端采用的什么编码方式</p>
+<ul>
+<li>gzip</li>
+<li>compress</li>
+<li>delate</li>
+<li>identity</li>
+</ul>
+</li>
+<li>
+<p><code>Content-Language</code> 告知客户端，实体主体使用的自然语言</p>
+</li>
+<li>
+<p><code>Content-Length</code> 表明实体主体的大小</p>
+<ul>
+<li>而实体主体进行内容编码时，不能再使用该字段</li>
+</ul>
+</li>
+<li>
+<p><code>Content-Location</code> 表名实体主体对应资源的URI</p>
+<ul>
+<li>
+<p>例如：首部字段可能</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">Content-Location:</span> <span style="color:#960050;background-color:#1e0010">https://www.cnmi.com</span>
+</code></pre></div></li>
+<li>
+<p>实体的可能为</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">Content-Location:</span> <span style="color:#960050;background-color:#1e0010">https://www.cnmi.com/index.html</span>
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<p><code>Content-MD5</code> 作为检验使用，客户端会与服务端执行相同的MD5 算法，并与首部字段 <code>Content-MD5</code> 进行比较</p>
+<ul>
+<li>大体过程：
+<ul>
+<li>首先，报文主体会进行<code>MD5</code> 算法</li>
+<li>其次，将算法得到的结果在进行<code>Base64</code> 编码</li>
+<li>最后，将编码的结果放在实体字段里面</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><code>Content-Range</code> 发送其范围</p>
+<pre><code>Content-Range:bytes 5001-10000/10000
+</code></pre><ol>
+<li>总大小为1W字节</li>
+<li>本次发送 5001-10000 这个范围里面的</li>
+</ol>
+</li>
+<li>
+<p><code>Content-Type</code> 表示实体主体的媒体类型以及字符集</p>
+<pre><code>Content-Type: text/html; charset=UTF-8
+</code></pre></li>
+<li>
+<p><code>Expires</code> 服务端将告诉客户端该资源的失效的日期</p>
+<ul>
+<li>首部字段的 <code>max-age</code> 比实体的优先级高</li>
+</ul>
+</li>
+<li>
+<p><code>Last-Modified</code> 指明资源最后的修改日期</p>
+</li>
+</ul>
+<h2 id="9-cookie">9 Cookie</h2>
+<p><strong>两个字段</strong></p>
+<ul>
+<li>服务端 <code>Set-Cookie</code> 响应客户端</li>
+<li>客户端 <code>Cookie</code> 客户端请求，发送给服务端</li>
+</ul>
+<p><strong>服务端</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name=Value</td>
+<td>名称与值</td>
+</tr>
+<tr>
+<td>expires=DATE</td>
+<td>有效期</td>
+</tr>
+<tr>
+<td>path=PATH</td>
+<td>文件目录作为Cookie的适用对象</td>
+</tr>
+<tr>
+<td>domain=域名</td>
+<td></td>
+</tr>
+<tr>
+<td>Secure</td>
+<td>仅支持HTTPS请求时，发送Cookie</td>
+</tr>
+<tr>
+<td>HttpOnly</td>
+<td>避免 XSS 攻击，即跨脚本攻击</td>
+</tr>
+</tbody>
+</table>
+<h2 id="10-其他首部字段">10 其他首部字段</h2>
+<ul>
+<li>首部字段可以通过自行扩展实现</li>
+<li><code>X-Frame-Options:DENY</code>
+<ul>
+<li>HTTP 响应的首部，控制Frame标签的显示问题</li>
+<li>现在好像都没有这个标签了</li>
+</ul>
+</li>
+<li><code>X-XSS-Protection</code>
+<ul>
+<li>HTTP 响应首部</li>
+<li>0  :  有效； 1  :  无效</li>
+</ul>
+</li>
+<li><code>DNT</code>
+<ul>
+<li>HTTP 的请求首部</li>
+<li>Do Not Track 拒绝个人信息被收集</li>
+<li>0 : 同意； 1 : 拒绝</li>
+</ul>
+</li>
+<li><code>P3P</code>
+<ul>
+<li>HTTP 的响应首部</li>
+<li>保护隐私使用</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div><div id="social-media-share" class="has-text-centered">
+	<p><i>Sharing is caring!</i></p>
+	<br>
+	
+	<div class="share-buttons">
+	    <a  href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcheene.github.io%2fposts%2fhttp-image-06%2f"
+	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
+	        title="Share on Facebook. Opens in a new window.">
+	        <img src=/img/icons/45px/facebook.png>
+	    </a>
+
+	    <a  href="https://twitter.com/intent/tweet?text=HTTP%e9%a6%96%e9%83%a8%e6%9c%89%e5%93%aa%e4%ba%9b%ef%bc%9f&url=https%3a%2f%2fcheene.github.io%2fposts%2fhttp-image-06%2f"
+	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
+	        title="Share on Twitter. Opens in a new window." >
+	        <img src=/img/icons/45px/twitter.png>
+	    </a>
+
+		<a  href="http://www.reddit.com/submit?url=https%3a%2f%2fcheene.github.io%2fposts%2fhttp-image-06%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Reddit. Opens in a new window." >
+	        <img src=/img/icons/45px/reddit.png>
+	    </a>
+
+	    <a  href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fcheene.github.io%2fposts%2fhttp-image-06%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Pinterest. Opens in a new window." >
+	        <img src=/img/icons/45px/pinterest.png>
+	    </a>
+
+	    <a  href="http://www.tumblr.com/share/link?url=https%3a%2f%2fcheene.github.io%2fposts%2fhttp-image-06%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Tumblr. Opens in a new window." >
+	        <img src=/img/icons/45px/tumblr.png>
+	    </a>
+
+		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fcheene.github.io%2fposts%2fhttp-image-06%2f
+			&title=HTTP%e9%a6%96%e9%83%a8%e6%9c%89%e5%93%aa%e4%ba%9b%ef%bc%9f&summary=1%20HTTP%e9%a6%96%e9%83%a8%e6%9c%89%e5%93%aa%e4%ba%9b%e5%88%86%e7%b1%bb%e5%91%a2%ef%bc%9f%20%20%e9%80%9a%e7%94%a8%e9%a6%96%e9%83%a8%e5%ad%97%e6%ae%b5%20General%20Header%20Fields%20%e8%af%b7%e6%b1%82%e9%a6%96%e9%83%a8%e5%ad%97%e6%ae%b5%20Request%20Headers%20Fields%20%e5%93%8d%e5%ba%94%e9%a6%96%e9%83%a8%e5%ad%97%e6%ae%b5%20Response%20Header%20Fields%20%e5%ae%9e%e4%bd%93%e9%a6%96%e9%83%a8%e5%ad%97%e6%ae%b5%20Entity%20Header%20Fields%20Cookie%20%e7%9b%b8%e5%85%b3%e5%ad%97%e6%ae%b5%20%202%20%e4%b8%a4%e5%a4%a7%e6%8a%a5%e6%96%87%e9%a6%96%e9%83%a8%e6%9c%89%e5%93%aa%e4%ba%9b%20%20%e8%af%b7%e6%b1%82%e6%8a%a5%e6%96%87%20%20%e6%8a%a5%e6%96%87%e9%a6%96%e9%83%a8%20%20%e8%af%b7%e6%b1%82%e8%a1%8c%20%e8%af%b7%e6%b1%82%e9%a6%96%e9%83%a8%e5%ad%97%e6%ae%b5%20%e9%80%9a%e7%94%a8%e9%a6%96%e9%83%a8%e5%ad%97%e6%ae%b5%20%e5%ae%9e%e4%bd%93%e9%a6%96%e9%83%a8%e5%ad%97%e6%ae%b5%20%e5%85%b6%e4%bb%96%20%20%20%e7%a9%ba%e8%a1%8c%20CR%2bLF%20%e6%8a%a5%e6%96%87%e4%b8%bb%e4%bd%93%20%20%20%e5%93%8d%e5%ba%94%e6%8a%a5%e6%96%87%20%20%e6%8a%a5%e6%96%87%e9%a6%96%e9%83%a8%20%20%e7%8a%b6%e6%80%81%e8%a1%8c%20%e5%93%8d%e5%ba%94%e9%a6%96%e9%83%a8%e5%ad%97%e6%ae%b5%20%e9%80%9a%e7%94%a8%e9%a6%96%e9%83%a8%e5%ad%97%e6%ae%b5%20%e5%ae%9e%e4%bd%93%e9%a6%96%e9%83%a8%e5%ad%97%e6%ae%b5%20%20%20%e7%a9%ba%e8%a1%8c%20CR%2bLF%20%e6%8a%a5%e6%96%87%e4%b8%bb%e4%bd%93%20%20%20%203%20%e5%90%84%e4%b8%aa%e5%ad%97%e6%ae%b5%e7%9a%84%e8%af%a6%e6%83%85%20%e9%80%9a%e7%94%a8%e9%a6%96%e9%83%a8%e5%ad%97%e6%ae%b5%20%20%20%20%e9%a6%96%e9%83%a8%e5%ad%97%e6%ae%b5%e5%90%8d%20%e8%af%b4%e6%98%8e%20%20%20%20%20Cache-Control%20%e6%8e%a7%e5%88%b6%e7%bc%93%e5%ad%98%e7%9a%84%e8%a1%8c%e4%b8%ba%20%20%20Connection%20%e9%80%90%e8%b7%b3%e9%a6%96%e9%83%a8%e3%80%81%e8%bf%9e%e6%8e%a5%e7%9a%84%e7%ae%a1%e7%90%86%20%20%20Date%20%e5%88%9b%e5%bb%ba%e6%8a%a5%e6%96%87%e7%9a%84%e6%97%a5%e6%9c%9f%e6%97%b6%e9%97%b4%20%20%20Pragma%20%e6%8a%a5%e6%96%87%e6%8c%87%e4%bb%a4%20%20%20Trailer%20%e6%8a%a5%e6%96%87%e6%9c%ab%e7%ab%af%e7%9a%84%e9%a6%96%e9%83%a8%e4%b8%80%e8%a7%88%20%20%20Transfer-Encoding%20%e6%8c%87%e5%ae%9a%e6%8a%a5%e6%96%87%e4%b8%bb%e4%bd%93%e7%9a%84%e4%bc%a0%e8%be%93%e7%bc%96%e7%a0%81%e6%96%b9%e5%bc%8f%20%20%20Upgrade%20%e5%8d%87%e7%ba%a7%e4%b8%ba%e5%85%b6%e4%bb%96%e5%8d%8f%e8%ae%ae%20%20%20Via%20%e4%bb%a3%e7%90%86%e6%9c%8d%e5%8a%a1%e5%99%a8%e7%9a%84%e7%9b%b8%e5%85%b3%e4%bf%a1%e6%81%af%20%20%20Warning%20%e9%94%99%e8%af%af%e9%80%9a%e7%9f%a5%20%20%20%20%e8%af%b7%e6%b1%82%e9%a6%96%e9%83%a8%e5%ad%97%e6%ae%b5%20%20%20%20%e9%a6%96%e9%83%a8%e5%ad%97%e6%ae%b5%e5%90%8d%20%e8%af%b4%e6%98%8e%20%20%20%20%20Accept%20%e4%bb%a3%e7%90%86%e5%8f%af%e5%a4%84%e7%90%86%e7%9a%84%e5%aa%92%e4%bd%93%e7%b1%bb%e5%9e%8b%20%20%20Accept-Charset%20%e4%bc%98%e5%85%88%e7%9a%84%e5%ad%97%e7%ac%a6%e9%9b%86%20%20%20Accept-Encoding%20%e4%bc%98%e5%85%88%e7%9a%84%e5%86%85%e5%ae%b9%e7%bc%96%e7%a0%81%20%20%20Accept-Language%20%e4%bc%98%e5%85%88%e7%9a%84%e8%87%aa%e7%84%b6%e8%af%ad%e8%a8%80%20%20%20Authorization%20Web%e8%ae%a4%e8%af%81%e4%bf%a1%e6%81%af%20%20%20Expert%20%e6%9c%9f%e5%be%85%e6%9c%8d%e5%8a%a1%e5%99%a8%e7%89%b9%e5%ae%9a%e7%9a%84%e8%a1%8c%e4%b8%ba%20%20%20From%20%e7%94%b5%e5%ad%90%e9%82%ae%e7%ae%b1%e5%9c%b0%e5%9d%80%20%20%20Host%20%e8%af%b7%e6%b1%82%e7%9a%84%e8%b5%84%e6%ba%90%e6%9c%8d%e5%8a%a1%e5%99%a8%20%20%20If-Match%20%e6%af%94%e8%be%83%e5%ae%9e%e4%bd%93%e6%a0%87%e8%ae%b0%20%20%20If-Modified-Since%20%e6%af%94%e8%be%83%e8%b5%84%e6%ba%90%e6%9b%b4%e6%96%b0%e6%97%b6%e9%97%b4%20%20%20If-None-Match%20%e6%af%94%e8%be%83%e5%ae%9e%e4%bd%93%e6%a0%87%e8%ae%b0%20%20%20if-Range%20%e8%b5%84%e6%ba%90%e6%9c%aa%e6%9b%b4%e6%96%b0%e6%97%b6%e5%8f%91%e9%80%81%e5%ae%9e%e4%bd%93Byte%e7%9a%84%e8%8c%83%e5%9b%b4%e8%af%b7%e6%b1%82%20%20%20If-Unmodified-Since%20%e6%af%94%e8%be%83%e8%b5%84%e6%ba%90%e7%9a%84%e6%9b%b4%e6%96%b0%e6%97%b6%e9%97%b4%20%20%20Max-Forwards%20%e6%9c%80%e5%a4%a7%e4%bc%a0%e8%be%93%e9%80%90%e8%b7%b3%e6%95%b0%20%20%20Proxy-Authorization%20%e4%bb%a3%e7%90%86%e6%9c%8d%e5%8a%a1%e5%99%a8%e8%a6%81%e6%b1%82%e5%ae%a2%e6%88%b7%e7%ab%af%e7%9a%84%e8%ae%a4%e8%af%81%e4%bf%a1%e6%81%af%20%20%20Range%20%e5%ae%9e%e4%bd%93%e7%9a%84%e5%ad%97%e8%8a%82%e8%8c%83%e5%9b%b4%e8%af%b7%e6%b1%82%20%20%20Referer%20%e5%af%b9%e8%af%b7%e6%b1%82%e4%b8%adURI%e7%9a%84%e5%8e%9f%e5%a7%8b%e8%8e%b7%e5%8f%96%e6%96%b9%20%20%20TE%20%e4%bc%a0%e8%be%93%e7%bc%96%e7%a0%81%e7%9a%84%e4%bc%98%e5%85%88%e7%ba%a7%20%20%20User-Agent%20HTTP%e5%ae%a2%e6%88%b7%e7%ab%af%e7%a8%8b%e5%ba%8f%e7%9a%84%e4%bf%a1%e6%81%af%20%20%20%20%e5%93%8d%e5%ba%94%e9%a6%96%e9%83%a8%e5%ad%97%e6%ae%b5%20%20%20%20%e9%a6%96%e9%83%a8%e5%ad%97%e6%ae%b5%e5%90%8d%20%e8%af%b4%e6%98%8e%20%20%20%20%20Accept-Range%20%e6%98%af%e5%90%a6%e6%8e%a5%e6%94%b6%e5%ad%97%e8%8a%82%e8%8c%83%e5%9b%b4%e8%af%b7%e6%b1%82%20%20%20Age%20%e6%8e%a8%e7%ae%97%e8%b5%84%e6%ba%90%e5%88%9b%e5%bb%ba%e7%bb%8f%e8%bf%87%e6%97%b6%e9%97%b4%20%20%20ETag%20%e8%b5%84%e6%ba%90%e7%9a%84%e5%8c%b9%e9%85%8d%e7%9a%84%e4%bf%a1%e6%81%af%20%20%20Location%20%e4%bb%a4%e5%ae%a2%e6%88%b7%e7%ab%af%e9%87%8d%e5%ae%9a%e5%90%91%e5%88%b0%e6%8c%87%e5%ae%9aURI%20%20%20Proxy-Authenticate%20%e4%bb%a3%e7%90%86%e6%9c%8d%e5%8a%a1%e5%99%a8%e5%af%b9%e5%ae%a2%e6%88%b7%e7%ab%af%e7%9a%84%e8%ae%a4%e8%af%81%e4%bf%a1%e6%81%af%20%20%20Retry-After%20%e5%af%b9%e5%86%8d%e6%ac%a1%e5%8f%91%e8%b5%b7%e7%9a%84%e8%af%b7%e6%b1%82%e7%9a%84%e6%97%b6%e6%9c%ba%e8%a6%81%e6%b1%82%20%20%20Server%20HTTP%e6%9c%8d%e5%8a%a1%e5%99%a8%e7%9a%84%e5%ae%89%e8%a3%85%e4%bf%a1%e6%81%af%20%20%20Vary%20%e4%bb%a3%e7%90%86%e6%9c%8d%e5%8a%a1%e5%99%a8%e7%bc%93%e5%ad%98%e7%9a%84%e7%ae%a1%e7%90%86%e4%bf%a1%e6%81%af%20%20%20WWW-Authenticate%20%e6%9c%8d%e5%8a%a1%e5%99%a8%e5%af%b9%e5%ae%a2%e6%88%b7%e7%ab%af%e7%9a%84%e8%ae%a4%e8%af%81%e4%bf%a1%e6%81%af%20%20%20%20%e5%ae%9e%e4%bd%93%e9%a6%96%e9%83%a8%e5%ad%97%e6%ae%b5%20%20%20%20%e9%a6%96%e9%83%a8%e5%ad%97%e6%ae%b5%e5%90%8d%20%e8%af%b4%e6%98%8e%20%20%20%20%20Allow%20%e8%b5%84%e6%ba%90%e5%8f%af%e6%94%af%e6%8c%81%e7%9a%84HTTP%e5%8a%9e%e6%b3%95%20%20%20Content-Encoding%20%e5%ae%9e%e4%bd%93%e4%b8%bb%e4%bd%93%e7%9a%84%e5%8f%af%e6%8e%a5%e6%94%b6%e7%bc%96%e7%a0%81%e6%96%b9%e6%b3%95%20%20%20Content-Language%20%e8%87%aa%e7%84%b6%e8%af%ad%e8%a8%80%20%20%20C-Length%20%e5%a4%a7%e5%b0%8f%ef%bc%88%e5%ad%97%e8%8a%82%ef%bc%89%20%20%20C-Location%20%e4%bb%a3%e6%9b%bf%e5%af%b9%e5%ba%94%e8%b5%84%e6%ba%90%e7%9a%84URI%20%20%20C-MD5%20%e6%8a%a5%e6%96%87%e6%91%98%e8%a6%81%20%20%20C-Range%20%e4%bd%8d%e7%bd%ae%e8%8c%83%e5%9b%b4%20%20%20Type%20%e5%aa%92%e4%bd%93%e7%b1%bb%e5%9e%8b%20%20%20Expires%20%e8%bf%87%e6%9c%9f%e7%9a%84%e6%97%a5%e6%9c%9f%e6%97%b6%e9%97%b4%20%20%20Last-Modified%20%e6%9c%80%e5%90%8e%e4%bf%ae%e6%94%b9%e6%97%a5%e6%9c%9f%20%20%20%204%20%e7%bc%93%e5%ad%98%e4%bb%a3%e7%90%86%e7%9a%84%e5%88%86%e7%b1%bb%20%20%e7%ab%af%e5%88%b0%e7%ab%af%e9%a6%96%e9%83%a8%20End-to-end%20Header%20%20%e4%bc%9a%e8%bd%ac%e5%8f%91%e5%88%b0%e6%9c%80%e7%bb%88%e7%9b%ae%e6%a0%87%20%e5%bf%85%e9%a1%bb%e4%bf%9d%e5%ad%98%e5%9c%a8%e7%94%b1%e7%bc%93%e5%ad%98%e7%94%9f%e6%88%90%e7%9a%84%e5%93%8d%e5%ba%94%e4%b8%ad%20%e5%bf%85%e9%a1%bb%e8%a2%ab%e8%bd%ac%e5%8f%91%20%20%20%e9%80%90%e8%b7%b3%e9%a6%96%e9%83%a8%20Hop-by-hop%20Header%20%20%e9%a6%96%e9%83%a8%e5%8d%95%e8%af%8d%e8%bd%ac%e5%8f%91%e6%9c%89%e6%95%88%20%e5%8f%af%e4%bb%a5%e9%80%9a%e8%bf%87%e4%bb%a3%e7%90%86%e8%80%8c%e4%b8%8d%e5%86%8d%e8%bd%ac%e5%8f%91%20%e9%9c%80%e8%a6%81%e6%8f%90%e4%be%9b%20Connection%20%e9%a6%96%e9%83%a8%e5%ad%97%e6%ae%b5%20%20Connection%20Keep-Alive%20Proxy-Authenticate%20Proxy-Authorization%20Trailer%20TE%20Transfer-Encoding%20Upgrade%20%20%20%20%20%205%20%e7%bc%93%e5%ad%98%e7%9b%b8%e5%85%b3%20%e8%af%b7%e6%b1%82&source=rafed123.github.io"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on LinkedIn. Opens in a new window." >
+	        <img src=/img/icons/45px/linkedin.png>
+	    </a>
+
+	    <a  href="mailto:?subject=HTTP%e9%a6%96%e9%83%a8%e6%9c%89%e5%93%aa%e4%ba%9b%ef%bc%9f&amp;body=Check out this site https%3a%2f%2fcheene.github.io%2fposts%2fhttp-image-06%2f"
+	        title="Share via Email. Opens in a new window." >
+	        <img src=/img/icons/45px/mail.png>
+	    </a>
+	</div>
+</div>
+
+
+<br>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    (function () {
+        
+        
+        if (window.location.hostname == "localhost")
+            return;
+
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'disqus-code';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+        </div>
+    </div>
+
+<footer class="footer has-background-dark">
+    <div class="content has-text-centered has-text-white">
+        <p>
+            © 2020 Ramium. Powered by
+            <a class="has-text-light" href="https://github.com/gohugoio/hugo" target="_blank">
+            Hugo</a>. Theme
+            <a class="has-text-light" href="https://github.com/rafed123/ramium/" target="_blank">
+                Ramium.
+            </a>
+        </p>
+    </div>
+</footer>
+</body>
+
+</html>

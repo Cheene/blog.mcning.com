@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ZH-CN"><title>
+    HTTP协议简述 | 
+    
+    CHENENE</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<meta name="description" 
+      content="HTTP协议简述 1 协议用在哪里？ 客户端和服务端之间的通信
+2 数据如何交换？ 请求和响应
+ 请求：即由客户端发出 响应：即由服务端发出  服务端不会主动建立连接，而是一直在监听客户端的连接请求
+请求体
+方法	URL	协议版本 GET /index.html HTTP/1.1 请求首部字段 Host:... Connection: Content-Type: Content-Length: xx 内容实体 name=??&amp;&amp;xx=yy 响应请求
+版本号	状态码 原因短语 HTTP/1.1	200 OK 首部字段 Date: Tue,10,xxxxx Content-Length: 12 Content-Type: text/html 资源实体 entity body &lt;html&gt; .
+                ">
+
+<link rel="canonical" href="https://cheene.github.io/posts/http-image-02/" />
+
+<link rel="icon" type="image/png" href="https://cheene.github.io/image/favicon.ico">
+
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/bulma.min.css">
+
+<meta property="og:title" content="HTTP协议简述" />
+<meta property="og:description" content="HTTP协议简述 1 协议用在哪里？ 客户端和服务端之间的通信
+2 数据如何交换？ 请求和响应
+ 请求：即由客户端发出 响应：即由服务端发出  服务端不会主动建立连接，而是一直在监听客户端的连接请求
+请求体
+方法	URL	协议版本 GET /index.html HTTP/1.1 请求首部字段 Host:... Connection: Content-Type: Content-Length: xx 内容实体 name=??&amp;&amp;xx=yy 响应请求
+版本号	状态码 原因短语 HTTP/1.1	200 OK 首部字段 Date: Tue,10,xxxxx Content-Length: 12 Content-Type: text/html 资源实体 entity body &lt;html&gt; ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cheene.github.io/posts/http-image-02/" />
+<meta property="article:published_time" content="2020-06-22T19:43:44+08:00" />
+<meta property="article:modified_time" content="2020-06-22T19:43:44+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="HTTP协议简述"/>
+<meta name="twitter:description" content="HTTP协议简述 1 协议用在哪里？ 客户端和服务端之间的通信
+2 数据如何交换？ 请求和响应
+ 请求：即由客户端发出 响应：即由服务端发出  服务端不会主动建立连接，而是一直在监听客户端的连接请求
+请求体
+方法	URL	协议版本 GET /index.html HTTP/1.1 请求首部字段 Host:... Connection: Content-Type: Content-Length: xx 内容实体 name=??&amp;&amp;xx=yy 响应请求
+版本号	状态码 原因短语 HTTP/1.1	200 OK 首部字段 Date: Tue,10,xxxxx Content-Length: 12 Content-Type: text/html 资源实体 entity body &lt;html&gt; ."/>
+
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'analytics-code', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+<script src=/js/ramium.js></script>
+<link rel="stylesheet" href=/css/ramium.css>
+
+
+
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'analytics-code', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<body><nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href=/>
+      
+      <strong>CHENENE </strong>
+      
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+      data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      
+      
+      <a class="navbar-item" href="/">Home</a>
+      
+      
+      
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">This Blog</a>
+        <div class="navbar-dropdown">
+          
+          <a class="navbar-item" href="/tags/">All Tags</a>
+          
+          <a class="navbar-item" href="/sections/">All Sections</a>
+          
+          <a class="navbar-item" href="/posts/">All Posts</a>
+          
+        </div>
+      </div>
+      
+      
+      
+      <a class="navbar-item" href="/thinks/">Think Different</a>
+      
+      
+      
+      <a class="navbar-item" href="/author/">Author</a>
+      
+      
+    </div>
+
+    <div class="navbar-end">
+      
+      <a class="navbar-item navgithub" href="https://github.com/cheene" target="_blank">
+        <i class="fa fa-github fa-2x"></i>
+      </a>
+      
+
+      
+    </div>
+  </div>
+</nav><div class="columns is-centered">
+        <div id="page-body" class="column is-7">
+
+<div class="content blog">
+    <h1 class="title">HTTP协议简述</h1>
+
+    <div id="infobar" class="level is-mobile">
+        <div class="level-left">
+            
+            <div class="level-item">
+                <p class="subtitle info date">Jun 22, 2020
+                </p>
+            </div>
+            
+
+            <div class="level-item">
+                <p class="subtitle info">
+                    4 mins read
+                </p>
+            </div>
+        </div>
+        <div class="level-right is-hidden-touch">
+            <div class="tags">
+                
+                <a class="tag is-dark is-rounded" href="/tags/http">H t t p</a>
+                
+                <a class="tag is-dark is-rounded" href="/tags/%E5%9B%BE%E8%A7%A3http">图解 h t t p</a>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="tags is-hidden-desktop">
+        
+        <a class="tag is-dark is-rounded" href="/tags/http">H t t p</a>
+        
+        <a class="tag is-dark is-rounded" href="/tags/%E5%9B%BE%E8%A7%A3http">图解 h t t p</a>
+        
+    </div>
+
+    <div class="blog-text">
+        
+
+        <h1 id="http协议简述">HTTP协议简述</h1>
+<h3 id="1-协议用在哪里">1 协议用在哪里？</h3>
+<p>客户端和服务端之间的通信</p>
+<h3 id="2-数据如何交换">2 数据如何交换？</h3>
+<p>请求和响应</p>
+<ul>
+<li>请求：即由客户端发出</li>
+<li>响应：即由服务端发出</li>
+</ul>
+<p>服务端不会主动建立连接，而是一直在监听客户端的连接请求</p>
+<p><strong>请求体</strong></p>
+<pre><code>方法	URL		   协议版本
+GET /index.html HTTP/1.1
+请求首部字段
+Host:...
+Connection:
+Content-Type:
+Content-Length: xx
+内容实体
+name=??&amp;&amp;xx=yy
+</code></pre><p><strong>响应请求</strong></p>
+<pre><code>版本号		  状态码 原因短语
+HTTP/1.1	200 OK
+首部字段
+Date: Tue,10,xxxxx
+Content-Length: 12
+Content-Type: text/html
+资源实体 entity body
+&lt;html&gt;
+....
+</code></pre><h3 id="3-无状态协议-stateless">3 无状态协议 stateless</h3>
+<p>即协议不对发送和请求做持久化处理，如何能够对数据保持呢？</p>
+<p>采用 cookie 的方式</p>
+<h4 id="4-请求对方的地址是什么">4 请求，对方的地址是什么？</h4>
+<p>请求URI定位资源</p>
+<pre><code>GET https://www.cnmi.com HTTP/1.1
+</code></pre><pre><code>GET /index.html HTTP/1.1
+Host:hacker.jp
+</code></pre><p>获取HTTP服务器支持的HTTP种类</p>
+<pre><code>OPTIONS * HTTP/1.1
+</code></pre><h3 id="5-http-有哪些方法呢">5 HTTP 有哪些方法呢？</h3>
+<p><strong>GET</strong> 获取资源</p>
+<ul>
+<li>文本：返回本身</li>
+<li>类 <code>CGI</code> 程序：返回运算的结果</li>
+</ul>
+<p><strong>POST</strong> 传输实体主体</p>
+<ul>
+<li>POST 目的不是来获取响应的主体内容</li>
+</ul>
+<p><strong>PUT</strong> 传输文件</p>
+<ul>
+<li>默认关闭，由于不带验证机制</li>
+<li>开启
+<ul>
+<li>配合WEB应用程序的验证机制</li>
+<li>架构设计采用REST{ REpresentational State Transfer}标准</li>
+</ul>
+</li>
+</ul>
+<p><strong>HEAD</strong> 获取报文首部</p>
+<ul>
+<li>只有首部，没有主体</li>
+</ul>
+<p><strong>DELETE</strong> 删除文件</p>
+<p><strong>OPTIONS</strong> 询问支持的方法</p>
+<p><strong>TRACE</strong> 追踪路径</p>
+<ul>
+<li>保存到达服务器的每个代理服务器</li>
+<li>设置首部字段 <code>Max-Forwards</code></li>
+</ul>
+<p><strong>CONNECT</strong> 用隧道协议连接代理</p>
+<h2 id="6-持久连接">6 持久连接</h2>
+<p>在不建立连接情况下</p>
+<ul>
+<li>建立TCP连接
+<ul>
+<li>SYN</li>
+<li>SYN/ACK</li>
+<li>ACK</li>
+</ul>
+</li>
+<li>数据通信
+<ul>
+<li>HTTP 请求</li>
+<li>HTTP 响应</li>
+</ul>
+</li>
+<li>断开TCP连接
+<ul>
+<li>FIN</li>
+<li>ACK</li>
+<li>FIN</li>
+<li>ACK</li>
+</ul>
+</li>
+</ul>
+<p><strong>出现的问题是什么？</strong></p>
+<p>每次请求都要都需要建立连接，请求和响应，以及断开连接。</p>
+<p><strong>持久化</strong></p>
+<ul>
+<li>
+<p>客户端与服务端仅需要建立一次连接，同时就可以多次发起请求和响应</p>
+</li>
+<li>
+<p>支持持久化是客户端和服务端双方同时支持才可以</p>
+</li>
+</ul>
+<p><strong>管线化</strong></p>
+<p>皆在可以同时发送请求而不需要等待每一次的响应</p>
+<h2 id="7-状态管理-cookie">7 状态管理 Cookie</h2>
+<p><strong>保存状态信息</strong></p>
+<p><strong>过程</strong></p>
+<ul>
+<li>
+<p>服务端向客户端响应</p>
+<ul>
+<li>
+<p>Set-Cookie首部字段信息</p>
+</li>
+<li>
+<pre><code class="language-php+HTML" data-lang="php+HTML">&lt;Set-Cookie:sid=1316511156;path=/;ex=xxxx&gt;
+</code></pre><p>客户端再次请求时，自动携带Cookie信息</p>
+</li>
+</ul>
+</li>
+<li>
+<p>服务器发现客户端的Cookie后</p>
+<ul>
+<li>
+<p>对比服务器上的记录返回之前的状态信息</p>
+</li>
+<li>
+<pre><code class="language-php+HTML" data-lang="php+HTML">Cookie: sid=1316511156
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<h1 id="heading"></h1>
+
+    </div>
+</div><div id="social-media-share" class="has-text-centered">
+	<p><i>Sharing is caring!</i></p>
+	<br>
+	
+	<div class="share-buttons">
+	    <a  href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fcheene.github.io%2fposts%2fhttp-image-02%2f"
+	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
+	        title="Share on Facebook. Opens in a new window.">
+	        <img src=/img/icons/45px/facebook.png>
+	    </a>
+
+	    <a  href="https://twitter.com/intent/tweet?text=HTTP%e5%8d%8f%e8%ae%ae%e7%ae%80%e8%bf%b0&url=https%3a%2f%2fcheene.github.io%2fposts%2fhttp-image-02%2f"
+	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
+	        title="Share on Twitter. Opens in a new window." >
+	        <img src=/img/icons/45px/twitter.png>
+	    </a>
+
+		<a  href="http://www.reddit.com/submit?url=https%3a%2f%2fcheene.github.io%2fposts%2fhttp-image-02%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Reddit. Opens in a new window." >
+	        <img src=/img/icons/45px/reddit.png>
+	    </a>
+
+	    <a  href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2fcheene.github.io%2fposts%2fhttp-image-02%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Pinterest. Opens in a new window." >
+	        <img src=/img/icons/45px/pinterest.png>
+	    </a>
+
+	    <a  href="http://www.tumblr.com/share/link?url=https%3a%2f%2fcheene.github.io%2fposts%2fhttp-image-02%2f"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on Tumblr. Opens in a new window." >
+	        <img src=/img/icons/45px/tumblr.png>
+	    </a>
+
+		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fcheene.github.io%2fposts%2fhttp-image-02%2f
+			&title=HTTP%e5%8d%8f%e8%ae%ae%e7%ae%80%e8%bf%b0&summary=HTTP%e5%8d%8f%e8%ae%ae%e7%ae%80%e8%bf%b0%201%20%e5%8d%8f%e8%ae%ae%e7%94%a8%e5%9c%a8%e5%93%aa%e9%87%8c%ef%bc%9f%20%e5%ae%a2%e6%88%b7%e7%ab%af%e5%92%8c%e6%9c%8d%e5%8a%a1%e7%ab%af%e4%b9%8b%e9%97%b4%e7%9a%84%e9%80%9a%e4%bf%a1%0a2%20%e6%95%b0%e6%8d%ae%e5%a6%82%e4%bd%95%e4%ba%a4%e6%8d%a2%ef%bc%9f%20%e8%af%b7%e6%b1%82%e5%92%8c%e5%93%8d%e5%ba%94%0a%20%e8%af%b7%e6%b1%82%ef%bc%9a%e5%8d%b3%e7%94%b1%e5%ae%a2%e6%88%b7%e7%ab%af%e5%8f%91%e5%87%ba%20%e5%93%8d%e5%ba%94%ef%bc%9a%e5%8d%b3%e7%94%b1%e6%9c%8d%e5%8a%a1%e7%ab%af%e5%8f%91%e5%87%ba%20%20%e6%9c%8d%e5%8a%a1%e7%ab%af%e4%b8%8d%e4%bc%9a%e4%b8%bb%e5%8a%a8%e5%bb%ba%e7%ab%8b%e8%bf%9e%e6%8e%a5%ef%bc%8c%e8%80%8c%e6%98%af%e4%b8%80%e7%9b%b4%e5%9c%a8%e7%9b%91%e5%90%ac%e5%ae%a2%e6%88%b7%e7%ab%af%e7%9a%84%e8%bf%9e%e6%8e%a5%e8%af%b7%e6%b1%82%0a%e8%af%b7%e6%b1%82%e4%bd%93%0a%e6%96%b9%e6%b3%95%09URL%09%e5%8d%8f%e8%ae%ae%e7%89%88%e6%9c%ac%20GET%20%2findex.html%20HTTP%2f1.1%20%e8%af%b7%e6%b1%82%e9%a6%96%e9%83%a8%e5%ad%97%e6%ae%b5%20Host%3a...%20Connection%3a%20Content-Type%3a%20Content-Length%3a%20xx%20%e5%86%85%e5%ae%b9%e5%ae%9e%e4%bd%93%20name%3d%3f%3f%26amp%3b%26amp%3bxx%3dyy%20%e5%93%8d%e5%ba%94%e8%af%b7%e6%b1%82%0a%e7%89%88%e6%9c%ac%e5%8f%b7%09%e7%8a%b6%e6%80%81%e7%a0%81%20%e5%8e%9f%e5%9b%a0%e7%9f%ad%e8%af%ad%20HTTP%2f1.1%09200%20OK%20%e9%a6%96%e9%83%a8%e5%ad%97%e6%ae%b5%20Date%3a%20Tue%2c10%2cxxxxx%20Content-Length%3a%2012%20Content-Type%3a%20text%2fhtml%20%e8%b5%84%e6%ba%90%e5%ae%9e%e4%bd%93%20entity%20body%20%26lt%3bhtml%26gt%3b%20.&source=rafed123.github.io"
+	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
+	        title="Share on LinkedIn. Opens in a new window." >
+	        <img src=/img/icons/45px/linkedin.png>
+	    </a>
+
+	    <a  href="mailto:?subject=HTTP%e5%8d%8f%e8%ae%ae%e7%ae%80%e8%bf%b0&amp;body=Check out this site https%3a%2f%2fcheene.github.io%2fposts%2fhttp-image-02%2f"
+	        title="Share via Email. Opens in a new window." >
+	        <img src=/img/icons/45px/mail.png>
+	    </a>
+	</div>
+</div>
+
+
+<br>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    (function () {
+        
+        
+        if (window.location.hostname == "localhost")
+            return;
+
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var disqus_shortname = 'disqus-code';
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+        </div>
+    </div>
+
+<footer class="footer has-background-dark">
+    <div class="content has-text-centered has-text-white">
+        <p>
+            © 2020 Ramium. Powered by
+            <a class="has-text-light" href="https://github.com/gohugoio/hugo" target="_blank">
+            Hugo</a>. Theme
+            <a class="has-text-light" href="https://github.com/rafed123/ramium/" target="_blank">
+                Ramium.
+            </a>
+        </p>
+    </div>
+</footer>
+</body>
+
+</html>

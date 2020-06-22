@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ZH-CN"><title>
-    图解HTTP | 
+    图解HTTP 开篇 | 
     
     CHENENE</title>
 
@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
 <meta name="description" 
-      content="零 状态码    状态码 标识 解释     200 OK    204 No Content 无返回数据，即不包含实体部分   206 part content 部分内容更新   304 Not Modified    301 Moved Permanently 永久重定向，资源已重新分配URI；会重新请求   302 Found 临时重定向，临时分配新的URI；会重新请求   303 See Other 需要重新请求，并且使用GET   304 Not Modified 允许访问资源，但给的附件条件不满足资源   307 Temporary Redirect 临时重定向，不会二次请求，与302相比   400 Bad Request 服务器没有看懂请求什么意思   401 Unauthorized 认证失败，再来一次吧 {www-Authenricate}   403 Forbidden 资源禁止访问   404 Not Found 资源找不到   501 Internal Server Error 内部出了故障   503 Service Unavailable 资源处理的队列排满了或在停机维护Retry Afteer    Gateway Timeout     一 前言 1 网络分层机制 网络的分层，能够对各个部分进行封装。在进行修改时候，不需要全部替换而仅是需要替换部分。
+      content="HTTP 零 状态码    状态码 标识 解释     101 Switching Protocols    200 OK    204 No Content 无返回数据，即不包含实体部分   206 part content 部分内容更新   304 Not Modified    301 Moved Permanently 永久重定向，资源已重新分配URI；会重新请求   302 Found 临时重定向，临时分配新的URI；会重新请求   303 See Other 需要重新请求，并且使用GET   304 Not Modified 允许访问资源，但给的附件条件不满足资源   307 Temporary Redirect 临时重定向，不会二次请求，与302相比   400 Bad Request 服务器没有看懂请求什么意思   401 Unauthorized 认证失败，再来一次吧 {www-Authenricate}   403 Forbidden 资源禁止访问    Precondition Failed IF-Match 匹配失败   404 Not Found 资源找不到   501 Internal Server Error 内部出了故障   503 Service Unavailable 资源处理的队列排满了或在停机维护Retry Afteer    Gateway Timeout     前言 1 网络分层机制 网络的分层，能够对各个部分进行封装。在进行修改时候，不需要全部替换而仅是需要替换部分。
                 ">
 
 <link rel="canonical" href="https://cheene.github.io/posts/http-image-01/" />
@@ -18,16 +18,16 @@
 <link rel="stylesheet" href="/css/font-awesome.min.css">
 <link rel="stylesheet" href="/css/bulma.min.css">
 
-<meta property="og:title" content="图解HTTP" />
-<meta property="og:description" content="零 状态码    状态码 标识 解释     200 OK    204 No Content 无返回数据，即不包含实体部分   206 part content 部分内容更新   304 Not Modified    301 Moved Permanently 永久重定向，资源已重新分配URI；会重新请求   302 Found 临时重定向，临时分配新的URI；会重新请求   303 See Other 需要重新请求，并且使用GET   304 Not Modified 允许访问资源，但给的附件条件不满足资源   307 Temporary Redirect 临时重定向，不会二次请求，与302相比   400 Bad Request 服务器没有看懂请求什么意思   401 Unauthorized 认证失败，再来一次吧 {www-Authenricate}   403 Forbidden 资源禁止访问   404 Not Found 资源找不到   501 Internal Server Error 内部出了故障   503 Service Unavailable 资源处理的队列排满了或在停机维护Retry Afteer    Gateway Timeout     一 前言 1 网络分层机制 网络的分层，能够对各个部分进行封装。在进行修改时候，不需要全部替换而仅是需要替换部分。" />
+<meta property="og:title" content="图解HTTP 开篇" />
+<meta property="og:description" content="HTTP 零 状态码    状态码 标识 解释     101 Switching Protocols    200 OK    204 No Content 无返回数据，即不包含实体部分   206 part content 部分内容更新   304 Not Modified    301 Moved Permanently 永久重定向，资源已重新分配URI；会重新请求   302 Found 临时重定向，临时分配新的URI；会重新请求   303 See Other 需要重新请求，并且使用GET   304 Not Modified 允许访问资源，但给的附件条件不满足资源   307 Temporary Redirect 临时重定向，不会二次请求，与302相比   400 Bad Request 服务器没有看懂请求什么意思   401 Unauthorized 认证失败，再来一次吧 {www-Authenricate}   403 Forbidden 资源禁止访问    Precondition Failed IF-Match 匹配失败   404 Not Found 资源找不到   501 Internal Server Error 内部出了故障   503 Service Unavailable 资源处理的队列排满了或在停机维护Retry Afteer    Gateway Timeout     前言 1 网络分层机制 网络的分层，能够对各个部分进行封装。在进行修改时候，不需要全部替换而仅是需要替换部分。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://cheene.github.io/posts/http-image-01/" />
-<meta property="article:published_time" content="2020-06-14T22:39:31+08:00" />
-<meta property="article:modified_time" content="2020-06-14T22:39:31+08:00" />
+<meta property="article:published_time" content="2020-06-21T19:43:44+08:00" />
+<meta property="article:modified_time" content="2020-06-21T19:43:44+08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="图解HTTP"/>
-<meta name="twitter:description" content="零 状态码    状态码 标识 解释     200 OK    204 No Content 无返回数据，即不包含实体部分   206 part content 部分内容更新   304 Not Modified    301 Moved Permanently 永久重定向，资源已重新分配URI；会重新请求   302 Found 临时重定向，临时分配新的URI；会重新请求   303 See Other 需要重新请求，并且使用GET   304 Not Modified 允许访问资源，但给的附件条件不满足资源   307 Temporary Redirect 临时重定向，不会二次请求，与302相比   400 Bad Request 服务器没有看懂请求什么意思   401 Unauthorized 认证失败，再来一次吧 {www-Authenricate}   403 Forbidden 资源禁止访问   404 Not Found 资源找不到   501 Internal Server Error 内部出了故障   503 Service Unavailable 资源处理的队列排满了或在停机维护Retry Afteer    Gateway Timeout     一 前言 1 网络分层机制 网络的分层，能够对各个部分进行封装。在进行修改时候，不需要全部替换而仅是需要替换部分。"/>
+<meta name="twitter:title" content="图解HTTP 开篇"/>
+<meta name="twitter:description" content="HTTP 零 状态码    状态码 标识 解释     101 Switching Protocols    200 OK    204 No Content 无返回数据，即不包含实体部分   206 part content 部分内容更新   304 Not Modified    301 Moved Permanently 永久重定向，资源已重新分配URI；会重新请求   302 Found 临时重定向，临时分配新的URI；会重新请求   303 See Other 需要重新请求，并且使用GET   304 Not Modified 允许访问资源，但给的附件条件不满足资源   307 Temporary Redirect 临时重定向，不会二次请求，与302相比   400 Bad Request 服务器没有看懂请求什么意思   401 Unauthorized 认证失败，再来一次吧 {www-Authenricate}   403 Forbidden 资源禁止访问    Precondition Failed IF-Match 匹配失败   404 Not Found 资源找不到   501 Internal Server Error 内部出了故障   503 Service Unavailable 资源处理的队列排满了或在停机维护Retry Afteer    Gateway Timeout     前言 1 网络分层机制 网络的分层，能够对各个部分进行封装。在进行修改时候，不需要全部替换而仅是需要替换部分。"/>
 
 
 
@@ -125,20 +125,20 @@ if (!doNotTrack) {
         <div id="page-body" class="column is-7">
 
 <div class="content blog">
-    <h1 class="title">图解HTTP</h1>
+    <h1 class="title">图解HTTP 开篇</h1>
 
     <div id="infobar" class="level is-mobile">
         <div class="level-left">
             
             <div class="level-item">
-                <p class="subtitle info date">Jun 14, 2020
+                <p class="subtitle info date">Jun 21, 2020
                 </p>
             </div>
             
 
             <div class="level-item">
                 <p class="subtitle info">
-                    21 mins read
+                    3 mins read
                 </p>
             </div>
         </div>
@@ -146,6 +146,8 @@ if (!doNotTrack) {
             <div class="tags">
                 
                 <a class="tag is-dark is-rounded" href="/tags/http">H t t p</a>
+                
+                <a class="tag is-dark is-rounded" href="/tags/%E5%9B%BE%E8%A7%A3http">图解 h t t p</a>
                 
             </div>
         </div>
@@ -155,12 +157,15 @@ if (!doNotTrack) {
         
         <a class="tag is-dark is-rounded" href="/tags/http">H t t p</a>
         
+        <a class="tag is-dark is-rounded" href="/tags/%E5%9B%BE%E8%A7%A3http">图解 h t t p</a>
+        
     </div>
 
     <div class="blog-text">
         
 
-        <h1 id="零-状态码">零 状态码</h1>
+        <h1 id="http">HTTP</h1>
+<h1 id="零-状态码">零 状态码</h1>
 <table>
 <thead>
 <tr>
@@ -170,6 +175,11 @@ if (!doNotTrack) {
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>101</td>
+<td>Switching Protocols</td>
+<td></td>
+</tr>
 <tr>
 <td>200</td>
 <td>OK</td>
@@ -231,6 +241,11 @@ if (!doNotTrack) {
 <td>资源禁止访问</td>
 </tr>
 <tr>
+<td></td>
+<td>Precondition Failed</td>
+<td>IF-Match 匹配失败</td>
+</tr>
+<tr>
 <td>404</td>
 <td>Not Found</td>
 <td>资源找不到</td>
@@ -252,7 +267,7 @@ if (!doNotTrack) {
 </tr>
 </tbody>
 </table>
-<h1 id="一-前言">一 前言</h1>
+<h1 id="前言">前言</h1>
 <h3 id="1-网络分层机制">1 网络分层机制</h3>
 <p>网络的分层，能够对各个部分进行封装。在进行修改时候，不需要全部替换而仅是需要替换部分。</p>
 <p>各层之间通过接口访问，内部实现隐藏，优势在于每一层内部仅需要做好自己的事情。</p>
@@ -277,776 +292,6 @@ if (!doNotTrack) {
 <li>数据到数据链路层</li>
 <li>转换为电信号或其他信号</li>
 </ol>
-<h1 id="二-简述">二 简述</h1>
-<h3 id="1-协议用在哪里">1 协议用在哪里？</h3>
-<p>客户端和服务端之间的通信</p>
-<h3 id="2-数据如何交换">2 数据如何交换？</h3>
-<p>请求和响应</p>
-<ul>
-<li>请求：即由客户端发出</li>
-<li>响应：即由服务端发出</li>
-</ul>
-<p>服务端不会主动建立连接，而是一直在监听客户端的连接请求</p>
-<p><strong>请求体</strong></p>
-<pre><code>方法	URL		   协议版本
-GET /index.html HTTP/1.1
-请求首部字段
-Host:...
-Connection:
-Content-Type:
-Content-Length: xx
-内容实体
-name=??&amp;&amp;xx=yy
-</code></pre><p><strong>响应请求</strong></p>
-<pre><code>版本号		  状态码 原因短语
-HTTP/1.1	200 OK
-首部字段
-Date: Tue,10,xxxxx
-Content-Length: 12
-Content-Type: text/html
-资源实体 entity body
-&lt;html&gt;
-....
-</code></pre><h3 id="3-无状态协议-stateless">3 无状态协议 stateless</h3>
-<p>即协议不对发送和请求做持久化处理，如何能够对数据保持呢？</p>
-<p>采用 cookie 的方式</p>
-<h4 id="4-请求对方的地址是什么">4 请求，对方的地址是什么？</h4>
-<p>请求URI定位资源</p>
-<pre><code>GET https://www.cnmi.com HTTP/1.1
-</code></pre><pre><code>GET /index.html HTTP/1.1
-Host:hacker.jp
-</code></pre><p>获取HTTP服务器支持的HTTP种类</p>
-<pre><code>OPTIONS * HTTP/1.1
-</code></pre><h3 id="5-http-有哪些方法呢">5 HTTP 有哪些方法呢？</h3>
-<p><strong>GET</strong> 获取资源</p>
-<ul>
-<li>文本：返回本身</li>
-<li>类 <code>CGI</code> 程序：返回运算的结果</li>
-</ul>
-<p><strong>POST</strong> 传输实体主体</p>
-<ul>
-<li>POST 目的不是来获取响应的主体内容</li>
-</ul>
-<p><strong>PUT</strong> 传输文件</p>
-<ul>
-<li>默认关闭，由于不带验证机制</li>
-<li>开启
-<ul>
-<li>配合WEB应用程序的验证机制</li>
-<li>架构设计采用REST{ REpresentational State Transfer}标准</li>
-</ul>
-</li>
-</ul>
-<p><strong>HEAD</strong> 获取报文首部</p>
-<ul>
-<li>只有首部，没有主体</li>
-</ul>
-<p><strong>DELETE</strong> 删除文件</p>
-<p><strong>OPTIONS</strong> 询问支持的方法</p>
-<p><strong>TRACE</strong> 追踪路径</p>
-<ul>
-<li>保存到达服务器的每个代理服务器</li>
-<li>设置首部字段 <code>Max-Forwards</code></li>
-</ul>
-<p><strong>CONNECT</strong> 用隧道协议连接代理</p>
-<h2 id="6-持久连接">6 持久连接</h2>
-<p>在不建立连接情况下</p>
-<ul>
-<li>建立TCP连接
-<ul>
-<li>SYN</li>
-<li>SYN/ACK</li>
-<li>ACK</li>
-</ul>
-</li>
-<li>数据通信
-<ul>
-<li>HTTP 请求</li>
-<li>HTTP 响应</li>
-</ul>
-</li>
-<li>断开TCP连接
-<ul>
-<li>FIN</li>
-<li>ACK</li>
-<li>FIN</li>
-<li>ACK</li>
-</ul>
-</li>
-</ul>
-<p><strong>出现的问题是什么？</strong></p>
-<p>每次请求都要都需要建立连接，请求和响应，以及断开连接。</p>
-<p><strong>持久化</strong></p>
-<ul>
-<li>
-<p>客户端与服务端仅需要建立一次连接，同时就可以多次发起请求和响应</p>
-</li>
-<li>
-<p>支持持久化是客户端和服务端双方同时支持才可以</p>
-</li>
-</ul>
-<p><strong>管线化</strong></p>
-<p>皆在可以同时发送请求而不需要等待每一次的响应</p>
-<h2 id="7-状态管理-cookie">7 状态管理 Cookie</h2>
-<p><strong>保存状态信息</strong></p>
-<p><strong>过程</strong></p>
-<ul>
-<li>
-<p>服务端向客户端响应</p>
-<ul>
-<li>
-<p>Set-Cookie首部字段信息</p>
-</li>
-<li>
-<pre><code class="language-php+HTML" data-lang="php+HTML">&lt;Set-Cookie:sid=1316511156;path=/;ex=xxxx&gt;
-</code></pre><p>客户端再次请求时，自动携带Cookie信息</p>
-</li>
-</ul>
-</li>
-<li>
-<p>服务器发现客户端的Cookie后</p>
-<ul>
-<li>
-<p>对比服务器上的记录返回之前的状态信息</p>
-</li>
-<li>
-<pre><code class="language-php+HTML" data-lang="php+HTML">Cookie: sid=1316511156
-</code></pre></li>
-</ul>
-</li>
-</ul>
-<h1 id="三-http报文信息">三 HTTP报文信息</h1>
-<h2 id="1-http报文">1 HTTP报文</h2>
-<p><code>请求报文</code> 请求端的HTTP报文</p>
-<ul>
-<li>报文首部
-<ul>
-<li>请求行
-<ul>
-<li>请求的方法</li>
-<li>URL</li>
-<li>HTTP版本</li>
-</ul>
-</li>
-<li>请求首部字段</li>
-<li>通用首部字段</li>
-<li>实体首部字段</li>
-<li>其他</li>
-</ul>
-</li>
-<li>空行(<code>CR+LF</code>)
-<ul>
-<li>状态行
-<ul>
-<li>响应结果状态码</li>
-<li>原因语句</li>
-<li>HTTP版本</li>
-</ul>
-</li>
-<li>响应首部字段</li>
-<li>通用首部字段</li>
-<li>实体首部字段</li>
-<li>其他</li>
-</ul>
-</li>
-<li>报文主体</li>
-</ul>
-<p><code>响应报文</code> 响应端的HTTP报文</p>
-<p>大体划分为两个部分</p>
-<ul>
-<li>报文首部</li>
-<li>报文主体（不是必须要存在）</li>
-</ul>
-<h2 id="2-编码提高传输的速率">2 编码，提高传输的速率</h2>
-<p>速率，就是在单位的时间内能够发送更多的有效信息</p>
-<p>通过编码来完成，而编码需要计算完成，需要消耗CPU资源。</p>
-<h3 id="两大主体差异">两大主体差异</h3>
-<ul>
-<li>报文(message)
-<ul>
-<li>通信的基本单位，8位组字节流，通过HTTP通信传输</li>
-</ul>
-</li>
-<li>实体(entity)
-<ul>
-<li>作为请求或响应的有效载荷数据被传输</li>
-</ul>
-</li>
-</ul>
-<p>通常，报文主体等于实体主体。只有当传输中进行编码操作时，实体主体的内容发生变化，才导致它和报文主体产生差异</p>
-<h3 id="常用编码">常用编码</h3>
-<ul>
-<li>gzip(GNU zip)</li>
-<li>compress</li>
-<li>deflate zlib</li>
-<li>identity 不进行编码</li>
-</ul>
-<h3 id="分割发送的分块传输编码">分割发送的分块传输编码</h3>
-<p>让浏览器能够逐步显示页面，即在大容量页面传输时，进行数据的分割</p>
-<h3 id="多种数据的多部份对象集合">多种数据的多部份对象集合</h3>
-<ul>
-<li>multipart/form-data
-<ul>
-<li>首部字段需要通过<code>Content-Type</code> 来指定类型</li>
-</ul>
-</li>
-<li>multipart/byteranges
-<ul>
-<li><code>206</code> 部分内容 Partial Content</li>
-</ul>
-</li>
-</ul>
-<h2 id="内容的范围请求">内容的范围请求</h2>
-<p>场景：即实现断点续传，在网络中断的情况下，如果网络能够修复，便继续从中断处恢复下载</p>
-<pre><code>Content-Range:bytes 1000-2000/100
-Conentent: 10000
-</code></pre><ul>
-<li>从 5001 - 6000<code>Range:bytes=5001-6000</code></li>
-<li>从 5001 到结束 <code>Range: bytes=5001 - </code></li>
-<li>从 开始到3000 <code>Range： bytes=-3000，5000-7000</code></li>
-</ul>
-<h3 id="内容协商-content-negotiation">内容协商 Content Negotiation</h3>
-<p>让服务端给客户端最合适的资源，比如中英文网站</p>
-<ul>
-<li>Accept</li>
-<li>Accept-Charset</li>
-<li>Accept-Encoding</li>
-<li>Accept-Language</li>
-<li>Content-Language</li>
-</ul>
-<p><strong>协商的三个地方</strong></p>
-<ul>
-<li>服务器协商
-<ul>
-<li>根据传参作为参考</li>
-</ul>
-</li>
-<li>客户端协商
-<ul>
-<li>比如根据OS类型或浏览器哦类型处理</li>
-</ul>
-</li>
-<li>透明协商
-<ul>
-<li>服务器端和客户端同时参与</li>
-</ul>
-</li>
-</ul>
-<h1 id="四-返回的状态码信息">四 返回的状态码信息</h1>
-<p>服务端对客户端的响应主要是三个方面</p>
-<ul>
-<li>请求的结果是什么</li>
-<li>处理是否正常</li>
-<li>返回什么数据
-<ul>
-<li>正常数据？</li>
-<li>通知错误？</li>
-</ul>
-</li>
-</ul>
-<h2 id="1-状态码分类">1 状态码分类</h2>
-<table>
-<thead>
-<tr>
-<th>状态码</th>
-<th>类别</th>
-<th>原因短语</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1xx</td>
-<td>Informational 信息类</td>
-<td>请求正在处理</td>
-</tr>
-<tr>
-<td>2xx</td>
-<td>Success 成功类</td>
-<td>正常处理完毕</td>
-</tr>
-<tr>
-<td>3xx</td>
-<td>Redirection 重定向</td>
-<td>需要附加条件</td>
-</tr>
-<tr>
-<td>4xx</td>
-<td>Client Error 客户端错误</td>
-<td>服务器无法处理请求</td>
-</tr>
-<tr>
-<td>5xx</td>
-<td>Server Error 服务器错误</td>
-<td>服务器处理请求错误</td>
-</tr>
-</tbody>
-</table>
-<h1 id="五-web服务器">五 Web服务器</h1>
-<h2 id="1-单台虚拟主机的多个域名">1 单台虚拟主机的多个域名</h2>
-<p>一个虚拟主机可以同时搭载多个WEB服务</p>
-<p>在HTTP请求的时候，会将域名转换成DNS，那么返回的是IP地址</p>
-<p>在同一个主机上，搭载多个WEB服务，而IP地址相同又该如何区分？</p>
-<ul>
-<li>此时必须在 <code>Host</code> 首部内完整指定主机名或域名的URI</li>
-</ul>
-<h2 id="2-数据转发三剑客">2 数据转发三剑客</h2>
-<p>在客户端和服务端之间往往还有帮忙转发的其他应用程序</p>
-<ul>
-<li>代理 ,中间人</li>
-<li>网关，跨网传输</li>
-<li>隧道，加强安全</li>
-</ul>
-<h3 id="21-代理">2.1 代理</h3>
-<p><strong>任务</strong> 接收客户端的请求，并转发到源服务器</p>
-<p><strong>联动</strong> 可多级联动，每次转发也保存 <code>Via</code> 首部信息</p>
-<p><strong>两种代理</strong></p>
-<ul>
-<li>缓存代理
-<ul>
-<li>预先将资源的副本保存在代理服务器上</li>
-</ul>
-</li>
-<li>透明代理
-<ul>
-<li>不需要对报文做任何的加工而是透明的传输</li>
-</ul>
-</li>
-</ul>
-<h3 id="22-网关">2.2 网关</h3>
-<p><strong>主要任务</strong> 将HTTP协议通信，转换到其他的协议通信，并且访问非HTTP服务器</p>
-<ul>
-<li>客户端到网关的链路可加密</li>
-<li>网关可以实现多级系统联动，比如购物结算时与信用卡系统联动</li>
-</ul>
-<h3 id="23-隧道">2.3 隧道</h3>
-<p>客户端与服务器进行安全的通信</p>
-<p>隧道仅负责安全，不对数据做任何处理，即透明的</p>
-<h2 id="3-缓存在保存资源时">3 缓存在保存资源时</h2>
-<p><strong>缓存是什么？</strong></p>
-<p>缓存是服务端资源的拷贝，经常在两个位置</p>
-<ul>
-<li>代理服务器</li>
-<li>本地浏览器</li>
-</ul>
-<p><strong>缓存的时效性</strong></p>
-<p>毕竟缓存是最后一次请求时数据的备份，总会有有效期</p>
-<p><strong>缓存服务器</strong></p>
-<p>即，缓存是保存在服务端，而不是本地</p>
-<ul>
-<li>客户端向服务端请求的时候，会经过缓存服务器，并拦截</li>
-<li>缓存服务器根据自己的缓存直接返回给客户端</li>
-<li>如果没有缓存或者缓存需要更新时
-<ol>
-<li><code>客户端</code> 发送请求消息到达<code>代理服务器</code></li>
-<li><code>代理服务器</code> 发送请求到达 <code>资源服务器</code></li>
-<li><code>资源服务器</code> 响应 <code>代理服务器</code> 的请求</li>
-<li><code>代理服务器</code> 响应 <code>客户端</code> 的请求</li>
-</ol>
-</li>
-</ul>
-<p><strong>客户端的缓存</strong></p>
-<p>即在浏览器种的临时文件，请求时，如果判定缓存未过期，网页会从本地存储里面读取，这样就会产生两种现象</p>
-<ul>
-<li>本来网速慢，但是长浏览的网页打开很快，甚至有时没有网也能打开</li>
-<li>网站明明更新了，为何打开还是不变，非要多刷新几次才可以</li>
-</ul>
-<h1 id="六-http首部">六 HTTP首部</h1>
-<h2 id="1-http首部有哪些分类呢">1 HTTP首部有哪些分类呢？</h2>
-<ul>
-<li>通用首部字段 <code>General Header Fields</code></li>
-<li>请求首部字段 <code>Request Headers Fields</code></li>
-<li>响应首部字段 <code>Response Header Fields</code></li>
-<li>实体首部字段 <code>Entity Header Fields</code></li>
-<li>Cookie 相关字段</li>
-</ul>
-<h2 id="2-两大报文首部有哪些">2 两大报文首部有哪些</h2>
-<ul>
-<li>请求报文
-<ul>
-<li>报文首部
-<ul>
-<li>请求行</li>
-<li>请求首部字段</li>
-<li>通用首部字段</li>
-<li>实体首部字段</li>
-<li>其他</li>
-</ul>
-</li>
-<li>空行 <code>CR+LF</code></li>
-<li>报文主体</li>
-</ul>
-</li>
-<li>响应报文
-<ul>
-<li>报文首部
-<ul>
-<li>状态行</li>
-<li>响应首部字段</li>
-<li>通用首部字段</li>
-<li>实体首部字段</li>
-</ul>
-</li>
-<li>空行 <code>CR+LF</code></li>
-<li>报文主体</li>
-</ul>
-</li>
-</ul>
-<h2 id="3-各个字段的详情">3 各个字段的详情</h2>
-<h4 id="通用首部字段">通用首部字段</h4>
-<table>
-<thead>
-<tr>
-<th>首部字段名</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Cache-Control</td>
-<td>控制缓存的行为</td>
-</tr>
-<tr>
-<td>Connection</td>
-<td>逐跳首部、连接的管理</td>
-</tr>
-<tr>
-<td>Date</td>
-<td>创建报文的日期时间</td>
-</tr>
-<tr>
-<td>Pragma</td>
-<td>报文指令</td>
-</tr>
-<tr>
-<td>Trailer</td>
-<td>报文末端的首部一览</td>
-</tr>
-<tr>
-<td>Transfer-Encoding</td>
-<td>指定报文主体的传输编码方式</td>
-</tr>
-<tr>
-<td>Upgrade</td>
-<td>升级为其他协议</td>
-</tr>
-<tr>
-<td>Via</td>
-<td>代理服务器的相关信息</td>
-</tr>
-<tr>
-<td>Warning</td>
-<td>错误通知</td>
-</tr>
-</tbody>
-</table>
-<h4 id="请求首部字段">请求首部字段</h4>
-<table>
-<thead>
-<tr>
-<th>首部字段名</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Accept</td>
-<td>代理可处理的媒体类型</td>
-</tr>
-<tr>
-<td>Accept-Charset</td>
-<td>优先的字符集</td>
-</tr>
-<tr>
-<td>Accept-Encoding</td>
-<td>优先的内容编码</td>
-</tr>
-<tr>
-<td>Accept-Language</td>
-<td>优先的自然语言</td>
-</tr>
-<tr>
-<td>Authorization</td>
-<td>Web认证信息</td>
-</tr>
-<tr>
-<td>Expert</td>
-<td>期待服务器特定的行为</td>
-</tr>
-<tr>
-<td>From</td>
-<td>电子邮箱地址</td>
-</tr>
-<tr>
-<td>Host</td>
-<td>请求的资源服务器</td>
-</tr>
-<tr>
-<td>If-Match</td>
-<td>比较实体标记</td>
-</tr>
-<tr>
-<td>If-Modified-Since</td>
-<td>比较资源更新时间</td>
-</tr>
-<tr>
-<td>If-None-Match</td>
-<td>比较实体标记</td>
-</tr>
-<tr>
-<td>if-Range</td>
-<td>资源未更新时发送实体Byte的范围请求</td>
-</tr>
-<tr>
-<td>If-Unmodified-Since</td>
-<td>比较资源的更新时间</td>
-</tr>
-<tr>
-<td>Max-Forwards</td>
-<td>最大传输逐跳数</td>
-</tr>
-<tr>
-<td>Proxy-Authorization</td>
-<td>代理服务器要求客户端的认证信息</td>
-</tr>
-<tr>
-<td>Range</td>
-<td>实体的字节范围请求</td>
-</tr>
-<tr>
-<td>Referer</td>
-<td>对请求中URI的原始获取方</td>
-</tr>
-<tr>
-<td>TE</td>
-<td>传输编码的优先级</td>
-</tr>
-<tr>
-<td>User-Agent</td>
-<td>HTTP客户端程序的信息</td>
-</tr>
-</tbody>
-</table>
-<h4 id="响应首部字段">响应首部字段</h4>
-<table>
-<thead>
-<tr>
-<th>首部字段名</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Accept-Range</td>
-<td>是否接收字节范围请求</td>
-</tr>
-<tr>
-<td>Age</td>
-<td>推算资源创建经过时间</td>
-</tr>
-<tr>
-<td>ETag</td>
-<td>资源的匹配的信息</td>
-</tr>
-<tr>
-<td>Location</td>
-<td>令客户端重定向到指定URI</td>
-</tr>
-<tr>
-<td>Proxy-Authenticate</td>
-<td>代理服务器对客户端的认证信息</td>
-</tr>
-<tr>
-<td>Retry-After</td>
-<td>对再次发起的请求的时机要求</td>
-</tr>
-<tr>
-<td>Server</td>
-<td>HTTP服务器的安装信息</td>
-</tr>
-<tr>
-<td>Vary</td>
-<td>代理服务器缓存的管理信息</td>
-</tr>
-<tr>
-<td>WWW-Authenticate</td>
-<td>服务器对客户端的认证信息</td>
-</tr>
-</tbody>
-</table>
-<h4 id="实体首部字段">实体首部字段</h4>
-<table>
-<thead>
-<tr>
-<th>首部字段名</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Allow</td>
-<td>资源可支持的HTTP办法</td>
-</tr>
-<tr>
-<td>Content-Encoding</td>
-<td>实体主体的可接收编码方法</td>
-</tr>
-<tr>
-<td>Content-Language</td>
-<td>自然语言</td>
-</tr>
-<tr>
-<td>C-Length</td>
-<td>大小（字节）</td>
-</tr>
-<tr>
-<td>C-Location</td>
-<td>代替对应资源的URI</td>
-</tr>
-<tr>
-<td>C-MD5</td>
-<td>报文摘要</td>
-</tr>
-<tr>
-<td>C-Range</td>
-<td>位置范围</td>
-</tr>
-<tr>
-<td>Type</td>
-<td>媒体类型</td>
-</tr>
-<tr>
-<td>Expires</td>
-<td>过期的日期时间</td>
-</tr>
-<tr>
-<td>Last-Modified</td>
-<td>最后修改日期</td>
-</tr>
-</tbody>
-</table>
-<h2 id="4-缓存代理的分类">4 缓存代理的分类</h2>
-<ul>
-<li>端到端首部 <code>End-to-end Header</code>
-<ul>
-<li>会转发到最终目标</li>
-<li>必须保存在由缓存生成的响应中</li>
-<li>必须被转发</li>
-</ul>
-</li>
-<li>逐跳首部 <code>Hop-by-hop Header</code>
-<ul>
-<li>首部单词转发有效</li>
-<li>可以通过代理而不再转发</li>
-<li>需要提供 Connection 首部字段
-<ul>
-<li>Connection</li>
-<li>Keep-Alive</li>
-<li>Proxy-Authenticate</li>
-<li>Proxy-Authorization</li>
-<li>Trailer</li>
-<li>TE</li>
-<li>Transfer-Encoding</li>
-<li>Upgrade</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="5-缓存相关">5 缓存相关</h2>
-<p><strong>请求</strong></p>
-<table>
-<thead>
-<tr>
-<th>首部字段名</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>no-cache</td>
-<td>向资源服务器再次验证</td>
-</tr>
-<tr>
-<td>no-store</td>
-<td>不缓存</td>
-</tr>
-<tr>
-<td>max-age=[秒]</td>
-<td>响应最大Age</td>
-</tr>
-<tr>
-<td>max-stale=[秒]</td>
-<td>接收已过期的响应</td>
-</tr>
-<tr>
-<td>min-fresh=[秒]</td>
-<td>期望时间范围内响应仍有效</td>
-</tr>
-<tr>
-<td>no-transform</td>
-<td>代理不可更改媒体类型</td>
-</tr>
-<tr>
-<td>only-if-cached</td>
-<td>从缓存获取资源；无缓存503</td>
-</tr>
-<tr>
-<td>cache-extension</td>
-<td>新指令标记 Token</td>
-</tr>
-</tbody>
-</table>
-<p><strong>响应</strong></p>
-<table>
-<thead>
-<tr>
-<th>指令</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>public</td>
-<td>任意方都可以提供缓存</td>
-</tr>
-<tr>
-<td>private</td>
-<td>特定用户返回响应</td>
-</tr>
-<tr>
-<td>no-cache</td>
-<td>不缓存过期的资源</td>
-</tr>
-<tr>
-<td>no-store</td>
-<td>不缓存请求或响应任何内容</td>
-</tr>
-<tr>
-<td>no-transform</td>
-<td>代理不可更待媒体类型</td>
-</tr>
-<tr>
-<td>must-revalidate</td>
-<td>可缓存但必须再向资源服务器进行确认；无法验证 504</td>
-</tr>
-<tr>
-<td>proxy-revalidate</td>
-<td>中间缓存服务器对缓存的响应有效性再进行确认</td>
-</tr>
-<tr>
-<td>max-age=[秒]</td>
-<td>响应的最大的Age值</td>
-</tr>
-<tr>
-<td>s-maxage=[秒]</td>
-<td><strong>公共缓存服务器</strong>响应的最大Age值</td>
-</tr>
-<tr>
-<td>cache-extension</td>
-<td>新指令标记(token)</td>
-</tr>
-</tbody>
-</table>
 
     </div>
 </div><div id="social-media-share" class="has-text-centered">
@@ -1060,7 +305,7 @@ Conentent: 10000
 	        <img src=/img/icons/45px/facebook.png>
 	    </a>
 
-	    <a  href="https://twitter.com/intent/tweet?text=%e5%9b%be%e8%a7%a3HTTP&url=https%3a%2f%2fcheene.github.io%2fposts%2fhttp-image-01%2f"
+	    <a  href="https://twitter.com/intent/tweet?text=%e5%9b%be%e8%a7%a3HTTP%20%e5%bc%80%e7%af%87&url=https%3a%2f%2fcheene.github.io%2fposts%2fhttp-image-01%2f"
 	        onclick="socialMediaPopUp(this.href, '', 500, 500); return false;"
 	        title="Share on Twitter. Opens in a new window." >
 	        <img src=/img/icons/45px/twitter.png>
@@ -1085,13 +330,13 @@ Conentent: 10000
 	    </a>
 
 		<a  href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fcheene.github.io%2fposts%2fhttp-image-01%2f
-			&title=%e5%9b%be%e8%a7%a3HTTP&summary=%e9%9b%b6%20%e7%8a%b6%e6%80%81%e7%a0%81%20%20%20%20%e7%8a%b6%e6%80%81%e7%a0%81%20%e6%a0%87%e8%af%86%20%e8%a7%a3%e9%87%8a%20%20%20%20%20200%20OK%20%20%20%20204%20No%20Content%20%e6%97%a0%e8%bf%94%e5%9b%9e%e6%95%b0%e6%8d%ae%ef%bc%8c%e5%8d%b3%e4%b8%8d%e5%8c%85%e5%90%ab%e5%ae%9e%e4%bd%93%e9%83%a8%e5%88%86%20%20%20206%20part%20content%20%e9%83%a8%e5%88%86%e5%86%85%e5%ae%b9%e6%9b%b4%e6%96%b0%20%20%20304%20Not%20Modified%20%20%20%20301%20Moved%20Permanently%20%e6%b0%b8%e4%b9%85%e9%87%8d%e5%ae%9a%e5%90%91%ef%bc%8c%e8%b5%84%e6%ba%90%e5%b7%b2%e9%87%8d%e6%96%b0%e5%88%86%e9%85%8dURI%ef%bc%9b%e4%bc%9a%e9%87%8d%e6%96%b0%e8%af%b7%e6%b1%82%20%20%20302%20Found%20%e4%b8%b4%e6%97%b6%e9%87%8d%e5%ae%9a%e5%90%91%ef%bc%8c%e4%b8%b4%e6%97%b6%e5%88%86%e9%85%8d%e6%96%b0%e7%9a%84URI%ef%bc%9b%e4%bc%9a%e9%87%8d%e6%96%b0%e8%af%b7%e6%b1%82%20%20%20303%20See%20Other%20%e9%9c%80%e8%a6%81%e9%87%8d%e6%96%b0%e8%af%b7%e6%b1%82%ef%bc%8c%e5%b9%b6%e4%b8%94%e4%bd%bf%e7%94%a8GET%20%20%20304%20Not%20Modified%20%e5%85%81%e8%ae%b8%e8%ae%bf%e9%97%ae%e8%b5%84%e6%ba%90%ef%bc%8c%e4%bd%86%e7%bb%99%e7%9a%84%e9%99%84%e4%bb%b6%e6%9d%a1%e4%bb%b6%e4%b8%8d%e6%bb%a1%e8%b6%b3%e8%b5%84%e6%ba%90%20%20%20307%20Temporary%20Redirect%20%e4%b8%b4%e6%97%b6%e9%87%8d%e5%ae%9a%e5%90%91%ef%bc%8c%e4%b8%8d%e4%bc%9a%e4%ba%8c%e6%ac%a1%e8%af%b7%e6%b1%82%ef%bc%8c%e4%b8%8e302%e7%9b%b8%e6%af%94%20%20%20400%20Bad%20Request%20%e6%9c%8d%e5%8a%a1%e5%99%a8%e6%b2%a1%e6%9c%89%e7%9c%8b%e6%87%82%e8%af%b7%e6%b1%82%e4%bb%80%e4%b9%88%e6%84%8f%e6%80%9d%20%20%20401%20Unauthorized%20%e8%ae%a4%e8%af%81%e5%a4%b1%e8%b4%a5%ef%bc%8c%e5%86%8d%e6%9d%a5%e4%b8%80%e6%ac%a1%e5%90%a7%20%7bwww-Authenricate%7d%20%20%20403%20Forbidden%20%e8%b5%84%e6%ba%90%e7%a6%81%e6%ad%a2%e8%ae%bf%e9%97%ae%20%20%20404%20Not%20Found%20%e8%b5%84%e6%ba%90%e6%89%be%e4%b8%8d%e5%88%b0%20%20%20501%20Internal%20Server%20Error%20%e5%86%85%e9%83%a8%e5%87%ba%e4%ba%86%e6%95%85%e9%9a%9c%20%20%20503%20Service%20Unavailable%20%e8%b5%84%e6%ba%90%e5%a4%84%e7%90%86%e7%9a%84%e9%98%9f%e5%88%97%e6%8e%92%e6%bb%a1%e4%ba%86%e6%88%96%e5%9c%a8%e5%81%9c%e6%9c%ba%e7%bb%b4%e6%8a%a4Retry%20Afteer%20%20%20%20Gateway%20Timeout%20%20%20%20%20%e4%b8%80%20%e5%89%8d%e8%a8%80%201%20%e7%bd%91%e7%bb%9c%e5%88%86%e5%b1%82%e6%9c%ba%e5%88%b6%20%e7%bd%91%e7%bb%9c%e7%9a%84%e5%88%86%e5%b1%82%ef%bc%8c%e8%83%bd%e5%a4%9f%e5%af%b9%e5%90%84%e4%b8%aa%e9%83%a8%e5%88%86%e8%bf%9b%e8%a1%8c%e5%b0%81%e8%a3%85%e3%80%82%e5%9c%a8%e8%bf%9b%e8%a1%8c%e4%bf%ae%e6%94%b9%e6%97%b6%e5%80%99%ef%bc%8c%e4%b8%8d%e9%9c%80%e8%a6%81%e5%85%a8%e9%83%a8%e6%9b%bf%e6%8d%a2%e8%80%8c%e4%bb%85%e6%98%af%e9%9c%80%e8%a6%81%e6%9b%bf%e6%8d%a2%e9%83%a8%e5%88%86%e3%80%82&source=rafed123.github.io"
+			&title=%e5%9b%be%e8%a7%a3HTTP%20%e5%bc%80%e7%af%87&summary=HTTP%20%e9%9b%b6%20%e7%8a%b6%e6%80%81%e7%a0%81%20%20%20%20%e7%8a%b6%e6%80%81%e7%a0%81%20%e6%a0%87%e8%af%86%20%e8%a7%a3%e9%87%8a%20%20%20%20%20101%20Switching%20Protocols%20%20%20%20200%20OK%20%20%20%20204%20No%20Content%20%e6%97%a0%e8%bf%94%e5%9b%9e%e6%95%b0%e6%8d%ae%ef%bc%8c%e5%8d%b3%e4%b8%8d%e5%8c%85%e5%90%ab%e5%ae%9e%e4%bd%93%e9%83%a8%e5%88%86%20%20%20206%20part%20content%20%e9%83%a8%e5%88%86%e5%86%85%e5%ae%b9%e6%9b%b4%e6%96%b0%20%20%20304%20Not%20Modified%20%20%20%20301%20Moved%20Permanently%20%e6%b0%b8%e4%b9%85%e9%87%8d%e5%ae%9a%e5%90%91%ef%bc%8c%e8%b5%84%e6%ba%90%e5%b7%b2%e9%87%8d%e6%96%b0%e5%88%86%e9%85%8dURI%ef%bc%9b%e4%bc%9a%e9%87%8d%e6%96%b0%e8%af%b7%e6%b1%82%20%20%20302%20Found%20%e4%b8%b4%e6%97%b6%e9%87%8d%e5%ae%9a%e5%90%91%ef%bc%8c%e4%b8%b4%e6%97%b6%e5%88%86%e9%85%8d%e6%96%b0%e7%9a%84URI%ef%bc%9b%e4%bc%9a%e9%87%8d%e6%96%b0%e8%af%b7%e6%b1%82%20%20%20303%20See%20Other%20%e9%9c%80%e8%a6%81%e9%87%8d%e6%96%b0%e8%af%b7%e6%b1%82%ef%bc%8c%e5%b9%b6%e4%b8%94%e4%bd%bf%e7%94%a8GET%20%20%20304%20Not%20Modified%20%e5%85%81%e8%ae%b8%e8%ae%bf%e9%97%ae%e8%b5%84%e6%ba%90%ef%bc%8c%e4%bd%86%e7%bb%99%e7%9a%84%e9%99%84%e4%bb%b6%e6%9d%a1%e4%bb%b6%e4%b8%8d%e6%bb%a1%e8%b6%b3%e8%b5%84%e6%ba%90%20%20%20307%20Temporary%20Redirect%20%e4%b8%b4%e6%97%b6%e9%87%8d%e5%ae%9a%e5%90%91%ef%bc%8c%e4%b8%8d%e4%bc%9a%e4%ba%8c%e6%ac%a1%e8%af%b7%e6%b1%82%ef%bc%8c%e4%b8%8e302%e7%9b%b8%e6%af%94%20%20%20400%20Bad%20Request%20%e6%9c%8d%e5%8a%a1%e5%99%a8%e6%b2%a1%e6%9c%89%e7%9c%8b%e6%87%82%e8%af%b7%e6%b1%82%e4%bb%80%e4%b9%88%e6%84%8f%e6%80%9d%20%20%20401%20Unauthorized%20%e8%ae%a4%e8%af%81%e5%a4%b1%e8%b4%a5%ef%bc%8c%e5%86%8d%e6%9d%a5%e4%b8%80%e6%ac%a1%e5%90%a7%20%7bwww-Authenricate%7d%20%20%20403%20Forbidden%20%e8%b5%84%e6%ba%90%e7%a6%81%e6%ad%a2%e8%ae%bf%e9%97%ae%20%20%20%20Precondition%20Failed%20IF-Match%20%e5%8c%b9%e9%85%8d%e5%a4%b1%e8%b4%a5%20%20%20404%20Not%20Found%20%e8%b5%84%e6%ba%90%e6%89%be%e4%b8%8d%e5%88%b0%20%20%20501%20Internal%20Server%20Error%20%e5%86%85%e9%83%a8%e5%87%ba%e4%ba%86%e6%95%85%e9%9a%9c%20%20%20503%20Service%20Unavailable%20%e8%b5%84%e6%ba%90%e5%a4%84%e7%90%86%e7%9a%84%e9%98%9f%e5%88%97%e6%8e%92%e6%bb%a1%e4%ba%86%e6%88%96%e5%9c%a8%e5%81%9c%e6%9c%ba%e7%bb%b4%e6%8a%a4Retry%20Afteer%20%20%20%20Gateway%20Timeout%20%20%20%20%20%e5%89%8d%e8%a8%80%201%20%e7%bd%91%e7%bb%9c%e5%88%86%e5%b1%82%e6%9c%ba%e5%88%b6%20%e7%bd%91%e7%bb%9c%e7%9a%84%e5%88%86%e5%b1%82%ef%bc%8c%e8%83%bd%e5%a4%9f%e5%af%b9%e5%90%84%e4%b8%aa%e9%83%a8%e5%88%86%e8%bf%9b%e8%a1%8c%e5%b0%81%e8%a3%85%e3%80%82%e5%9c%a8%e8%bf%9b%e8%a1%8c%e4%bf%ae%e6%94%b9%e6%97%b6%e5%80%99%ef%bc%8c%e4%b8%8d%e9%9c%80%e8%a6%81%e5%85%a8%e9%83%a8%e6%9b%bf%e6%8d%a2%e8%80%8c%e4%bb%85%e6%98%af%e9%9c%80%e8%a6%81%e6%9b%bf%e6%8d%a2%e9%83%a8%e5%88%86%e3%80%82&source=rafed123.github.io"
 	        onclick="socialMediaPopUp(this.href, '', 900, 500); return false;"
 	        title="Share on LinkedIn. Opens in a new window." >
 	        <img src=/img/icons/45px/linkedin.png>
 	    </a>
 
-	    <a  href="mailto:?subject=%e5%9b%be%e8%a7%a3HTTP&amp;body=Check out this site https%3a%2f%2fcheene.github.io%2fposts%2fhttp-image-01%2f"
+	    <a  href="mailto:?subject=%e5%9b%be%e8%a7%a3HTTP%20%e5%bc%80%e7%af%87&amp;body=Check out this site https%3a%2f%2fcheene.github.io%2fposts%2fhttp-image-01%2f"
 	        title="Share via Email. Opens in a new window." >
 	        <img src=/img/icons/45px/mail.png>
 	    </a>

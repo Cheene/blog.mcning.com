@@ -22,7 +22,7 @@
 <meta property="og:description" content="A description for the meta tag of the site" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://cheene.github.io/posts/" />
-<meta property="og:updated_time" content="2020-06-18T22:31:51+08:00" />
+<meta property="og:updated_time" content="2020-06-22T20:10:02+08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Posts"/>
@@ -129,9 +129,9 @@ if (!doNotTrack) {
 
 
 <div class="blog-brief">
-    <a href="/posts/mysqlsz-00/">
+    <a href="/posts/http-image-02/">
         <h3 class="title is-4">
-            极客邦-MySQL实战-01
+            HTTP协议简述
         </h3>
     </a>
 
@@ -140,8 +140,8 @@ if (!doNotTrack) {
 
             
             <div class="level-item">
-                <a href="/posts/mysqlsz-00/">
-                    <p class="subtitle info date">Jun 14, 2020
+                <a href="/posts/http-image-02/">
+                    <p class="subtitle info date">Jun 22, 2020
                     </p>
                 </a>
             </div>
@@ -149,7 +149,130 @@ if (!doNotTrack) {
 
 
             <div class="level-item">
-                <a href="/posts/mysqlsz-00/">
+                <a href="/posts/http-image-02/">
+                    <p class="subtitle info">
+                        4 mins read
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div class="level-right is-hidden-touch">
+            
+            <a class="tag is-rounded" href="/tags/http">H t t p</a>
+            
+            <a class="tag is-rounded" href="/tags/%E5%9B%BE%E8%A7%A3http">图解 h t t p</a>
+            
+        </div>
+    </div>
+
+    <div>
+        
+
+        <div>
+            <a href="/posts/http-image-02/">
+                <p class="summary">
+                    HTTP协议简述 1 协议用在哪里？ 客户端和服务端之间的通信
+2 数据如何交换？ 请求和响应
+ 请求：即由客户端发出 响应：即由服务端发出  服务端不会主动建立连接，而是一直在监听客户端的连接请求
+请求体
+方法	URL	协议版本 GET /index.html HTTP/1.1 请求首部字段 Host:... Connection: Content-Type: Content-Length: xx 内容实体 name=??&amp;amp;&amp;amp;xx=yy 响应请求
+版本号	状态码 原因短语 HTTP/1.1	200 OK 首部字段 Date: Tue,10,xxxxx Content-Length: 12 Content-Type: text/html 资源实体 entity body &amp;lt;html&amp;gt; .
+                    
+                </p>
+            </a>
+        </div>
+    </div>
+
+    <div class="level is-mobile continue-reading">
+        <div class="level-left">
+        </div>
+        <div class="level-right">
+            <a href="/posts/http-image-02/">Continue reading <i class="fa fa-angle-double-right"
+                    aria-hidden="true"></i></a>
+        </div>
+    </div>
+    <hr>
+</div><div class="blog-brief">
+    <a href="/posts/http-image-01/">
+        <h3 class="title is-4">
+            图解HTTP 开篇
+        </h3>
+    </a>
+
+    <div class="level is-mobile details">
+        <div class="level-left">
+
+            
+            <div class="level-item">
+                <a href="/posts/http-image-01/">
+                    <p class="subtitle info date">Jun 21, 2020
+                    </p>
+                </a>
+            </div>
+            
+
+
+            <div class="level-item">
+                <a href="/posts/http-image-01/">
+                    <p class="subtitle info">
+                        3 mins read
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div class="level-right is-hidden-touch">
+            
+            <a class="tag is-rounded" href="/tags/http">H t t p</a>
+            
+            <a class="tag is-rounded" href="/tags/%E5%9B%BE%E8%A7%A3http">图解 h t t p</a>
+            
+        </div>
+    </div>
+
+    <div>
+        
+
+        <div>
+            <a href="/posts/http-image-01/">
+                <p class="summary">
+                    HTTP 零 状态码    状态码 标识 解释     101 Switching Protocols    200 OK    204 No Content 无返回数据，即不包含实体部分   206 part content 部分内容更新   304 Not Modified    301 Moved Permanently 永久重定向，资源已重新分配URI；会重新请求   302 Found 临时重定向，临时分配新的URI；会重新请求   303 See Other 需要重新请求，并且使用GET   304 Not Modified 允许访问资源，但给的附件条件不满足资源   307 Temporary Redirect 临时重定向，不会二次请求，与302相比   400 Bad Request 服务器没有看懂请求什么意思   401 Unauthorized 认证失败，再来一次吧 {www-Authenricate}   403 Forbidden 资源禁止访问    Precondition Failed IF-Match 匹配失败   404 Not Found 资源找不到   501 Internal Server Error 内部出了故障   503 Service Unavailable 资源处理的队列排满了或在停机维护Retry Afteer    Gateway Timeout     前言 1 网络分层机制 网络的分层，能够对各个部分进行封装。在进行修改时候，不需要全部替换而仅是需要替换部分。
+                    
+                </p>
+            </a>
+        </div>
+    </div>
+
+    <div class="level is-mobile continue-reading">
+        <div class="level-left">
+        </div>
+        <div class="level-right">
+            <a href="/posts/http-image-01/">Continue reading <i class="fa fa-angle-double-right"
+                    aria-hidden="true"></i></a>
+        </div>
+    </div>
+    <hr>
+</div><div class="blog-brief">
+    <a href="/posts/mysqlsz-01/">
+        <h3 class="title is-4">
+            MySql一条更新语句是如何执行的？
+        </h3>
+    </a>
+
+    <div class="level is-mobile details">
+        <div class="level-left">
+
+            
+            <div class="level-item">
+                <a href="/posts/mysqlsz-01/">
+                    <p class="subtitle info date">Jun 21, 2020
+                    </p>
+                </a>
+            </div>
+            
+
+
+            <div class="level-item">
+                <a href="/posts/mysqlsz-01/">
                     <p class="subtitle info">
                         2 mins read
                     </p>
@@ -158,10 +281,6 @@ if (!doNotTrack) {
         </div>
         <div class="level-right is-hidden-touch">
             
-            <a class="tag is-rounded" href="/tags/mysql">My s q l</a>
-            
-            <a class="tag is-rounded" href="/tags/mysql%E5%AE%9E%E6%88%98">My s q l实战</a>
-            
         </div>
     </div>
 
@@ -169,16 +288,21 @@ if (!doNotTrack) {
         
 
         <div>
-            <a href="/posts/mysqlsz-00/">
+            <a href="/posts/mysqlsz-01/">
                 <p class="summary">
-                    01 一条MySQL语句是如何执行的？ 首先要看到整个MySQL系统划分为哪一些部分？
-  客户端
- 各种发送请求    服务端
-  Server层
- 连接器 分析器 优化器 执行器    查询缓存(可能会逐步替代)
-    引擎层
- 各种存储引擎    执行的逻辑是什么？
- 客户端向数据库发送请求 数据库收到请求后找到连接器，进行初步权限认证 分析器先进行词法和语法分析  词法分析，识别输入的是什么。比如表名？列名？关键字？ 语法分析，判断SQL语句是否符合语法   再执行优化器，优化主要在两个方面来体现  多个索引的时候，如何选择合适的索引 一个语句多表关联时如何处理   到达执行器，会进一步对语句做权限认证，同时根据存储引擎的定义来调用存储引擎的接口  查询缓存在哪里使用
+                    大体过程：
+首先，是连接器与客户端相连，进而通过分析器，进行词法与语法的分析；
+其次，分析器在语法分析的时候，确定是一条更新语句后，转送给优化器
+再次，优化器决定使用ID这个索引，推送给执行器
+最后，执行器复责具体的执行
+两大日志模块：
+  redo log
+  借助WAL技术，即 Write-Ahead Logging, 先些日志到内存，在不忙的时候写进硬盘
+  InnoDB的redo log 是固定大小的，比如配置一组4个文件，每个文件的大小是1GB；
+ 从头开始写，写到末尾再从头开始写  write pos 是当前记录的位置，一边写一遍后移
+check point 是当前要擦除的位置，即要把数据更新到数据文件
+  innodb_flush_log_at_trx_commit = 1
+    bin log - 归档日志
                     
                 </p>
             </a>
@@ -189,15 +313,15 @@ if (!doNotTrack) {
         <div class="level-left">
         </div>
         <div class="level-right">
-            <a href="/posts/mysqlsz-00/">Continue reading <i class="fa fa-angle-double-right"
+            <a href="/posts/mysqlsz-01/">Continue reading <i class="fa fa-angle-double-right"
                     aria-hidden="true"></i></a>
         </div>
     </div>
     <hr>
 </div><div class="blog-brief">
-    <a href="/posts/how-computer-network-03/">
+    <a href="/posts/mysql-recover-byfrm/">
         <h3 class="title is-4">
-            从网线到网络设备是如何工作的
+            Mysql本地数据恢复--在没有密码的情况下
         </h3>
     </a>
 
@@ -206,8 +330,8 @@ if (!doNotTrack) {
 
             
             <div class="level-item">
-                <a href="/posts/how-computer-network-03/">
-                    <p class="subtitle info date">Jun 7, 2020
+                <a href="/posts/mysql-recover-byfrm/">
+                    <p class="subtitle info date">Jun 18, 2020
                     </p>
                 </a>
             </div>
@@ -215,72 +339,7 @@ if (!doNotTrack) {
 
 
             <div class="level-item">
-                <a href="/posts/how-computer-network-03/">
-                    <p class="subtitle info">
-                        22 mins read
-                    </p>
-                </a>
-            </div>
-        </div>
-        <div class="level-right is-hidden-touch">
-            
-            <a class="tag is-rounded" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>
-            
-            <a class="tag is-rounded" href="/tags/%E7%BD%91%E7%BB%9C%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%E7%9A%84">网络是如何连接的</a>
-            
-        </div>
-    </div>
-
-    <div>
-        
-
-        <div>
-            <a href="/posts/how-computer-network-03/">
-                <p class="summary">
-                    本章主要讲解的是电信号从 RJ-45 接口出来，到达集线器，交换机和路由器以及路由器往外转发的过程。在家庭的路由中，交换机和集线器一般集成在一起了或者直接没有集线器。
-信号从网卡出来到集线器的时候   数据包之间的传输是独立的，仅仅负责传包并不会考虑内部的数据。
-  从网卡到集线器的时候信号就会出现衰减，而且电信号频率越高，损失就越大。
-  双绞线的存在是为了抑制噪声，减少衰减。 网线的周围的电磁波碰到金属等导体会产生电流，而信号本身就是带有电压变化的电流，混在一起容易导致失真。 电磁波有两种来源
- 一种是外部的比如电机，荧光灯，CRT显示器等(让线变成螺旋状，使自身的电磁场变成螺旋状)； 一种是内部线之间出现泄露产生电磁波，称之为串扰。  抑制内部电磁波的方式是 让每一对信号线的扭交间隔产生差异。(正负信号的产生的噪声是相反的刚好抵消)。
-  关于集线器：集线器的原理就是以太网的架构，数据传输的方式是靠着MAC地址寻找。
- 集线器里有一个中继集成器，输入端口的信号转发给除了该端口之外的所有的端口。在这样的情况下如果所有的端口都发送信号，就会产生碰撞。 连接其他的端口叫做级联端口或者上行端口 根据相同的设备交叉连接，异种设备直连的原理，集线器里每一个端口都有一个 PHY/MAU 模块与其网卡上的模块没有什么区别，所以需要交叉连接。所谓的交叉连接就是发送方和接收方的交叉。 集线器中存在 MDI/MDI-X 切换开关。MDI 是直线连接，MDI-X是交叉连接。但现在的设备无所谓了，可以自适应。    交换机的包转发操作   交换机根据地址表进行转发 信号到达端口的时候由 PHY（MAU）来接收，然后传递给MAC模块，转换成数字信息并检验FCS确认无误后放在缓冲区中。 交换机端口本身没有MAC地址，实际过程中通过芯片同时控制多个端口 交换机电路的工作方式：
-                    
-                </p>
-            </a>
-        </div>
-    </div>
-
-    <div class="level is-mobile continue-reading">
-        <div class="level-left">
-        </div>
-        <div class="level-right">
-            <a href="/posts/how-computer-network-03/">Continue reading <i class="fa fa-angle-double-right"
-                    aria-hidden="true"></i></a>
-        </div>
-    </div>
-    <hr>
-</div><div class="blog-brief">
-    <a href="/posts/leet-code-1620/">
-        <h3 class="title is-4">
-            #1620 [最小的k个数]
-        </h3>
-    </a>
-
-    <div class="level is-mobile details">
-        <div class="level-left">
-
-            
-            <div class="level-item">
-                <a href="/posts/leet-code-1620/">
-                    <p class="subtitle info date">Jun 7, 2020
-                    </p>
-                </a>
-            </div>
-            
-
-
-            <div class="level-item">
-                <a href="/posts/leet-code-1620/">
+                <a href="/posts/mysql-recover-byfrm/">
                     <p class="subtitle info">
                         1 min read
                     </p>
@@ -289,11 +348,7 @@ if (!doNotTrack) {
         </div>
         <div class="level-right is-hidden-touch">
             
-            <a class="tag is-rounded" href="/tags/leet-code">Leet code</a>
-            
-            <a class="tag is-rounded" href="/tags/%E7%AE%97%E6%B3%95">算法</a>
-            
-            <a class="tag is-rounded" href="/tags/%E6%8E%92%E5%BA%8F">排序</a>
+            <a class="tag is-rounded" href="/tags/mysql">My s q l</a>
             
         </div>
     </div>
@@ -302,9 +357,14 @@ if (!doNotTrack) {
         
 
         <div>
-            <a href="/posts/leet-code-1620/">
+            <a href="/posts/mysql-recover-byfrm/">
                 <p class="summary">
-                    题目 输入整数数组 arr ，找出其中最小的 k 个数。例如，输入4、5、1、6、2、7、3、8这8个数字，则最小的4个数字是1、2、3、4。示例 输入：arr = [3,2,1], k = 2输出：[1,2] 或者 [2,1]限制 0 &amp;lt;= k &amp;lt;= arr.length &amp;lt;= 100000 &amp;lt;= arr[i] &amp;lt;= 10000思路 冒泡排序 或 选择排序 或 其他排序方式 k轮实现 func getLeastNumbers(arr []int, k int) []int { if arr == nil || len(arr) == 1{ return arr } for i := 0; i &amp;lt; k; i&#43;&#43; { min := i for j := i&#43;1; j &amp;lt; len(arr); j&#43;&#43; { if arr[min] &amp;gt; arr[j] { min = j } } if min !
+                      删除源表
+  借助MySQL Utilities查询表的结构并创建表
+mysqlfrm --diagnostic ./文件目录/t1.frm   表空间卸载卸载
+alter table t1 discard tablespace;   重新拷贝原 idb
+  对表进行空间装载
+   alter table t1 import tablespace; 
                     
                 </p>
             </a>
@@ -315,15 +375,15 @@ if (!doNotTrack) {
         <div class="level-left">
         </div>
         <div class="level-right">
-            <a href="/posts/leet-code-1620/">Continue reading <i class="fa fa-angle-double-right"
+            <a href="/posts/mysql-recover-byfrm/">Continue reading <i class="fa fa-angle-double-right"
                     aria-hidden="true"></i></a>
         </div>
     </div>
     <hr>
 </div><div class="blog-brief">
-    <a href="/posts/leet-code-1619/">
+    <a href="/posts/how-computer-network-06/">
         <h3 class="title is-4">
-            #1619[二叉树的镜像]
+            从浏览器请求到WEB服务器响应返回浏览器
         </h3>
     </a>
 
@@ -332,8 +392,8 @@ if (!doNotTrack) {
 
             
             <div class="level-item">
-                <a href="/posts/leet-code-1619/">
-                    <p class="subtitle info date">Jun 7, 2020
+                <a href="/posts/how-computer-network-06/">
+                    <p class="subtitle info date">Jun 18, 2020
                     </p>
                 </a>
             </div>
@@ -341,20 +401,18 @@ if (!doNotTrack) {
 
 
             <div class="level-item">
-                <a href="/posts/leet-code-1619/">
+                <a href="/posts/how-computer-network-06/">
                     <p class="subtitle info">
-                        2 mins read
+                        13 mins read
                     </p>
                 </a>
             </div>
         </div>
         <div class="level-right is-hidden-touch">
             
-            <a class="tag is-rounded" href="/tags/leet-code">Leet code</a>
+            <a class="tag is-rounded" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>
             
-            <a class="tag is-rounded" href="/tags/%E7%AE%97%E6%B3%95">算法</a>
-            
-            <a class="tag is-rounded" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91">二叉树</a>
+            <a class="tag is-rounded" href="/tags/web">W e b</a>
             
         </div>
     </div>
@@ -363,9 +421,15 @@ if (!doNotTrack) {
         
 
         <div>
-            <a href="/posts/leet-code-1619/">
+            <a href="/posts/how-computer-network-06/">
                 <p class="summary">
-                    题目 请完成一个函数，输入一个二叉树，该函数输出它的镜像。示例 例如输入：4/ \2 7/ \ / \1 3 6 9镜像输出：4/ \7 2/ \ / \9 6 3 1输入：root = [4,2,7,1,3,6,9]输出：[4,7,2,9,6,3,1]限制 0 &amp;lt;= 节点个数 &amp;lt;= 1000思路 需要交换左右子树的位置而不仅仅是元素判断当前节点的子树行为如果只有左子树右子树设置为左子树，左子树为空递归修改右子树如果只有右子树左子树设置为右子树，右子树为空递归修改左子树否则左右子树调换左右子树递归实现 func mirrorTree(root *TreeNode) *TreeNode { if root == nil { return root } /** 如果是空子树要注意 */ if root.
+                    当我们在浏览器输入网址，按下回车后，会打开新的网页，而这一过程发生了什么？
+WEB服务器接收数据和返回响应的内容主要是四个方面：
+ 服务器是什么？ 服务器如何进行接收操作？ 服务器里的解释程序是如何运行的？ 返回到客户端是如何显示在浏览器里的？  服务器的概览   客户端与服务器的区别
+ 操作系统和硬件与客户端不相同 网络相关的部分比如网卡，协议栈，Socket库是相同的； 在连接的时候，客户端是请求连接，服务器是等待连接。    服务器程序的结构
+ 正常情况下，服务端由两个模块组成  等待连接的模块 与客户端通讯的模块   运行过程：  服务端系统在初始化后执行等待模块程序并且进入等待状态 当有客户端连接的时候，由等待状态变为运行状态并且生成一个新的客户端通信模块 让新连接的客户端能够一对一连接到服务端的套接字上      客户端与服务端的区分
+因为从数据的收发操作是无法区分是服务端还是客户端的
+所以是通过连接时候等待连接与请求连接来区分的。
                     
                 </p>
             </a>
@@ -376,68 +440,7 @@ if (!doNotTrack) {
         <div class="level-left">
         </div>
         <div class="level-right">
-            <a href="/posts/leet-code-1619/">Continue reading <i class="fa fa-angle-double-right"
-                    aria-hidden="true"></i></a>
-        </div>
-    </div>
-    <hr>
-</div><div class="blog-brief">
-    <a href="/posts/leet-code-1617/">
-        <h3 class="title is-4">
-            #1617 [合并两个排序的链表]
-        </h3>
-    </a>
-
-    <div class="level is-mobile details">
-        <div class="level-left">
-
-            
-            <div class="level-item">
-                <a href="/posts/leet-code-1617/">
-                    <p class="subtitle info date">Jun 7, 2020
-                    </p>
-                </a>
-            </div>
-            
-
-
-            <div class="level-item">
-                <a href="/posts/leet-code-1617/">
-                    <p class="subtitle info">
-                        2 mins read
-                    </p>
-                </a>
-            </div>
-        </div>
-        <div class="level-right is-hidden-touch">
-            
-            <a class="tag is-rounded" href="/tags/leet-code">Leet code</a>
-            
-            <a class="tag is-rounded" href="/tags/%E7%AE%97%E6%B3%95">算法</a>
-            
-            <a class="tag is-rounded" href="/tags/%E9%93%BE%E8%A1%A8">链表</a>
-            
-        </div>
-    </div>
-
-    <div>
-        
-
-        <div>
-            <a href="/posts/leet-code-1617/">
-                <p class="summary">
-                    题目 输入两个递增排序的链表，合并这两个链表并使新链表中的节点仍然是递增排序的示例 输入：1-&amp;gt;2-&amp;gt;4, 1-&amp;gt;3-&amp;gt;4输出：1-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;4限制 0 &amp;lt;= 链表长度 &amp;lt;= 1000思路 三个指针 P，Q,RP 为主线。QR 分别代表 L1，L2 每一次判断 QR 对应值的大小来确定主线的走势再返回 主线 P实现 func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode { var p,q,r *ListNode if l1 == nil { return l2 } if l2 == nil { return l1 } q,r = l1,l2 if q.
-                    
-                </p>
-            </a>
-        </div>
-    </div>
-
-    <div class="level is-mobile continue-reading">
-        <div class="level-left">
-        </div>
-        <div class="level-right">
-            <a href="/posts/leet-code-1617/">Continue reading <i class="fa fa-angle-double-right"
+            <a href="/posts/how-computer-network-06/">Continue reading <i class="fa fa-angle-double-right"
                     aria-hidden="true"></i></a>
         </div>
     </div>
@@ -455,6 +458,38 @@ if (!doNotTrack) {
 
 
 
+
+
+
+    
+    
+
+        
+
+        
+        
+
+        
+        
+
+    
+
+    
+    
+
+        
+
+        
+        
+            
+        
+
+        
+        
+            
+        
+
+    
 
 
 
@@ -507,17 +542,7 @@ if (!doNotTrack) {
 
                 
                 
-
-            
-
-        
-
-            
-            
-
-                <li><a href="/posts/page/4/" class="pagination-link">4</a></li>
-
-                
+                    <li><span class="pagination-ellipsis">&hellip;</span></li>
                 
 
             
@@ -527,7 +552,17 @@ if (!doNotTrack) {
             
             
 
-                <li><a href="/posts/page/5/" class="pagination-link">5</a></li>
+        
+
+            
+            
+
+        
+
+            
+            
+
+                <li><a href="/posts/page/6/" class="pagination-link">6</a></li>
 
                 
                 

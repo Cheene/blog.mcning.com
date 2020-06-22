@@ -6,10 +6,113 @@
     <description>Recent content on CHENENE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ZH-CN</language>
-    <lastBuildDate>Thu, 18 Jun 2020 22:31:51 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 22 Jun 2020 20:10:02 +0800</lastBuildDate>
     
 	<atom:link href="https://cheene.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Web攻击技术</title>
+      <link>https://cheene.github.io/posts/http-image-10/</link>
+      <pubDate>Mon, 22 Jun 2020 20:10:02 +0800</pubDate>
+      
+      <guid>https://cheene.github.io/posts/http-image-10/</guid>
+      <description>作为HTTP，开发者需要自行设计并开发认证及会话管理功能来满足对WEB应用安全的需要
+  攻击者可以通过在客户端修改需求来获取数据库信息
+  针对WEB应用的攻击模式
+ 主动攻击  通过WEB请求，把攻击代码传入的方式。 主要是希望能够获取到相应的资源。 SQL注入与OS命令注入两种方式   被动攻击  圈套策略执行攻击代码，不会直接对目标WEB应用访问泛起攻击 常见步骤：  诱惑用户触发已设置好的陷阱 用户中招后，用户的浏览器或邮件客户端会出触发这个陷阱 用户间接把攻击代码通过HTTP请求发送到作为攻击目标的WEB应用 服务器执行攻击代码后，存在安全漏洞的WEB应用会成为攻击者的跳板，导致用户所持的Cookie等个人信息被窃取   代表性：跨站脚本攻击与跨站点请求伪造      因输出值转移不完全引发的安全漏洞
+即在web页面输入时候，能够进行恶意代码的执行
+  XSS ，Cross-Site Scrioting, 跨站脚本攻击</description>
+    </item>
+    
+    <item>
+      <title>Http 之面向未来</title>
+      <link>https://cheene.github.io/posts/http-image-09/</link>
+      <pubDate>Mon, 22 Jun 2020 19:45:02 +0800</pubDate>
+      
+      <guid>https://cheene.github.io/posts/http-image-09/</guid>
+      <description>SPDY ,执意要消除HTTP的瓶颈  主要用于缩短Web页面的加载时间 会有什么样的瓶颈？  客户端想要更新网站内容的时候，需要发送请求到服务器 在服务器中，无论是否有新的信息，都会把所有的信息重新发送   Ajax 解决办法 Asynchronous JavaScript and XML  局部Web页面替换加载的异步通信手段 他只更新一小部分页面，响应中传输的数据量会减少 核心为 XMLHttpRequest 的API 每次与服务器通信后，仅仅更新部分页面 但，可能导致的问题是，存在大量的请求   Comet 的解决办法  借助延迟应答，模拟实现服务器向客户端推送的功能 Comet会先将响应置于挂起状态，等待服务器有新的内容更新时，再次向客户端响应 内容可以实时更新，但一次连接的持续时间变长      SPDY 的设计  在协议级别消除HTTP所遭遇的瓶颈 协议的设计是在应用层和传输层之间的会话层上增加协议  HTTP	应用层 SPDY 会话层 SSL 表示层 TCP 传输层   优势：  多路复用，多个HTTP请求通过单个TCP连接完成 请求存在优先级 可以压缩HTTP首部 存在推送功能 服务器也可以主动推送功能   缺陷:  web本身的速度仍没有提升      Web Socket 浏览器也能进行全双工通信</description>
+    </item>
+    
+    <item>
+      <title>Http如何确认用户身份的认证</title>
+      <link>https://cheene.github.io/posts/http-image-08/</link>
+      <pubDate>Mon, 22 Jun 2020 19:44:58 +0800</pubDate>
+      
+      <guid>https://cheene.github.io/posts/http-image-08/</guid>
+      <description>1 什么叫做认证 确定你是合法的身份
+ 密码 动态令牌 数字证书 生物认证 IC卡等  2 HTTP/1.1 的认证方式  BASIC DIGEST SSL 客户端认证 FormBase 基于表单认证 &amp;hellip;..  3 BASIC 认证 过程：
+ 客户端发送请求  服务器反馈 401并带回 WWW-Authenticate 首部字段的响应   接收到状态码401的客户端，将以 用户ID:密码 的方式构成，通过Base64 编码发送给服务器 服务器将会收到来自客户端的请求，其中首部字段包含着Authorization  在验证通过后，返回包含 Request-URI 资源的响应    缺陷：</description>
+    </item>
+    
+    <item>
+      <title>HTTP首部有哪些？</title>
+      <link>https://cheene.github.io/posts/http-image-06/</link>
+      <pubDate>Mon, 22 Jun 2020 19:44:50 +0800</pubDate>
+      
+      <guid>https://cheene.github.io/posts/http-image-06/</guid>
+      <description>1 HTTP首部有哪些分类呢？  通用首部字段 General Header Fields 请求首部字段 Request Headers Fields 响应首部字段 Response Header Fields 实体首部字段 Entity Header Fields Cookie 相关字段  2 两大报文首部有哪些  请求报文  报文首部  请求行 请求首部字段 通用首部字段 实体首部字段 其他   空行 CR+LF 报文主体   响应报文  报文首部  状态行 响应首部字段 通用首部字段 实体首部字段   空行 CR+LF 报文主体    3 各个字段的详情 通用首部字段    首部字段名 说明     Cache-Control 控制缓存的行为   Connection 逐跳首部、连接的管理   Date 创建报文的日期时间   Pragma 报文指令   Trailer 报文末端的首部一览   Transfer-Encoding 指定报文主体的传输编码方式   Upgrade 升级为其他协议   Via 代理服务器的相关信息   Warning 错误通知    请求首部字段    首部字段名 说明     Accept 代理可处理的媒体类型   Accept-Charset 优先的字符集   Accept-Encoding 优先的内容编码   Accept-Language 优先的自然语言   Authorization Web认证信息   Expert 期待服务器特定的行为   From 电子邮箱地址   Host 请求的资源服务器   If-Match 比较实体标记   If-Modified-Since 比较资源更新时间   If-None-Match 比较实体标记   if-Range 资源未更新时发送实体Byte的范围请求   If-Unmodified-Since 比较资源的更新时间   Max-Forwards 最大传输逐跳数   Proxy-Authorization 代理服务器要求客户端的认证信息   Range 实体的字节范围请求   Referer 对请求中URI的原始获取方   TE 传输编码的优先级   User-Agent HTTP客户端程序的信息    响应首部字段    首部字段名 说明     Accept-Range 是否接收字节范围请求   Age 推算资源创建经过时间   ETag 资源的匹配的信息   Location 令客户端重定向到指定URI   Proxy-Authenticate 代理服务器对客户端的认证信息   Retry-After 对再次发起的请求的时机要求   Server HTTP服务器的安装信息   Vary 代理服务器缓存的管理信息   WWW-Authenticate 服务器对客户端的认证信息    实体首部字段    首部字段名 说明     Allow 资源可支持的HTTP办法   Content-Encoding 实体主体的可接收编码方法   Content-Language 自然语言   C-Length 大小（字节）   C-Location 代替对应资源的URI   C-MD5 报文摘要   C-Range 位置范围   Type 媒体类型   Expires 过期的日期时间   Last-Modified 最后修改日期    4 缓存代理的分类  端到端首部 End-to-end Header  会转发到最终目标 必须保存在由缓存生成的响应中 必须被转发   逐跳首部 Hop-by-hop Header  首部单词转发有效 可以通过代理而不再转发 需要提供 Connection 首部字段  Connection Keep-Alive Proxy-Authenticate Proxy-Authorization Trailer TE Transfer-Encoding Upgrade      5 缓存相关 请求</description>
+    </item>
+    
+    <item>
+      <title>Web服务器的相关信息</title>
+      <link>https://cheene.github.io/posts/http-image-05/</link>
+      <pubDate>Mon, 22 Jun 2020 19:44:45 +0800</pubDate>
+      
+      <guid>https://cheene.github.io/posts/http-image-05/</guid>
+      <description>Web服务器 1 单台虚拟主机的多个域名 一个虚拟主机可以同时搭载多个WEB服务
+在HTTP请求的时候，会将域名转换成DNS，那么返回的是IP地址
+在同一个主机上，搭载多个WEB服务，而IP地址相同又该如何区分？
+ 此时必须在 Host 首部内完整指定主机名或域名的URI  2 数据转发三剑客 在客户端和服务端之间往往还有帮忙转发的其他应用程序
+ 代理 ,中间人 网关，跨网传输 隧道，加强安全  2.1 代理 任务 接收客户端的请求，并转发到源服务器
+联动 可多级联动，每次转发也保存 Via 首部信息
+两种代理
+ 缓存代理  预先将资源的副本保存在代理服务器上   透明代理  不需要对报文做任何的加工而是透明的传输    2.</description>
+    </item>
+    
+    <item>
+      <title>HTTP协议简述</title>
+      <link>https://cheene.github.io/posts/http-image-02/</link>
+      <pubDate>Mon, 22 Jun 2020 19:43:44 +0800</pubDate>
+      
+      <guid>https://cheene.github.io/posts/http-image-02/</guid>
+      <description>HTTP协议简述 1 协议用在哪里？ 客户端和服务端之间的通信
+2 数据如何交换？ 请求和响应
+ 请求：即由客户端发出 响应：即由服务端发出  服务端不会主动建立连接，而是一直在监听客户端的连接请求
+请求体
+方法	URL	协议版本 GET /index.html HTTP/1.1 请求首部字段 Host:... Connection: Content-Type: Content-Length: xx 内容实体 name=??&amp;amp;&amp;amp;xx=yy 响应请求
+版本号	状态码 原因短语 HTTP/1.1	200 OK 首部字段 Date: Tue,10,xxxxx Content-Length: 12 Content-Type: text/html 资源实体 entity body &amp;lt;html&amp;gt; .</description>
+    </item>
+    
+    <item>
+      <title>图解HTTP 开篇</title>
+      <link>https://cheene.github.io/posts/http-image-01/</link>
+      <pubDate>Sun, 21 Jun 2020 19:43:44 +0800</pubDate>
+      
+      <guid>https://cheene.github.io/posts/http-image-01/</guid>
+      <description>HTTP 零 状态码    状态码 标识 解释     101 Switching Protocols    200 OK    204 No Content 无返回数据，即不包含实体部分   206 part content 部分内容更新   304 Not Modified    301 Moved Permanently 永久重定向，资源已重新分配URI；会重新请求   302 Found 临时重定向，临时分配新的URI；会重新请求   303 See Other 需要重新请求，并且使用GET   304 Not Modified 允许访问资源，但给的附件条件不满足资源   307 Temporary Redirect 临时重定向，不会二次请求，与302相比   400 Bad Request 服务器没有看懂请求什么意思   401 Unauthorized 认证失败，再来一次吧 {www-Authenricate}   403 Forbidden 资源禁止访问    Precondition Failed IF-Match 匹配失败   404 Not Found 资源找不到   501 Internal Server Error 内部出了故障   503 Service Unavailable 资源处理的队列排满了或在停机维护Retry Afteer    Gateway Timeout     前言 1 网络分层机制 网络的分层，能够对各个部分进行封装。在进行修改时候，不需要全部替换而仅是需要替换部分。</description>
+    </item>
+    
+    <item>
+      <title>MySql一条更新语句是如何执行的？</title>
+      <link>https://cheene.github.io/posts/mysqlsz-01/</link>
+      <pubDate>Sun, 21 Jun 2020 14:01:55 +0800</pubDate>
+      
+      <guid>https://cheene.github.io/posts/mysqlsz-01/</guid>
+      <description>大体过程：
+首先，是连接器与客户端相连，进而通过分析器，进行词法与语法的分析；
+其次，分析器在语法分析的时候，确定是一条更新语句后，转送给优化器
+再次，优化器决定使用ID这个索引，推送给执行器
+最后，执行器复责具体的执行
+两大日志模块：
+  redo log
+  借助WAL技术，即 Write-Ahead Logging, 先些日志到内存，在不忙的时候写进硬盘
+  InnoDB的redo log 是固定大小的，比如配置一组4个文件，每个文件的大小是1GB；
+ 从头开始写，写到末尾再从头开始写  write pos 是当前记录的位置，一边写一遍后移
+check point 是当前要擦除的位置，即要把数据更新到数据文件
+  innodb_flush_log_at_trx_commit = 1
+    bin log - 归档日志</description>
+    </item>
     
     <item>
       <title>Mysql本地数据恢复--在没有密码的情况下</title>
@@ -73,21 +176,12 @@ WEB服务器接收数据和返回响应的内容主要是四个方面：
     </item>
     
     <item>
-      <title>图解HTTP</title>
-      <link>https://cheene.github.io/posts/http-image-01/</link>
-      <pubDate>Sun, 14 Jun 2020 22:39:31 +0800</pubDate>
-      
-      <guid>https://cheene.github.io/posts/http-image-01/</guid>
-      <description>零 状态码    状态码 标识 解释     200 OK    204 No Content 无返回数据，即不包含实体部分   206 part content 部分内容更新   304 Not Modified    301 Moved Permanently 永久重定向，资源已重新分配URI；会重新请求   302 Found 临时重定向，临时分配新的URI；会重新请求   303 See Other 需要重新请求，并且使用GET   304 Not Modified 允许访问资源，但给的附件条件不满足资源   307 Temporary Redirect 临时重定向，不会二次请求，与302相比   400 Bad Request 服务器没有看懂请求什么意思   401 Unauthorized 认证失败，再来一次吧 {www-Authenricate}   403 Forbidden 资源禁止访问   404 Not Found 资源找不到   501 Internal Server Error 内部出了故障   503 Service Unavailable 资源处理的队列排满了或在停机维护Retry Afteer    Gateway Timeout     一 前言 1 网络分层机制 网络的分层，能够对各个部分进行封装。在进行修改时候，不需要全部替换而仅是需要替换部分。</description>
-    </item>
-    
-    <item>
-      <title>极客邦-MySQL实战-01</title>
+      <title>MySQL一条查询语句是如何执行的？</title>
       <link>https://cheene.github.io/posts/mysqlsz-00/</link>
       <pubDate>Sun, 14 Jun 2020 16:57:52 +0800</pubDate>
       
       <guid>https://cheene.github.io/posts/mysqlsz-00/</guid>
-      <description>01 一条MySQL语句是如何执行的？ 首先要看到整个MySQL系统划分为哪一些部分？
+      <description>MySQL一条查询语句是如何执行的？ 首先要看到整个MySQL系统划分为哪一些部分？
   客户端
  各种发送请求    服务端
   Server层

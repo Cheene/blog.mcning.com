@@ -22,7 +22,7 @@
 <meta property="og:description" content="A description for the meta tag of the site" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://cheene.github.io/posts/" />
-<meta property="og:updated_time" content="2020-06-18T22:31:51+08:00" />
+<meta property="og:updated_time" content="2020-06-22T20:10:02+08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Posts"/>
@@ -129,9 +129,9 @@ if (!doNotTrack) {
 
 
 <div class="blog-brief">
-    <a href="/posts/leet-code-1615/">
+    <a href="/posts/how-computer-network-05/">
         <h3 class="title is-4">
-            #1615 [链表中倒数第k个节点]
+            服务端局域网有什么玄机
         </h3>
     </a>
 
@@ -140,8 +140,8 @@ if (!doNotTrack) {
 
             
             <div class="level-item">
-                <a href="/posts/leet-code-1615/">
-                    <p class="subtitle info date">Jun 7, 2020
+                <a href="/posts/how-computer-network-05/">
+                    <p class="subtitle info date">Jun 17, 2020
                     </p>
                 </a>
             </div>
@@ -149,20 +149,18 @@ if (!doNotTrack) {
 
 
             <div class="level-item">
-                <a href="/posts/leet-code-1615/">
+                <a href="/posts/how-computer-network-05/">
                     <p class="subtitle info">
-                        1 min read
+                        17 mins read
                     </p>
                 </a>
             </div>
         </div>
         <div class="level-right is-hidden-touch">
             
-            <a class="tag is-rounded" href="/tags/leet-code">Leet code</a>
+            <a class="tag is-rounded" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>
             
-            <a class="tag is-rounded" href="/tags/%E7%AE%97%E6%B3%95">算法</a>
-            
-            <a class="tag is-rounded" href="/tags/%E9%93%BE%E8%A1%A8">链表</a>
+            <a class="tag is-rounded" href="/tags/web%E6%9C%8D%E5%8A%A1">W e b服务</a>
             
         </div>
     </div>
@@ -171,9 +169,14 @@ if (!doNotTrack) {
         
 
         <div>
-            <a href="/posts/leet-code-1615/">
+            <a href="/posts/how-computer-network-05/">
                 <p class="summary">
-                    题目 输入一个链表，输出该链表中倒数第k个节点。为了符合大多数人的习惯，本题从1开始计数，即链表的尾节点是倒数第1个节点。例如，一个链表有6个节点，从头节点开始，它们的值依次是1、2、3、4、5、6。这个链表的倒数第3个节点是值为4的节点示例 给定一个链表: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5, 和 k = 2.返回链表 4-&amp;gt;5.限制 思路 设置一个队列每次更新队列的值实现 /** * Definition for singly-linked list. * type ListNode struct { * Val int * Next *ListNode * } */ func getKthFromEnd(head *ListNode, k int) *ListNode { if head == nil { return nil } queue := make([]*ListNode,k) for i := 0; i &amp;lt; k; i&#43;&#43; { queue[i] = head head = head.
+                    本章主要是与部署网站比较接近的地方，我也是第一次接触到防火墙，缓存服务器和负载均衡器的实现原理，在之前只是听说有这个名词。
+5.1 WEB服务的部署地点 常见的WEB部署的方式有三种：
+ 和路由器直接的方式，此时服务器在互联网上是处于“裸露”的状态而且IP地址也不足； 通过防火墙的连接，防火墙会先对包进行检查，只转发允许的包； 部署在接入网的数据中心，因为比较接近POP或者IX 所以速度高，安全并且维护成本也低。  5.2 防火墙结构和原理   基本思路 : 只允许发往特定服务器上特定程序的包，其余都屏蔽。
+  常见实现方式：
+ 包过滤 应用网关 电路层网关    对于包过滤是通过检测报的头部信息来实现的，字段包括：
+ MAC头部的发送方MAC地址； IP头部的发送/接收IP，协议号； TCP/UDP头部 : 发送方/接收方的端口号； TCP 控制位(ACK,SYN，PSH，RST。FIN等)    端口限定应用程序。比如说在服务端仅仅是 80 或者8080 端口的可以进入，其余的都必须屏蔽；
                     
                 </p>
             </a>
@@ -184,15 +187,15 @@ if (!doNotTrack) {
         <div class="level-left">
         </div>
         <div class="level-right">
-            <a href="/posts/leet-code-1615/">Continue reading <i class="fa fa-angle-double-right"
+            <a href="/posts/how-computer-network-05/">Continue reading <i class="fa fa-angle-double-right"
                     aria-hidden="true"></i></a>
         </div>
     </div>
     <hr>
 </div><div class="blog-brief">
-    <a href="/posts/leet-code-1614/">
+    <a href="/posts/how-computer-network-04/">
         <h3 class="title is-4">
-            #1614[调整数组顺序使奇数位于偶数前面]
+            接入网与运营商
         </h3>
     </a>
 
@@ -201,8 +204,8 @@ if (!doNotTrack) {
 
             
             <div class="level-item">
-                <a href="/posts/leet-code-1614/">
-                    <p class="subtitle info date">Jun 7, 2020
+                <a href="/posts/how-computer-network-04/">
+                    <p class="subtitle info date">Jun 17, 2020
                     </p>
                 </a>
             </div>
@@ -210,20 +213,16 @@ if (!doNotTrack) {
 
 
             <div class="level-item">
-                <a href="/posts/leet-code-1614/">
+                <a href="/posts/how-computer-network-04/">
                     <p class="subtitle info">
-                        1 min read
+                        21 mins read
                     </p>
                 </a>
             </div>
         </div>
         <div class="level-right is-hidden-touch">
             
-            <a class="tag is-rounded" href="/tags/leet-code">Leet code</a>
-            
-            <a class="tag is-rounded" href="/tags/%E7%AE%97%E6%B3%95">算法</a>
-            
-            <a class="tag is-rounded" href="/tags/%E6%95%B0%E7%BB%84">数组</a>
+            <a class="tag is-rounded" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>
             
         </div>
     </div>
@@ -232,9 +231,18 @@ if (!doNotTrack) {
         
 
         <div>
-            <a href="/posts/leet-code-1614/">
+            <a href="/posts/how-computer-network-04/">
                 <p class="summary">
-                    题目 输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有奇数位于数组的前半部分，所有偶数位于数组的后半部分。示例 输入：nums = [1,2,3,4]输出：[1,3,2,4] 注：[3,1,2,4] 也是正确的答案之一。限制 1 &amp;lt;= nums.length &amp;lt;= 500001 &amp;lt;= nums[i] &amp;lt;= 10000思路 双指针 P.Q保证P之前没有存在偶数即保存当前数组中第一个偶数的位置Q 向后遍历，碰到奇数的时候，查看前面是否有有偶数实现 func exchange(nums []int) []int { p := -1 for q := 0; q &amp;lt; len(nums); q&#43;&#43; { // 偶数，交换  if p == -1 &amp;amp;&amp;amp; nums[q] % 2 == 0 { // 第一次发现  p = q } else { // 奇数，交换  if p !
+                    接入网与运营商 4.1 ADSL 接入网的结构和工作方式   互联网也是通过路由器进行转发包的，不同的地方在于转发的距离以及如何控制转发目标，因为路由表记录的维护方式不同。
+  互联网发包的规则与接入网有关，接入网就是公司家庭等连接互联网的通信线路包括 ADSL、FTFH、CATV、电话线、ISDN等。
+  ADSL Modem 需要将数据拆成信号单元
+  最终的目的是转换成电信号发送给分离器；
+  整体过程：客户端路由通过 Modem 和电话线发送网络包到ADSL的网络运营商；
+  从客户端到互联网网络包的变化：
+  客户端生成的网络包到接入网路由器包中有IP头部、MAC头部；
+  路由器接收包去除IP包并添加PPP、PPPOE、MAC包;
+  到达ADSL Modem接收包并且拆分成 ATM信号，将其转换成电信号发送出去；
+  此时到网络运营商的DSLAM接收电信号并且还原成ATM信元；
                     
                 </p>
             </a>
@@ -245,15 +253,15 @@ if (!doNotTrack) {
         <div class="level-left">
         </div>
         <div class="level-right">
-            <a href="/posts/leet-code-1614/">Continue reading <i class="fa fa-angle-double-right"
+            <a href="/posts/how-computer-network-04/">Continue reading <i class="fa fa-angle-double-right"
                     aria-hidden="true"></i></a>
         </div>
     </div>
     <hr>
 </div><div class="blog-brief">
-    <a href="/posts/leet-code-1611/">
+    <a href="/posts/mysqlsz-00/">
         <h3 class="title is-4">
-            #1611[删除链表的节点]
+            MySQL一条查询语句是如何执行的？
         </h3>
     </a>
 
@@ -262,8 +270,8 @@ if (!doNotTrack) {
 
             
             <div class="level-item">
-                <a href="/posts/leet-code-1611/">
-                    <p class="subtitle info date">Jun 7, 2020
+                <a href="/posts/mysqlsz-00/">
+                    <p class="subtitle info date">Jun 14, 2020
                     </p>
                 </a>
             </div>
@@ -271,7 +279,7 @@ if (!doNotTrack) {
 
 
             <div class="level-item">
-                <a href="/posts/leet-code-1611/">
+                <a href="/posts/mysqlsz-00/">
                     <p class="subtitle info">
                         2 mins read
                     </p>
@@ -280,11 +288,9 @@ if (!doNotTrack) {
         </div>
         <div class="level-right is-hidden-touch">
             
-            <a class="tag is-rounded" href="/tags/leet-code">Leet code</a>
+            <a class="tag is-rounded" href="/tags/mysql">My s q l</a>
             
-            <a class="tag is-rounded" href="/tags/%E7%AE%97%E6%B3%95">算法</a>
-            
-            <a class="tag is-rounded" href="/tags/%E9%93%BE%E8%A1%A8">链表</a>
+            <a class="tag is-rounded" href="/tags/mysql%E5%AE%9E%E6%88%98">My s q l实战</a>
             
         </div>
     </div>
@@ -293,9 +299,16 @@ if (!doNotTrack) {
         
 
         <div>
-            <a href="/posts/leet-code-1611/">
+            <a href="/posts/mysqlsz-00/">
                 <p class="summary">
-                    题目 给定单向链表的头指针和一个要删除的节点的值，定义一个函数删除该节点。返回删除后的链表的头节点。注意：此题对比原题有改动示例 输入: head = [4,5,1,9], val = 5输出: [4,1,9]解释: 给定你链表中值为 5 的第二个节点，那么在调用了你的函数之后，该链表应变为 4 -&amp;gt; 1 -&amp;gt; 9.限制 思路 双指针实现碰到值相等的时候，将该值对应节点的父元素的下一个位置设置为当前节点的下一个位置。实现 /** * Definition for singly-linked list. * type ListNode struct { * Val int * Next *ListNode * } */ func deleteNode(head *ListNode, val int) *ListNode { //头为空  if head == nil { return head } //首元素的时候  if head.
+                    MySQL一条查询语句是如何执行的？ 首先要看到整个MySQL系统划分为哪一些部分？
+  客户端
+ 各种发送请求    服务端
+  Server层
+ 连接器 分析器 优化器 执行器    查询缓存(可能会逐步替代)
+    引擎层
+ 各种存储引擎    执行的逻辑是什么？
+ 客户端向数据库发送请求 数据库收到请求后找到连接器，进行初步权限认证 分析器先进行词法和语法分析  词法分析，识别输入的是什么。比如表名？列名？关键字？ 语法分析，判断SQL语句是否符合语法   再执行优化器，优化主要在两个方面来体现  多个索引的时候，如何选择合适的索引 一个语句多表关联时如何处理   到达执行器，会进一步对语句做权限认证，同时根据存储引擎的定义来调用存储引擎的接口  查询缓存在哪里使用
                     
                 </p>
             </a>
@@ -306,15 +319,15 @@ if (!doNotTrack) {
         <div class="level-left">
         </div>
         <div class="level-right">
-            <a href="/posts/leet-code-1611/">Continue reading <i class="fa fa-angle-double-right"
+            <a href="/posts/mysqlsz-00/">Continue reading <i class="fa fa-angle-double-right"
                     aria-hidden="true"></i></a>
         </div>
     </div>
     <hr>
 </div><div class="blog-brief">
-    <a href="/posts/leet-code-1610/">
+    <a href="/posts/how-computer-network-03/">
         <h3 class="title is-4">
-            #1610 [打印从1到最大的n位数]
+            从网线到网络设备是如何工作的
         </h3>
     </a>
 
@@ -323,7 +336,7 @@ if (!doNotTrack) {
 
             
             <div class="level-item">
-                <a href="/posts/leet-code-1610/">
+                <a href="/posts/how-computer-network-03/">
                     <p class="subtitle info date">Jun 7, 2020
                     </p>
                 </a>
@@ -332,7 +345,72 @@ if (!doNotTrack) {
 
 
             <div class="level-item">
-                <a href="/posts/leet-code-1610/">
+                <a href="/posts/how-computer-network-03/">
+                    <p class="subtitle info">
+                        22 mins read
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div class="level-right is-hidden-touch">
+            
+            <a class="tag is-rounded" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>
+            
+            <a class="tag is-rounded" href="/tags/%E7%BD%91%E7%BB%9C%E6%98%AF%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5%E7%9A%84">网络是如何连接的</a>
+            
+        </div>
+    </div>
+
+    <div>
+        
+
+        <div>
+            <a href="/posts/how-computer-network-03/">
+                <p class="summary">
+                    本章主要讲解的是电信号从 RJ-45 接口出来，到达集线器，交换机和路由器以及路由器往外转发的过程。在家庭的路由中，交换机和集线器一般集成在一起了或者直接没有集线器。
+信号从网卡出来到集线器的时候   数据包之间的传输是独立的，仅仅负责传包并不会考虑内部的数据。
+  从网卡到集线器的时候信号就会出现衰减，而且电信号频率越高，损失就越大。
+  双绞线的存在是为了抑制噪声，减少衰减。 网线的周围的电磁波碰到金属等导体会产生电流，而信号本身就是带有电压变化的电流，混在一起容易导致失真。 电磁波有两种来源
+ 一种是外部的比如电机，荧光灯，CRT显示器等(让线变成螺旋状，使自身的电磁场变成螺旋状)； 一种是内部线之间出现泄露产生电磁波，称之为串扰。  抑制内部电磁波的方式是 让每一对信号线的扭交间隔产生差异。(正负信号的产生的噪声是相反的刚好抵消)。
+  关于集线器：集线器的原理就是以太网的架构，数据传输的方式是靠着MAC地址寻找。
+ 集线器里有一个中继集成器，输入端口的信号转发给除了该端口之外的所有的端口。在这样的情况下如果所有的端口都发送信号，就会产生碰撞。 连接其他的端口叫做级联端口或者上行端口 根据相同的设备交叉连接，异种设备直连的原理，集线器里每一个端口都有一个 PHY/MAU 模块与其网卡上的模块没有什么区别，所以需要交叉连接。所谓的交叉连接就是发送方和接收方的交叉。 集线器中存在 MDI/MDI-X 切换开关。MDI 是直线连接，MDI-X是交叉连接。但现在的设备无所谓了，可以自适应。    交换机的包转发操作   交换机根据地址表进行转发 信号到达端口的时候由 PHY（MAU）来接收，然后传递给MAC模块，转换成数字信息并检验FCS确认无误后放在缓冲区中。 交换机端口本身没有MAC地址，实际过程中通过芯片同时控制多个端口 交换机电路的工作方式：
+                    
+                </p>
+            </a>
+        </div>
+    </div>
+
+    <div class="level is-mobile continue-reading">
+        <div class="level-left">
+        </div>
+        <div class="level-right">
+            <a href="/posts/how-computer-network-03/">Continue reading <i class="fa fa-angle-double-right"
+                    aria-hidden="true"></i></a>
+        </div>
+    </div>
+    <hr>
+</div><div class="blog-brief">
+    <a href="/posts/leet-code-1620/">
+        <h3 class="title is-4">
+            #1620 [最小的k个数]
+        </h3>
+    </a>
+
+    <div class="level is-mobile details">
+        <div class="level-left">
+
+            
+            <div class="level-item">
+                <a href="/posts/leet-code-1620/">
+                    <p class="subtitle info date">Jun 7, 2020
+                    </p>
+                </a>
+            </div>
+            
+
+
+            <div class="level-item">
+                <a href="/posts/leet-code-1620/">
                     <p class="subtitle info">
                         1 min read
                     </p>
@@ -345,7 +423,7 @@ if (!doNotTrack) {
             
             <a class="tag is-rounded" href="/tags/%E7%AE%97%E6%B3%95">算法</a>
             
-            <a class="tag is-rounded" href="/tags/%E6%95%B0%E7%BB%84">数组</a>
+            <a class="tag is-rounded" href="/tags/%E6%8E%92%E5%BA%8F">排序</a>
             
         </div>
     </div>
@@ -354,9 +432,9 @@ if (!doNotTrack) {
         
 
         <div>
-            <a href="/posts/leet-code-1610/">
+            <a href="/posts/leet-code-1620/">
                 <p class="summary">
-                    题目 输入数字 n，按顺序打印出从 1 到最大的 n 位十进制数。比如输入 3，则打印出 1、2、3 一直到最大的 3 位数 999。示例 输入: n = 1输出: [1,2,3,4,5,6,7,8,9]限制 思路 1 根据 n 得到最大值2 新建数组并初始化3 返回数组实现 func printNumbers(n int) []int { if n == 0 { return []int{} } max := 0 for i := 0; i &amp;lt; n; i&#43;&#43; { max *= 10 max &#43;= 9 } nums := make([]int,max) for i := 0; i &amp;lt; len(nums); i&#43;&#43; { nums[i] = i&#43;1 } return nums } 
+                    题目 输入整数数组 arr ，找出其中最小的 k 个数。例如，输入4、5、1、6、2、7、3、8这8个数字，则最小的4个数字是1、2、3、4。示例 输入：arr = [3,2,1], k = 2输出：[1,2] 或者 [2,1]限制 0 &amp;lt;= k &amp;lt;= arr.length &amp;lt;= 100000 &amp;lt;= arr[i] &amp;lt;= 10000思路 冒泡排序 或 选择排序 或 其他排序方式 k轮实现 func getLeastNumbers(arr []int, k int) []int { if arr == nil || len(arr) == 1{ return arr } for i := 0; i &amp;lt; k; i&#43;&#43; { min := i for j := i&#43;1; j &amp;lt; len(arr); j&#43;&#43; { if arr[min] &amp;gt; arr[j] { min = j } } if min !
                     
                 </p>
             </a>
@@ -367,68 +445,7 @@ if (!doNotTrack) {
         <div class="level-left">
         </div>
         <div class="level-right">
-            <a href="/posts/leet-code-1610/">Continue reading <i class="fa fa-angle-double-right"
-                    aria-hidden="true"></i></a>
-        </div>
-    </div>
-    <hr>
-</div><div class="blog-brief">
-    <a href="/posts/leet-code-1603/">
-        <h3 class="title is-4">
-            #1603 [旋转数组的最小数字]
-        </h3>
-    </a>
-
-    <div class="level is-mobile details">
-        <div class="level-left">
-
-            
-            <div class="level-item">
-                <a href="/posts/leet-code-1603/">
-                    <p class="subtitle info date">Jun 7, 2020
-                    </p>
-                </a>
-            </div>
-            
-
-
-            <div class="level-item">
-                <a href="/posts/leet-code-1603/">
-                    <p class="subtitle info">
-                        1 min read
-                    </p>
-                </a>
-            </div>
-        </div>
-        <div class="level-right is-hidden-touch">
-            
-            <a class="tag is-rounded" href="/tags/leet-code">Leet code</a>
-            
-            <a class="tag is-rounded" href="/tags/%E7%AE%97%E6%B3%95">算法</a>
-            
-            <a class="tag is-rounded" href="/tags/%E6%95%B0%E7%BB%84">数组</a>
-            
-        </div>
-    </div>
-
-    <div>
-        
-
-        <div>
-            <a href="/posts/leet-code-1603/">
-                <p class="summary">
-                    题目 把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。例如，数组 [3,4,5,1,2] 为 [1,2,3,4,5] 的一个旋转，该数组的最小值为1。 示例 输入：[3,4,5,1,2]输出：1输入：[2,2,2,0,1]输出：0限制 思路 1 寻找第一个逆序对实现 func minArray(numbers []int) int { i := 0 j := len(numbers)-1 for i &amp;lt; j { mid := (i &#43; j)/2 if numbers[mid] &amp;lt; numbers[j] { i = mid } else if numbers[mid] &amp;gt; numbers[j]{ j = mid &#43; 1 } else { j -= 1 } } return numbers[i] } 
-                    
-                </p>
-            </a>
-        </div>
-    </div>
-
-    <div class="level is-mobile continue-reading">
-        <div class="level-left">
-        </div>
-        <div class="level-right">
-            <a href="/posts/leet-code-1603/">Continue reading <i class="fa fa-angle-double-right"
+            <a href="/posts/leet-code-1620/">Continue reading <i class="fa fa-angle-double-right"
                     aria-hidden="true"></i></a>
         </div>
     </div>
@@ -446,6 +463,36 @@ if (!doNotTrack) {
 
 
 
+
+
+
+    
+    
+
+        
+
+        
+        
+
+        
+        
+
+    
+
+    
+    
+
+        
+
+        
+        
+
+        
+        
+            
+        
+
+    
 
 
 
@@ -510,6 +557,8 @@ if (!doNotTrack) {
 
                 
                 
+                    <li><span class="pagination-ellipsis">&hellip;</span></li>
+                
 
             
 
@@ -518,7 +567,12 @@ if (!doNotTrack) {
             
             
 
-                <li><a href="/posts/page/5/" class="pagination-link">5</a></li>
+        
+
+            
+            
+
+                <li><a href="/posts/page/6/" class="pagination-link">6</a></li>
 
                 
                 
