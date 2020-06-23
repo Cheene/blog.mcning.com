@@ -20,7 +20,7 @@
 <meta property="og:description" content="A description for the meta tag of the site" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://cheene.github.io/" />
-<meta property="og:updated_time" content="2020-06-22T20:10:02+08:00" />
+<meta property="og:updated_time" content="2020-06-23T09:06:36+08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="CHENENE"/>
@@ -180,11 +180,27 @@ if (!doNotTrack) {
                 
                 
                 
+                
+                
+                
+                
 
                 
                 <a href="/tags/git">
                     <span class="tag is-dark is-large is-rounded">
                         Git
+                    </span>
+                </a>
+                
+                <a href="/tags/go">
+                    <span class="tag is-dark is-large is-rounded">
+                        Go
+                    </span>
+                </a>
+                
+                <a href="/tags/go%E5%9F%BA%E7%A1%80">
+                    <span class="tag is-dark is-large is-rounded">
+                        Go基础
                     </span>
                 </a>
                 
@@ -307,6 +323,69 @@ if (!doNotTrack) {
             </a>
         </div>
         <div class="blog-brief">
+    <a href="/posts/go-instru-01/">
+        <h3 class="title is-4">
+            Go 文件操作
+        </h3>
+    </a>
+
+    <div class="level is-mobile details">
+        <div class="level-left">
+
+            
+            <div class="level-item">
+                <a href="/posts/go-instru-01/">
+                    <p class="subtitle info date">Jun 23, 2020
+                    </p>
+                </a>
+            </div>
+            
+
+
+            <div class="level-item">
+                <a href="/posts/go-instru-01/">
+                    <p class="subtitle info">
+                        3 mins read
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div class="level-right is-hidden-touch">
+            
+            <a class="tag is-rounded" href="/tags/go">Go</a>
+            
+            <a class="tag is-rounded" href="/tags/go%E5%9F%BA%E7%A1%80">Go基础</a>
+            
+        </div>
+    </div>
+
+    <div>
+        
+
+        <div>
+            <a href="/posts/go-instru-01/">
+                <p class="summary">
+                    文件操作 打开文件
+file,err := os.Open(filename) 按行读取
+input := bufio.NewScanner(file for input.Scan() { // 相关处理 } 一次全部读取
+通过 readFile 一次把文件的所有内容传递到内存中，并通过 Split 进行切割
+//读数据到内存 data,err := ioutil.ReadFile(filename) //读取出错处理 if err != nil { fmt.Fprintf(os.Stderr,&amp;#34;dup3:#%v\n&amp;#34;,err) continue } //通过 Split 进行切割 for _,line := range strings.
+                    
+                </p>
+            </a>
+        </div>
+    </div>
+
+    <div class="level is-mobile continue-reading">
+        <div class="level-left">
+        </div>
+        <div class="level-right">
+            <a href="/posts/go-instru-01/">Continue reading <i class="fa fa-angle-double-right"
+                    aria-hidden="true"></i></a>
+        </div>
+    </div>
+    <hr>
+</div><div class="blog-brief">
     <a href="/posts/http-image-10/">
         <h3 class="title is-4">
             Web攻击技术
@@ -545,72 +624,6 @@ if (!doNotTrack) {
         </div>
         <div class="level-right">
             <a href="/posts/http-image-06/">Continue reading <i class="fa fa-angle-double-right"
-                    aria-hidden="true"></i></a>
-        </div>
-    </div>
-    <hr>
-</div><div class="blog-brief">
-    <a href="/posts/http-image-05/">
-        <h3 class="title is-4">
-            Web服务器的相关信息
-        </h3>
-    </a>
-
-    <div class="level is-mobile details">
-        <div class="level-left">
-
-            
-            <div class="level-item">
-                <a href="/posts/http-image-05/">
-                    <p class="subtitle info date">Jun 22, 2020
-                    </p>
-                </a>
-            </div>
-            
-
-
-            <div class="level-item">
-                <a href="/posts/http-image-05/">
-                    <p class="subtitle info">
-                        4 mins read
-                    </p>
-                </a>
-            </div>
-        </div>
-        <div class="level-right is-hidden-touch">
-            
-            <a class="tag is-rounded" href="/tags/http">H t t p</a>
-            
-            <a class="tag is-rounded" href="/tags/%E5%9B%BE%E8%A7%A3http">图解 h t t p</a>
-            
-        </div>
-    </div>
-
-    <div>
-        
-
-        <div>
-            <a href="/posts/http-image-05/">
-                <p class="summary">
-                    Web服务器 1 单台虚拟主机的多个域名 一个虚拟主机可以同时搭载多个WEB服务
-在HTTP请求的时候，会将域名转换成DNS，那么返回的是IP地址
-在同一个主机上，搭载多个WEB服务，而IP地址相同又该如何区分？
- 此时必须在 Host 首部内完整指定主机名或域名的URI  2 数据转发三剑客 在客户端和服务端之间往往还有帮忙转发的其他应用程序
- 代理 ,中间人 网关，跨网传输 隧道，加强安全  2.1 代理 任务 接收客户端的请求，并转发到源服务器
-联动 可多级联动，每次转发也保存 Via 首部信息
-两种代理
- 缓存代理  预先将资源的副本保存在代理服务器上   透明代理  不需要对报文做任何的加工而是透明的传输    2.
-                    
-                </p>
-            </a>
-        </div>
-    </div>
-
-    <div class="level is-mobile continue-reading">
-        <div class="level-left">
-        </div>
-        <div class="level-right">
-            <a href="/posts/http-image-05/">Continue reading <i class="fa fa-angle-double-right"
                     aria-hidden="true"></i></a>
         </div>
     </div>

@@ -22,7 +22,7 @@
 <meta property="og:description" content="A description for the meta tag of the site" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://cheene.github.io/posts/" />
-<meta property="og:updated_time" content="2020-06-22T20:10:02+08:00" />
+<meta property="og:updated_time" content="2020-06-23T09:06:36+08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Posts"/>
@@ -129,6 +129,71 @@ if (!doNotTrack) {
 
 
 <div class="blog-brief">
+    <a href="/posts/how-computer-network-06/">
+        <h3 class="title is-4">
+            从浏览器请求到WEB服务器响应返回浏览器
+        </h3>
+    </a>
+
+    <div class="level is-mobile details">
+        <div class="level-left">
+
+            
+            <div class="level-item">
+                <a href="/posts/how-computer-network-06/">
+                    <p class="subtitle info date">Jun 18, 2020
+                    </p>
+                </a>
+            </div>
+            
+
+
+            <div class="level-item">
+                <a href="/posts/how-computer-network-06/">
+                    <p class="subtitle info">
+                        13 mins read
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div class="level-right is-hidden-touch">
+            
+            <a class="tag is-rounded" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a>
+            
+            <a class="tag is-rounded" href="/tags/web">W e b</a>
+            
+        </div>
+    </div>
+
+    <div>
+        
+
+        <div>
+            <a href="/posts/how-computer-network-06/">
+                <p class="summary">
+                    当我们在浏览器输入网址，按下回车后，会打开新的网页，而这一过程发生了什么？
+WEB服务器接收数据和返回响应的内容主要是四个方面：
+ 服务器是什么？ 服务器如何进行接收操作？ 服务器里的解释程序是如何运行的？ 返回到客户端是如何显示在浏览器里的？  服务器的概览   客户端与服务器的区别
+ 操作系统和硬件与客户端不相同 网络相关的部分比如网卡，协议栈，Socket库是相同的； 在连接的时候，客户端是请求连接，服务器是等待连接。    服务器程序的结构
+ 正常情况下，服务端由两个模块组成  等待连接的模块 与客户端通讯的模块   运行过程：  服务端系统在初始化后执行等待模块程序并且进入等待状态 当有客户端连接的时候，由等待状态变为运行状态并且生成一个新的客户端通信模块 让新连接的客户端能够一对一连接到服务端的套接字上      客户端与服务端的区分
+因为从数据的收发操作是无法区分是服务端还是客户端的
+所以是通过连接时候等待连接与请求连接来区分的。
+                    
+                </p>
+            </a>
+        </div>
+    </div>
+
+    <div class="level is-mobile continue-reading">
+        <div class="level-left">
+        </div>
+        <div class="level-right">
+            <a href="/posts/how-computer-network-06/">Continue reading <i class="fa fa-angle-double-right"
+                    aria-hidden="true"></i></a>
+        </div>
+    </div>
+    <hr>
+</div><div class="blog-brief">
     <a href="/posts/how-computer-network-05/">
         <h3 class="title is-4">
             服务端局域网有什么玄机
@@ -389,67 +454,6 @@ if (!doNotTrack) {
         </div>
     </div>
     <hr>
-</div><div class="blog-brief">
-    <a href="/posts/leet-code-1620/">
-        <h3 class="title is-4">
-            #1620 [最小的k个数]
-        </h3>
-    </a>
-
-    <div class="level is-mobile details">
-        <div class="level-left">
-
-            
-            <div class="level-item">
-                <a href="/posts/leet-code-1620/">
-                    <p class="subtitle info date">Jun 7, 2020
-                    </p>
-                </a>
-            </div>
-            
-
-
-            <div class="level-item">
-                <a href="/posts/leet-code-1620/">
-                    <p class="subtitle info">
-                        1 min read
-                    </p>
-                </a>
-            </div>
-        </div>
-        <div class="level-right is-hidden-touch">
-            
-            <a class="tag is-rounded" href="/tags/leet-code">Leet code</a>
-            
-            <a class="tag is-rounded" href="/tags/%E7%AE%97%E6%B3%95">算法</a>
-            
-            <a class="tag is-rounded" href="/tags/%E6%8E%92%E5%BA%8F">排序</a>
-            
-        </div>
-    </div>
-
-    <div>
-        
-
-        <div>
-            <a href="/posts/leet-code-1620/">
-                <p class="summary">
-                    题目 输入整数数组 arr ，找出其中最小的 k 个数。例如，输入4、5、1、6、2、7、3、8这8个数字，则最小的4个数字是1、2、3、4。示例 输入：arr = [3,2,1], k = 2输出：[1,2] 或者 [2,1]限制 0 &amp;lt;= k &amp;lt;= arr.length &amp;lt;= 100000 &amp;lt;= arr[i] &amp;lt;= 10000思路 冒泡排序 或 选择排序 或 其他排序方式 k轮实现 func getLeastNumbers(arr []int, k int) []int { if arr == nil || len(arr) == 1{ return arr } for i := 0; i &amp;lt; k; i&#43;&#43; { min := i for j := i&#43;1; j &amp;lt; len(arr); j&#43;&#43; { if arr[min] &amp;gt; arr[j] { min = j } } if min !
-                    
-                </p>
-            </a>
-        </div>
-    </div>
-
-    <div class="level is-mobile continue-reading">
-        <div class="level-left">
-        </div>
-        <div class="level-right">
-            <a href="/posts/leet-code-1620/">Continue reading <i class="fa fa-angle-double-right"
-                    aria-hidden="true"></i></a>
-        </div>
-    </div>
-    <hr>
 </div>
 
 
@@ -572,7 +576,12 @@ if (!doNotTrack) {
             
             
 
-                <li><a href="/posts/page/6/" class="pagination-link">6</a></li>
+        
+
+            
+            
+
+                <li><a href="/posts/page/7/" class="pagination-link">7</a></li>
 
                 
                 

@@ -6,10 +6,23 @@
     <description>Recent content on CHENENE</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ZH-CN</language>
-    <lastBuildDate>Mon, 22 Jun 2020 20:10:02 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 23 Jun 2020 09:06:36 +0800</lastBuildDate>
     
 	<atom:link href="https://cheene.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Go 文件操作</title>
+      <link>https://cheene.github.io/posts/go-instru-01/</link>
+      <pubDate>Tue, 23 Jun 2020 09:06:36 +0800</pubDate>
+      
+      <guid>https://cheene.github.io/posts/go-instru-01/</guid>
+      <description>文件操作 打开文件
+file,err := os.Open(filename) 按行读取
+input := bufio.NewScanner(file for input.Scan() { // 相关处理 } 一次全部读取
+通过 readFile 一次把文件的所有内容传递到内存中，并通过 Split 进行切割
+//读数据到内存 data,err := ioutil.ReadFile(filename) //读取出错处理 if err != nil { fmt.Fprintf(os.Stderr,&amp;#34;dup3:#%v\n&amp;#34;,err) continue } //通过 Split 进行切割 for _,line := range strings.</description>
+    </item>
     
     <item>
       <title>Web攻击技术</title>

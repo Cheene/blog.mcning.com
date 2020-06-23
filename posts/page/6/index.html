@@ -22,7 +22,7 @@
 <meta property="og:description" content="A description for the meta tag of the site" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://cheene.github.io/posts/" />
-<meta property="og:updated_time" content="2020-06-22T20:10:02+08:00" />
+<meta property="og:updated_time" content="2020-06-23T09:06:36+08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Posts"/>
@@ -129,6 +129,67 @@ if (!doNotTrack) {
 
 
 <div class="blog-brief">
+    <a href="/posts/leet-code-1595/">
+        <h3 class="title is-4">
+            #1595 [数组中重复的数字]
+        </h3>
+    </a>
+
+    <div class="level is-mobile details">
+        <div class="level-left">
+
+            
+            <div class="level-item">
+                <a href="/posts/leet-code-1595/">
+                    <p class="subtitle info date">Jun 7, 2020
+                    </p>
+                </a>
+            </div>
+            
+
+
+            <div class="level-item">
+                <a href="/posts/leet-code-1595/">
+                    <p class="subtitle info">
+                        1 min read
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div class="level-right is-hidden-touch">
+            
+            <a class="tag is-rounded" href="/tags/leet-code">Leet code</a>
+            
+            <a class="tag is-rounded" href="/tags/%E7%AE%97%E6%B3%95">算法</a>
+            
+            <a class="tag is-rounded" href="/tags/%E6%95%B0%E7%BB%84">数组</a>
+            
+        </div>
+    </div>
+
+    <div>
+        
+
+        <div>
+            <a href="/posts/leet-code-1595/">
+                <p class="summary">
+                    题目 找出数组中重复的数字。在一个长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。示例 输入：[2, 3, 1, 0, 2, 5, 3]输出：2 或 3 限制 2 &amp;lt;= n &amp;lt;= 100000思路 遍历数组到map中插入之后在查询其数量如果数量 &amp;gt; 1 就返回实现 func findRepeatNumber(nums []int) int { numMap := make(map[int]int,len(nums)) for _,num := range nums { numMap[num]&#43;&#43; if numMap[num] &amp;gt; 1 { return num } } return -1 } 
+                    
+                </p>
+            </a>
+        </div>
+    </div>
+
+    <div class="level is-mobile continue-reading">
+        <div class="level-left">
+        </div>
+        <div class="level-right">
+            <a href="/posts/leet-code-1595/">Continue reading <i class="fa fa-angle-double-right"
+                    aria-hidden="true"></i></a>
+        </div>
+    </div>
+    <hr>
+</div><div class="blog-brief">
     <a href="/posts/leet-code-1616/">
         <h3 class="title is-4">
             # 1616 [反转链表]
@@ -385,65 +446,6 @@ if (!doNotTrack) {
         </div>
     </div>
     <hr>
-</div><div class="blog-brief">
-    <a href="/posts/study-git/">
-        <h3 class="title is-4">
-            Git基础
-        </h3>
-    </a>
-
-    <div class="level is-mobile details">
-        <div class="level-left">
-
-            
-            <div class="level-item">
-                <a href="/posts/study-git/">
-                    <p class="subtitle info date">May 10, 2020
-                    </p>
-                </a>
-            </div>
-            
-
-
-            <div class="level-item">
-                <a href="/posts/study-git/">
-                    <p class="subtitle info">
-                        10 mins read
-                    </p>
-                </a>
-            </div>
-        </div>
-        <div class="level-right is-hidden-touch">
-            
-            <a class="tag is-rounded" href="/tags/git">Git</a>
-            
-        </div>
-    </div>
-
-    <div>
-        
-
-        <div>
-            <a href="/posts/study-git/">
-                <p class="summary">
-                    Git 一 开始了解 Git 服务器并不是为了存储数据使用，而是为了方便大家来交换修改而设定。
-1 Git 如何保证完整性？ 通过计算校验和利用 SHA-1
-2 Git 三种状态  staged 已暂存：已修改文件的当前版本做了标记，使之包含在下次提交的快照中。 modified 已修改：修改了文件，但还没有保存在数据库中。 committed 已提交： 数据已安全的保存在数据库里面。  3 Git 三个工作区  Git 仓库 工作目录 暂存区域  4 Git 工作三步曲  在工作目录里面修改文件 暂存文件，将文件的快照放入暂存区域 提交更新，从暂存区域存储到Git仓库目录  二 基础 1 初始化一个空白仓库 git init	// 新建仓库 git add file.
-                    
-                </p>
-            </a>
-        </div>
-    </div>
-
-    <div class="level is-mobile continue-reading">
-        <div class="level-left">
-        </div>
-        <div class="level-right">
-            <a href="/posts/study-git/">Continue reading <i class="fa fa-angle-double-right"
-                    aria-hidden="true"></i></a>
-        </div>
-    </div>
-    <hr>
 </div>
 
 
@@ -492,7 +494,7 @@ if (!doNotTrack) {
         
 
         
-            <a class="pagination-next" disabled>Next page</a>
+            <a class="pagination-next" href="/posts/page/7/">Next page</a>
         
 
 
@@ -527,13 +529,6 @@ if (!doNotTrack) {
             
             
 
-                <li><a href="/posts/page/4/" class="pagination-link">4</a></li>
-
-                
-                
-
-            
-
         
 
             
@@ -552,6 +547,18 @@ if (!doNotTrack) {
             
 
                 <li><a href="/posts/page/6/" class="pagination-link is-current">6</a></li>
+
+                
+                
+
+            
+
+        
+
+            
+            
+
+                <li><a href="/posts/page/7/" class="pagination-link">7</a></li>
 
                 
                 
